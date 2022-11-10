@@ -15,12 +15,12 @@
     <h1 class="logo"><a href="/"><img class="logo-img" src="../img/logo2.png" style="max-width:200px; width:100%; height:auto;" alt="로고"></a></h1>
     <div class="signUp">
       <h2>회원가입</h2>
-      <form class="signUp-form">
-        <input class="signUp-input signup-name" id='name' name="name" type="text" placeholder="이름">
+      <form class="signUp-form" action="/sriracha/join.do" name="signUp" method="POST">
+        <input class="signUp-input signup-name" id='name' name="user_name" type="text" placeholder="이름">
         <p class="alert"></p>
-        <input class="signUp-input signup-id" id='id' name="id" type="text" placeholder="아이디">
+        <input class="signUp-input signup-id" id='id' name="user_id" type="text" placeholder="아이디">
         <p class="alert"></p>
-        <input class="signUp-input signup-pw" id='pw' name="pw" type="password" placeholder="비밀번호">
+        <input class="signUp-input signup-pw" id='pw' name="user_pw" type="password" placeholder="비밀번호">
         <p class="alert"></p>
         <input class="signUp-input signup-repw" id='repw' type="password" placeholder="비밀번호 재입력">
         <p class="alert"></p>
@@ -42,4 +42,4 @@
     </div>
   </div>
 </body>
-</html>
+</html>			
