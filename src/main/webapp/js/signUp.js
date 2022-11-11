@@ -1,3 +1,4 @@
+// -------------------------------id 값 변수
 let elInputUsername = document.querySelector('#user_name')
 let elInputId = document.querySelector('#user_id')
 let elInputPassword = document.querySelector('#user_pw')
@@ -5,6 +6,7 @@ let elInputPasswordretype = document.querySelector('#user_repw')
 let elJoinbutton = document.querySelector('#joinbutton')
 let idChkButton = document.querySelector('#idChkButton')
 
+// ------------------------------- 성공, 에러 메세지 변수
 let elNameSuccess = document.querySelector('.name-success')
 let elIdFailuremessage = document.querySelector('.idFailure-message')
 let elIdSuccessmessage = document.querySelector('.idSuccess-message')
@@ -14,9 +16,10 @@ let elPwFailuremessage = document.querySelector('.pwFailure-message')
 let elMissmatchmessage = document.querySelector('.pwMissmatch-message')
 let elMatchmessage = document.querySelector('.pwMatch-message')
 
+// ------------------------------- 회원가입 버튼 비활성화
 elJoinbutton.disabled = true;
 
-// 각 영역마다 true값을 전달해줄 flag변수 선언
+// -------------------------------각 영역마다 true값을 전달해줄 flag변수 선언
 let flagName = false;
 let flagId = false;
 let flagPw = false;
@@ -24,7 +27,7 @@ let flagRePw = false;
 let flagIdChk = false;
 
 
-//------------------------------- 이름이 입력될때 조건에 맞는지 표현하는 함수
+//------------------------------- 이름이 유효성체크
 elInputUsername.onkeyup = function() {
 	var regName = /^[가-힣]{2,10}$/;
 
@@ -40,7 +43,7 @@ elInputUsername.onkeyup = function() {
 }
 
 
-//------------------------------- 아이디가 입력될때 조건에 맞는지 표현하는 함수
+//------------------------------- 아이디가 유효성체크
 elInputId.onkeyup = function() {
 
 	var regId = /^[a-z]+[a-z0-9]{5,19}$/g;;
@@ -53,41 +56,40 @@ elInputId.onkeyup = function() {
 		elIdFailuremessage.classList.remove('hide')
 		flagId = false;
 	}
+	
+}
 
-	// 중복확인
-	userid = elInputId.value;
-	if (userid == "") {
+//------------------------------- 아이디가 중복확인 유효성체크
+function checkId(userid){
+	
+	if( userid == "" ){
 	} else {
-		
-		// 중복처리, ajax
-
 		let xhr = new XMLHttpRequest();
-		xhr.open("GET", "/join/idcheck.jsp?userid=" + userid, true);
+		xhr.open("POST", "/join/idcheck.jsp?userid="+ userid, true);		
 		xhr.send();
-		xhr.onreadystatechange = function() {
-			if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+		xhr.onreadystatechange = function(){
+			if( xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200 ){
 				//alert( xhr.responseText );
-
-				if (xhr.responseText.trim() == "ok" ) {
+				
+				if( xhr.responseText.trim() == "ok" ){
 					flagIdChk = true;
 					elIdSuccessmessage.classList.remove('hide')
 					elIdOverlapmessage.classList.add('hide')
-				}
-				else if (xhr.responseText.trim() == "not-ok" ) {
+				} else {
 					flagIdChk = false;
-					elIdSuccessmessage.classList.add('hide')
 					elIdOverlapmessage.classList.remove('hide')
+					elIdSuccessmessage.classList.add('hide')
 				}
-
 				button();
+				
 			}
-		}
+		}	
 	}
-
+	
 }
 
 
-//------------------------------- 비밀번호입력할 때 조건에 맞는지 표현하는 함수
+//------------------------------- 비밀번호 유효성체크
 elInputPassword.onkeyup = function() {
 	var regPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
 
@@ -101,7 +103,7 @@ elInputPassword.onkeyup = function() {
 	}
 }
 
-//------------------------------- 비밀번호 확인할 때 조건에 맞는지 표현하는 함수
+//------------------------------- 비밀번호확인 유효성체크
 elInputPasswordretype.onkeyup = function() {
 	if (elInputPassword.value == elInputPasswordretype.value) {
 		elMissmatchmessage.classList.add('hide')
@@ -113,26 +115,26 @@ elInputPasswordretype.onkeyup = function() {
 	}
 }
 
-
+//------------------------------- keyup 
 elInputUsername.addEventListener('keyup', button)
 elInputId.addEventListener('keyup', button)
 elInputPassword.addEventListener('keyup', button)
 elInputPasswordretype.addEventListener('keyup', button)
 
-//-------------------------------아이디, 비밀번호, 비밀번호 확인, 전화번호 값을 모두 입력하였을 때, 회원가입 버튼이 활성화 되는 함수
+//------------------------------- 아이디, 비밀번호, 비밀번호 확인, 전화번호 값을 모두 입력하였을 때, 회원가입 버튼이 활성화 되는 함수
 function button() {
 
-
 	if (flagName && flagId && flagPw && flagRePw && flagIdChk) {
-		elJoinbutton.disabled = false; 	// 버튼 비활성화
+		elJoinbutton.disabled = false; 	// 버튼 활성화
 
 	} else {
-		elJoinbutton.disabled = true; 	// 버튼 활성화
+		elJoinbutton.disabled = true; 	// 버튼 비활성화
 
 	}
 
 }
 
+//------------------------------- 회원정보 데이터를 넘기는 submit
 elJoinbutton.addEventListener('click', join);
 function join() {
 	document.signUp.submit();

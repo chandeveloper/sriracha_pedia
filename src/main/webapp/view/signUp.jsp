@@ -23,7 +23,8 @@
         </fieldset>
         
         <fieldset>
-        <input class="signUp-input signup-id" id='user_id' name="user_id" type="text" placeholder="아이디">
+        <input class="signUp-input-Id signup-id" id='user_id' name="user_id" type="text" placeholder="아이디">
+        <input type="button" value="중복확인" style="height: 45px; font-weight: bold;" onclick="checkId(document.querySelector('#user_id').value);">
         <div class="idFailure-message hide">아이디는 영문자로 시작하는 <br>6~20자 영문자 또는 숫자로 입력해주세요. </div>
     	<div class="idSuccess-message hide">사용할 수 있는 아이디 입니다.</div>
     	<div class="idOverlap-message hide">중복된 아이디입니다.</div>
