@@ -68,12 +68,12 @@ elInputId.onkeyup = function() {
 			if (xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
 				//alert( xhr.responseText );
 
-				if (xhr.responseText.trim() == "ok") {
+				if (xhr.responseText.trim() == "ok" ) {
 					flagIdChk = true;
 					elIdSuccessmessage.classList.remove('hide')
 					elIdOverlapmessage.classList.add('hide')
 				}
-				else if (xhr.responseText.trim() == "not-ok") {
+				else if (xhr.responseText.trim() == "not-ok" ) {
 					flagIdChk = false;
 					elIdSuccessmessage.classList.add('hide')
 					elIdOverlapmessage.classList.remove('hide')
