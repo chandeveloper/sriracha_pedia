@@ -49,6 +49,8 @@ public class MovieDAO {
 		List<MovieDTO> upComingMovieList = sqlSession.selectList("Movie.selectAllUpComingMovies");
 		return upComingMovieList;
 	}
+
+	
 	
 	
 	

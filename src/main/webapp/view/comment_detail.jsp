@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
+
 <!DOCTYPE html>
 <html lang="ko-KR">
   <head>
@@ -29,6 +33,9 @@
       
 </head>
     <body>
+    
+    <c:set var="commentList" value="${requestScope.commentList}" />
+    
         <div id="root">
             <div class="css-5jq76">
                 <div class="css-1xm32e0">
@@ -76,6 +83,9 @@
                         </header> -->
                     </div>
                     <!-----헤더 끝------>
+                    <!-- 11/10 유진 -->
+               <c:if test="${requestScope.commentList != null }">
+				<c:forEach var="comment" items="${requestScope.commentList}">
                     <section class="css-18gwkcr">
                         <div class="css-leo5si-Self e1rmcw6u0">
                             <section class="css-funxdv-StyledCommentPageContainer e1rmcw6u1">
@@ -90,14 +100,14 @@
                                                                 <div class="css-jno9px-ProfilePhotoImage"></div>
                                                             </div>
                                                             <div class="css-1sg2lsz">
-                                                                <div class="css-a7gqjg">재원</div>
-                                                                <div class="css-1hy7aba">6일 전</div>
+                                                                <div class="css-a7gqjg">${comment.user_id }</div>
+                                                                <div class="css-1hy7aba">${comment.board_date }</div>
                                                             </div>
                                                         </a>
                                                         <a title="자백" class="css-1f9m1s4-StylelessLocalLink eovgsd01" href="/ko-KR/contents/mOPVxED">
                                                             <div class="css-0">
-                                                                <div class="css-dbu6le">자백</div>
-                                                                <div class="css-1futg35">영화 · 2020</div>
+                                                                <div class="css-dbu6le">${comment.movie_title }</div>
+                                                                <div class="css-1futg35">영화 · ${comment.movie_date }</div>
                                                             </div>
                                                         </a>
                                                         <div class="css-1edcxeb">
@@ -115,13 +125,13 @@
                                                 </div>
                                                 <div class="css-cb09zq">
                                                     <div class="css-1g78l7j">
-                                                        <span class="content-content"><br>진실은 스스로 떠오르지 않는다. 악착같이 파고드는 간절함이 진실을 건져올릴 뿐.
+                                                        <span class="content-content"><br>${comment.board_content }
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <div class="css-hkgyal">
                                                     <div class="css-prw2jl">
-                                                        <span class="css-1n0dvqq">좋아요 134</span>
+                                                        <span class="css-1n0dvqq">좋아요 ${comment.board_like }</span>
                                                         <span class="css-0">댓글 1</span>
                                                     </div>
                                                     <!-- <div class="css-j985f6">
@@ -142,6 +152,8 @@
                                                         </div>
                                                     </div> -->
                                                 </div>
+                                                
+                                                
                                                 <section class="css-0">
                                                     <hr class="css-god8tc">
                                                     <div class="css-1gkas1x-Grid e1689zdh0">
@@ -235,7 +247,7 @@
                                                             <div class="css-199ku80">
                                                                 <div class="css-1sg2lsz">
                                                                     <a class="css-255jr8" href="/ko-KR/users/6ADvGQN6EKxzZ">
-                                                                        <div class="css-72k174">담시노</div>
+                                                                        <div class="css-72k174">대댓글 내용입니다</div>
                                                                     </a>
                                                                     <div class="css-maxfbg">6일 전</div>
                                                                 </div>
@@ -421,12 +433,15 @@
                                                     </div>
                                                 </div>
                                             </section>
+                                            
                                         </div>
                                     </div>
                                 </section>
                             </section>
                         </div>
                     </section>
+                    </c:forEach>
+                    </c:if>
                 </div>
                     
                     <!-- <div disabled="" class="css-pjxj5o"></div>

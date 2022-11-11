@@ -7,6 +7,8 @@
 	<typeAliases>
 		<typeAlias type="com.sriracha.model.MovieDTO" alias="MovieDTO"/>
 		<typeAlias type="com.sriracha.model.UserDTO" alias="userdto"/>
+		<typeAlias type="com.sriracha.model.BoardDTO" alias="boarddto"/>
+		<typeAlias type="com.sriracha.model.FullDTO" alias="fulldto"/>
 	</typeAliases>
 
 	 <environments default="development">
@@ -25,6 +27,8 @@
 	 	<mapper resource="com/sriracha/mybatis/xml/test.xml"/>
 	 	<mapper resource="com/sriracha/mybatis/xml/movie.xml"/>
 		<mapper resource="com/sriracha/mybatis/xml/user.xml"/>
+	 	<mapper resource="com/sriracha/mybatis/xml/board.xml"/>
+	 	<mapper resource="com/sriracha/mybatis/xml/comment.xml"/>
  	</mappers>
 	 
 </configuration>
