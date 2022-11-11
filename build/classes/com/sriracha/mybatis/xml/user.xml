@@ -12,19 +12,13 @@
 		UPDATE "USER" SET USER_NAME = #{user_name}, USER_PW = #{user_pw} WHERE USER_ID = #{user_id}
 	</update>
 	
+	<insert id="join" parameterType="userdto" >
+		INSERT INTO "USER" VALUES(user_num_seq.nextval, #{user_id}, #{user_pw}, #{user_name}, 'Y')
+	</insert>
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	<select id="checkId" parameterType="string"  resultType="_int">
+	 	SELECT count(*) FROM "USER"  WHERE user_id = #{user_id}
+	</select>
+
 	
 </mapper>

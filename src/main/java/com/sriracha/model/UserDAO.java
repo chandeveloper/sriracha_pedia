@@ -28,12 +28,15 @@ public class UserDAO {
 		datas.put("user_pw", user_pw);
 
 		if(sqlSession.update("User.updateUser", datas) != 0) {
-			/* sqlSession.commit(); */
+			result = true;
+		}
+		return result;
+	}
 
 	public boolean join(UserDTO udto) {
 		boolean result = false;
 		
-		if ( sqlsession.insert("User.join", udto) != 0 ) {
+		if ( sqlSession.insert("User.join", udto) != 0 ) {
 			result = true;
 		}
 		return result;
@@ -43,7 +46,7 @@ public class UserDAO {
 		boolean result = false;
 		int cnt = 0;
 		System.out.println(userid);
-		cnt = sqlsession.selectOne("User.checkId", userid);
+		cnt = sqlSession.selectOne("User.checkId", userid);
 		
 		if( cnt >= 1 ) {
 			result = true;
