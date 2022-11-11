@@ -32,6 +32,26 @@ public class SrirachaFrontController extends HttpServlet{
 			case "/sriracha/test.do" :
 				forward = new TestController().execute(req, resp);
 				break;
+				
+				
+				
+				
+				
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			case "/sriracha/join.do" : 
+				forward = new JoinController().execute(req, resp);
+				break;
 		}
 		
 		if(forward!=null) {
