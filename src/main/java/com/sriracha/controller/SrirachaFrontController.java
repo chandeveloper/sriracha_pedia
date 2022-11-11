@@ -38,21 +38,7 @@ public class SrirachaFrontController extends HttpServlet{
 			case "/sriracha/get_contents_page.do" :
 				forward = new GetContentsPageController().execute(req, resp);
 				break;
-							
-			
-				
-			
-				
-				
-				
-				
-				
-				
-				  
-			
-				
-				
-				
+	
 			case "/sriracha/logout.do" :	
 				forward = new LogoutController().execute(req, resp);
 				break;
@@ -60,32 +46,15 @@ public class SrirachaFrontController extends HttpServlet{
 				
 				forward = new modiifController().execute(req, resp);
 				break;
-				
-				
+						
 			case "/sriracha/login.do" :
 				
 				forward = new LoginController().execute(req, resp);		
 				break;
-				//로그인
-				//
-				//
-				//
-				//회원가입
-				//
-				//
-				//
-				//회원수정
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+
+			case "/sriracha/join.do" : 
+				forward = new JoinController().execute(req, resp);
+				break;
 		}
 		
 		if(forward!=null) {

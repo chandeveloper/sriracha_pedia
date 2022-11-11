@@ -100,8 +100,15 @@ legend {
   background-color: #646464;
   caret-color: #ffffff;
 }
+.signUp-input-Id:hover {
+  background-color: #646464;
+  caret-color: #ffffff;
+}
 
 .signUp-input::placeholder {
+  color: rgb(216, 216, 216);
+}
+.signUp-input-Id::placeholder {
   color: rgb(216, 216, 216);
 }
 
@@ -137,6 +144,24 @@ legend {
   text-decoration: underline;
 }
 
+.joinbutton {
+  display: inline-block;
+  width: 47%;
+  height: 45px;
+  font-size: 16px;
+  color: #ffffff;
+  background: #e50914;
+  border: 0;
+  border-radius: 4px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+input:disabled {
+    background: #444444;
+}
+
+
 .cancle-bt {
   background-color: #444444;
 }
@@ -169,4 +194,24 @@ legend {
 }
 .guideMessageActive{
   display: block;
+}
+
+.hide {
+  display: none;
+  color: white;
+}
+
+
+.idSuccess-message,
+.pwSuccess-message, 
+.pwMatch-message { 
+	color: white;
+}
+
+.name-success,
+.idFailure-message,
+.pwFailure-message,
+.pwMissmatch-message,
+.idOverlap-message{
+	color: #ff8000;
 }

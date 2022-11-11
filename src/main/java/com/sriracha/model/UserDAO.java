@@ -14,28 +14,7 @@ public class UserDAO {
 	public UserDAO() {
 		sqlSession = factory.openSession(true);
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	public String login(String user_id) {
 		
 		return sqlSession.selectOne("User.login",user_id);
@@ -50,8 +29,26 @@ public class UserDAO {
 
 		if(sqlSession.update("User.updateUser", datas) != 0) {
 			/* sqlSession.commit(); */
+
+	public boolean join(UserDTO udto) {
+		boolean result = false;
+		
+		if ( sqlsession.insert("User.join", udto) != 0 ) {
 			result = true;
 		}
+		return result;
+	}
+	
+	public boolean checkId( String userid ) {
+		boolean result = false;
+		int cnt = 0;
+		System.out.println(userid);
+		cnt = sqlsession.selectOne("User.checkId", userid);
+		
+		if( cnt >= 1 ) {
+			result = true;
+		}
+		
 		return result;
 	}
 	
