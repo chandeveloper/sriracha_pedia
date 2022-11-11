@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Movie">
+	<select id="selectMovieById" parameterType="_int" resultType="MovieDTO">
+		SELECT MOVIE_ID , MOVIE_TITLE , MOVIE_OVERVIEW , MOVIE_POPULARITY , MOVIE_VOTE_AVERAGE , MOVIE_VOTE_COUNT , MOVIE_POSTER_PATH , MOVIE_BACKDROP_PATH , MOVIE_ADULT , MOVIE_DATE , MOVIE_SUBJECT FROM MOVIE WHERE MOVIE_ID = #{movie_id}
+	</select>
+	
+	<insert id="movieInsert" parameterType="MovieDTO">
+		INSERT INTO MOVIE VALUES(#{movie_id}, #{movie_title}, #{movie_overview}, #{movie_popularity}, #{movie_vote_average}, #{movie_vote_count}, #{movie_poster_path}, #{movie_backdrop_path}, #{movie_adult}, #{movie_date}, #{movie_subject})
+	</insert>
+	
+	<select id="selectAllMovies" resultType="MovieDTO">
+		SELECT MOVIE_ID , MOVIE_TITLE , MOVIE_OVERVIEW , MOVIE_POPULARITY , MOVIE_VOTE_AVERAGE , MOVIE_VOTE_COUNT , MOVIE_POSTER_PATH , MOVIE_BACKDROP_PATH , MOVIE_ADULT , MOVIE_DATE , MOVIE_SUBJECT FROM MOVIE
+	</select>
+	
+	<select id="selectAllNowPlayingMovies" resultType="MovieDTO">
+		SELECT MOVIE_ID , MOVIE_TITLE , MOVIE_OVERVIEW , MOVIE_POPULARITY , MOVIE_VOTE_AVERAGE , MOVIE_VOTE_COUNT , MOVIE_POSTER_PATH , MOVIE_BACKDROP_PATH , MOVIE_ADULT , MOVIE_DATE , MOVIE_SUBJECT FROM movie WHERE movie_subject = 'now_playing' ORDER BY MOVIE_DATE DESC
+	</select>
+	
+	<select id="selectAllPopularMovies" resultType="MovieDTO">
+		SELECT MOVIE_ID , MOVIE_TITLE , MOVIE_OVERVIEW , MOVIE_POPULARITY , MOVIE_VOTE_AVERAGE , MOVIE_VOTE_COUNT , MOVIE_POSTER_PATH , MOVIE_BACKDROP_PATH , MOVIE_ADULT , MOVIE_DATE , MOVIE_SUBJECT FROM movie WHERE movie_subject = 'popular' ORDER BY MOVIE_POPULARITY DESC
+	</select>
+	
+	<select id="selectAllTopRatedMovies" resultType="MovieDTO">
+		SELECT MOVIE_ID , MOVIE_TITLE , MOVIE_OVERVIEW , MOVIE_POPULARITY , MOVIE_VOTE_AVERAGE , MOVIE_VOTE_COUNT , MOVIE_POSTER_PATH , MOVIE_BACKDROP_PATH , MOVIE_ADULT , MOVIE_DATE , MOVIE_SUBJECT FROM movie WHERE movie_subject = 'top_rated' ORDER BY MOVIE_VOTE_AVERAGE DESC
+	</select>
+	
+	<select id="selectAllUpComingMovies" resultType="MovieDTO">
+		SELECT MOVIE_ID , MOVIE_TITLE , MOVIE_OVERVIEW , MOVIE_POPULARITY , MOVIE_VOTE_AVERAGE , MOVIE_VOTE_COUNT , MOVIE_POSTER_PATH , MOVIE_BACKDROP_PATH , MOVIE_ADULT , MOVIE_DATE , MOVIE_SUBJECT FROM movie WHERE movie_subject = 'upcoming' ORDER BY MOVIE_POPULARITY DESC
+	</select>	
+	
+</mapper>

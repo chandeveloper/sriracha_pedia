@@ -16,6 +16,8 @@ function closePopUp(event) {
     }
 }
 
+
+
 signUp.addEventListener("click", showSignUp);
 body.addEventListener("click", closePopUp);
 

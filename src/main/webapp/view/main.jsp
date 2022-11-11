@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,6 +21,13 @@
 </head>
 
 <body>
+	<c:set var="movieList" value="${requestScope.movieList }"></c:set>
+	<c:set var="nowPlayingMovieList" value="${requestScope.nowPlayingMovieList }"></c:set>
+	<c:set var="popularMovieList" value="${requestScope.popularMovieList }"></c:set>
+	<c:set var="topRatedMovieList" value="${requestScope.topRatedMovieList }"></c:set>
+	<c:set var="upComingMovieList" value="${requestScope.upComingMovieList }"></c:set>
+
+
 
     <!-- 헤더 시작 -->
     <header class="menu-box">
@@ -34,469 +42,164 @@
                     <i class="fas fa-search"></i>
                     <input class="menu_search" type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
                 </div>
-                <span class="menu_login" onclick="location.href='./login.jsp'" style="cursor: pointer;">로그아웃 </span>
-                <span class="menu_sign-up" id="js-signUp" onclick="location.href='./mypage.jsp'"
+                <span class="menu_login" onclick="location.href='/sriracha/logout.do'" style="cursor: pointer;">로그아웃 </span>
+                <span class="menu_sign-up" id="js-signUp" onclick="location.href='../view/mypage.jsp'"
                     style="cursor: pointer;">마이페이지</span>
             </div>
             
             <div class="overlay"></div>
         </div>
     </header>
+    
+    <div class="forheader" style="margin-top: 65px"></div>
 
     <main class="first_contents-box">
         <div class="contents">
             <div class="movie">
-                <div class="contents_title">평균별점이 높은 작품</div>
+                <div class="contents_title">현재 상영작</div>
                     <br>
                     <div class="movie_chart">
                         <div class="swiper-container2">
                             <div class="chart_cont1 swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>1</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>2</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>3</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>4</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>5</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>6</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>7</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>8</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>9</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
+
+                            	
+                            	<c:forEach var="nowPlayingMovie" items="${nowPlayingMovieList }" varStatus="status">
+                            		<div class="swiper-slide">
+	                                    <div class="poster">
+	                                        <a href="/sriracha/get_contents_page.do?movie_id=${nowPlayingMovie.movie_id }">
+	                                        <img src="https://image.tmdb.org/t/p/original${nowPlayingMovie.movie_poster_path}" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
+	                                        <div class="rank"><strong>${status.count }</strong></div>
+	                                    </a>
+	                                    </div>
+	                                    <div class="infor">
+	                                        <div class="infor_btn">
+	                                            <span class="type1-content_title">${nowPlayingMovie.movie_title }</span>
+	                                            <span class="type1-content_year">${nowPlayingMovie.movie_date }</span>
+	                                            <span class="type1-content_star">평균★ ${nowPlayingMovie.movie_vote_average/2 }</span>
+	                                            <span class="type1-content_info">인기 점수 : ${nowPlayingMovie.movie_popularity}점</span>
+	                                        </div>
+	                                    </div>
+	                                </div>
+                            	</c:forEach>
+	                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-</main>
+	</main>
+	
+	
+    <main class="first_contents-box">
+        <div class="contents">
+            <div class="movie">
+                <div class="contents_title">인기영화</div>
+                    <br>
+                    <div class="movie_chart">
+                        <div class="swiper-container2">
+                            <div class="chart_cont1 swiper-wrapper">
+
+                            	
+                            	<c:forEach var="popularMovie" items="${popularMovieList }" varStatus="status">
+                            		<div class="swiper-slide">
+	                                    <div class="poster">
+	                                        <a href="/sriracha/get_contents_page.do?movie_id=${popularMovie.movie_id }">
+	                                        <img src="https://image.tmdb.org/t/p/original${popularMovie.movie_poster_path}" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
+	                                        <div class="rank"><strong>${status.count }</strong></div>
+	                                    </a>
+	                                    </div>
+	                                    <div class="infor">
+	                                        <div class="infor_btn">
+	                                            <span class="type1-content_title">${popularMovie.movie_title }</span>
+	                                            <span class="type1-content_year">${popularMovie.movie_date }</span>
+	                                            <span class="type1-content_star">평균★ ${popularMovie.movie_vote_average/2 }</span>
+	                                            <span class="type1-content_info">인기 점수 : ${popularMovie.movie_popularity}점</span>
+	                                        </div>
+	                                    </div>
+	                                </div>
+                            	</c:forEach>
+	                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	</main>
+	
+	
+    <main class="first_contents-box">
+        <div class="contents">
+            <div class="movie">
+                <div class="contents_title">최고순위 영화</div>
+                    <br>
+                    <div class="movie_chart">
+                        <div class="swiper-container2">
+                            <div class="chart_cont1 swiper-wrapper">
+
+                            	
+                            	<c:forEach var="topRatedMovie" items="${topRatedMovieList }" varStatus="status">
+                            		<div class="swiper-slide">
+	                                    <div class="poster">
+	                                        <a href="/sriracha/get_contents_page.do?movie_id=${topRatedMovie.movie_id }">
+	                                        <img src="https://image.tmdb.org/t/p/original${topRatedMovie.movie_poster_path}" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
+	                                        <div class="rank"><strong>${status.count }</strong></div>
+	                                    </a>
+	                                    </div>
+	                                    <div class="infor">
+	                                        <div class="infor_btn">
+	                                            <span class="type1-content_title">${topRatedMovie.movie_title }</span>
+	                                            <span class="type1-content_year">${topRatedMovie.movie_date }</span>
+	                                            <span class="type1-content_star">평균★ ${topRatedMovie.movie_vote_average/2 }</span>
+	                                            <span class="type1-content_info">인기 점수 : ${topRatedMovie.movie_popularity}점</span>
+	                                        </div>
+	                                    </div>
+	                                </div>
+                            	</c:forEach>
+	                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	</main>
+	
+	
+    <main class="first_contents-box">
+        <div class="contents">
+            <div class="movie">
+                <div class="contents_title">실시간 급상승 영화</div>
+                    <br>
+                    <div class="movie_chart">
+                        <div class="swiper-container2">
+                            <div class="chart_cont1 swiper-wrapper">
+
+                            	
+                            	<c:forEach var="upComingMovie" items="${upComingMovieList }" varStatus="status">
+                            		<div class="swiper-slide">
+	                                    <div class="poster">
+	                                        <a href="/sriracha/get_contents_page.do?movie_id=${upComingMovie.movie_id }">
+	                                        <img src="https://image.tmdb.org/t/p/original${upComingMovie.movie_poster_path}" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
+	                                        <div class="rank"><strong>${status.count }</strong></div>
+	                                    </a>
+	                                    </div>
+	                                    <div class="infor">
+	                                        <div class="infor_btn">
+	                                            <span class="type1-content_title">${upComingMovie.movie_title }</span>
+	                                            <span class="type1-content_year">${upComingMovie.movie_date }</span>
+	                                            <span class="type1-content_star">평균★ ${upComingMovie.movie_vote_average/2 }</span>
+	                                            <span class="type1-content_info">인기 점수 : ${upComingMovie.movie_popularity}점</span>
+	                                        </div>
+	                                    </div>
+	                                </div>
+                            	</c:forEach>
+	                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+	</main>
     
-    <main class="contents-box">
-        <div class="contents">
-            <div class="movie">
-                <div class="contents_title">평균별점이 높은 작품</div>
-                    <br>
-                    <div class="movie_chart">
-                        <div class="swiper-container2">
-                            <div class="chart_cont1 swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>1</strong></div>
-                                    	</a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>2</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>3</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>4</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>5</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>6</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>7</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>8</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</main>
-
-    <main class="contents-box">
-        <div class="contents">
-            <div class="movie">
-                <div class="contents_title">평균별점이 높은 작품</div>
-                    <br>
-                    <div class="movie_chart">
-                        <div class="swiper-container2">
-                            <div class="chart_cont1 swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>1</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>2</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>3</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>4</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>5</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>6</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>7</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>8</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div><div class="swiper-slide">
-                                    <div class="poster">
-                                        <a href="./contents.jsp">
-                                        <img src="../img/black.jpg" style="max-width:250px; width:100%; height:auto;"  alt="침묵">
-                                        <div class="rank"><strong>9</strong></div>
-                                    </a>
-                                    </div>
-                                    <div class="infor">
-                                        <div class="infor_btn">
-                                            <span class="type1-content_title">강철비2: 정상회담</span>
-                                            <span class="type1-content_year">2019 · 한국</span>
-                                            <span class="type1-content_star">평균★ 2.7</span>
-                                            <span class="type1-content_info">예매율 61% · 누적 관객 3,870명</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    </main>
-
 
     <footer>
         <div class="small-box ">

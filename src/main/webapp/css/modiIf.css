@@ -78,6 +78,31 @@ legend {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+.error-message-empty-id{
+	color: #e87c03;
+	font-size: 13px;
+	display:none;
+}
+.error-message-empty-old-pw{
+	color: #e87c03;
+	font-size: 13px;
+	display:none;
+}
+.error-message-empty-new-pw{
+	color: #e87c03;
+	font-size: 13px;
+	display:none;
+}
+.error-message-empty-new-pw2{
+	color: #e87c03;
+	font-size: 13px;
+	display:none;
+}
+.error-message-empty-pw-correct{
+	color: #e87c03;
+	font-size: 13px;
+	display:none;
+}
 
 .modiIfForm>h2 {
   font-size: 32px;
