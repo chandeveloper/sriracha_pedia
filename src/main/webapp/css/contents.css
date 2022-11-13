@@ -170,3 +170,13 @@
 .real-star5 {
     margin-left: 202.2px;
 }
+
+/*comment_user a태그 색상 변경*/
+.comment_user{
+    color: black;
+}
+
+/*comment_comment a태그 색상 변경*/
+.comment_comment{
+    color: black;
+}

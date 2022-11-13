@@ -1,0 +1,190 @@
+@media (min-width: 719px){
+.css-sd2jre-SectionBlock {
+    margin: 0px 0px 12px;
+}
+}
+
+div {
+    display: block;
+}
+
+@media (min-width: 1023px){
+.css-12ru3m0 {
+    border: 1px solid;
+    border-radius: 6px;
+}
+}
+
+.css-12ru3m0 {
+    background: rgb(255, 255, 255);
+    overflow: hidden;
+    border-color: rgb(227, 227, 227) !important;
+    border: 1px solid rgb(224, 224, 224);
+}
+
+.css-1y901al-Row {
+    margin: 0px 20px;
+}
+
+@media (min-width: 719px){
+.css-10tfsfb-MyCommentSection {
+    padding: 20px 0px;
+    border-top: 0px;
+}
+}
+
+.css-10tfsfb-MyCommentSection {
+    text-align: center;
+    /* padding: 24px 0px 8px; */
+    /* border-top: 1px solid rgb(237, 237, 237); */
+}
+
+section {
+    display: block;
+}
+
+@media (min-width: 719px){
+.css-vo2laf-MyCommentBlock {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+}
+
+.css-ffwxzk {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 50%;
+    display: flex;
+    position: relative;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    width: 56px;
+    height: 56px;
+    overflow: hidden;
+    margin: 0px auto;
+}
+
+.css-h6h0rq-ProfilePhotoImage {
+    position: relative;
+    z-index: 1;
+    background: url(https://an2-glx.amz.wtchn.net/assets/default/user/photo_file_name_small-ab0a7f6a92a282859192ba17dd4822023e22273e168c2daf05795e5171e66446.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.css-1bh5fq7-StylelessLocalLink-LinkToMyComment {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    flex: 1 1 0%;
+}
+a {
+    background-color: transparent;
+}
+
+a:-webkit-any-link {
+    cursor: pointer;
+}
+
+@media (min-width: 719px){
+.css-2a9q6o-MyComment {
+    flex: 1 1 0%;
+    text-align: left;
+    margin: 0px 16px;
+}
+}
+
+.css-2a9q6o-MyComment {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 20px;
+    word-break: break-all;
+    /* margin: 8px 0px 0px; */
+}
+
+.css-gujidv-StyledSelf {
+    word-break: break-all;
+    max-height: 60px;
+    margin: 0px;
+    overflow: hidden;
+}
+
+.css-1fucs4t-StyledText {
+    white-space: pre-wrap;
+}
+
+.css-llsddo-VisualUl-CommentUpdateButtons {
+    list-style: none;
+    margin: 0px;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: -0.2px;
+    line-height: 16px;
+    text-align: center;
+    padding: 16px 0px 13px;
+}
+
+ul {
+    display: block;
+    /* list-style-type: disc; */
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
+
+/*삭제 부분*/
+
+.css-15b6b8j-CommentUpdateButtonListItem {
+    display: inline-block;
+}
+
+li {
+    text-align: -webkit-match-parent;
+}
+
+.css-1nmgbsq-StylelessButton-CommentUpdateButton {
+    background: none;
+    padding: 0px;
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+    color: rgb(140, 140, 140);
+    vertical-align: top;
+}
+/* 
+button {
+    line-height: normal;
+} */
+
+.css-1nmgbsq-StylelessButton-CommentUpdateButton > img {
+    vertical-align: top;
+    margin: 0px 3px 0px 0px;
+}
+
+img {
+    border-style: none;
+}
+
+.css-15b6b8j-CommentUpdateButtonListItem:first-of-type::after {
+    content: "";
+    display: inline-block;
+    background: rgb(140, 140, 140);
+    width: 1px;
+    height: 8px;
+    margin: 0px 17px;
+}
+
+/*수정 버튼 부분*/
+.css-15b6b8j-CommentUpdateButtonListItem {
+    display: inline-block;
+}
+
+li {
+    /* display: list-item; */
+    text-align: -webkit-match-parent;
+}
