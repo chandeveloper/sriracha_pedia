@@ -35,7 +35,7 @@
 					<p class="error-message-empty-id" id="login-id-text">정확한 이메일
 						주소나 전화번호를 입력하세요.</p>
 					<input class="inputBox login-pw" type="password" name="user_pw"
-						id="user_pw" placeholder="비밀번호를 입력하세요." />
+						id="user_pw" placeholder="비밀번호를 입력하세요." onkeyup="enterKey()"/>
 					<p class="error-message-empty-pw" id="login-pw-text">비밀번호는
 						4~60자 사이여야 합니다.</p>
 					<input type="button" class="login-button" value="로그인"
@@ -51,7 +51,7 @@
           <div class="underline"></div>
           <div class="login-other">
             <p class="no-member">회원이 아니신가요?</p>
-            <button class="sign-up-go" onclick="location.href='./signUp.jsp'">회원가입</button>
+            <button class="sign-up-go" onclick="location.href='../view/signUp.jsp'">회원가입</button>
           </div>
         </div>
       </div>
@@ -123,5 +123,11 @@
 				document.loginForm.submit();
 
 			}
+			
+			function enterKey(){	// 비밀번호에서 엔터키입력시 로그인 가능 함수
+		        if(window.event.keyCode == 13){
+		        	document.loginForm.submit();
+		        };
+		    };
 		</script>
 </html>

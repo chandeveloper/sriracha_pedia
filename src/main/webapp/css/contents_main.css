@@ -7,7 +7,7 @@
 }
 
 .contents_middle-box {
-    width: 62%;
+    width: auto;
     display: flex;
 }
 
@@ -52,7 +52,7 @@
 .contents_contents_column:first-child div {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 3px;
 }
 
 .contents_contents_title {

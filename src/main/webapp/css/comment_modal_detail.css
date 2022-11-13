@@ -125,7 +125,10 @@ div {
 /*코멘트 삭제 모달 끝*/
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 86488df5a3ad056155280968ef1e6f73f6c1e6e2
 @media (min-width: 719px){
 .css-1p257d1-modalAddStyle {
     width: 480px;
@@ -150,7 +153,7 @@ div {
 }
 
 .css-1p257d1-modalAddStyle {
-    top: 50%;
+	top : 50%;
     margin-top: -230px;
     position: relative;
     background: rgb(255, 255, 255);
@@ -552,11 +555,14 @@ p {
     margin-inline-end: 0px;
 }
 
+
+
 /*----------------*/
 .css-1ukikc-StylelessButton {
     background: none rgb(255, 47, 110);
     border: none;
     margin: 0px 0px 0px 12px;
+    cursor: pointer;
     position: relative;
     z-index: 51;
     color: rgb(255, 255, 255);
