@@ -51,7 +51,7 @@
           <div class="underline"></div>
           <div class="login-other">
             <p class="no-member">회원이 아니신가요?</p>
-            <button class="sign-up-go" onclick="location.href='./signUp.jsp'">회원가입</button>
+            <button class="sign-up-go" onclick="location.href='../view/signUp.jsp'">회원가입</button>
           </div>
         </div>
       </div>
