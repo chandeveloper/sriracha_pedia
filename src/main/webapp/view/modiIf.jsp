@@ -43,7 +43,7 @@
 	        <input class="modiIf-content modiIf-pw pw" id='pw' name="user_pw" type="password" placeholder="새 비밀번호" >
 	        <p class="alert"></p>
 	          <div class="error-message-empty-new-pw2" id="new-pw2-text">새 비밀번호를 다시한번 입력하세요.</div>
-	        <input class="modiIf-content modiIf-rePw pw" id='rePw' type="password" placeholder="새 비밀번호 재입력" >
+	        <input class="modiIf-content modiIf-rePw pw" id='rePw' type="password" placeholder="새 비밀번호 재입력" onkeyup="enterKey()">
 	        <p class="alert"></p>
 	          <div class="error-message-empty-pw-correct" id="pw-correct-text">새 비밀번호가 서로 일치 하지 않습니다.</div>
 	       
@@ -115,6 +115,12 @@
 		
 		
 		document.modiIfForm.submit();
+		
+		function enterKey(){	// 새 비밀번호 재입력에서 엔터키입력시 로그인 가능 함수
+	        if(window.event.keyCode == 13){
+	        	document.modiIfForm.submit();
+	        };
+	    };
 	}
 </script>
 </html>

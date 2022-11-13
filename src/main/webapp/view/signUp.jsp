@@ -37,7 +37,7 @@
         </fieldset>
         
         <fieldset>
-        <input class="signUp-input signup-repw" id='user_repw' name="user_repw" type="password" placeholder="비밀번호 재입력">
+        <input class="signUp-input signup-repw" id='user_repw' name="user_repw" type="password" placeholder="비밀번호 재입력" >
         <div class="pwMissmatch-message hide">두 비밀번호가 일치하지 않습니다.</div>
         <div class="pwMatch-message hide">두 비밀번호가 일치합니다.</div>
         </fieldset>
