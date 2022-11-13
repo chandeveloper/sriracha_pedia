@@ -39,6 +39,7 @@ public class SrirachaFrontController extends HttpServlet{
 			case "/sriracha/get_main_page.do" :
 				forward = new GetMainPageController().execute(req, resp);
 				break;
+				
 			case "/sriracha/get_contents_page.do" :
 				forward = new GetContentsPageController().execute(req, resp);
 				break;
@@ -46,73 +47,29 @@ public class SrirachaFrontController extends HttpServlet{
 			case "/sriracha/logout.do" :	
 				forward = new LogoutController().execute(req, resp);
 				break;
-			case "/sriracha/modiif.do" :
 				
+			case "/sriracha/modiif.do" :
 				forward = new modiifController().execute(req, resp);
 				break;
 						
 			case "/sriracha/login.do" :
-				
 				forward = new LoginController().execute(req, resp);		
 				break;
 
 			case "/sriracha/join.do" : 
 				forward = new JoinController().execute(req, resp);
 				break;
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+								
 			case "/sriracha/commentView.do" :
 				forward = new CommentListController().execute(req, resp);
 				break;
-				
-				
-				
-				
-				
+					
 			case "/sriracha/commentDetailView.do" :
 				forward = new CommentDetailViewController().execute(req, resp);
 				break;
 		}
+		
+		
 		
 		if(forward!=null) {
 			if(forward.isRedirect()) {	

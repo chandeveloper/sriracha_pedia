@@ -113,6 +113,9 @@ elInputPasswordretype.onkeyup = function() {
 		elMissmatchmessage.classList.remove('hide')
 		flagRePw = false;
 	}
+	if(window.event.keyCode == 13){
+      document.signUp.submit();
+   };
 }
 
 //------------------------------- keyup 
