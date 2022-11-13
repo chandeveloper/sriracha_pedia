@@ -26,6 +26,105 @@ div {
     display: block;
 }
 
+/*코멘트 삭제 모달 시작*/
+.css-1yszxv0 {
+    display: flex;
+    position: absolute;
+    inset: 0px;
+    z-index: 102;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.css-f35o9y {
+    background: rgb(255, 255, 255);
+    text-align: center;
+    width: 280px;
+    padding: 20px 0px 0px;
+    border-radius: 8px;
+}
+
+div {
+    display: block;
+}
+
+.css-1y901al-Row {
+    margin: 0px 20px;
+}
+
+.css-2djw8f {
+    display: inline-block;
+    color: rgb(0, 0, 0);
+    white-space: pre-wrap;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    line-height: 22px;
+}
+
+.css-148qwic {
+    color: rgb(0, 0, 0);
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    line-height: 20px;
+    white-space: pre-wrap;
+    padding: 0px 0px 24px;
+    border-bottom: 1px solid rgb(210, 210, 210);
+    margin: 8px 0px 0px;
+    word-break: break-all;
+}
+
+.css-gy4ioq {
+    display: flex;
+}
+
+.css-gy4ioq > button {
+    margin: 11px 0px;
+}
+
+.css-1gdw77k-StylelessButton {
+    background: none;
+    padding: 0px;
+    border-top-width: initial;
+    border-bottom-width: initial;
+    border-left-width: initial;
+    border-style: none solid none none;
+    border-image: initial;
+    /* margin: 0px; */
+    cursor: pointer;
+    flex: 1 1 0%;
+    color: rgb(255, 47, 110);
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.7px;
+    line-height: 22px;
+    border-right-width: 1px;
+    border-color: rgb(210, 210, 210) !important;
+}
+
+.css-sfhtz9-StylelessButton {
+    background: none;
+    padding: 0px;
+    border-width: initial;
+    border-style: none;
+    border-image: initial;
+    /* margin: 0px; */
+    cursor: pointer;
+    flex: 1 1 0%;
+    color: rgb(255, 47, 110);
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.7px;
+    line-height: 22px;
+    border-color: rgb(210, 210, 210) !important;
+}
+
+/*코멘트 삭제 모달 끝*/
+
+
 @media (min-width: 719px){
 .css-1p257d1-modalAddStyle {
     width: 480px;
@@ -451,11 +550,14 @@ p {
     margin-inline-end: 0px;
 }
 
+
+
 /*----------------*/
 .css-1ukikc-StylelessButton {
     background: none rgb(255, 47, 110);
     border: none;
     margin: 0px 0px 0px 12px;
+    cursor: pointer;
     position: relative;
     z-index: 51;
     color: rgb(255, 255, 255);
@@ -465,8 +567,11 @@ p {
     height: 38px;
     padding: 0px 40px;
     border-radius: 7px;
-    opacity: 0.5;
-    cursor: not-allowed;
+}
+
+input:disabled {
+    background: none rgb(255, 47, 110);
+    opacity:0.4;
 }
 
 button{

@@ -16,6 +16,8 @@ function closePopUp(event) {
     }
 }
 
+
+
 signUp.addEventListener("click", showSignUp);
 body.addEventListener("click", closePopUp);
 
@@ -72,8 +74,8 @@ body.addEventListener("click", closePopUp);
     
     var swiperStep = new Swiper(".mySwiper2", {
         // slidesPer
-        slidesPerView: 2.2,
-        spaceBetween: 80,
+        slidesPerView: 2,
+        spaceBetween: 30,
         freeMode: true,
         pagination: {
         el: ".swiper-pagination",

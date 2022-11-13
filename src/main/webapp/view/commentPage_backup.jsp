@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,8 +22,6 @@
 
 </head>
 <body>
-	<c:set var="boardList" value="${requestScope.boardList}" />
-	
     <section class="container">
         <!-- <nav class="nav">
             <div class="nav1">
@@ -94,21 +88,19 @@
         
         <section class="allComments">
 
-			<c:if test="${requestScope.boardList != null }">
-				<c:forEach var="board" items="${requestScope.boardList}">
             <div class="commentBox">
                 <ul class="commentUl">
                     <li class="firstLi">
                         <a href="./mypage.jsp" class="connectToMypage">
                             <div class="photoAndName">
                                 <img class="photo" src="https://picsum.photos/200/200?random=2" alt="사진이 없습니다">
-                                <span class="name">${board.user_id }</span>
-                            </div> 
+                                <span class="name">박현정</span>
+                            </div>
                         </a>
                         <div class="rate">★5.0</div>
                     </li>
                     <li class="secondLi">
-                        <a href="${pageContext.request.contextPath }/sriracha/commentDetailView.do?board_num=1&movie_id=1">
+                        <a href="./comment_detail.jsp">
                             <span class="commentText">
                                 <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Cumque repudiandae ad maiores recusandae necessitatibus
@@ -119,25 +111,24 @@
                                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
                                 Cumque repudiandae ad maiores recusandae necessitatibus
                                 adipisci quos dolor architecto libero repellendus? -->
-<!--                                 * 이 프로젝트의 비하인드 스토리 * <br /> -->
-<!--                                 원래 왓챠피디아 클론은 제가 속한 개발스터디의 첫 팀프로젝트였습니다. <br /> -->
-<!--                                 스터디가 결성됐을 당시, 저를 포함한 팀원 모두가 아직 스스로 뭔가를 만들어본 경험이 없는 초보자들이었습니다. &nbsp; -->
-<!--                                 그런 상황에서 일단 각자 구현할 페이지를 정하고 html, css, vanilla js로 보이는 화면만 구현하는 것을 1차 목표로 정했습니다.<br /> -->
-<!--                                 하지만 구현하면 할수록 당시 저희 팀의 수준으로는 사이트 전체를 완전하게 클론하는 것이 어렵겠다는 것을 느끼고있던 찰나에, &nbsp; -->
-<!--                                 프론드엔드와 백엔드를 모두 활용한 완전한 프로젝트를 해보신 분이 새로 팀원으로 들어왔습니다.<br /> -->
-<!--                                 그 분께서 저희 팀의 상황을 파악하시더니 단번에 왓챠피디아 클론은 현재 수준에선 무리라고 단정지으셨고,&nbsp; -->
-<!--                                 저를 포함한 팀원 모두가 그 말에 동의하면서 일단 각자 공부를 더 하고 추후에 새로운 프로젝트를 시작해보는 걸로 결정했습니다.<br /> -->
-<!--                                 하지만 저는 당시에 제가 맡은 파트를 많이 구현해놓은 상태였고 이대로 내려놓기엔 아쉬워서,&nbsp; 개인프로젝트로 구현이 안된 나머지 부분을 마저 구현하였습니다.<br /> -->
-<!--                                 이 프로젝트는 당시 제가 맡았던 파트로,&nbsp; 모든 코드는 스스로 짰으며 일체의 어떠한 라이브러리도 사용하지 않았습니다.<br /> -->
-<!--                                 처음으로 스스로 만든 프로젝트라 코드의 퀄리티가 상당히 낮지만, &nbsp;일단 보이는 화면만 완벽하게 구현하는 것을 목표로 했습니다.<br /> -->
-<!--                                 추후에 차차 리팩토링해나가는 것도 재밌을 것 같습니다. -->
-								${board.board_content }
+                                * 이 프로젝트의 비하인드 스토리 * <br />
+                                원래 왓챠피디아 클론은 제가 속한 개발스터디의 첫 팀프로젝트였습니다. <br />
+                                스터디가 결성됐을 당시, 저를 포함한 팀원 모두가 아직 스스로 뭔가를 만들어본 경험이 없는 초보자들이었습니다. &nbsp;
+                                그런 상황에서 일단 각자 구현할 페이지를 정하고 html, css, vanilla js로 보이는 화면만 구현하는 것을 1차 목표로 정했습니다.<br />
+                                하지만 구현하면 할수록 당시 저희 팀의 수준으로는 사이트 전체를 완전하게 클론하는 것이 어렵겠다는 것을 느끼고있던 찰나에, &nbsp;
+                                프론드엔드와 백엔드를 모두 활용한 완전한 프로젝트를 해보신 분이 새로 팀원으로 들어왔습니다.<br />
+                                그 분께서 저희 팀의 상황을 파악하시더니 단번에 왓챠피디아 클론은 현재 수준에선 무리라고 단정지으셨고,&nbsp;
+                                저를 포함한 팀원 모두가 그 말에 동의하면서 일단 각자 공부를 더 하고 추후에 새로운 프로젝트를 시작해보는 걸로 결정했습니다.<br />
+                                하지만 저는 당시에 제가 맡은 파트를 많이 구현해놓은 상태였고 이대로 내려놓기엔 아쉬워서,&nbsp; 개인프로젝트로 구현이 안된 나머지 부분을 마저 구현하였습니다.<br />
+                                이 프로젝트는 당시 제가 맡았던 파트로,&nbsp; 모든 코드는 스스로 짰으며 일체의 어떠한 라이브러리도 사용하지 않았습니다.<br />
+                                처음으로 스스로 만든 프로젝트라 코드의 퀄리티가 상당히 낮지만, &nbsp;일단 보이는 화면만 완벽하게 구현하는 것을 목표로 했습니다.<br />
+                                추후에 차차 리팩토링해나가는 것도 재밌을 것 같습니다.
                             </span>
                         </a>
                     </li>
                     <li class="thirdLi">
                         <i class="fas fa-thumbs-up"></i>
-                        <span class="numOfLikes">${board.board_like }</span>
+                        <span class="numOfLikes">271</span>
                         <i class="fas fa-comment"></i>
                         <span class="numOfComments">5</span>
                     </li>
@@ -149,13 +140,11 @@
                     </li>
                 </ul>
             </div>
-            </c:forEach>
-            </c:if>
 
             <div class="commentBox">
                 <ul class="commentUl">
                     <li class="firstLi">
-                        <a href="/view/mypage.jsp" class="connectToMypage">
+                        <a href="./mypage.jsp" class="connectToMypage">
                             <div class="photoAndName">
                                 <img class="photo" src="https://picsum.photos/200/200?random=3" alt="사진이 없습니다">
                                 <span class="name">홍길동</span>
@@ -164,7 +153,7 @@
                         <div class="rate">★3.0</div>
                     </li>
                     <li class="secondLi">
-                        <a href="/view/comment_detail.jsp">
+                        <a href="comment_detail.jsp">
                             <span class="commentText">
                                 우주의 낭만과 공포, 죽음에 대한 두려움과 생에 대한 감사함이 고루 느껴지는 황홀하고도 섬찟한 우주 비행.
                                 ps. 그 어떤 극찬이 이 영화를 완벽히 형용할 수 있을까. 영화가 끝나는 순간, 떨어져가던 의욕의 맥박이 격렬히 요동치는 기분이며,
@@ -188,7 +177,7 @@
             <div class="commentBox">
                 <ul class="commentUl">
                     <li class="firstLi">
-                        <a href="/view/mypage.jsp" class="connectToMypage">
+                        <a href="./mypage.jsp" class="connectToMypage">
                             <div class="photoAndName">
                                 <img class="photo" src="https://picsum.photos/200/200?random=1" alt="사진이 없습니다">
                                 <span class="name">김철수</span>
@@ -197,7 +186,7 @@
                         <div class="rate">★4.0</div>
                     </li>
                     <li class="secondLi">
-                        <a href="/view/comment_detail.jsp">
+                        <a href="./comment_detail.jsp">
                             <span class="commentText">
                                 새삼스레 온몸을 압도해오는 우주의 묵직한 존재감
                                 모든 것이 안겨있지만 그 무엇도 안아주지 않는,

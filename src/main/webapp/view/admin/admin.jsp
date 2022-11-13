@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-메인페이지 입니다~
+<button onclick="location.href='/admin/movie_set.mo'">최초의 영화정보 입력</button>
 </body>
 </html>

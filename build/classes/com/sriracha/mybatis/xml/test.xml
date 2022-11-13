@@ -7,4 +7,6 @@
 		INSERT INTO test01 VALUES(test01_seq.nextval, #{test01_id}, #{test01_pw}, #{test01_name})
 	</insert>
 	
+	
+
 </mapper>
