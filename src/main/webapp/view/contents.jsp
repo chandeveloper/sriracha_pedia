@@ -25,6 +25,8 @@
 	<c:set var="movie" value="${requestScope.movie }"></c:set>
 	<c:set var="creditList" value="${requestScope.creditList }"></c:set>
 
+	<c:set var="boardList" value="${requestScope.boardList}" />
+	
 	<!-- 메뉴 헤더입니다. -->
 	<header class="menu-box">
 		<div class="menu">
@@ -255,7 +257,7 @@
 						</div>
 
 						<!-- 코멘트 더보기 링크 연결해주세요 -->
-						<a href="./commentPage.jsp"> <span
+						<a href="${pageContext.request.contextPath }/sriracha/commentView.do?movie_id=1"> <span
 							class="contents_contents_more">더보기</span>
 						</a>
 						<!-- 여기입니다 -->
