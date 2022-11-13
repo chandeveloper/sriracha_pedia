@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="../css/comment_modal_detail.css">
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="module" src="js/contents.js"></script>
 
 <link
@@ -636,9 +637,11 @@ closeBtn2.addEventListener("click", e => {
     modal.style.display = "none"
 })
 
+
 /*코멘트 남겼을 때 내가 남긴 코멘트 보여주기*/
 const commented = document.querySelector("#commented");
 commented.style.display = "none";
+
 
 $('#commentbtn').click(function(){
     $('.leave-comment-box ').hide();
