@@ -104,7 +104,7 @@
                             		<div class="swiper-slide">
 	                                    <div class="poster">
 	                                        <a href="/sriracha/get_contents_page.do?movie_id=${popularMovie.movie_id }">
-	                                        <img src="https://image.tmdb.org/t/p/original${popularMovie.movie_poster_path}" style="max-width:250px; width:100%; height:265px;"  alt="침묵">
+	                                        <img src="https://image.tmdb.org/t/p/original${popularMovie.movie_poster_path}" style="max-width:250px; width:100%; max-height:auto;"  alt="침묵">
 	                                        <div class="rank"><strong>${status.count }</strong></div>
 	                                    </a>
 	                                    </div>
@@ -141,7 +141,7 @@
                             		<div class="swiper-slide">
 	                                    <div class="poster">
 	                                        <a href="/sriracha/get_contents_page.do?movie_id=${topRatedMovie.movie_id }">
-	                                        <img src="https://image.tmdb.org/t/p/original${topRatedMovie.movie_poster_path}" style="max-width:250px; width:100%; height:265px;"  alt="침묵">
+	                                        <img src="https://image.tmdb.org/t/p/original${topRatedMovie.movie_poster_path}" style="max-width:250px; width:100%; max-height:auto;"  alt="침묵">
 	                                        <div class="rank"><strong>${status.count }</strong></div>
 	                                    </a>
 	                                    </div>
@@ -178,7 +178,7 @@
                             		<div class="swiper-slide">
 	                                    <div class="poster">
 	                                        <a href="/sriracha/get_contents_page.do?movie_id=${upComingMovie.movie_id }">
-	                                        <img src="https://image.tmdb.org/t/p/original${upComingMovie.movie_poster_path}" style="max-width:250px; width:100%; height:265px;"  alt="침묵">
+	                                        <img src="https://image.tmdb.org/t/p/original${upComingMovie.movie_poster_path}" style="max-width:250px; width:100%; max-height:auto;"  alt="침묵">
 	                                        <div class="rank"><strong>${status.count }</strong></div>
 	                                    </a>
 	                                    </div>

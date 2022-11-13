@@ -43,7 +43,7 @@
                <i class="fas fa-search"></i> <input class="menu_search"
                   type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
             </div>
-            <span class="menu_login" onclick="location.href='./login.jsp'"
+            <span class="menu_login" onclick="location.href='/sriracha/logout.do'"
                style="cursor: pointer;">로그아웃 </span> <span class="menu_sign-up"
                id="js-signUp" onclick="location.href='./mypage.jsp'"
                style="cursor: pointer;">마이페이지</span>
@@ -211,7 +211,7 @@
 <%-- 		                                                   <c:set var="doneLoop" value="true" /> --%>
 		                                                      <li class="contents_contents_profile">
 		                                                         <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-		                                                         <div>
+		                                                         <div class="txt">
 		                                                            <span class="profile_name">${credit.name }</span> 
 		                                                            <span class="profile_job">${credit.character }역</span>
 		                                                         </div>
@@ -238,7 +238,7 @@
 <%-- 		                                                   <c:set var="doneLoop" value="true" /> --%>
 		                                                      <li class="contents_contents_profile">
 		                                                         <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-		                                                         <div>
+		                                                         <div class="txt">
 		                                                            <span class="profile_name">${credit.name }</span> 
 		                                                            <span class="profile_job">${credit.character }역</span>
 		                                                         </div>
@@ -252,7 +252,7 @@
 		                                          </c:forEach>
 			                                    </ul>
 			                                    </div>
-			                                     <div class="swiper-slide slide">
+			                                     <div class="swiper-slide slide" style="width:280px;">
 			                                    <ul>
 <%-- 		                                         <c:set var="doneLoop" value="false" /> --%>
 		                                          <c:forEach var="credit" items="${creditList }" varStatus="status">
@@ -265,7 +265,7 @@
 <%-- 		                                                   <c:set var="doneLoop" value="true" /> --%>
 		                                                      <li class="contents_contents_profile">
 		                                                         <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-		                                                         <div>
+		                                                         <div class="txt">
 		                                                            <span class="profile_name">${credit.name }</span> 
 		                                                            <span class="profile_job">${credit.character }역</span>
 		                                                         </div>
