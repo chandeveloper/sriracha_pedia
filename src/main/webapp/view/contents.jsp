@@ -193,7 +193,7 @@
 
 
 							<c:set var="doneLoop" value="false" />
-							<c:forEach var="credit" items="${creditList }" varStatus="status">
+							<c:forEach var="credit" items="${creditList }" varStatus="status" >
 
 								<c:if test="${status.index%3==0 }">
 									<div class="contents_contents_content">
