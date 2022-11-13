@@ -11,6 +11,7 @@
 <title>스리라차피디아</title>
 <link rel="stylesheet" href="../css/style.css">
 <link rel="stylesheet" href="../css/comment_modal_detail.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 
 <link
 	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"
@@ -142,6 +143,47 @@
 	<main class="contents_main-box">
 		<div class="contents_middle-box">
 			<div>
+				<!--댓글 달았을 시 추가되는 부분 : 유진-->
+                <div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented" >
+                    <div class="css-12ru3m0">
+                        <div class="css-1gkas1x-Grid e1689zdh0">
+                            <div class="css-1y901al-Row emmoxnt0">
+                                <section class="css-10tfsfb-MyCommentSection eue8w0j3">
+                                    <div class="css-vo2laf-MyCommentBlock eue8w0j6">
+                                        <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4">
+                                            <div class="css-ffwxzk">
+                                                <div class="css-h6h0rq-ProfilePhotoImage"></div>
+                                            </div>
+                                        </div>
+                                        <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13" href="comment_detail_me.html">
+                                            <div class="css-2a9q6o-MyComment eue8w0j5">
+                                                <div class=" css-gujidv-StyledSelf eb5y16b0">
+                                                    <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단 내용 표시하는 부분입니다.</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7">
+                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
+                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="delete_btn">
+                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="delete comment">
+                                                    삭제
+                                                </button>
+                                            </li>
+                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
+                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="modify_btn">
+                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="edit comment">
+                                                    수정
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--댓글 달았을 시 추가되는 부분 끝 : 유진-->
 				<div class="leave-comment-box">
 					<span class="go-leave-comment"> 이 작품에 대한 회원 님의 평가를 글로 남겨보세요.
 					</span> <span class="leave-comment" id="btn-modal"
@@ -265,13 +307,13 @@
 					</div>
 					<div class="contents_contents_comment-container">
 						<div class="comment-nemo">
-							<div class="comment_user">
+							<a class="comment_user" href="mypage.html">
 								<img src="../img/user_profile.jfif" class="comment_user-img">
 								<span class="user_name">filmaholic9</span>
-							</div>
-							<div class="comment_comment">대한민국 대통령 정우성에 김정은은 유연석
+							</a>
+							<a class="comment_comment" href="comment_detail.html">대한민국 대통령 정우성에 김정은은 유연석
 								ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ (대충 예상되는 내용) 미국 : 평화협정 하자고 불러놓고는
-								자기들의 이익만 추구하며 훼방을 놓고 억지</div>
+								자기들의 이익만 추구하며 훼방을 놓고 억지</a>
 							<div class="comment_feel">
 								<span class="comment_feel-good"> <i
 									class="fas fa-thumbs-up"></i> 381
@@ -282,13 +324,13 @@
 							<div class="comment_click-good">좋아요</div>
 						</div>
 						<div class="comment-nemo">
-							<div class="comment_user">
+							<a class="comment_user" href="mypage.html">
 								<img src="../img/user_profile.jfif" class="comment_user-img">
 								<span class="user_name">filmaholic9</span>
-							</div>
-							<div class="comment_comment">대한민국 대통령 정우성에 김정은은 유연석
+							</a>
+							<a class="comment_comment" href="comment_detail.html">대한민국 대통령 정우성에 김정은은 유연석
 								ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ (대충 예상되는 내용) 미국 : 평화협정 하자고 불러놓고는
-								자기들의 이익만 추구하며 훼방을 놓고 억지</div>
+								자기들의 이익만 추구하며 훼방을 놓고 억지</a>
 							<div class="comment_feel">
 								<span class="comment_feel-good"> <i
 									class="fas fa-thumbs-up"></i> 381
@@ -400,29 +442,117 @@
 		</div>
 	</div>
 	<!----모달창 !!! 대댓글 끝!!!!!------>
+	<!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ?-->
+    <div class="css-14gy7wr" id="modal2">
+        <div id="modal-container-7jMaFDbYzaXVi3tG2JxKy" class="css-rpyl6s">
+            <div class="css-1yszxv0">
+                <div class="css-f35o9y">
+                    <div class="css-1gkas1x-Grid e1689zdh0">
+                        <div class="css-1y901al-Row emmoxnt0">
+                            <div class="css-2djw8f">알림</div>
+                            <div class="css-148qwic">코멘트를 삭제하시겠어요?</div>
+                            <div size="2" class="css-gy4ioq">
+                                <button class="css-1gdw77k-StylelessButton" id="cancel">취소</button>
+                                <button class="css-sfhtz9-StylelessButton" id="deletecomment">확인</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ? 끝-->
 
 
 	<script src="../js/main.js"></script>
 	<script src="../js/star.js"></script>
 </body>
-<script>
-    const modal = document.getElementById("modal")
-    const btnModal = document.getElementById("btn-modal")
-    btnModal.addEventListener("click", e => {
-        modal.style.display = "flex"
-    })
+<script type="text/javascript">
+/*코멘트 남기기 모달창*/
+const modal = document.getElementById("modal")
+const btnModal = document.getElementById("btn-modal")
+btnModal.addEventListener("click", e => {
+    modal.style.display = "flex"
+})
 
-    const closeBtn = modal.querySelector(".css-1lvet1d-StylelessButton")
-    closeBtn.addEventListener("click", e => {
+/*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
+const closeBtn = modal.querySelector(".css-1lvet1d-StylelessButton")
+closeBtn.addEventListener("click", e => {
+    modal.style.display = "none"
+})
+
+/*코멘트 남기기 바깥 부분 클릭 시 모달창 꺼짐*/
+modal.addEventListener("click", e => {
+const evTarget = e.target
+    if(evTarget.classList.contains("css-rpyl6s")) {
         modal.style.display = "none"
-    })
+    }
+})
 
-    modal.addEventListener("click", e => {
-    const evTarget = e.target
-        if(evTarget.classList.contains("css-rpyl6s")) {
-            modal.style.display = "none"
-        }
-    })
+/*코멘트 삭제 모달창 - 코멘트를 삭제하시겠어요?*/
+const modal2 = document.getElementById("modal2")
+const btnModal2 = document.getElementById("delete_btn")
+btnModal2.addEventListener("click", e => {
+    modal2.style.display = "flex"
+})
+
+modal2.addEventListener("click", e => {
+const evTarget = e.target
+    if(evTarget.classList.contains("css-1yszxv0")) {
+        modal2.style.display = "none"
+    }
+})
+
+let elCommentbtn = document.querySelector('#commentbtn')
+let elwritecomment1 = document.querySelector('#writecomment1')
+elCommentbtn.disabled = true;
+elwritecomment1.addEventListener('keyup', button)
+
+function button() {
+    if (!(elwritecomment1.value == "")) {
+        elCommentbtn.disabled = false;
+    } else {
+        elCommentbtn.disabled = true; 	// 버튼 활성화
+    }
+}
+
+ /*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
+ const closeBtn2 = modal.querySelector("#commentbtn")
+closeBtn2.addEventListener("click", e => {
+    modal.style.display = "none"
+})
+
+/*코멘트 남겼을 때 내가 남긴 코멘트 보여주기*/
+const commented = document.querySelector("#commented");
+commented.style.display = "none";
+
+$('#commentbtn').click(function(){
+    $('.leave-comment-box ').hide();
+    $('#commented').show();
+    return false;
+})
+
+/*삭제 버튼 클릭 시 다시 코멘트 달기 창 보여주기*/
+// const deletecomment = document.querySelector("#deletecomment");
+const commentarea = document.querySelector("#commentarea");
+
+$("#deletecomment").click(function(){
+    modal2.style.display = "none"
+    $('#commented').hide();
+    $('.leave-comment-box ').show();
+    document.getElementById("writecomment1").value = '';
+    return false;
+})
+
+//취소 버튼 클릭
+$("#cancel").click(function(){
+    modal2.style.display = "none"
+})
+
+//코멘트 수정하기
+$("#modify_btn").click(function(){
+    modal.style.display = "flex"
+})
 
     
 </script>
