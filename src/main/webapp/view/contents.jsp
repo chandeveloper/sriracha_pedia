@@ -186,7 +186,8 @@
                 <!--댓글 달았을 시 추가되는 부분 끝 : 유진-->
 				<div class="leave-comment-box">
 					<span class="go-leave-comment"> 이 작품에 대한 회원 님의 평가를 글로 남겨보세요.
-					</span> <span class="leave-comment" id="btn-modal"
+					</span> 
+					<span class="leave-comment" id="btn-modal"
 						style="cursor: pointer;">코멘트 남기기</span>
 				</div>
 				<div class="contents_contents-box">
@@ -503,8 +504,8 @@ const evTarget = e.target
     }
 })
 
-let elCommentbtn = document.querySelector('#commentbtn')
-let elwritecomment1 = document.querySelector('#writecomment1')
+const elCommentbtn = document.querySelector('#commentbtn')
+const elwritecomment1 = document.querySelector('#writecomment1')
 elCommentbtn.disabled = true;
 elwritecomment1.addEventListener('keyup', button)
 
