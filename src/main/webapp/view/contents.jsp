@@ -511,7 +511,6 @@
                      <p class="css-1s08rlk"></p>
                      <p class="css-ynpx67">0/10000</p>
                      <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장">
-<!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
                   </div>
                </div>
             </div>
@@ -585,7 +584,7 @@
 	let elCommentbtn = document.querySelector('#commentbtn')
     let elwritecomment1 = document.querySelector('#writecomment1')
     elCommentbtn.disabled = true;
-    elwritecomment1.addEventListener('keyup', button)
+	elwritecomment1.addEventListener('keyup', button)
 
     function button() {
         if (!(elwritecomment1.value == "")) {
