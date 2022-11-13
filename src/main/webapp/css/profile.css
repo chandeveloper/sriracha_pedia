@@ -1,7 +1,8 @@
 .contents_contents_container {
-    margin-top: 15px;
+    margin-top: 0px;
+    margin-left: 13px;
     display: flex;
-}
+    }
 
 .contents_contents_content {
     display: flex;
@@ -11,14 +12,17 @@
 .contents_contents_profile {
     display: flex;
     align-items: center;
-    padding: 10px 0px;
+    padding: 8px 4px;
+    
 }
 
 .profile_img {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    position: relative;
+    width: 50px;
+    height: auto;
+    border-radius: 5px !important;;
     margin-right: 15px;
+    background-size: cover
 }
 
 .contents_contents_profile div {
@@ -30,6 +34,7 @@
 }
 
 .profile_name {
+
     font-size: 18px;
     margin-bottom: 8px;
 }

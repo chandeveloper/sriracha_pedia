@@ -29,17 +29,19 @@
 .movie_chart {overflow: hidden; height: 470px;}
 .movie_chart > div > div > div {float: left; width: 292px; height: 350px; margin-right: 18px;}
 .movie_chart > div > div > div:last-child {margin-right: 0;}
-.movie_chart > div > div > div .poster {position: relative;}
-.movie_chart > div > div > div .poster img {display: block; border-radius: 4px;}
+.movie_chart > div > div > div .poster {position: relative; }
+.movie_chart > div > div > div .poster img {display: block; border-radius: 4px; }
 .movie_chart > div > div > div .poster .rank {position: absolute; top: 5px; left: 5px; width: 30px; height: 30px; font-size: 16px; box-shadow: 3px 3px 8px rgba(0,0,0,0.5); border-radius: 4px; line-height: 29px; background-color: #E61D3F; text-align: center;}
 .movie_chart > div > div > div .poster .rank strong {color: #fff; }
 .movie_chart > div > div > div .poster .mx {position: absolute; top: 17px; right: 17px;}
 .movie_chart > div > div > div .poster .mx span {width: 103px; height: 25px; display: block;}
 .movie_chart > div > div > div .poster .mx .m {background-position: 0 -75px;}
 .movie_chart > div > div > div .poster .mx .b {background-position: 0 -100px;}
-.movie_chart > div > div > div .infor .infor_btn {overflow: hidden;}
+.movie_chart > div > div > div .infor .infor_btn {overflow: hidden; margin-top:3px;}
 .movie_chart > div > div > div .infor .infor_btn a {float: left; width: 130px; text-align: center; background: #f2f2f2; font-size: 13px; padding: 1px;}
 .movie_chart > div > div > div .infor .infor_btn a:last-child {margin-right: 0;}
+
+
 
 
 /* 미디어쿼리 */

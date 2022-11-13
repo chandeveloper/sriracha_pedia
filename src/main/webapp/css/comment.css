@@ -17,14 +17,14 @@
 }
 
 .contents_contents_comment-container {
-    margin: 30px 0px;
+    margin: 10px 0px;
     display: flex;
 }
 
  .comment-nemo {
     display: flex;
     flex-direction: column;
-    width: 280px;
+    width: 300px;
     height: 315px;
     background-color: #F2F2F2;
     border-radius: 10px;
@@ -48,7 +48,7 @@
 }
 
 .comment_comment {
-    padding: 15px 0px;
+    padding: 7px 0px;
     height: 170px;
     border-bottom: 1px solid #dadada;
     line-height: 145%;
@@ -59,6 +59,8 @@
     padding: 15px 0px;
     border-bottom: 1px solid #dadada;
     font-size: 14px;
+    text-align: left;
+    margin-left: 5px;
 }
 
 .comment_feel-good i , .comment_feel-comment i {
@@ -74,4 +76,6 @@
     font-size: 18px;
     font-weight: 500;
     padding-top: 10px;
+    text-align: left;
+    margin-left: 5px;
 }
