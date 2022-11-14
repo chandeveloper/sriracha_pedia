@@ -22,41 +22,10 @@
 </head>
 <body>
 
-	<c:set var="overview" value="${requestScope.overview }"></c:set>
-	
-        <!-- Google Tag Manager (noscript) -->
-        <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.jsp?id=GTM-KVV8C33"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe>
-        </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <div id="root">
-            <div class="css-5jq76">
-                <div class="css-1xm32e0">
-                    <!--헤더-->
-                        <header class="menu-box">
-                            <div class="menu">
-                                <div class="menu_left">
-                                    <a href="main.jsp"><img class="menu_logo" src="../img/logo.png"
-                                            style="max-width:200px; width:100%; height:auto;" /></a>
-                                    <span class="menu_movie">영화</span>
-                                    <span class="menu_tv">TV 프로그램</span>
-                                    <span class="menu_book">책</span>
-                                </div>
-                                <div class="menu_right">
-                                    <div class="menu_search-box">
-                                        <i class="fas fa-search"></i>
-                                        <input class="menu_search" type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
-                                    </div>
-                                    <span class="menu_login" onclick="location.href='./login.jsp'" style="cursor: pointer;">로그아웃 </span>
-                                    <span class="menu_sign-up" id="js-signUp" onclick="location.href='./mypage.jsp'"
-                                        style="cursor: pointer;">마이페이지</span>
-                                </div>
-                                
-                                <div class="overlay"></div>
-                            </div>
-                        </header>
-                    <!--헤더-->
+    <!-- 헤더 시작 -->
+    <jsp:include page="../view/common/header.jsp" />	
+    <!-- 헤더 끝 -->
+    
                     <section class="css-18gwkcr">
                         <section class="css-9v5p4g-StyledSectionWithShrinkHeaderBar e1ntr3260">
                             <header class="css-4g5dyy-HeaderBarPrimitive">
