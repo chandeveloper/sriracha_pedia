@@ -1,6 +1,7 @@
 package com.sriracha.model;
 
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,7 +16,7 @@ public class UserDAO {
 		sqlSession = factory.openSession(true);
 	}
 
-	public String login(String user_id) {
+	public UserDTO login(String user_id) {
 		
 		return sqlSession.selectOne("User.login",user_id);
 	}

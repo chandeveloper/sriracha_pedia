@@ -13,11 +13,11 @@
 		INNER JOIN BOARD b  ON u.USER_NUM = b.USER_NUM 
 		INNER JOIN "COMMENT" c  ON u.USER_NUM = c.USER_NUM
 		INNER JOIN MOVIE m  ON b.MOVIE_ID = m.MOVIE_ID 
-		WHERE m.MOVIE_ID  = #{movie_id};
+		WHERE m.MOVIE_ID  = #{movie_id}
 	</select>
 	<insert id="addComment" parameterType="boarddto">
 		INSERT INTO BOARD
-		VALUES (board_num_seq.nextval, #{board_content}, sysdate, 0, 'Y', #{user_num}, #{movie_id});
+		VALUES (board_num_seq.nextval, #{board_content}, #{board_date}, 0, 'Y', #{user_num}, #{movie_id})
 	</insert>
 	
 

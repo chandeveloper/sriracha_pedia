@@ -343,7 +343,7 @@
                   </div>
 
                   <!-- 코멘트 더보기 링크 연결해주세요 -->
-                  <a href="${pageContext.request.contextPath }/sriracha/commentView.do?movie_id=1"> <span
+                  <a href="${pageContext.request.contextPath }/sriracha/commentView.do?movie_id=${movie.movie_id}"> <span
                      class="contents_contents_more">더보기</span>
                   </a>
                   <!-- 여기입니다 -->
@@ -457,6 +457,7 @@
    <!-- 여기까지 메인 컨텐츠 박스였습니다 -->
 
    <!--모달창 !!!!!!!!!!! 대댓글 !!!!!!!!!!!!!!!!!!11-->
+   
    <div class="css-14gy7wr" id="modal">
       <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
          <div class="css-1p257d1-modalAddStyle">
@@ -473,9 +474,13 @@
                   <div class="css-cdzmq7">
                      <div class="css-iowq1w">
                         <div class="css-iowq1w">
-                           <textarea maxlength="10000"
-                              placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
-                           <div class="css-238o9r" id="writecomment2"></div>
+                        	<form action="${pageContext.request.contextPath }/sriracha/addComment.do" id="addCommentForm">
+                        		<input type="hidden" name="movie_id" value="${movie.movie_id }">
+                        		<textarea maxlength="10000"
+                              		placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
+                        	</form>
+                           
+                           <div class="css-238o9r" id="writecomment2" ></div>
                         </div>
                      </div>
                   </div>
@@ -500,10 +505,10 @@
                   <div class="css-6qnjre">
                      <p class="css-1s08rlk"></p>
                      <p class="css-ynpx67" id="reCount">0/10000</p>
-                    <a href="${pageContext.request.contextPath }/sriracha/addComment.do?movie_id=${movie.movie_id}">
-                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장">
+<%--                     <a href="${pageContext.request.contextPath }/sriracha/addComment.do?movie_id=${movie.movie_id}"> --%>
+                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장" onclick="addcomment()">
 <!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
-					</a>
+<!-- 					</a> -->
                   </div>
                </div>
             </div>
@@ -628,6 +633,11 @@ $("#cancel").click(function(){
 $("#modify_btn").click(function(){
     modal.style.display = "flex"
 })
+
+function addcomment(){
+    let form = document.getElementById("addCommentForm");
+    form.submit();
+}
 
 </script>
 

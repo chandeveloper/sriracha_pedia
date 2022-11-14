@@ -1,5 +1,8 @@
 package com.sriracha.controller;
 
+import java.time.LocalDate;
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,27 +12,34 @@ import com.sriracha.action.ActionForward;
 import com.sriracha.model.BoardDAO;
 import com.sriracha.model.BoardDTO;
 import com.sriracha.model.FullDTO;
+import com.sriracha.model.UserDTO;
 
 public class addCommentController implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		ActionForward forward = new ActionForward();
-		
+
 		BoardDAO bdao = new BoardDAO();
-		BoardDTO bdto = new BoardDTO();		
+		BoardDTO bdto = new BoardDTO();
+
 		HttpSession session = req.getSession();
-		//board_num : board_num_seq.nextval, board_date(sysdate), board_like(default x), board_presence(디폴트 x)
-		//board_content, user_num, movie_id(파라미터 값) 
-		//무비 아이디 , 유저 num, 보드 코멘트
+		int user_num = (int) session.getAttribute("session_usernum");
+		System.out.println("내용 : " + req.getParameter("board_content"));
+		System.out.println("user_num : " + user_num);
+		System.out.println("movie_id : " +  req.getParameter("movie_id"));
+		LocalDate now = LocalDate.now();
+		
+		System.out.println("date : "+now.toString());
+		
 		bdto.setBoard_content(req.getParameter("board_content"));
-		bdto.setUser_num((int) req.getAttribute("user_num"));
-//		bdto.setUser_num(Integer.parseInt(req.getParameter("user_num")));
+		bdto.setUser_num(user_num);
+		bdto.setBoard_date(now.toString());
 		bdto.setMovie_id(Integer.parseInt(req.getParameter("movie_id")));
 		
-		if(bdao.addComment(bdto)) {
+		if (bdao.addComment(bdto)) {
 			forward.setRedirect(false);
-			forward.setPath(req.getContextPath()+ "view/contents.jsp");
+			forward.setPath(req.getContextPath() + "/sriracha/get_contents_page.do");
 		}
 		return forward;
 	}
