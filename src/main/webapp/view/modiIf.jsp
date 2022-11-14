@@ -43,12 +43,12 @@
 	        <input class="modiIf-content modiIf-pw pw" id='pw' name="user_pw" type="password" placeholder="새 비밀번호" >
 	        <p class="alert"></p>
 	          <div class="error-message-empty-new-pw2" id="new-pw2-text">새 비밀번호를 다시한번 입력하세요.</div>
-	        <input class="modiIf-content modiIf-rePw pw" id='rePw' type="password" placeholder="새 비밀번호 재입력" onkeyup="enterKey()">
+	        <input class="modiIf-content modiIf-rePw pw" id='rePw' type="password" placeholder="새 비밀번호 재입력" >
 	        <p class="alert"></p>
 	          <div class="error-message-empty-pw-correct" id="pw-correct-text">새 비밀번호가 서로 일치 하지 않습니다.</div>
 	       
 	        <div class="bt">
-	          <input class='modiIf-bt submit-bt' type="button" value="회원정보 수정" onclick="modiif()">
+	          <input class='modiIf-bt submit-bt' type="button" value="회원정보 수정" onclick="modiif();">
 	          <input class='modiIf-bt cancle-bt' type="button" onclick="location.href='./mypage.jsp'" value="뒤로가기">
 	        </div>
 	        <p class="completedMessage alert"></p>
@@ -112,15 +112,31 @@
 		
 		
 		
-		
-		
-		document.modiIfForm.submit();
-		
-		function enterKey(){	// 새 비밀번호 재입력에서 엔터키입력시 로그인 가능 함수
-	        if(window.event.keyCode == 13){
-	        	document.modiIfForm.submit();
-	        };
-	    };
-	}
+// 		// 회원가입 컨펌 alert 창
+// 		var answer = confirm("정말로 회원가입을 하시겠습니까?");
+
+// 		if (answer == true) {
+// 			alert("회원가입을 축하드립니다!");
+// 		} else {
+// 			window.location.reload();
+// 		}
+
+			document.modiIfForm.submit();
+	
+	}// modiif(); 끝
+
+// 	function enterKey() { // 새 비밀번호 재입력에서 엔터키입력시 로그인 가능 함수
+// 		if (window.event.keyCode == 13) {
+// 			var answer = confirm("정말로 회원가입을 하시겠습니까?");
+
+// 			if (answer == true) {
+// 				document.modiIfForm.submit();
+// 				alert("회원가입을 축하드립니다!");
+// 			} else {
+// 				window.location.reload();
+// 			}
+// 		}
+// 		;
+// 	};
 </script>
 </html>
