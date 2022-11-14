@@ -36,54 +36,11 @@
     
     <c:set var="commentList" value="${requestScope.commentList}" />
     
-        <div id="root">
-            <div class="css-5jq76">
-                <div class="css-1xm32e0">
-                    <div>
-                        <header class="menu-box">
-                            <div class="menu">
-                                <div class="menu_left">
-                                    <a href="./main.jsp"><img class="menu_logo" src="../img/logo.png"
-                                            style="max-width:200px; width:100%; height:auto;" /></a>
-                                    <span class="menu_movie">영화</span>
-                                    <span class="menu_tv">TV 프로그램</span>
-                                    <span class="menu_book">책</span>
-                                </div>
-                                <div class="menu_right">
-                                    <div class="menu_search-box">
-                                        <i class="fas fa-search"></i>
-                                        <input class="menu_search" type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
-                                    </div>
-                                    <span class="menu_login" onclick="location.href='./login.jsp'" style="cursor: pointer;">로그아웃 </span>
-                                    <span class="menu_sign-up" id="js-signUp" onclick="location.href='./mypage.jsp'"
-                                        style="cursor: pointer;">마이페이지</span>
-                                </div>
-                                
-                                <div class="overlay"></div>
-                            </div>
-                        </header>
-                        <!-- <header class="menu-box">
-                            <div class="contentMenu">
-                                <div class="menu_left">
-                                    <a href="main.jsp"><img class="menu_logo" src="../img/logo.png" style="max-width:200px; width:100%; height:auto;"/></a>
-                                    <span class="menu_movie">영화</span>
-                                    <span class="menu_tv">TV 프로그램</span>
-                                    <span class="menu_book">책</span>
-                                </div>
-                                <div class="menu_right">
-                                    <div class="menu_search-box">
-                                        <i class="fas fa-search"></i>
-                                        <input class="menu_search" type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
-                                    </div>
-                                    <span class="menu_login" onclick="location.href='./login.jsp'" style="cursor: pointer;">로그아웃 </span>
-                                    <span class="menu_sign-up" id="js-signUp" onclick="location.href='./main.jsp'" style="cursor: pointer;">메인페이지</span>
-                                </div>
-                                <div class="overlay"></div>
-                            </div>
-                        </header> -->
-                    </div>
-                    <!-----헤더 끝------>
-                    <!-- 11/10 유진 -->
+        <!-- 헤더 시작 -->
+    	<jsp:include page="../view/common/header.jsp" />
+    	<!-- 헤더 끝 -->
+                   
+               <!-- 11/10 유진 -->
                <c:if test="${requestScope.commentList != null }">
 				<c:forEach var="comment" items="${requestScope.commentList}">
                     <section class="css-18gwkcr">
@@ -452,47 +409,7 @@
                         <div></div>
                     </div> -->
             </div>
-            <!--footer-->
-            <footer>
-                <div class="small-box ">
-                    <span class="review">
-                        지금까지&nbsp;
-                    </span>
-                    <span class="review review-red">
-                        ★ 562,339,084 개의 평가가&nbsp;
-                    </span>
-                    <span class="review">
-                        쌓였어요.
-                    </span>
-                </div>
-                <div class="big-box">
-                    <div class="first-column column">
-                        <span class="footer_info cursor">
-                            서비스 이용약관 &nbsp;|&nbsp; 개인정보 처리방침 &nbsp;|&nbsp; 회사 안내
-                        </span>
-                    </div>
-                    <div class="second-column column">
-                        <span class="footer_info cursor">
-                            고객센터 &nbsp;|&nbsp; cs@srirachapedia.co.kr
-                        </span>
-                        <span class="footer_info cursor">
-                            제휴 및 대외 협력 &nbsp;|&nbsp; contact@sriracha.com, 070-1234-5678
-                        </span>
-                    </div>
-                    <div class="third-column column">
-                        <span class="footer_info">
-                            주식회사 스리라차 &nbsp;|&nbsp; 대표 강태석 &nbsp;|&nbsp; 서울특별시 역삼동 코리아IT 아카데미
-                        </span>
-                        <span class="footer_info">
-                            사업자 등록 번호 123-45-78910
-                        </span>
-                        <div class="footer_info">
-                            <img src="../img/logo2.png" style="max-width:200px; width:100%; height:auto;" class="footer_logo">
-                            <span class="footer_info">© 2022 sriracha. Inc</span>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+            
         </div>
 
         <!--모달창 !!!!!!!!!!! 대댓글 !!!!!!!!!!!!!!!!!!11-->
@@ -552,6 +469,10 @@
             </div>
         </div> -->
 
+
+			<!-- 푸터 시작 -->
+			<jsp:include page="../view/common/footer.jsp" />
+		    <!-- 푸터 끝 -->
             
     </body>
         <script>

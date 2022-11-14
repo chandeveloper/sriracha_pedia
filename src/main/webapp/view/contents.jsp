@@ -34,30 +34,10 @@
 
    <c:set var="boardList" value="${requestScope.boardList}" />
    
-
-   <!-- 메뉴 헤더입니다. -->
-   <header class="menu-box">
-      <div class="menu">
-         <div class="menu_left">
-            <a href="/sriracha/get_main_page.do"><img class="menu_logo"
-               src="../img/logo.png"
-               style="max-width: 200px; width: 100%; height: auto;" /></a>
-         </div>
-         <div class="menu_right">
-            <div class="menu_search-box">
-               <i class="fas fa-search"></i> <input class="menu_search"
-                  type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
-            </div>
-            <span class="menu_login" onclick="location.href='/sriracha/logout.do'"
-               style="cursor: pointer;">로그아웃 </span> <span class="menu_sign-up"
-               id="js-signUp" onclick="location.href='./mypage.jsp'"
-               style="cursor: pointer;">마이페이지</span>
-         </div>
-
-         <div class="overlay"></div>
-      </div>
-   </header>
-   <!-- 여기까지 메뉴 헤더 -->
+    <!-- 헤더 시작 -->
+    <jsp:include page="../view/common/header.jsp" />
+    <!-- 헤더 끝 -->
+   
    <div class="forheader" style="margin-top: 65px"></div>
    <!-- 메뉴바 밑에 콘텐츠 썸네일 -->
    <div class="thumbnail">
@@ -474,36 +454,6 @@
    </main>
    <!-- 여기까지 메인 컨텐츠 박스였습니다 -->
 
-   <!-- footer 시작 -->
-   <footer>
-      <div class="small-box ">
-         <span class="review"> 지금까지&nbsp; </span> <span
-            class="review review-red"> ★ 562,339,084 개의 평가가&nbsp; </span> <span
-            class="review"> 쌓였어요. </span>
-      </div>
-      <div class="big-box">
-         <div class="first-column column">
-            <span class="footer_info cursor"> 서비스 이용약관 &nbsp;|&nbsp; 개인정보
-               처리방침 &nbsp;|&nbsp; 회사 안내 </span>
-         </div>
-         <div class="second-column column">
-            <span class="footer_info cursor"> 고객센터 &nbsp;|&nbsp;
-               cs@srirachapedia.co.kr </span> <span class="footer_info cursor"> 제휴
-               및 대외 협력 &nbsp;|&nbsp; contact@sriracha.com, 070-1234-5678 </span>
-         </div>
-         <div class="third-column column">
-            <span class="footer_info"> 주식회사 스리라차 &nbsp;|&nbsp; 대표 강태석
-               &nbsp;|&nbsp; 서울특별시 역삼동 코리아IT 아카데미 </span> <span class="footer_info">
-               사업자 등록 번호 123-45-78910 </span>
-            <div class="footer_info">
-               <img src="../img/logo2.png"
-                  style="max-width: 200px; width: 100%; height: auto;"
-                  class="footer_logo"> <span class="footer_info">© 2022
-                  sriracha. Inc</span>
-            </div>
-         </div>
-      </div>
-   </footer>
    <!--모달창 !!!!!!!!!!! 대댓글 !!!!!!!!!!!!!!!!!!11-->
    <div class="css-14gy7wr" id="modal">
       <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
@@ -577,7 +527,10 @@
         </div>
     </div>
     <!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ? 끝-->
-
+    
+    <!-- 푸터 시작 -->
+	<jsp:include page="../view/common/footer.jsp" />
+    <!-- 푸터 끝 -->
 
    <script src="../js/main.js"></script>
    <script src="../js/star.js"></script>
