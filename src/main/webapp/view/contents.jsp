@@ -13,7 +13,9 @@
 <link rel="stylesheet" href="../css/comment_slide.css">
 <link rel="stylesheet" href="../css/comment_slide2.css">
 <link rel="stylesheet" href="../css/comment_modal_detail.css">
+
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script type="module" src="js/contents.js"></script>
 
 <link
@@ -29,6 +31,9 @@
 <body>
    <c:set var="movie" value="${requestScope.movie }"></c:set>
    <c:set var="creditList" value="${requestScope.creditList }"></c:set>
+
+   <c:set var="boardList" value="${requestScope.boardList}" />
+   
 
    <!-- 메뉴 헤더입니다. -->
    <header class="menu-box">
@@ -145,9 +150,51 @@
    <main class="contents_main-box">
       <div class="contents_middle-box">
          <div>
+            <!--댓글 달았을 시 추가되는 부분 : 유진-->
+                <div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented" >
+                    <div class="css-12ru3m0">
+                        <div class="css-1gkas1x-Grid e1689zdh0">
+                            <div class="css-1y901al-Row emmoxnt0">
+                                <section class="css-10tfsfb-MyCommentSection eue8w0j3">
+                                    <div class="css-vo2laf-MyCommentBlock eue8w0j6">
+                                        <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4">
+                                            <div class="css-ffwxzk">
+                                                <div class="css-h6h0rq-ProfilePhotoImage"></div>
+                                            </div>
+                                        </div>
+                                        <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13" href="comment_detail_me.html">
+                                            <div class="css-2a9q6o-MyComment eue8w0j5">
+                                                <div class=" css-gujidv-StyledSelf eb5y16b0">
+                                                    <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단 내용 표시하는 부분입니다.</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7">
+                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
+                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="delete_btn">
+                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="delete comment">
+                                                    삭제
+                                                </button>
+                                            </li>
+                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
+                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="modify_btn">
+                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="edit comment">
+                                                    수정
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+                <!--댓글 달았을 시 추가되는 부분 끝 : 유진-->
             <div class="leave-comment-box">
                <span class="go-leave-comment"> 이 작품에 대한 회원 님의 평가를 글로 남겨보세요.
-               </span> <span class="leave-comment" id="btn-modal"
+               </span> 
+               <span class="leave-comment" id="btn-modal"
                   style="cursor: pointer;">코멘트 남기기</span>
             </div>
             <div class="contents_contents-box">
@@ -186,100 +233,100 @@
                                             <div class="swiper-slide slide">
                                                <ul>
                                                   <c:forEach var="credit" items="${creditList }">
-                                                  	<c:if test="${not empty credit.job }">
-                                                    	<li class="contents_contents_profile">
+                                                     <c:if test="${not empty credit.job }">
+                                                       <li class="contents_contents_profile">
                                                            <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
                                                              <div class="txt">
                                                                <span class="profile_name">${credit.name }</span>
                                                                <span class="profile_job">${credit.job }</span>
                                                              </div>
                                                         </li>
-			                                         </c:if>	
-			                                      </c:forEach>
-			                                   </ul>
-		                                  	</div>
-		                                   <div class="swiper-slide slide">
-		                                   		<ul>
-<%-- 		                                         <c:set var="doneLoop" value="false" /> --%>
-		                                          <c:forEach var="credit" items="${creditList }" varStatus="status">
-<%-- 		                                          <c:if test="${status.index%3==0 }"> --%>
-<%-- 		                                          </c:if> --%>
-<%-- 		                                             <c:if test="${not doneLoop }"> --%>
-		                                                <c:if test="${status.index<3 }">
-		                                                <c:if test="${not empty credit.profile_path }">
-		                                                   <c:if test="${not empty credit.character }">
-<%-- 		                                                   <c:set var="doneLoop" value="true" /> --%>
-		                                                      <li class="contents_contents_profile">
-		                                                         <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-		                                                         <div class="txt">
-		                                                            <span class="profile_name">${credit.name }</span> 
-		                                                            <span class="profile_job">${credit.character }역</span>
-		                                                         </div>
-		                                                      </li>
-	                                                		</c:if>
-		                                                   </c:if>
-															</c:if>
-<%-- 		                                                </c:if> --%>
+                                                  </c:if>   
+                                               </c:forEach>
+                                            </ul>
+                                           </div>
+                                         <div class="swiper-slide slide">
+                                               <ul>
+<%--                                                <c:set var="doneLoop" value="false" /> --%>
+                                                <c:forEach var="credit" items="${creditList }" varStatus="status">
+<%--                                                 <c:if test="${status.index%3==0 }"> --%>
+<%--                                                 </c:if> --%>
+<%--                                                    <c:if test="${not doneLoop }"> --%>
+                                                      <c:if test="${status.index<3 }">
+                                                      <c:if test="${not empty credit.profile_path }">
+                                                         <c:if test="${not empty credit.character }">
+<%--                                                          <c:set var="doneLoop" value="true" /> --%>
+                                                            <li class="contents_contents_profile">
+                                                               <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
+                                                               <div class="txt">
+                                                                  <span class="profile_name">${credit.name }</span> 
+                                                                  <span class="profile_job">${credit.character }역</span>
+                                                               </div>
+                                                            </li>
+                                                         </c:if>
+                                                         </c:if>
+                                             </c:if>
+<%--                                                       </c:if> --%>
 <%--                                                       <c:if test="${status.index%3==2 }"> --%>
 <%--                                                       </c:if> --%>
-		                                          </c:forEach>
-			                                    </ul>
-			                                    </div>
-		                                     <div class="swiper-slide slide">
-			                                    <ul>
-<%-- 		                                         <c:set var="doneLoop" value="false" /> --%>
-		                                          <c:forEach var="credit" items="${creditList }" varStatus="status">
-<%-- 		                                          <c:if test="${status.index%3==0 }"> --%>
-<%-- 		                                          </c:if> --%>
-<%-- 		                                             <c:if test="${not doneLoop }"> --%>
-		                                                <c:if test="${status.index>2 && status.index<6 }">
-		                                                <c:if test="${not empty credit.profile_path }">
-		                                                   <c:if test="${not empty credit.character }">
-<%-- 		                                                   <c:set var="doneLoop" value="true" /> --%>
-		                                                      <li class="contents_contents_profile">
-		                                                         <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-		                                                         <div class="txt">
-		                                                            <span class="profile_name">${credit.name }</span> 
-		                                                            <span class="profile_job">${credit.character }역</span>
-		                                                         </div>
-		                                                      </li>
-	                                                		</c:if>
-		                                                   </c:if>
-															</c:if>
-<%-- 		                                                </c:if> --%>
+                                                </c:forEach>
+                                             </ul>
+                                             </div>
+                                           <div class="swiper-slide slide">
+                                             <ul>
+<%--                                                <c:set var="doneLoop" value="false" /> --%>
+                                                <c:forEach var="credit" items="${creditList }" varStatus="status">
+<%--                                                 <c:if test="${status.index%3==0 }"> --%>
+<%--                                                 </c:if> --%>
+<%--                                                    <c:if test="${not doneLoop }"> --%>
+                                                      <c:if test="${status.index>2 && status.index<6 }">
+                                                      <c:if test="${not empty credit.profile_path }">
+                                                         <c:if test="${not empty credit.character }">
+<%--                                                          <c:set var="doneLoop" value="true" /> --%>
+                                                            <li class="contents_contents_profile">
+                                                               <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
+                                                               <div class="txt">
+                                                                  <span class="profile_name">${credit.name }</span> 
+                                                                  <span class="profile_job">${credit.character }역</span>
+                                                               </div>
+                                                            </li>
+                                                         </c:if>
+                                                         </c:if>
+                                             </c:if>
+<%--                                                       </c:if> --%>
 <%--                                                       <c:if test="${status.index%3==2 }"> --%>
 <%--                                                       </c:if> --%>
-		                                          </c:forEach>
-			                                    </ul>
-			                                    </div>
-			                                     <div class="swiper-slide slide" style="width:280px;">
-			                                    <ul>
-<%-- 		                                         <c:set var="doneLoop" value="false" /> --%>
-		                                          <c:forEach var="credit" items="${creditList }" varStatus="status">
-<%-- 		                                          <c:if test="${status.index%3==0 }"> --%>
-<%-- 		                                          </c:if> --%>
-<%-- 		                                             <c:if test="${not doneLoop }"> --%>
-		                                                <c:if test="${status.index>5 && status.index<9 }">
-		                                                <c:if test="${not empty credit.profile_path }">
-		                                                   <c:if test="${not empty credit.character }">
-<%-- 		                                                   <c:set var="doneLoop" value="true" /> --%>
-		                                                      <li class="contents_contents_profile">
-		                                                         <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-		                                                         <div class="txt">
-		                                                            <span class="profile_name">${credit.name }</span> 
-		                                                            <span class="profile_job">${credit.character }역</span>
-		                                                         </div>
-		                                                      </li>
-	                                                		</c:if>
-		                                                   </c:if>
-															</c:if>
-<%-- 		                                                </c:if> --%>
+                                                </c:forEach>
+                                             </ul>
+                                             </div>
+                                              <div class="swiper-slide slide" style="width:280px;">
+                                             <ul>
+<%--                                                <c:set var="doneLoop" value="false" /> --%>
+                                                <c:forEach var="credit" items="${creditList }" varStatus="status">
+<%--                                                 <c:if test="${status.index%3==0 }"> --%>
+<%--                                                 </c:if> --%>
+<%--                                                    <c:if test="${not doneLoop }"> --%>
+                                                      <c:if test="${status.index>5 && status.index<9 }">
+                                                      <c:if test="${not empty credit.profile_path }">
+                                                         <c:if test="${not empty credit.character }">
+<%--                                                          <c:set var="doneLoop" value="true" /> --%>
+                                                            <li class="contents_contents_profile">
+                                                               <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
+                                                               <div class="txt">
+                                                                  <span class="profile_name">${credit.name }</span> 
+                                                                  <span class="profile_job">${credit.character }역</span>
+                                                               </div>
+                                                            </li>
+                                                         </c:if>
+                                                         </c:if>
+                                             </c:if>
+<%--                                                       </c:if> --%>
 <%--                                                       <c:if test="${status.index%3==2 }"> --%>
 <%--                                                       </c:if> --%>
-		                                          </c:forEach>
-			                                    </ul>
-			                                    </div>
-			                                    </div>
+                                                </c:forEach>
+                                             </ul>
+                                             </div>
+                                             </div>
 <%--                                             <div class="swiper-button-next"></div>
                                             <div class="swiper-button-prev"></div> --%>
                                         </div>
@@ -420,15 +467,6 @@
          </div>
             <!-- 네번째(코멘트) 끝 -->
 
-            <!-- <div class="contents_contents_column">
-                        <div>
-                            <span class="contents_contents_title">이 작품이 담긴 컬렉션</span>
-                            <span class="contents_contents_title-number">143</span>
-                        </div>
-                    </div>
-                    <div class="contents_contents_column">
-                        <span class="contents_contents_title">비슷한 작품</span>
-                    </div> -->
          </div>
       </div>
       <div class="contents_side-box"></div>
@@ -511,6 +549,7 @@
                      <p class="css-1s08rlk"></p>
                      <p class="css-ynpx67">0/10000</p>
                      <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장">
+<!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
                   </div>
                </div>
             </div>
@@ -528,8 +567,8 @@
                             <div class="css-2djw8f">알림</div>
                             <div class="css-148qwic">코멘트를 삭제하시겠어요?</div>
                             <div size="2" class="css-gy4ioq">
-                                <button class="css-1gdw77k-StylelessButton">취소</button>
-                                <button class="css-sfhtz9-StylelessButton">확인</button>
+                                <button class="css-1gdw77k-StylelessButton" id="cancel">취소</button>
+                                <button class="css-sfhtz9-StylelessButton" id="deletecomment">확인</button>
                             </div>
                         </div>
                     </div>
@@ -543,58 +582,95 @@
    <script src="../js/main.js"></script>
    <script src="../js/star.js"></script>
 </body>
-<script>
-	/*코멘트 남기기 모달창*/
-	const modal = document.getElementById("modal")
-	const btnModal = document.getElementById("btn-modal")
-	btnModal.addEventListener("click", e => {
-	    modal.style.display = "flex"
-	})
-	
-	/*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
-	const closeBtn = modal.querySelector(".css-1lvet1d-StylelessButton")
-	closeBtn.addEventListener("click", e => {
-	    modal.style.display = "none"
-	})
-	
-	/*코멘트 남기기 바깥 부분 클릭 시 모달창 꺼짐*/
-	modal.addEventListener("click", e => {
-	    const evTarget = e.target
-	    if (evTarget.classList.contains("css-rpyl6s")) {
-	        modal.style.display = "none"
-	    }
-	})
-	
-	/*코멘트 삭제 모달창 - 코멘트를 삭제하시겠어요?*/
-	const modal2 = document.getElementById("modal2")
-	const btnModal2 = document.getElementById("btn-modal2")
-	btnModal2.addEventListener("click", e => {
-	    modal2.style.display = "flex"
-	})
-	
-	modal2.addEventListener("click", e => {
-	    const evTarget = e.target
-	    if (evTarget.classList.contains("css-1yszxv0")) {
-	        modal2.style.display = "none"
-	    }
-	})
+<script type="text/javascript">
+/*코멘트 남기기 모달창*/
+const modal = document.getElementById("modal")
+const btnModal = document.getElementById("btn-modal")
+btnModal.addEventListener("click", e => {
+    modal.style.display = "flex"
+})
 
-	
-	
-	let elCommentbtn = document.querySelector('#commentbtn')
-    let elwritecomment1 = document.querySelector('#writecomment1')
-    elCommentbtn.disabled = true;
-	elwritecomment1.addEventListener('keyup', button)
+/*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
+const closeBtn = modal.querySelector(".css-1lvet1d-StylelessButton")
+closeBtn.addEventListener("click", e => {
+    modal.style.display = "none"
+})
 
-    function button() {
-        if (!(elwritecomment1.value == "")) {
-            elCommentbtn.disabled = false;
-        } else {
-            elCommentbtn.disabled = true;    // 버튼 활성화
-        }
+/*코멘트 남기기 바깥 부분 클릭 시 모달창 꺼짐*/
+modal.addEventListener("click", e => {
+const evTarget = e.target
+    if(evTarget.classList.contains("css-rpyl6s")) {
+        modal.style.display = "none"
     }
+})
 
-    
+/*코멘트 삭제 모달창 - 코멘트를 삭제하시겠어요?*/
+const modal2 = document.getElementById("modal2")
+const btnModal2 = document.getElementById("delete_btn")
+btnModal2.addEventListener("click", e => {
+    modal2.style.display = "flex"
+})
+
+modal2.addEventListener("click", e => {
+const evTarget = e.target
+    if(evTarget.classList.contains("css-1yszxv0")) {
+        modal2.style.display = "none"
+    }
+})
+
+const elCommentbtn = document.querySelector('#commentbtn')
+const elwritecomment1 = document.querySelector('#writecomment1')
+elCommentbtn.disabled = true;
+elwritecomment1.addEventListener('keyup', button)
+
+function button() {
+    if (!(elwritecomment1.value == "")) {
+        elCommentbtn.disabled = false;
+    } else {
+        elCommentbtn.disabled = true;    // 버튼 활성화
+    }
+}
+
+ /*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
+ const closeBtn2 = modal.querySelector("#commentbtn")
+closeBtn2.addEventListener("click", e => {
+    modal.style.display = "none"
+})
+
+
+/*코멘트 남겼을 때 내가 남긴 코멘트 보여주기*/
+const commented = document.querySelector("#commented");
+commented.style.display = "none";
+
+
+$('#commentbtn').click(function(){
+    $('.leave-comment-box ').hide();
+    $('#commented').show();
+    return false;
+})
+
+/*삭제 버튼 클릭 시 다시 코멘트 달기 창 보여주기*/
+// const deletecomment = document.querySelector("#deletecomment");
+const commentarea = document.querySelector("#commentarea");
+
+$("#deletecomment").click(function(){
+    modal2.style.display = "none"
+    $('#commented').hide();
+    $('.leave-comment-box ').show();
+    document.getElementById("writecomment1").value = '';
+    return false;
+})
+
+//취소 버튼 클릭
+$("#cancel").click(function(){
+    modal2.style.display = "none"
+})
+
+//코멘트 수정하기
+$("#modify_btn").click(function(){
+    modal.style.display = "flex"
+})
+
 </script>
 
 </html>
