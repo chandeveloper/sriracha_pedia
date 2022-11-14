@@ -16,9 +16,6 @@ public class CommentListController implements Action{
 		ActionForward forward = new ActionForward();
 		
 		
-//		String m_id = req.getParameter("movie_id");
-//		
-//		int movie_id = Integer.parseInt(m_id);
 		
 		int movie_id = Integer.parseInt(req.getParameter("movie_id"));
 		
