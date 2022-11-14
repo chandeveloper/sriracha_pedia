@@ -61,13 +61,12 @@
                     <div class="movie_chart">
                         <div class="swiper-container2">
                             <div class="chart_cont1 swiper-wrapper">
-
-                            	
                             	<c:forEach var="nowPlayingMovie" items="${nowPlayingMovieList }" varStatus="status">
                             		<div class="swiper-slide">
+                            			
 	                                    <div class="poster">
 	                                        <a href="/sriracha/get_contents_page.do?movie_id=${nowPlayingMovie.movie_id }">
-	                                        <img src="https://image.tmdb.org/t/p/original${nowPlayingMovie.movie_poster_path}" style="max-width:250px;  width:100%; max-height:auto;"  alt="">
+	                                        <img src="https://image.tmdb.org/t/p/original${nowPlayingMovie.movie_poster_path}" style="max-width:250px;  width:100%;"  alt="">
 	                                        <div class="rank"><strong>${status.count }</strong></div>
 	                                    </a>
 	                                    </div>
@@ -79,6 +78,7 @@
 	                                            <span class="type1-content_info">인기 점수 : ${nowPlayingMovie.movie_popularity}점</span>
 	                                        </div>
 	                                    </div>
+			                               
 	                                </div>
                             	</c:forEach>
 	                                

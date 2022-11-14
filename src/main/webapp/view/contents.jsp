@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="../css/comment_slide.css">
 <link rel="stylesheet" href="../css/comment_slide2.css">
 <link rel="stylesheet" href="../css/comment_modal_detail.css">
+<link rel="stylesheet" href="../css/detail_header_poster.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 <script type="module" src="js/contents.js"></script>
 
@@ -55,22 +56,40 @@
    <!-- 여기까지 메뉴 헤더 -->
    <div class="forheader" style="margin-top: 65px"></div>
    <!-- 메뉴바 밑에 콘텐츠 썸네일 -->
+    
    <div class="thumbnail">
-      <img class="thumbnail"
-         src="https://image.tmdb.org/t/p/original${movie.movie_backdrop_path }"
-         alt="">
+   		<div class="css-cshjoi-PosterContainer e1svyhwg1">
+	   		<div class="css-oqg1df-BlurPosterBlock e1svyhwg2">
+	   			<div color="#6B391C" class="css-1j41bic-LeftBackground e1svyhwg6">
+	   			</div>
+	   			<div class="css-mshxo0-BlurPoster e1svyhwg4">
+	   				<img src="https://image.tmdb.org/t/p/original${movie.movie_backdrop_path }" class="movie_backdrop">
+		   			<div color="#6B391C" class="css-u1908p-LeftGradient e1svyhwg8">
+		   				
+					</div>
+	   				<div color="#562D16" class="css-1bn7ma3-RightGradient e1svyhwg9">
+	  	 			</div>
+	   			</div>
+	   			<div color="#562D16" class="css-1bxux8o-RightBackground e1svyhwg7">
+	   			</div>
+	   			<div class="css-1ubeqqm-DimmedLayer e1svyhwg3">
+	   			</div>
+	   		</div>
+		</div>
+				
    </div>
    <!-- 여기까지 썸네일 -->
 
    <!-- 썸네일 밑에 겹쳐있는 콘텐츠 정보들입니다. -->
    <div class="content_info-box">
-
+		
       <!-- 왼쪽 포스터입니다. -->
-      <div class="left-column">
-         <img
-            src="https://image.tmdb.org/t/p/original${movie.movie_poster_path }"
-            alt="">
-      </div>
+      <div class="css-11zdk8l-PosterWithRankingInfoBlock e1svyhwg10">
+			<div class=" css-1np54po-StyledLazyLoadingImage ezcopuc0">
+	   			<img alt="" src="https://image.tmdb.org/t/p/original${movie.movie_poster_path }" class="css-qhzw1o-StyledImg ezcopuc1">
+   			</div>
+		</div>
+
       <!-- 여기까지 왼쪽 포스터 -->
 
       <!-- 포스터 오른쪽 정보들 입니다. -->
