@@ -75,6 +75,7 @@ function checkId(userid){
                flagIdChk = true;
                elIdSuccessmessage.classList.remove('hide')
                elIdOverlapmessage.classList.add('hide')
+               
             } else {
                flagIdChk = false;
                elIdOverlapmessage.classList.remove('hide')
@@ -113,16 +114,31 @@ elInputPasswordretype.onkeyup = function() {
       elMissmatchmessage.classList.remove('hide')
       flagRePw = false;
    }
+   // 엔터키 페이징처리
    if (window.event.keyCode == 13) {
-      var answer = confirm("정말로 회원가입을 하시겠습니까?");
-
-      if (answer == true) {
-         document.signUp.submit();
-         alert("회원가입을 축하드립니다!");
-      } else {
-         window.location.reload();
-      }
+      $().ready(function () {
+            $(function () {
+                Swal.fire({
+                    title: '정말로 회원가입을 하시겠습니까?',
+                    text: "다시 되돌릴 수 없습니다. 신중하세요.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '승인',
+                    cancelButtonText: '취소'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                            document.signUp.submit();
+                    }
+                    else{
+							window.location.reload();
+					}
+                })
+            });
+        });
    };
+   
 }
 
 //------------------------------- keyup 
@@ -144,15 +160,25 @@ function button() {
 
 }
 
-//------------------------------- 회원정보 데이터를 넘기는 submit
-elJoinbutton.addEventListener('click', join);
-function join() {
-   var answer = confirm("정말로 회원가입을 하시겠습니까?");
-   
-   if(answer == true){
-      document.signUp.submit();
-      alert("회원가입을 축하드립니다!");   
-   } else{
-      window.location.reload();
-   }
-}
+// 회원가입 컨펌창  
+$().ready(function () {
+            $("#joinbutton").click(function () {
+                Swal.fire({
+                    title: '정말로 회원가입을 하시겠습니까?',
+                    text: "다시 되돌릴 수 없습니다. 신중하세요.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: '승인',
+                    cancelButtonText: '취소'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                            document.signUp.submit();
+                    }
+                    else{
+							window.location.reload();
+					}
+                })
+            });
+        });
