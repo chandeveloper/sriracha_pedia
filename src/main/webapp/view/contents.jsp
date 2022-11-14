@@ -463,7 +463,7 @@
             <header title=""
                class="css-166ww79-HeaderBarPrimitive-headerAddStyle">
                <div class="css-19pxr9t"></div>
-               <em class="css-10mjbgt">(영화제목)</em>
+               <em class="css-10mjbgt">${movie.movie_title }</em>
                <div class="css-19pxr9t">
                   <button class="css-1lvet1d-StylelessButton"></button>
                </div>
@@ -474,7 +474,7 @@
                      <div class="css-iowq1w">
                         <div class="css-iowq1w">
                            <textarea maxlength="10000"
-                              placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1"></textarea>
+                              placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
                            <div class="css-238o9r" id="writecomment2"></div>
                         </div>
                      </div>
@@ -500,8 +500,10 @@
                   <div class="css-6qnjre">
                      <p class="css-1s08rlk"></p>
                      <p class="css-ynpx67" id="reCount">0/10000</p>
+                    <a href="${pageContext.request.contextPath }/sriracha/addComment.do?movie_id=${movie.movie_id}">
                      <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장">
 <!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
+					</a>
                   </div>
                </div>
             </div>
