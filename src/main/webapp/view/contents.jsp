@@ -33,18 +33,44 @@
    <c:set var="creditList" value="${requestScope.creditList }"></c:set>
 
    <c:set var="boardList" value="${requestScope.boardList}" />
-   
     <!-- 헤더 시작 -->
-    <jsp:include page="../view/common/header.jsp" />
+    <section class="page-start">
+    <header >
+        <div class="menu">
+            <div class="menu_left">
+                <a href="/sriracha/get_main_page.do"><img class="menu_logo" src="../img/logo.png"
+                        style="max-width:200px; width:100%; height:auto;" /></a>
+                
+            </div>
+            <div class="menu_right">
+                <div class="menu_search-box">
+                    <i class="fas fa-search"></i>
+                    <form action="/sriracha/search.do" id="searchForm">
+	                    <input class="menu_search" type="text" placeholder="영화 제목 키워드를 검색해보세요." name="search_content" onkeyup="searchEnter()">
+                    </form>
+                </div>
+                <span class="menu_login" id="logOut" style="cursor: pointer;">로그아웃 </span>
+                <span class="menu_sign-up" id="js-signUp" onclick="location.href='../view/mypage.jsp'"
+                    style="cursor: pointer;">마이페이지</span>
+            </div>
+            
+            <div class="overlay"></div>
+        </div>
+    </header>
+    
+    <div class="forheader" style="margsin-top: 65px"></div>
     <!-- 헤더 끝 -->
    
-   <div class="forheader" style="margin-top: 65px"></div>
-   <!-- 메뉴바 밑에 콘텐츠 썸네일 -->
-   <div class="thumbnail">
+   <section class="thumbnail">
       <img class="thumbnail"
          src="https://image.tmdb.org/t/p/original${movie.movie_backdrop_path }"
          alt="">
-   </div>
+   </section>
+   
+    
+   <div class="inner">
+   <div class="forheader" style="margin-top: 65px"></div>
+   <!-- 메뉴바 밑에 콘텐츠 썸네일 -->
    <!-- 여기까지 썸네일 -->
 
    <!-- 썸네일 밑에 겹쳐있는 콘텐츠 정보들입니다. -->
@@ -531,10 +557,14 @@
     <!-- 푸터 시작 -->
 	<jsp:include page="../view/common/footer.jsp" />
     <!-- 푸터 끝 -->
-
-   <script src="../js/main.js"></script>
-   <script src="../js/star.js"></script>
+    </div>
+</section>
 </body>
+<script src="../js/main.js"></script>
+<script src="../js/star.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
 <script type="text/javascript">
 /*코멘트 남기기 모달창*/
 const modal = document.getElementById("modal")
@@ -624,6 +654,53 @@ $("#cancel").click(function(){
 $("#modify_btn").click(function(){
     modal.style.display = "flex"
 })
+
+let searchForm = document.getElementById("searchForm");
+	
+	function searchEnter(){
+		if(window.event.keyCode == 13){
+			searchForm.submit();
+		}
+	}
+	
+	 // 로그아웃 컨펌창  
+	$().ready(function () {
+	            $("#logOut").click(function () {
+	                Swal.fire({
+	                    title: '정말로 로그아웃 하시겠습니까?',
+	                    text: "다시 되돌릴 수 없습니다. 신중하세요.",
+	                    icon: 'warning',
+	                    showCancelButton: true,
+	                    confirmButtonColor: '#3085d6',
+	                    cancelButtonColor: '#d33',
+	                    confirmButtonText: '승인',
+	                    cancelButtonText: '취소'
+	                }).then((result) => {
+	                    if (result.isConfirmed) {
+	                            window.location.href = '/sriracha/logout.do';
+	                    }
+	                    else{
+								window.location.reload();
+						}
+	                })
+	            });
+	        });
+	 
+	$(function(){
+		  var $header = $('header'); //헤더를 변수에 넣기
+		  var $page = $('.page-start'); //색상이 변할 부분
+		  var $window = $(window);
+		  var pageOffsetTop = $page.offset().top;//색상 변할 부분의 top값 구하기
+		  
+		  $window.resize(function(){ //반응형을 대비하여 리사이즈시 top값을 다시 계산
+		    pageOffsetTop = $page.offset().top;
+		  });
+		  
+		  $window.on('scroll', function(){ //스크롤시
+		    var scrolled = $window.scrollTop() >= pageOffsetTop; //스크롤된 상태; true or false
+		    $header.toggleClass('down', scrolled); //클래스 토글
+		  });
+		});
 
 </script>
 
