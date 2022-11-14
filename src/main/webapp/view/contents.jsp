@@ -547,7 +547,7 @@
                   <div class="css-6qnjre"></div>
                   <div class="css-6qnjre">
                      <p class="css-1s08rlk"></p>
-                     <p class="css-ynpx67">0/10000</p>
+                     <p class="css-ynpx67" id="reCount">0/10000</p>
                      <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장">
 <!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
                   </div>
@@ -626,6 +626,7 @@ elwritecomment1.addEventListener('keyup', button)
 function button() {
     if (!(elwritecomment1.value == "")) {
         elCommentbtn.disabled = false;
+        document.getElementById("reCount").innerHTML = elwritecomment1.value.length + "/" + 10000
     } else {
         elCommentbtn.disabled = true; 	// 버튼 활성화
     }
