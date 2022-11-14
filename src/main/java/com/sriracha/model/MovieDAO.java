@@ -51,7 +51,6 @@ public class MovieDAO {
 	}
 
 	public List<MovieDTO> getMoviesByTitle(String search_content) {
-		System.out.println(search_content);
 		List<MovieDTO> searchedMovieList = sqlSession.selectList("Movie.getMoviesByTitle", search_content);
 		return searchedMovieList;
 	}
