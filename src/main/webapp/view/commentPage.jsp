@@ -29,54 +29,11 @@
 	<c:set var="boardList" value="${requestScope.boardList}" />
 	
     <section class="container">
-        <!-- <nav class="nav">
-            <div class="nav1">
-                <a href="./../index.jsp" class="logo scrollLogo"><span>HJPARK</span><span>PEDIA</span></a>
-                <div class="logoText scrollText">
-                    <p>영화</p>
-                    <p>TV 프로그램</p>
-                    <p>책</p>
-                </div>
-            </div>
-            <div class="nav2">
-                <p class="searchBox scrollBox">
-                    <i class="fas fa-search"></i>
-                    <input class="searchBoxInput" type="text" placeholder="콘텐츠, 인물, 컬렉션, 유저를 검색해보세요" />
-                </p>
-                <p class="navEst scrollEst">평가하기</p>
-                <i class="fas fa-search navSearch"></i>
-                <i class="fas fa-star navStar"></i>
-                <i class="fas fa-user-circle navProfile"></i>
-            </div>
-        </nav> -->
-        <header class="menu-box">
-            <div class="menu">
-                <div class="menu_left">
-                    <a href="./main.jsp"><img class="menu_logo" src="../img/logo.png"
-                            style="max-width:200px; width:100%; height:auto;" /></a>
-                    <span class="menu_movie">영화</span>
-                    <span class="menu_tv">TV 프로그램</span>
-                    <span class="menu_book">책</span>
-                </div>
-                <div class="menu_right">
-                    <div class="menu_search-box">
-                        <i class="fas fa-search"></i>
-                        <input class="menu_search" type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
-                    </div>
-                    <span class="menu_login" onclick="location.href='./login.jsp'" style="cursor: pointer;">로그아웃 </span>
-                    <span class="menu_sign-up" id="js-signUp" onclick="location.href='./mypage.jsp'"
-                        style="cursor: pointer;">마이페이지</span>
-                </div>
-                
-                <div class="overlay"></div>
-            </div>
-        </header>
-        <!-- <section class="commentTop">
-            <a href="./../index.jsp">
-                <i class="fas fa-arrow-left"></i>
-            </a>
-            <div class="commentTopText">코멘트</div>
-        </section> -->
+        
+        <!-- 헤더 시작 -->
+    	<jsp:include page="../view/common/header.jsp" />
+    	<!-- 헤더 끝 -->
+    	
         <header class="css-4g5dyy-HeaderBarPrimitive">
             <div class="css-uf1ume">
                 <div class="css-0">
@@ -110,27 +67,6 @@
                     <li class="secondLi">
                         <a href="${pageContext.request.contextPath }/sriracha/commentDetailView.do?board_num=1&movie_id=1">
                             <span class="commentText">
-                                <!-- Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Cumque repudiandae ad maiores recusandae necessitatibus
-                                adipisci quos dolor architecto libero repellendus?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Cumque repudiandae ad maiores recusandae necessitatibus
-                                adipisci quos dolor architecto libero repellendus?
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Cumque repudiandae ad maiores recusandae necessitatibus
-                                adipisci quos dolor architecto libero repellendus? -->
-<!--                                 * 이 프로젝트의 비하인드 스토리 * <br /> -->
-<!--                                 원래 왓챠피디아 클론은 제가 속한 개발스터디의 첫 팀프로젝트였습니다. <br /> -->
-<!--                                 스터디가 결성됐을 당시, 저를 포함한 팀원 모두가 아직 스스로 뭔가를 만들어본 경험이 없는 초보자들이었습니다. &nbsp; -->
-<!--                                 그런 상황에서 일단 각자 구현할 페이지를 정하고 html, css, vanilla js로 보이는 화면만 구현하는 것을 1차 목표로 정했습니다.<br /> -->
-<!--                                 하지만 구현하면 할수록 당시 저희 팀의 수준으로는 사이트 전체를 완전하게 클론하는 것이 어렵겠다는 것을 느끼고있던 찰나에, &nbsp; -->
-<!--                                 프론드엔드와 백엔드를 모두 활용한 완전한 프로젝트를 해보신 분이 새로 팀원으로 들어왔습니다.<br /> -->
-<!--                                 그 분께서 저희 팀의 상황을 파악하시더니 단번에 왓챠피디아 클론은 현재 수준에선 무리라고 단정지으셨고,&nbsp; -->
-<!--                                 저를 포함한 팀원 모두가 그 말에 동의하면서 일단 각자 공부를 더 하고 추후에 새로운 프로젝트를 시작해보는 걸로 결정했습니다.<br /> -->
-<!--                                 하지만 저는 당시에 제가 맡은 파트를 많이 구현해놓은 상태였고 이대로 내려놓기엔 아쉬워서,&nbsp; 개인프로젝트로 구현이 안된 나머지 부분을 마저 구현하였습니다.<br /> -->
-<!--                                 이 프로젝트는 당시 제가 맡았던 파트로,&nbsp; 모든 코드는 스스로 짰으며 일체의 어떠한 라이브러리도 사용하지 않았습니다.<br /> -->
-<!--                                 처음으로 스스로 만든 프로젝트라 코드의 퀄리티가 상당히 낮지만, &nbsp;일단 보이는 화면만 완벽하게 구현하는 것을 목표로 했습니다.<br /> -->
-<!--                                 추후에 차차 리팩토링해나가는 것도 재밌을 것 같습니다. -->
 								${board.board_content }
                             </span>
                         </a>
@@ -141,9 +77,7 @@
                         <i class="fas fa-comment"></i>
                         <span class="numOfComments">5</span>
                     </li>
-                    <!-- <div class="css-hy68ty">
-                        <button class="css-1h18l7j-StylelessButton">좋아요</button>
-                    </div> -->
+                    
                     <li class="fourthLi">
                         <button class="like">좋아요</button>
                     </li>
@@ -238,5 +172,6 @@
             </div>
         </nav>
     </section>
+    
 </body>
 </html>

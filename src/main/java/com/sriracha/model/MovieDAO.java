@@ -50,11 +50,9 @@ public class MovieDAO {
 		return upComingMovieList;
 	}
 
-	
-	
-	
-	
-	
-	
-	
+	public List<MovieDTO> getMoviesByTitle(String search_content) {
+		List<MovieDTO> searchedMovieList = sqlSession.selectList("Movie.getMoviesByTitle", search_content);
+		return searchedMovieList;
+	}
+
 }

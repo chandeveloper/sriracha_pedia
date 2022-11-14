@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>  
-
 <!DOCTYPE html>
 <html lang="ko-KR">
   <head>
     <meta charset="UTF-8" />
     <!-- <meta http-equiv="X-UA-Compatible" content="IE=edge" /> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/comment_detail.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/comment_detail.css">
 
     <!-- <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet"> -->
     <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" -->
@@ -33,16 +29,83 @@
       
 </head>
     <body>
-    
-    <c:set var="commentList" value="${requestScope.commentList}" />
-    
-        <!-- 헤더 시작 -->
-    	<jsp:include page="../view/common/header.jsp" />
-    	<!-- 헤더 끝 -->
-                   
-               <!-- 11/10 유진 -->
-               <c:if test="${requestScope.commentList != null }">
-				<c:forEach var="comment" items="${requestScope.commentList}">
+        <div id="root">
+            <div class="css-5jq76">
+                <div class="css-1xm32e0">
+                    <div>
+                        <header class="menu-box">
+                            <div class="menu">
+                                <div class="menu_left">
+                                    <a href="main.html"><img class="menu_logo" src="img/logo.png"
+                                            style="max-width:200px; width:100%; height:auto;" /></a>
+                                    <span class="menu_movie">영화</span>
+                                    <span class="menu_tv">TV 프로그램</span>
+                                    <span class="menu_book">책</span>
+                                </div>
+                                <div class="menu_right">
+                                    <div class="menu_search-box">
+                                        <i class="fas fa-search"></i>
+                                        <input class="menu_search" type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
+                                    </div>
+                                    <span class="menu_login" onclick="location.href='./login.html'" style="cursor: pointer;">로그아웃 </span>
+                                    <span class="menu_sign-up" id="js-signUp" onclick="location.href='./mypage.html'"
+                                        style="cursor: pointer;">마이페이지</span>
+                                </div>
+                                <div class="pop_sign-up">
+                                    <img src="img/pop_logo.png" class="pop_logo">
+                                    <span class="pop_title">회원가입</span>
+                                    <form action="">
+                                        <div class="pop_input-box">
+                                            <input type="text" placeholder="이름">
+                                        </div>
+                                        <div class="pop_input-box">
+                                            <input type="text" placeholder="이메일">
+                                        </div>
+                                        <div class="pop_input-box">
+                                            <input type="text" placeholder="비밀번호">
+                                        </div>
+                                    </form>
+                                    <button class="pop_btn">회원가입</button>
+                                    <div class="pop_already">
+                                        <span>이미 가입하셨나요?&nbsp;</span>
+                                        <a href="">
+                                            <span>로그인</span>
+                                        </a>
+                                    </div>
+                                    <span class="pop_or">OR</span>
+                                    <div class="pop_line-box">
+                                        <div class="pop_line"></div>
+                                        <div class="pop_line"></div>
+                                    </div>
+                                    <button class="pop_facebook">
+                                        <i class="fab fa-facebook-square"></i>
+                                        <span>Facebook 으로 로그인</span>
+                                    </button>
+                                </div>
+                                <div class="overlay"></div>
+                            </div>
+                        </header>
+                        <!-- <header class="menu-box">
+                            <div class="contentMenu">
+                                <div class="menu_left">
+                                    <a href="main.html"><img class="menu_logo" src="img/logo.png" style="max-width:200px; width:100%; height:auto;"/></a>
+                                    <span class="menu_movie">영화</span>
+                                    <span class="menu_tv">TV 프로그램</span>
+                                    <span class="menu_book">책</span>
+                                </div>
+                                <div class="menu_right">
+                                    <div class="menu_search-box">
+                                        <i class="fas fa-search"></i>
+                                        <input class="menu_search" type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
+                                    </div>
+                                    <span class="menu_login" onclick="location.href='./login.html'" style="cursor: pointer;">로그아웃 </span>
+                                    <span class="menu_sign-up" id="js-signUp" onclick="location.href='./main.html'" style="cursor: pointer;">메인페이지</span>
+                                </div>
+                                <div class="overlay"></div>
+                            </div>
+                        </header> -->
+                    </div>
+                    <!-----헤더 끝------>
                     <section class="css-18gwkcr">
                         <div class="css-leo5si-Self e1rmcw6u0">
                             <section class="css-funxdv-StyledCommentPageContainer e1rmcw6u1">
@@ -57,14 +120,14 @@
                                                                 <div class="css-jno9px-ProfilePhotoImage"></div>
                                                             </div>
                                                             <div class="css-1sg2lsz">
-                                                                <div class="css-a7gqjg">${comment.user_id }</div>
-                                                                <div class="css-1hy7aba">${comment.board_date }</div>
+                                                                <div class="css-a7gqjg">재원</div>
+                                                                <div class="css-1hy7aba">6일 전</div>
                                                             </div>
                                                         </a>
                                                         <a title="자백" class="css-1f9m1s4-StylelessLocalLink eovgsd01" href="/ko-KR/contents/mOPVxED">
                                                             <div class="css-0">
-                                                                <div class="css-dbu6le">${comment.movie_title }</div>
-                                                                <div class="css-1futg35">영화 · ${comment.movie_date }</div>
+                                                                <div class="css-dbu6le">자백</div>
+                                                                <div class="css-1futg35">영화 · 2020</div>
                                                             </div>
                                                         </a>
                                                         <div class="css-1edcxeb">
@@ -82,13 +145,13 @@
                                                 </div>
                                                 <div class="css-cb09zq">
                                                     <div class="css-1g78l7j">
-                                                        <span class="content-content"><br>${comment.board_content }
+                                                        <span class="content-content"><br>진실은 스스로 떠오르지 않는다. 악착같이 파고드는 간절함이 진실을 건져올릴 뿐.
                                                         </span>
                                                     </div>
                                                 </div>
                                                 <div class="css-hkgyal">
                                                     <div class="css-prw2jl">
-                                                        <span class="css-1n0dvqq">좋아요 ${comment.board_like }</span>
+                                                        <span class="css-1n0dvqq">가장 먼저 좋아요를 누르세요</span>
                                                         <span class="css-0">댓글 1</span>
                                                     </div>
                                                     <!-- <div class="css-j985f6">
@@ -108,9 +171,28 @@
                                                             </div>
                                                         </div>
                                                     </div> -->
+                                                     <!--수정, 삭제하기 추가 시작 : 유진(11/08)-->
+                                                    <div class="css-j985f6">
+                                                        <button class="css-1nfwvb4-StylelessButton">
+                                                            <svg class="css-s99igu" viewBox="0 0 18 18">
+                                                                <g fill-rule="evenodd">
+                                                                    <path d="M2.18 15.39l.703-3.98 3.713 3.712-3.981.702a.374.374 0 0 1-.434-.434zm1.498-4.776l6.364-6.364 3.713 3.712-6.364 6.364-3.713-3.712zM15.607 5.04a.75.75 0 0 1 0 1.06l-1.06 1.061-3.713-3.712 1.06-1.06a.75.75 0 0 1 1.06 0l2.653 2.651z"></path>
+                                                                </g>
+                                                            </svg>
+                                                            수정
+                                                        </button>
+                                                        <button class="css-1nfwvb4-StylelessButton">
+                                                            <svg class="css-s99igu" viewBox="0 0 18 18">
+                                                                <g fill-rule="evenodd">
+                                                                    <path d="M5.25 14.25h7.5v-7.5h1.5V15a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6.75h1.5v7.5zM12 4.5h3.75V6H2.25V4.5H6V3a.75.75 0 0 1 .75-.75h4.5A.75.75 0 0 1 12 3v1.5zm-1.5 0v-.75h-3v.75h3zM6.75 6.75h1.5v6.75h-1.5V6.75zm3 0h1.5v6.75h-1.5V6.75z"></path>
+                                                                </g>
+                                                            </svg>
+                                                            삭제
+                                                        </button>
+                                                    </div>
+                                                <!--수정, 삭제하기 추가 끝 : 유진(11/08)-->
                                                 </div>
-                                                
-                                                
+                                               
                                                 <section class="css-0">
                                                     <hr class="css-god8tc">
                                                     <div class="css-1gkas1x-Grid e1689zdh0">
@@ -204,7 +286,7 @@
                                                             <div class="css-199ku80">
                                                                 <div class="css-1sg2lsz">
                                                                     <a class="css-255jr8" href="/ko-KR/users/6ADvGQN6EKxzZ">
-                                                                        <div class="css-72k174">대댓글 내용입니다</div>
+                                                                        <div class="css-72k174">담시노</div>
                                                                     </a>
                                                                     <div class="css-maxfbg">6일 전</div>
                                                                 </div>
@@ -221,7 +303,7 @@
                                                                         </div>
                                                                         4
                                                                     </div>
-                                                                    <div class="css-4ygot5">
+                                                                    <!-- <div class="css-4ygot5">
                                                                         <div class="Icon more css-1b4hoch-SVG e1282e850">
                                                                             <div>
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4yNTEgNS40MjY3NkMxMS4yNTEgNi4xMTc1OSAxMC42OTEgNi42NzY3NiAxMC4wMDEgNi42NzY3NkM5LjMxMDE0IDYuNjc2NzYgOC43NTA5OCA2LjExNzU5IDguNzUwOTggNS40MjY3NkM4Ljc1MDk4IDQuNzM2NzYgOS4zMTAxNCA0LjE3Njc2IDEwLjAwMSA0LjE3Njc2QzEwLjY5MSA0LjE3Njc2IDExLjI1MSA0LjczNjc2IDExLjI1MSA1LjQyNjc2Wk0xMC4wMDEgOC43NDk5M0M5LjMxMDE0IDguNzQ5OTMgOC43NTA5OCA5LjMwOTkzIDguNzUwOTggOS45OTk5M0M4Ljc1MDk4IDEwLjY5MDggOS4zMTAxNCAxMS4yNDk5IDEwLjAwMSAxMS4yNDk5QzEwLjY5MSAxMS4yNDk5IDExLjI1MSAxMC42OTA4IDExLjI1MSA5Ljk5OTkzQzExLjI1MSA5LjMwOTkzIDEwLjY5MSA4Ljc0OTkzIDEwLjAwMSA4Ljc0OTkzWk0xMC4wMDEgMTMuMzIzMUM5LjMxMDE0IDEzLjMyMzEgOC43NTA5OCAxMy44ODIzIDguNzUwOTggMTQuNTczMUM4Ljc1MDk4IDE1LjI2MzkgOS4zMTAxNCAxNS44MjMxIDEwLjAwMSAxNS44MjMxQzEwLjY5MSAxNS44MjMxIDExLjI1MSAxNS4yNjM5IDExLjI1MSAxNC41NzMxQzExLjI1MSAxMy44ODIzIDEwLjY5MSAxMy4zMjMxIDEwLjAwMSAxMy4zMjMxWiIgZmlsbD0iI0EwQTBBMCIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -236,7 +318,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -270,7 +352,7 @@
                                                                         </div>
                                                                         4
                                                                     </div>
-                                                                    <div class="css-4ygot5">
+                                                                    <!-- <div class="css-4ygot5">
                                                                         <div class="Icon more css-1b4hoch-SVG e1282e850">
                                                                             <div>
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4yNTEgNS40MjY3NkMxMS4yNTEgNi4xMTc1OSAxMC42OTEgNi42NzY3NiAxMC4wMDEgNi42NzY3NkM5LjMxMDE0IDYuNjc2NzYgOC43NTA5OCA2LjExNzU5IDguNzUwOTggNS40MjY3NkM4Ljc1MDk4IDQuNzM2NzYgOS4zMTAxNCA0LjE3Njc2IDEwLjAwMSA0LjE3Njc2QzEwLjY5MSA0LjE3Njc2IDExLjI1MSA0LjczNjc2IDExLjI1MSA1LjQyNjc2Wk0xMC4wMDEgOC43NDk5M0M5LjMxMDE0IDguNzQ5OTMgOC43NTA5OCA5LjMwOTkzIDguNzUwOTggOS45OTk5M0M4Ljc1MDk4IDEwLjY5MDggOS4zMTAxNCAxMS4yNDk5IDEwLjAwMSAxMS4yNDk5QzEwLjY5MSAxMS4yNDk5IDExLjI1MSAxMC42OTA4IDExLjI1MSA5Ljk5OTkzQzExLjI1MSA5LjMwOTkzIDEwLjY5MSA4Ljc0OTkzIDEwLjAwMSA4Ljc0OTkzWk0xMC4wMDEgMTMuMzIzMUM5LjMxMDE0IDEzLjMyMzEgOC43NTA5OCAxMy44ODIzIDguNzUwOTggMTQuNTczMUM4Ljc1MDk4IDE1LjI2MzkgOS4zMTAxNCAxNS44MjMxIDEwLjAwMSAxNS44MjMxQzEwLjY5MSAxNS44MjMxIDExLjI1MSAxNS4yNjM5IDExLjI1MSAxNC41NzMxQzExLjI1MSAxMy44ODIzIDEwLjY5MSAxMy4zMjMxIDEwLjAwMSAxMy4zMjMxWiIgZmlsbD0iI0EwQTBBMCIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -285,7 +367,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -319,7 +401,7 @@
                                                                         </div>
                                                                         4
                                                                     </div>
-                                                                    <div class="css-4ygot5">
+                                                                    <!-- <div class="css-4ygot5">
                                                                         <div class="Icon more css-1b4hoch-SVG e1282e850">
                                                                             <div>
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4yNTEgNS40MjY3NkMxMS4yNTEgNi4xMTc1OSAxMC42OTEgNi42NzY3NiAxMC4wMDEgNi42NzY3NkM5LjMxMDE0IDYuNjc2NzYgOC43NTA5OCA2LjExNzU5IDguNzUwOTggNS40MjY3NkM4Ljc1MDk4IDQuNzM2NzYgOS4zMTAxNCA0LjE3Njc2IDEwLjAwMSA0LjE3Njc2QzEwLjY5MSA0LjE3Njc2IDExLjI1MSA0LjczNjc2IDExLjI1MSA1LjQyNjc2Wk0xMC4wMDEgOC43NDk5M0M5LjMxMDE0IDguNzQ5OTMgOC43NTA5OCA5LjMwOTkzIDguNzUwOTggOS45OTk5M0M4Ljc1MDk4IDEwLjY5MDggOS4zMTAxNCAxMS4yNDk5IDEwLjAwMSAxMS4yNDk5QzEwLjY5MSAxMS4yNDk5IDExLjI1MSAxMC42OTA4IDExLjI1MSA5Ljk5OTkzQzExLjI1MSA5LjMwOTkzIDEwLjY5MSA4Ljc0OTkzIDEwLjAwMSA4Ljc0OTkzWk0xMC4wMDEgMTMuMzIzMUM5LjMxMDE0IDEzLjMyMzEgOC43NTA5OCAxMy44ODIzIDguNzUwOTggMTQuNTczMUM4Ljc1MDk4IDE1LjI2MzkgOS4zMTAxNCAxNS44MjMxIDEwLjAwMSAxNS44MjMxQzEwLjY5MSAxNS44MjMxIDExLjI1MSAxNS4yNjM5IDExLjI1MSAxNC41NzMxQzExLjI1MSAxMy44ODIzIDEwLjY5MSAxMy4zMjMxIDEwLjAwMSAxMy4zMjMxWiIgZmlsbD0iI0EwQTBBMCIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -334,7 +416,7 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -368,7 +450,7 @@
                                                                         </div>
                                                                         4
                                                                     </div>
-                                                                    <div class="css-4ygot5">
+                                                                    <!-- <div class="css-4ygot5">
                                                                         <div class="Icon more css-1b4hoch-SVG e1282e850">
                                                                             <div>
                                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" class="injected-svg" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMS4yNTEgNS40MjY3NkMxMS4yNTEgNi4xMTc1OSAxMC42OTEgNi42NzY3NiAxMC4wMDEgNi42NzY3NkM5LjMxMDE0IDYuNjc2NzYgOC43NTA5OCA2LjExNzU5IDguNzUwOTggNS40MjY3NkM4Ljc1MDk4IDQuNzM2NzYgOS4zMTAxNCA0LjE3Njc2IDEwLjAwMSA0LjE3Njc2QzEwLjY5MSA0LjE3Njc2IDExLjI1MSA0LjczNjc2IDExLjI1MSA1LjQyNjc2Wk0xMC4wMDEgOC43NDk5M0M5LjMxMDE0IDguNzQ5OTMgOC43NTA5OCA5LjMwOTkzIDguNzUwOTggOS45OTk5M0M4Ljc1MDk4IDEwLjY5MDggOS4zMTAxNCAxMS4yNDk5IDEwLjAwMSAxMS4yNDk5QzEwLjY5MSAxMS4yNDk5IDExLjI1MSAxMC42OTA4IDExLjI1MSA5Ljk5OTkzQzExLjI1MSA5LjMwOTkzIDEwLjY5MSA4Ljc0OTkzIDEwLjAwMSA4Ljc0OTkzWk0xMC4wMDEgMTMuMzIzMUM5LjMxMDE0IDEzLjMyMzEgOC43NTA5OCAxMy44ODIzIDguNzUwOTggMTQuNTczMUM4Ljc1MDk4IDE1LjI2MzkgOS4zMTAxNCAxNS44MjMxIDEwLjAwMSAxNS44MjMxQzEwLjY5MSAxNS44MjMxIDExLjI1MSAxNS4yNjM5IDExLjI1MSAxNC41NzMxQzExLjI1MSAxMy44ODIzIDEwLjY5MSAxMy4zMjMxIDEwLjAwMSAxMy4zMjMxWiIgZmlsbD0iI0EwQTBBMCIvPgo8L3N2Zz4K" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -383,22 +465,19 @@
                                                                                 </div>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
+                                                                    </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </section>
-                                            
                                         </div>
                                     </div>
                                 </section>
                             </section>
                         </div>
                     </section>
-                    </c:forEach>
-                    </c:if>
                 </div>
                     
                     <!-- <div disabled="" class="css-pjxj5o"></div>
@@ -409,7 +488,47 @@
                         <div></div>
                     </div> -->
             </div>
-            
+            <!--footer-->
+            <footer>
+                <div class="small-box ">
+                    <span class="review">
+                        지금까지&nbsp;
+                    </span>
+                    <span class="review review-red">
+                        ★ 562,339,084 개의 평가가&nbsp;
+                    </span>
+                    <span class="review">
+                        쌓였어요.
+                    </span>
+                </div>
+                <div class="big-box">
+                    <div class="first-column column">
+                        <span class="footer_info cursor">
+                            서비스 이용약관 &nbsp;|&nbsp; 개인정보 처리방침 &nbsp;|&nbsp; 회사 안내
+                        </span>
+                    </div>
+                    <div class="second-column column">
+                        <span class="footer_info cursor">
+                            고객센터 &nbsp;|&nbsp; cs@srirachapedia.co.kr
+                        </span>
+                        <span class="footer_info cursor">
+                            제휴 및 대외 협력 &nbsp;|&nbsp; contact@sriracha.com, 070-1234-5678
+                        </span>
+                    </div>
+                    <div class="third-column column">
+                        <span class="footer_info">
+                            주식회사 스리라차 &nbsp;|&nbsp; 대표 강태석 &nbsp;|&nbsp; 서울특별시 역삼동 코리아IT 아카데미
+                        </span>
+                        <span class="footer_info">
+                            사업자 등록 번호 123-45-78910
+                        </span>
+                        <div class="footer_info">
+                            <img src="img/logo2.png" style="max-width:200px; width:100%; height:auto;" class="footer_logo">
+                            <span class="footer_info">© 2022 sriracha. Inc</span>
+                        </div>
+                    </div>
+                </div>
+            </footer>
         </div>
 
         <!--모달창 !!!!!!!!!!! 대댓글 !!!!!!!!!!!!!!!!!!11-->
@@ -469,10 +588,6 @@
             </div>
         </div> -->
 
-
-			<!-- 푸터 시작 -->
-			<jsp:include page="../view/common/footer.jsp" />
-		    <!-- 푸터 끝 -->
             
     </body>
         <script>

@@ -28,18 +28,17 @@
     <header class="menu-box">
       <div class="menu">
           <div class="menu_left">
-              <a href="main.jsp"><img class="menu_logo" src="../img/logo.png" style="max-width:200px; width:100%; height:auto;"/></a>
-              <span class="menu_movie">영화</span>
-              <span class="menu_tv">TV 프로그램</span>
-              <span class="menu_book">책</span>
+              <a href="/sriracha/get_main_page.do"><img class="menu_logo" src="../img/logo.png" style="max-width:200px; width:100%; height:auto;"/></a>
           </div>
           <div class="menu_right">
               <div class="menu_search-box">
                   <i class="fas fa-search"></i>
-                  <input class="menu_search" type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
+                  <form action="/sriracha/search.do" id="searchForm">
+	                    <input class="menu_search" type="text" placeholder="영화 제목 키워드를 검색해보세요." name="search_content" onkeyup="searchEnter_mypage()">
+                  </form>
               </div>
-              <span class="menu_login" onclick="location.href='./login.jsp'" style="cursor: pointer;">로그아웃 </span>
-              <span class="menu_sign-up" id="js-signUp" onclick="location.href='./main.jsp'" style="cursor: pointer;">메인페이지</span>
+              <span class="menu_login" onclick="logout_mypage()" style="cursor: pointer;">로그아웃 </span>
+              <span class="menu_sign-up" id="js-signUp" onclick="location.href='/sriracha/get_main_page.do'" style="cursor: pointer;">메인페이지</span>
           </div>
           
           <div class="overlay"></div>
@@ -112,80 +111,24 @@
           </div>
         </div>
       </section>
-
-      <footer>
-        <div class="small-box ">
-            <span class="review">
-                지금까지&nbsp;
-            </span>
-            <span class="review review-red">
-                ★ 562,339,084 개의 평가가&nbsp;
-            </span>
-            <span class="review">
-                쌓였어요.
-            </span>
-        </div>
-        <div class="big-box">
-            <div class="first-column column">
-                <span class="footer_info cursor">
-                    서비스 이용약관 &nbsp;|&nbsp; 개인정보 처리방침 &nbsp;|&nbsp; 회사 안내
-                </span>
-            </div>
-            <div class="second-column column">
-                <span class="footer_info cursor">
-                    고객센터 &nbsp;|&nbsp; cs@srirachapedia.co.kr
-                </span>
-                <span class="footer_info cursor">
-                    제휴 및 대외 협력 &nbsp;|&nbsp; contact@sriracha.com, 070-1234-5678
-                </span>
-            </div>
-            <div class="third-column column">
-                <span class="footer_info">
-                    주식회사 스리라차 &nbsp;|&nbsp; 대표 강태석 &nbsp;|&nbsp; 서울특별시 역삼동 코리아IT 아카데미
-                </span>
-                <span class="footer_info">
-                    사업자 등록 번호 123-45-78910
-                </span>
-                <div class="footer_info">
-                    <img src="../img/logo2.png" style="max-width:200px; width:100%; height:auto;" class="footer_logo">
-                    <span class="footer_info">© 2022 sriracha. Inc</span>
-                </div>
-            </div>
-        </div>
-    </footer>
-    
-      <footer class="responsive_foot">
-        <nav>
-          <ul class="foot__items">
-            <li>
-              <a href="#">
-                <div><i class="fas fa-home"></i></div>
-                <div style="font-size: 11.5px; text-align: center">홈</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div><i class="fas fa-search"></i></div>
-                <div style="font-size: 11.5px">검색</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div><i class="fas fa-star"></i></div>
-                <div style="font-size: 11.5px">평가</div>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <div style="text-align: center">
-                  <i class="fas fa-user"></i>
-                </div>
-                <div style="font-size: 11.5px">나의 스리라차</div>
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </footer>
     </div>
+    
+    <!-- 푸터 시작 -->
+	<jsp:include page="../view/common/footer.jsp" />
+    <!-- 푸터 끝 -->
   </body>
+  
+<script>
+function logout_mypage(){
+	if(confirm("로그아웃 하시겠습니까?\n(로그인 페이지로 이동합니다)")){
+		location.href="/sriracha/logout.do";
+	}
+}
+
+function searchEnter_mypage(){
+	if(window.event.keyCode == 13){
+		searchForm.submit();
+	}
+}
+</script>
 </html>
