@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -203,8 +205,8 @@
                   <div>
                      <span class="contents_contents_title">기본 정보</span>
 
-                     <!-- 기본정보 더보기 링크 연결해주세요 -->
-                     <a href="./overview.jsp"> <span
+                     <!-- 기본정보 더보기 링크 연결해주세요 ./overview.jsp -->
+                     <a href="${pageContext.request.contextPath }/sriracha/overView.do?movie_id=${movie.movie_id }"> <span
                         class="contents_contents_more">더보기</span>
                      </a>
                      <!-- 여기입니다 -->
