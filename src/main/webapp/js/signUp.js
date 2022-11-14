@@ -29,92 +29,99 @@ let flagIdChk = false;
 
 //------------------------------- 이름이 유효성체크
 elInputUsername.onkeyup = function() {
-	var regName = /^[가-힣]{2,10}$/;
+   var regName = /^[가-힣]{2,10}$/;
 
-	if (regName.test(elInputUsername.value)) {
-		elNameSuccess.classList.add('hide')
-		flagName = true;
-	}
-	else {
-		elNameSuccess.classList.remove('hide')
-		flagName = false;
+   if (regName.test(elInputUsername.value)) {
+      elNameSuccess.classList.add('hide')
+      flagName = true;
+   }
+   else {
+      elNameSuccess.classList.remove('hide')
+      flagName = false;
 
-	}
+   }
 }
 
 
 //------------------------------- 아이디가 유효성체크
 elInputId.onkeyup = function() {
 
-	var regId = /^[a-z]+[a-z0-9]{5,19}$/g;;
+   var regId = /^[a-z]+[a-z0-9]{5,19}$/g;;
 
-	if (regId.test(elInputId.value)) {
-		elIdFailuremessage.classList.add('hide')
-		flagId = true;
-	}
-	else {
-		elIdFailuremessage.classList.remove('hide')
-		flagId = false;
-	}
-	
+   if (regId.test(elInputId.value)) {
+      elIdFailuremessage.classList.add('hide')
+      flagId = true;
+   }
+   else {
+      elIdFailuremessage.classList.remove('hide')
+      flagId = false;
+   }
+   
 }
 
 //------------------------------- 아이디가 중복확인 유효성체크
 function checkId(userid){
-	
-	if( userid == "" ){
-	} else {
-		let xhr = new XMLHttpRequest();
-		xhr.open("POST", "/join/idcheck.jsp?userid="+ userid, true);		
-		xhr.send();
-		xhr.onreadystatechange = function(){
-			if( xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200 ){
-				//alert( xhr.responseText );
-				
-				if( xhr.responseText.trim() == "ok" ){
-					flagIdChk = true;
-					elIdSuccessmessage.classList.remove('hide')
-					elIdOverlapmessage.classList.add('hide')
-				} else {
-					flagIdChk = false;
-					elIdOverlapmessage.classList.remove('hide')
-					elIdSuccessmessage.classList.add('hide')
-				}
-				button();
-				
-			}
-		}	
-	}
-	
+   
+   if( userid == "" ){
+   } else {
+      let xhr = new XMLHttpRequest();
+      xhr.open("POST", "/join/idcheck.jsp?userid="+ userid, true);      
+      xhr.send();
+      xhr.onreadystatechange = function(){
+         if( xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200 ){
+            //alert( xhr.responseText );
+            
+            if( xhr.responseText.trim() == "ok" ){
+               flagIdChk = true;
+               elIdSuccessmessage.classList.remove('hide')
+               elIdOverlapmessage.classList.add('hide')
+            } else {
+               flagIdChk = false;
+               elIdOverlapmessage.classList.remove('hide')
+               elIdSuccessmessage.classList.add('hide')
+            }
+            button();
+            
+         }
+      }   
+   }
+   
 }
 
 
 //------------------------------- 비밀번호 유효성체크
 elInputPassword.onkeyup = function() {
-	var regPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
+   var regPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{8,16}$/;
 
-	if (regPw.test(elInputPassword.value)) {
-		elPwFailuremessage.classList.add('hide')
-		flagPw = true;
-	}
-	else {
-		elPwFailuremessage.classList.remove('hide')
-		flagPw = false;
-	}
+   if (regPw.test(elInputPassword.value)) {
+      elPwFailuremessage.classList.add('hide')
+      flagPw = true;
+   }
+   else {
+      elPwFailuremessage.classList.remove('hide')
+      flagPw = false;
+   }
 }
 
 //------------------------------- 비밀번호확인 유효성체크
 elInputPasswordretype.onkeyup = function() {
-	if (elInputPassword.value == elInputPasswordretype.value) {
-		elMissmatchmessage.classList.add('hide')
-		flagRePw = true;
-	}
-	else {
-		elMissmatchmessage.classList.remove('hide')
-		flagRePw = false;
-	}
-	if(window.event.keyCode == 13){
-      document.signUp.submit();
+   if (elInputPassword.value == elInputPasswordretype.value) {
+      elMissmatchmessage.classList.add('hide')
+      flagRePw = true;
+   }
+   else {
+      elMissmatchmessage.classList.remove('hide')
+      flagRePw = false;
+   }
+   if (window.event.keyCode == 13) {
+      var answer = confirm("정말로 회원가입을 하시겠습니까?");
+
+      if (answer == true) {
+         document.signUp.submit();
+         alert("회원가입을 축하드립니다!");
+      } else {
+         window.location.reload();
+      }
    };
 }
 
@@ -127,19 +134,25 @@ elInputPasswordretype.addEventListener('keyup', button)
 //------------------------------- 아이디, 비밀번호, 비밀번호 확인, 전화번호 값을 모두 입력하였을 때, 회원가입 버튼이 활성화 되는 함수
 function button() {
 
-	if (flagName && flagId && flagPw && flagRePw && flagIdChk) {
-		elJoinbutton.disabled = false; 	// 버튼 활성화
+   if (flagName && flagId && flagPw && flagRePw && flagIdChk) {
+      elJoinbutton.disabled = false;    // 버튼 활성화
 
-	} else {
-		elJoinbutton.disabled = true; 	// 버튼 비활성화
+   } else {
+      elJoinbutton.disabled = true;    // 버튼 비활성화
 
-	}
+   }
 
 }
 
 //------------------------------- 회원정보 데이터를 넘기는 submit
 elJoinbutton.addEventListener('click', join);
 function join() {
-	document.signUp.submit();
+   var answer = confirm("정말로 회원가입을 하시겠습니까?");
+   
+   if(answer == true){
+      document.signUp.submit();
+      alert("회원가입을 축하드립니다!");   
+   } else{
+      window.location.reload();
+   }
 }
-
