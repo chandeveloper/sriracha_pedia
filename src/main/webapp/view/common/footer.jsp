@@ -11,13 +11,13 @@
 <footer>
         <div class="small-box ">
             <span class="review">
-                지금까지&nbsp;
+                영화 정보는&nbsp;
             </span>
             <span class="review review-red">
-                ★ 562,339,084 개의 평가가&nbsp;
+                SRIRACHA PEDIA&nbsp;
             </span>
             <span class="review">
-                쌓였어요.
+                와 함께 하세요.
             </span>
         </div>
         <div class="big-box">

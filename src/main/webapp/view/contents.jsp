@@ -29,8 +29,9 @@
 </head>
 
 <body>
-   <c:set var="movie" value="${requestScope.movie }"></c:set>
-   <c:set var="creditList" value="${requestScope.creditList }"></c:set>
+	<c:set var="movie" value="${requestScope.movie }"></c:set>
+	<c:set var="creditList" value="${requestScope.creditList }"></c:set>
+	<c:set var="key" value="${requestScope.key }" />
 
    <c:set var="boardList" value="${requestScope.boardList}" />
    
@@ -126,8 +127,11 @@
    </div>
    <!-- 여기까지 영화 정보들 입니다 -->
 
+ 	
+
    <!-- 여기서부터 메인 컨텐츠 박스입니다 -->
    <main class="contents_main-box">
+   
       <div class="contents_middle-box">
          <div>
             <!--댓글 달았을 시 추가되는 부분 : 유진-->
@@ -178,6 +182,17 @@
                   style="cursor: pointer;">코멘트 남기기</span>
             </div>
             <div class="contents_contents-box">
+            
+           <!--  <div class="contents_contents_column">
+                  <div>
+                    <span class="contents_contents_title">예고편</span>
+							
+                  </div>
+            </div> -->
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/${key}" 
+               				title="YouTube video player" frameborder="0" 
+               				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            	
                <!-- 첫번째(기본정보) 박스입니다 -->
                <div class="contents_contents_column">
                   <div>
@@ -190,7 +205,8 @@
                      <!-- 여기입니다 -->
 
                   </div>
-                  <span class="contents_contents_name contents_info">${movie.movie_title }</span>
+                  <br>
+                  <span class="contents_contents_name contents_info" style="">${movie.movie_title }</span>
                   <span class="contents_contents_info contents_info">${movie.movie_date }</span>
                   <!-- <span class="contents_contents_runtime contents_info">2시간 12분</span> -->
                   <span class="contents_contents_summary contents_info">
@@ -319,16 +335,7 @@
 
             <!-- 세번째(별점 그래프) 시작 -->
             <div class="contents_contents_column">
-               <div>
-                  <span class="contents_contents_title">별점 그래프</span>
-                  <div>
-                     <span class="star_average">평균 ★2.9</span> <span
-                        class="star_people">(2,225명)</span>
-                  </div>
-               </div>
-               <div class="contents_contents_star-box">
-                  <img src="../img/star_graph.png" alt="별점 그래프" class="star-graph">
-               </div>
+               
             </div>
             <!-- 세번째(별점 그래프) 끝 -->
 
@@ -338,14 +345,14 @@
                   <div>
                      <span class="contents_contents_title">코멘트</span> <span
                         class="contents_contents_title-number">550+</span>
-                  </div>
+                  
 
                   <!-- 코멘트 더보기 링크 연결해주세요 -->
                   <a href="${pageContext.request.contextPath }/sriracha/commentView.do?movie_id=1"> <span
                      class="contents_contents_more">더보기</span>
                   </a>
                   <!-- 여기입니다 -->
-
+				  </div>
                </div>
                <section class="step2">
                 <div class="contents_contents_comment-container">
@@ -451,6 +458,7 @@
       </div>
       <div class="contents_side-box"></div>
       </div>
+     
    </main>
    <!-- 여기까지 메인 컨텐츠 박스였습니다 -->
 
