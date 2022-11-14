@@ -229,29 +229,25 @@
                                             <div class="swiper-slide slide">
                                                <ul>
                                                   <c:forEach var="credit" items="${creditList }">
-                                                     <c:if test="${not empty credit.job }">
-                                                       <li class="contents_contents_profile">
-                                                           <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-                                                             <div class="txt">
-                                                               <span class="profile_name">${credit.name }</span>
-                                                               <span class="profile_job">${credit.job }</span>
+                                                     	<c:if test="${not empty credit.job }">
+                                                       		<li class="contents_contents_profile">
+                                                           		<img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
+                                                             	<div class="txt">
+                                                               	<span class="profile_name">${credit.name }</span>
+                                                               	<span class="profile_job">${credit.job }</span>
                                                              </div>
-                                                        </li>
-                                                  </c:if>   
-                                               </c:forEach>
-                                            </ul>
+                                                        	</li>
+                                                  		</c:if>   
+                                               		</c:forEach>
+                                            	</ul>
                                            </div>
+                                           
                                          <div class="swiper-slide slide">
                                                <ul>
-<%--                                                <c:set var="doneLoop" value="false" /> --%>
                                                 <c:forEach var="credit" items="${creditList }" varStatus="status">
-<%--                                                 <c:if test="${status.index%3==0 }"> --%>
-<%--                                                 </c:if> --%>
-<%--                                                    <c:if test="${not doneLoop }"> --%>
                                                       <c:if test="${status.index<3 }">
                                                       <c:if test="${not empty credit.profile_path }">
                                                          <c:if test="${not empty credit.character }">
-<%--                                                          <c:set var="doneLoop" value="true" /> --%>
                                                             <li class="contents_contents_profile">
                                                                <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
                                                                <div class="txt">
@@ -262,23 +258,17 @@
                                                          </c:if>
                                                          </c:if>
                                              </c:if>
-<%--                                                       </c:if> --%>
-<%--                                                       <c:if test="${status.index%3==2 }"> --%>
-<%--                                                       </c:if> --%>
                                                 </c:forEach>
                                              </ul>
                                              </div>
                                            <div class="swiper-slide slide">
                                              <ul>
-<%--                                                <c:set var="doneLoop" value="false" /> --%>
+                                               
                                                 <c:forEach var="credit" items="${creditList }" varStatus="status">
-<%--                                                 <c:if test="${status.index%3==0 }"> --%>
-<%--                                                 </c:if> --%>
-<%--                                                    <c:if test="${not doneLoop }"> --%>
                                                       <c:if test="${status.index>2 && status.index<6 }">
-                                                      <c:if test="${not empty credit.profile_path }">
+                                                      
+                                                      	<c:if test="${not empty credit.profile_path }">
                                                          <c:if test="${not empty credit.character }">
-<%--                                                          <c:set var="doneLoop" value="true" /> --%>
                                                             <li class="contents_contents_profile">
                                                                <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
                                                                <div class="txt">
@@ -287,25 +277,20 @@
                                                                </div>
                                                             </li>
                                                          </c:if>
-                                                         </c:if>
-                                             </c:if>
-<%--                                                       </c:if> --%>
-<%--                                                       <c:if test="${status.index%3==2 }"> --%>
-<%--                                                       </c:if> --%>
+                                                      	</c:if>
+                                                       </c:if>
                                                 </c:forEach>
+                                             	
                                              </ul>
                                              </div>
+                                             
+                                             <c:if test="${creditList.size()>6 }">
                                               <div class="swiper-slide slide" style="width:280px;">
                                              <ul>
-<%--                                                <c:set var="doneLoop" value="false" /> --%>
                                                 <c:forEach var="credit" items="${creditList }" varStatus="status">
-<%--                                                 <c:if test="${status.index%3==0 }"> --%>
-<%--                                                 </c:if> --%>
-<%--                                                    <c:if test="${not doneLoop }"> --%>
                                                       <c:if test="${status.index>5 && status.index<9 }">
                                                       <c:if test="${not empty credit.profile_path }">
                                                          <c:if test="${not empty credit.character }">
-<%--                                                          <c:set var="doneLoop" value="true" /> --%>
                                                             <li class="contents_contents_profile">
                                                                <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
                                                                <div class="txt">
@@ -316,15 +301,11 @@
                                                          </c:if>
                                                          </c:if>
                                              </c:if>
-<%--                                                       </c:if> --%>
-<%--                                                       <c:if test="${status.index%3==2 }"> --%>
-<%--                                                       </c:if> --%>
                                                 </c:forEach>
                                              </ul>
                                              </div>
+                                             </c:if>
                                              </div>
-<%--                                             <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div> --%>
                                         </div>
                                     </div>
                                 </div>
@@ -445,8 +426,6 @@
                                     </ul>
                                 </div>
                             </div>
-                            <!-- <div class="swiper-button-next-2"></div>
-                            <div class="swiper-button-prev-2"></div> -->
                         </div>
                     </div>
                 </div>
