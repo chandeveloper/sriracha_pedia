@@ -74,8 +74,8 @@ body.addEventListener("click", closePopUp);
     
     var swiperStep = new Swiper(".mySwiper2", {
         // slidesPer
-        slidesPerView: 2,
-        spaceBetween: 30,
+        slidesPerView: 2.5,
+        spaceBetween: 20,
         freeMode: true,
         pagination: {
         el: ".swiper-pagination",
