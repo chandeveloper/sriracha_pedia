@@ -126,7 +126,7 @@ public class Util {
 		//https://api.themoviedb.org/3/movie/851644/credits?api_key=76b35796a3549ed9d36a411955f5428f&language=ko-KR
 		String base_url = "https://api.themoviedb.org/3/movie/";					// 영화 검색 기본 url
 		String api_key = "?api_key=76b35796a3549ed9d36a411955f5428f";	// api 키
-		String language = "&language=ko-kr";												// 언어 옵션
+		String language = "&language=ko-KR";												// 언어 옵션
 		
 		String completed_url = base_url+movie_id+"/credits"+api_key+language;
 		
@@ -204,6 +204,62 @@ public class Util {
 		
 		return creditList;
 		
+	}
+	
+	public String getVideoKey(int movie_id) {
+		String key = "";
+		
+		// https://api.themoviedb.org/3/movie/436270/videos?api_key=76b35796a3549ed9d36a411955f5428f&language=ko-KR
+		String base_url = "https://api.themoviedb.org/3/movie/";					// 영화 검색 기본 url
+		String api_key = "?api_key=76b35796a3549ed9d36a411955f5428f";	// api 키
+		String language = "&language=ko-KR";												// 언어 옵션
+		
+		String completed_url = base_url+movie_id+"/videos"+api_key+language;
+		
+//		System.out.println(completed_url);
+		
+		try {
+			URL url = new URL(completed_url);
+			HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+			
+			conn.setRequestMethod("GET");
+			conn.setRequestProperty("Content-Type", "application/json");
+			conn.setDoOutput(true); // 서버로 받는 값이 있다
+			
+			// 데이터 읽기
+			BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
+			StringBuilder sb = new StringBuilder();
+			String line = null;
+			
+			// 읽을 수 있을 때 까지
+			while((line = br.readLine()) != null) {
+				sb.append(line);
+			}
+			
+			JSONParser parser = new JSONParser();
+			JSONObject obj = (JSONObject) parser.parse(sb.toString());
+			
+			JSONArray objArray = (JSONArray) obj.get("results");
+			
+			if(objArray.size()>0) {
+				JSONObject result = (JSONObject) objArray.get(0);
+//				System.out.println("key : "+result.get("key"));
+				key = result.get("key").toString();
+			}
+			
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+			System.out.println("URL이 잘못되었습니다.");
+		} catch (IOException e) {
+			e.printStackTrace();
+			System.out.println("Input 또는 Ouput 오류");
+		} catch (ParseException e) {
+			e.printStackTrace();
+			System.out.println("제이슨 파싱 실패");
+		}
+		
+		
+		return key;
 	}
 	
 }

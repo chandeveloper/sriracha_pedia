@@ -18,8 +18,10 @@ public class GetContentsPageController implements Action{
 		MovieDTO mdto = new MovieDTO();
 		
 		mdto = mdao.selectMovieById(Integer.parseInt(req.getParameter("movie_id")));
+		
 		req.setAttribute("movie", mdto);
 		req.setAttribute("creditList", Util.getInstance().getCreditList(mdto.getMovie_id()));
+		req.setAttribute("key", Util.getInstance().getVideoKey(mdto.getMovie_id()));
 		
 		forward.setRedirect(false);
 		forward.setPath(req.getContextPath()+"/view/contents.jsp");

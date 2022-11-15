@@ -31,8 +31,9 @@
 </head>
 
 <body>
-   <c:set var="movie" value="${requestScope.movie }"></c:set>
-   <c:set var="creditList" value="${requestScope.creditList }"></c:set>
+	<c:set var="movie" value="${requestScope.movie }"></c:set>
+	<c:set var="creditList" value="${requestScope.creditList }"></c:set>
+	<c:set var="key" value="${requestScope.key }" />
 
    <c:set var="boardList" value="${requestScope.boardList}" />
    <c:set var="board" value="${requestScope.board }" />
@@ -131,8 +132,11 @@
    </div>
    <!-- 여기까지 영화 정보들 입니다 -->
 
+ 	
+
    <!-- 여기서부터 메인 컨텐츠 박스입니다 -->
    <main class="contents_main-box">
+   
       <div class="contents_middle-box">
          <div>
             <!--댓글 달았을 시 추가되는 부분 : 유진-->
@@ -183,6 +187,17 @@
                   style="cursor: pointer;">코멘트 남기기</span>
             </div>
             <div class="contents_contents-box">
+            
+           <!--  <div class="contents_contents_column">
+                  <div>
+                    <span class="contents_contents_title">예고편</span>
+							
+                  </div>
+            </div> -->
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/${key}" 
+               				title="YouTube video player" frameborder="0" 
+               				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            	
                <!-- 첫번째(기본정보) 박스입니다 -->
                <div class="contents_contents_column">
                   <div>
@@ -195,6 +210,7 @@
                      <!-- 여기입니다 -->
 
                   </div>
+                  <br>
                   <span class="contents_contents_name contents_info">${movie.movie_title }</span>
                   <span class="contents_contents_info contents_info">${movie.movie_date }</span>
                   <!-- <span class="contents_contents_runtime contents_info">2시간 12분</span> -->
@@ -218,29 +234,25 @@
                                             <div class="swiper-slide slide">
                                                <ul>
                                                   <c:forEach var="credit" items="${creditList }">
-                                                     <c:if test="${not empty credit.job }">
-                                                       <li class="contents_contents_profile">
-                                                           <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-                                                             <div class="txt">
-                                                               <span class="profile_name">${credit.name }</span>
-                                                               <span class="profile_job">${credit.job }</span>
+                                                     	<c:if test="${not empty credit.job }">
+                                                       		<li class="contents_contents_profile">
+                                                           		<img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
+                                                             	<div class="txt">
+                                                               	<span class="profile_name">${credit.name }</span>
+                                                               	<span class="profile_job">${credit.job }</span>
                                                              </div>
-                                                        </li>
-                                                  </c:if>   
-                                               </c:forEach>
-                                            </ul>
+                                                        	</li>
+                                                  		</c:if>   
+                                               		</c:forEach>
+                                            	</ul>
                                            </div>
+                                           
                                          <div class="swiper-slide slide">
                                                <ul>
-<%--                                                <c:set var="doneLoop" value="false" /> --%>
                                                 <c:forEach var="credit" items="${creditList }" varStatus="status">
-<%--                                                 <c:if test="${status.index%3==0 }"> --%>
-<%--                                                 </c:if> --%>
-<%--                                                    <c:if test="${not doneLoop }"> --%>
                                                       <c:if test="${status.index<3 }">
                                                       <c:if test="${not empty credit.profile_path }">
                                                          <c:if test="${not empty credit.character }">
-<%--                                                          <c:set var="doneLoop" value="true" /> --%>
                                                             <li class="contents_contents_profile">
                                                                <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
                                                                <div class="txt">
@@ -251,23 +263,17 @@
                                                          </c:if>
                                                          </c:if>
                                              </c:if>
-<%--                                                       </c:if> --%>
-<%--                                                       <c:if test="${status.index%3==2 }"> --%>
-<%--                                                       </c:if> --%>
                                                 </c:forEach>
                                              </ul>
                                              </div>
                                            <div class="swiper-slide slide">
                                              <ul>
-<%--                                                <c:set var="doneLoop" value="false" /> --%>
+                                               
                                                 <c:forEach var="credit" items="${creditList }" varStatus="status">
-<%--                                                 <c:if test="${status.index%3==0 }"> --%>
-<%--                                                 </c:if> --%>
-<%--                                                    <c:if test="${not doneLoop }"> --%>
                                                       <c:if test="${status.index>2 && status.index<6 }">
-                                                      <c:if test="${not empty credit.profile_path }">
+                                                      
+                                                      	<c:if test="${not empty credit.profile_path }">
                                                          <c:if test="${not empty credit.character }">
-<%--                                                          <c:set var="doneLoop" value="true" /> --%>
                                                             <li class="contents_contents_profile">
                                                                <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
                                                                <div class="txt">
@@ -276,25 +282,20 @@
                                                                </div>
                                                             </li>
                                                          </c:if>
-                                                         </c:if>
-                                             </c:if>
-<%--                                                       </c:if> --%>
-<%--                                                       <c:if test="${status.index%3==2 }"> --%>
-<%--                                                       </c:if> --%>
+                                                      	</c:if>
+                                                       </c:if>
                                                 </c:forEach>
+                                             	
                                              </ul>
                                              </div>
+                                             
+                                             <c:if test="${creditList.size()>6 }">
                                               <div class="swiper-slide slide" style="width:280px;">
                                              <ul>
-<%--                                                <c:set var="doneLoop" value="false" /> --%>
                                                 <c:forEach var="credit" items="${creditList }" varStatus="status">
-<%--                                                 <c:if test="${status.index%3==0 }"> --%>
-<%--                                                 </c:if> --%>
-<%--                                                    <c:if test="${not doneLoop }"> --%>
                                                       <c:if test="${status.index>5 && status.index<9 }">
                                                       <c:if test="${not empty credit.profile_path }">
                                                          <c:if test="${not empty credit.character }">
-<%--                                                          <c:set var="doneLoop" value="true" /> --%>
                                                             <li class="contents_contents_profile">
                                                                <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
                                                                <div class="txt">
@@ -305,15 +306,11 @@
                                                          </c:if>
                                                          </c:if>
                                              </c:if>
-<%--                                                       </c:if> --%>
-<%--                                                       <c:if test="${status.index%3==2 }"> --%>
-<%--                                                       </c:if> --%>
                                                 </c:forEach>
                                              </ul>
                                              </div>
+                                             </c:if>
                                              </div>
-<%--                                             <div class="swiper-button-next"></div>
-                                            <div class="swiper-button-prev"></div> --%>
                                         </div>
                                     </div>
                                 </div>
@@ -324,16 +321,7 @@
 
             <!-- 세번째(별점 그래프) 시작 -->
             <div class="contents_contents_column">
-               <div>
-                  <span class="contents_contents_title">별점 그래프</span>
-                  <div>
-                     <span class="star_average">평균 ★2.9</span> <span
-                        class="star_people">(2,225명)</span>
-                  </div>
-               </div>
-               <div class="contents_contents_star-box">
-                  <img src="../img/star_graph.png" alt="별점 그래프" class="star-graph">
-               </div>
+               
             </div>
             <!-- 세번째(별점 그래프) 끝 -->
 
@@ -343,14 +331,14 @@
                   <div>
                      <span class="contents_contents_title">코멘트</span> <span
                         class="contents_contents_title-number">550+</span>
-                  </div>
+                  
 
                   <!-- 코멘트 더보기 링크 연결해주세요 -->
                   <a href="${pageContext.request.contextPath }/sriracha/commentView.do?movie_id=${movie.movie_id}"> <span
                      class="contents_contents_more">더보기</span>
                   </a>
                   <!-- 여기입니다 -->
-
+				  </div>
                </div>
                <section class="step2">
                 <div class="contents_contents_comment-container">
@@ -391,8 +379,6 @@
                                 
                                 
                             </div>
-                            <!-- <div class="swiper-button-next-2"></div>
-                            <div class="swiper-button-prev-2"></div> -->
                         </div>
                     </div>
                 </div>
@@ -404,6 +390,7 @@
       </div>
       <div class="contents_side-box"></div>
       </div>
+     
    </main>
    <!-- 여기까지 메인 컨텐츠 박스였습니다 -->
 

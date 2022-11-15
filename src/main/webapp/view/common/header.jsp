@@ -17,7 +17,9 @@
             <div class="menu_right">
                 <div class="menu_search-box">
                     <i class="fas fa-search"></i>
-                    <input class="menu_search" type="text" placeholder="작품 제목,배우,감독을 검색해보세요.">
+                    <form action="/sriracha/search.do" id="searchForm">
+	                    <input class="menu_search" type="text" placeholder="영화 제목 키워드를 검색해보세요." name="search_content" onkeyup="searchEnter()">
+                    </form>
                 </div>
                 <span class="menu_login" onclick="doLogout()" style="cursor: pointer;">로그아웃 </span>
                 <span class="menu_sign-up" id="js-signUp" onclick="location.href='../view/mypage.jsp'"
@@ -32,11 +34,25 @@
 </body>
 
 <script>
+
+	let searchForm = document.getElementById("searchForm");
+	
 	function doLogout(){
 		if(confirm("로그아웃 하시겠습니까?\n(로그인 페이지로 이동합니다)")){
 			location.href="/sriracha/logout.do";
 		}
 	}
+	
+	function searchEnter(){
+		if(window.event.keyCode == 13){
+			searchForm.submit();
+		}
+	}
+	
+	
+	
+	
+	
 </script>
 
 </html>

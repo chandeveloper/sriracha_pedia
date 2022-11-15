@@ -67,6 +67,7 @@ public class SrirachaFrontController extends HttpServlet{
 			case "/sriracha/commentDetailView.do" :
 				forward = new CommentDetailViewController().execute(req, resp);
 				break;
+<<<<<<< HEAD
 			
 				
 				
@@ -102,6 +103,11 @@ public class SrirachaFrontController extends HttpServlet{
 				break;
 			case "/sriracha/addComment.do" :
 				forward = new addCommentController().execute(req, resp);
+=======
+				
+			case "/sriracha/search.do" :
+				forward = new SearchController().execute(req, resp);
+>>>>>>> 3dcabad8c34a2e47e31f42a436136d94e43ce4ad
 				break;
 		}
 		
