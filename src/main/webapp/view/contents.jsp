@@ -443,10 +443,7 @@
                   <div class="css-6qnjre">
                      <p class="css-1s08rlk"></p>
                      <p class="css-ynpx67" id="reCount">0/10000</p>
-<%--                     <a href="${pageContext.request.contextPath }/sriracha/addComment.do?movie_id=${movie.movie_id}"> --%>
                      <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장" onclick="addcomment()">
-<!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
-<!-- 					</a> -->
                   </div>
                </div>
             </div>
@@ -455,24 +452,24 @@
    </div>
    <!----모달창 !!! 대댓글 끝!!!!!------>
    <!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ?-->
-    <div class="css-14gy7wr" id="modal2">
-        <div id="modal-container-7jMaFDbYzaXVi3tG2JxKy" class="css-rpyl6s">
-            <div class="css-1yszxv0">
-                <div class="css-f35o9y">
-                    <div class="css-1gkas1x-Grid e1689zdh0">
-                        <div class="css-1y901al-Row emmoxnt0">
-                            <div class="css-2djw8f">알림</div>
-                            <div class="css-148qwic">코멘트를 삭제하시겠어요?</div>
-                            <div size="2" class="css-gy4ioq">
-                                <button class="css-1gdw77k-StylelessButton" id="cancel">취소</button>
-                                <button class="css-sfhtz9-StylelessButton" id="deletecomment">확인</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+<!--     <div class="css-14gy7wr" id="modal2"> -->
+<!--         <div id="modal-container-7jMaFDbYzaXVi3tG2JxKy" class="css-rpyl6s"> -->
+<!--             <div class="css-1yszxv0"> -->
+<!--                 <div class="css-f35o9y"> -->
+<!--                     <div class="css-1gkas1x-Grid e1689zdh0"> -->
+<!--                         <div class="css-1y901al-Row emmoxnt0"> -->
+<!--                             <div class="css-2djw8f">알림</div> -->
+<!--                             <div class="css-148qwic">코멘트를 삭제하시겠어요?</div> -->
+<!--                             <div size="2" class="css-gy4ioq"> -->
+<!--                                 <button class="css-1gdw77k-StylelessButton" id="cancel">취소</button> -->
+<!--                                 <button class="css-sfhtz9-StylelessButton" id="deletecomment">확인</button> -->
+<!--                             </div> -->
+<!--                         </div> -->
+<!--                     </div> -->
+<!--                 </div> -->
+<!--             </div> -->
+<!--         </div> -->
+<!--     </div> -->
     <!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ? 끝-->
     
     <!-- 푸터 시작 -->
@@ -505,21 +502,21 @@ const evTarget = e.target
 })
 
 /*코멘트 삭제 모달창 - 코멘트를 삭제하시겠어요?*/
-const modal2 = document.getElementById("modal2")
-const btnModal2 = document.getElementById("delete_btn")
-btnModal2.addEventListener("click", e => {
-    modal2.style.display = "flex"
-})
+// const modal2 = document.getElementById("modal2")
+// const btnModal2 = document.getElementById("delete_btn")
+// btnModal2.addEventListener("click", e => {
+//     modal2.style.display = "flex"
+// })
 
-modal2.addEventListener("click", e => {
-const evTarget = e.target
-    if(evTarget.classList.contains("css-1yszxv0")) {
-        modal2.style.display = "none"
-    }
-})
+// modal2.addEventListener("click", e => {
+// const evTarget = e.target
+//     if(evTarget.classList.contains("css-1yszxv0")) {
+//         modal2.style.display = "none"
+//     }
+// })
 
-const elCommentbtn = document.getElementById('#commentbtn')
-const elwritecomment1 = document.getElementById('#writecomment1')
+const elCommentbtn = document.getElementById('commentbtn')
+const elwritecomment1 = document.getElementById('writecomment1')
 elCommentbtn.disabled = true;
 elwritecomment1.addEventListener('keyup', button)
 
@@ -544,33 +541,33 @@ closeBtn2.addEventListener("click", e => {
 // commented.style.display = "none";
 
 
-$('#commentbtn').click(function(){
-    $('.leave-comment-box ').hide();
-    $('#commented').show();
-    return false;
-})
+// $('#commentbtn').click(function(){
+//     $('.leave-comment-box ').hide();
+//     $('#commented').show();
+//     return false;
+// })
 
 /*삭제 버튼 클릭 시 다시 코멘트 달기 창 보여주기*/
 // const deletecomment = document.querySelector("#deletecomment");
-const commentarea = document.querySelector("#commentarea");
+// const commentarea = document.querySelector("#commentarea");
 
-$("#deletecomment").click(function(){
-    modal2.style.display = "none"
-    $('#commented').hide();
-    $('.leave-comment-box ').show();
-    document.getElementById("writecomment1").value = '';
-    return false;
-})
+// $("#deletecomment").click(function(){
+//     modal2.style.display = "none"
+//     $('#commented').hide();
+//     $('.leave-comment-box ').show();
+//     document.getElementById("writecomment1").value = '';
+//     return false;
+// })
 
 //취소 버튼 클릭
-$("#cancel").click(function(){
-    modal2.style.display = "none"
-})
+// $("#cancel").click(function(){
+//     modal2.style.display = "none"
+// })
 
 //코멘트 수정하기
-$("#modify_btn").click(function(){
-    modal.style.display = "flex"
-})
+// $("#modify_btn").click(function(){
+//     modal.style.display = "flex"
+// })
 
 function addcomment(){
 	
