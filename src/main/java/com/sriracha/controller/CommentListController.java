@@ -15,8 +15,6 @@ public class CommentListController implements Action{
 		BoardDAO bdao = new BoardDAO();
 		ActionForward forward = new ActionForward();
 		
-		
-		
 		int movie_id = Integer.parseInt(req.getParameter("movie_id"));
 		
 		req.setAttribute("boardList", bdao.getBoardList(movie_id));

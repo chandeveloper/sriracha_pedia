@@ -55,4 +55,9 @@ public class MovieDAO {
 		return searchedMovieList;
 	}
 
+	public void updateMovieVote(MovieDTO mdto) {
+		sqlSession.update("Movie.updateMovieVote", mdto);
+		
+	}
+
 }

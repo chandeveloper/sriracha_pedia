@@ -3,6 +3,7 @@
    
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -39,6 +40,8 @@
    <c:set var="boardList" value="${requestScope.boardList}" />
    <c:set var="commentCntMap" value="${requestScope.commentCntMap}" />
    <c:set var="boardCnt" value="${requestScope.boardCnt }" />
+   
+   <fmt:formatNumber type="number" var="movie_vote_average"  pattern="0.0" value="${movie.movie_vote_average/2}" />
    
     <!-- 헤더 시작 -->
     <jsp:include page="../view/common/header.jsp" />
@@ -104,8 +107,10 @@
          <!-- 세번째 줄 년도, 장르, 나라 끝 -->
 
          <!-- 네번째 줄 평점 -->
+         
+         
          <div class="content_info">
-            <span class="content_star">평점 ★${movie.movie_vote_average/2 }
+            <span class="content_star">평점 ★${movie_vote_average }
                (${movie.movie_vote_count }명)</span>
          </div>
          <!-- 네번째 줄 평점 끝 -->
@@ -433,6 +438,7 @@
                         <div class="css-iowq1w">
                         	<form action="${pageContext.request.contextPath }/sriracha/addBoard.do" id="addBoardForm" method="post">
                         		<input type="hidden" name="movie_id" value="${movie.movie_id }">
+                        		<input type="hidden" name="star_value" id="star_value">
                         		<textarea maxlength="10000"
                               		placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
                         	</form>
@@ -590,7 +596,10 @@ closeBtn2.addEventListener("click", e => {
 
 function addboard(){
 	
-    let form = document.getElementById("addBoardForm");
+    let form = document.getElementById("addCommentForm");
+    let star_value = document.getElementById("star_value");
+    star_value.value = starValue;
+    
     form.submit();
 }
 

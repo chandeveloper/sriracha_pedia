@@ -31,7 +31,7 @@
                             <header class="css-4g5dyy-HeaderBarPrimitive">
                                 <div class="css-uf1ume">
                                     <div class="css-0">
-                                        <a href="./contents.jsp">
+                                        <a href="javascript:history.back();">
                                         <button class="e1t9gclr0 css-a6n3jw-StylelessButton-HeaderCloseButtonSelf-TopLeftButton e1k34u8y0"></button>
                                         </a>
                                     </div>

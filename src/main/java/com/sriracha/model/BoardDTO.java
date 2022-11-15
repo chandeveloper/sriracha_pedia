@@ -10,9 +10,26 @@ public class BoardDTO {
 	private int movie_id;
 	private int comment_cnt;
 	private String user_id;
-	private double star;
+	private Double star;
 	
-	
+	public Double getStar() {
+		return star;
+	}
+	public void setStar(Double star) {
+		this.star = star;
+	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	public int getComment_cnt() {
+		return comment_cnt;
+	}
+	public void setComment_cnt(int comment_cnt) {
+		this.comment_cnt = comment_cnt;
+	}
 	public int getBoard_num() {
 		return board_num;
 	}
