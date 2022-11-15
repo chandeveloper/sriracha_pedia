@@ -40,5 +40,9 @@ public class BoardDAO {
 	public String getUserNameFromBoard(int board_num) {
 		return sqlSession.selectOne("Board.getUserNameFromBoard", board_num);
 	}
+	
+	public int getBoardCnt(int movie_id) {
+		return sqlSession.selectOne("Board.getBoardCnt", movie_id);
+	}
 
 }

@@ -15,7 +15,7 @@ import com.sriracha.model.CommentDTO;
 import com.sriracha.model.FullDTO;
 import com.sriracha.model.UserDTO;
 
-public class addCommentController implements Action {
+public class AddBoardController implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
@@ -41,8 +41,8 @@ public class addCommentController implements Action {
 		bdto.setUser_id(udto.getUser_id());
 		
 		if (bdao.addComment(bdto)) {
-			forward.setRedirect(false);
-			forward.setPath(req.getContextPath() + "/sriracha/get_contents_page.do");
+			forward.setRedirect(true);
+			forward.setPath(req.getContextPath() + "/sriracha/get_contents_page.do?movie_id="+Integer.parseInt(req.getParameter("movie_id")));
 		}
 		return forward;
 	}

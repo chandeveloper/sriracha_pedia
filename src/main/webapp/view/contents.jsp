@@ -37,9 +37,8 @@
 
    <c:set var="boardList" value="${requestScope.boardList}" />
    <c:set var="commentCntMap" value="${requestScope.commentCntMap}" />
+   <c:set var="boardCnt" value="${requestScope.boardCnt }" />
    
-   
-    
     <!-- 헤더 시작 -->
     <jsp:include page="../view/common/header.jsp" />
     <!-- 헤더 끝 -->
@@ -330,7 +329,7 @@
                <div class="column_column">
                   <div>
                      <span class="contents_contents_title">코멘트</span> <span
-                        class="contents_contents_title-number">550+</span>
+                        class="contents_contents_title-number">${boardCnt }</span>
                   
 
                   <!-- 코멘트 더보기 링크 연결해주세요 -->
