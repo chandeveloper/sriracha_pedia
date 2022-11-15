@@ -4,8 +4,9 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="User">
 	
-	<select id="login" parameterType="string" resultType="string">
-		SELECT user_pw FROM "USER" WHERE USER_ID = #{user_id}
+	<select id="login" parameterType="string" resultType="userdto">
+<!-- 		SELECT user_pw FROM "USER" WHERE USER_ID = #{user_id} -->
+		SELECT * FROM "USER" WHERE USER_ID = #{user_id}
 	</select>
 	
 	<update id="updateUser">
