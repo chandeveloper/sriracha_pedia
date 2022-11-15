@@ -77,7 +77,7 @@ public class SrirachaFrontController extends HttpServlet{
 			break;
 			
 		 case "/sriracha/addComment.do" :
-			forward = new addCommentController().execute(req, resp);
+			forward = new AddBoardController().execute(req, resp);
 			break;
 			
       }

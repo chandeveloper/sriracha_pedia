@@ -31,6 +31,7 @@ public class GetContentsPageController implements Action{
 		req.setAttribute("key", Util.getInstance().getVideoKey(mdto.getMovie_id()));
 		
 		req.setAttribute("boardList", bdao.getBoardList(Integer.parseInt(req.getParameter("movie_id"))));
+		req.setAttribute("boardCnt", bdao.getBoardCnt(Integer.parseInt(req.getParameter("movie_id"))));
 		
 		forward.setRedirect(false);
 		forward.setPath(req.getContextPath()+"/view/contents.jsp");

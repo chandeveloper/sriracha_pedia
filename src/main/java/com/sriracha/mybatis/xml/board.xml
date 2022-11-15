@@ -18,5 +18,9 @@
 			INNER JOIN "USER" u ON b.USER_NUM = u.USER_NUM 
 		WHERE b.BOARD_NUM = #{board_num}
 	</select>	
+	
+	<select id="getBoardCnt" parameterType="_int" resultType="_int">
+		SELECT count(*) FROM BOARD WHERE MOVIE_ID = #{movie_id}
+	</select>
 
 </mapper>

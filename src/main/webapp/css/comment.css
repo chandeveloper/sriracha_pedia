@@ -52,6 +52,7 @@
     height: 170px;
     border-bottom: 1px solid #dadada;
     line-height: 145%;
+    text-align: left;
 }
 
 .comment_feel {
