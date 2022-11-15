@@ -24,8 +24,8 @@ body.addEventListener("click", closePopUp);
 
        //영화차트 이미지 슬라이드
        var mySwiper = new Swiper('.swiper-container2', {
-        slidesPerView: 5,
-        spaceBetween: 15,
+        slidesPerView: 8,
+        spaceBetween: 10,
 //            mousewheel: {
 //                invert: true,
 //            },
@@ -39,15 +39,15 @@ body.addEventListener("click", closePopUp);
         breakpoints: {
             600: {
             slidesPerView: 3,
-            spaceBetween: 15,
+            spaceBetween: 10,
             },
             768: {
                slidesPerView: 4,
-               spaceBetween: 15,
+               spaceBetween: 10,
             },
             960: {
                slidesPerView: 5,
-               spaceBetween: 15,
+               spaceBetween: 10,
             },
         }
     });
@@ -74,8 +74,40 @@ body.addEventListener("click", closePopUp);
     
     var swiperStep = new Swiper(".mySwiper2", {
         // slidesPer
-        slidesPerView: 2,
-        spaceBetween: 30,
+        slidesPerView: 2.5,
+        spaceBetween: 10,
+        freeMode: true,
+        pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+        clickable: true,
+        },
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+    });
+    
+     var swiperStep = new Swiper(".mySwiper3", {
+        // slidesPer
+        slidesPerView: 2.6,
+        spaceBetween: 15,
+        freeMode: true,
+        pagination: {
+        el: ".swiper-pagination",
+        type: "fraction",
+        clickable: true,
+        },
+        navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+        },
+    });
+    
+         var swiperStep = new Swiper(".mySwiper4", {
+        // slidesPer
+        slidesPerView: 2.6,
+        spaceBetween: 15,
         freeMode: true,
         pagination: {
         el: ".swiper-pagination",
