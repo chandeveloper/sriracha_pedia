@@ -431,7 +431,7 @@
                   <div class="css-cdzmq7">
                      <div class="css-iowq1w">
                         <div class="css-iowq1w">
-                        	<form action="${pageContext.request.contextPath }/sriracha/addComment.do" id="addCommentForm" method="post">
+                        	<form action="${pageContext.request.contextPath }/sriracha/addBoard.do" id="addBoardForm" method="post">
                         		<input type="hidden" name="movie_id" value="${movie.movie_id }">
                         		<textarea maxlength="10000"
                               		placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
@@ -462,7 +462,7 @@
                   <div class="css-6qnjre">
                      <p class="css-1s08rlk"></p>
                      <p class="css-ynpx67" id="reCount">0/10000</p>
-                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장" onclick="addcomment()">
+                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장" onclick="addboard()">
                   </div>
                </div>
             </div>
@@ -588,9 +588,9 @@ closeBtn2.addEventListener("click", e => {
 //     modal.style.display = "flex"
 // })
 
-function addcomment(){
+function addboard(){
 	
-    let form = document.getElementById("addCommentForm");
+    let form = document.getElementById("addBoardForm");
     form.submit();
 }
 

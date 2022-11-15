@@ -44,5 +44,17 @@ public class BoardDAO {
 	public int getBoardCnt(int movie_id) {
 		return sqlSession.selectOne("Board.getBoardCnt", movie_id);
 	}
+	
+	//수정 필요 - 원래 : commentList
+		public List<BoardDTO> getBoardComment(BoardDTO bdto) {
+			List<BoardDTO> boardComment = sqlSession.selectList("Board.getBoardComment", bdto);
+			
+			return boardComment;
+		}
+
+		public List<MovieDTO> getBoardComment_Movie(int board_num) {
+			List<MovieDTO> boardMovie = sqlSession.selectList("Board.getBoardComment_Movie", board_num);
+			return boardMovie;
+		}
 
 }

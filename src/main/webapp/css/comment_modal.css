@@ -420,6 +420,7 @@ p {
     background: none rgb(255, 47, 110);
     border: none;
     margin: 0px 0px 0px 12px;
+    cursor: pointer;
     position: relative;
     z-index: 51;
     color: rgb(255, 255, 255);
@@ -429,8 +430,12 @@ p {
     height: 38px;
     padding: 0px 40px;
     border-radius: 7px;
-    opacity: 0.5;
-    cursor: not-allowed;
+
+}
+
+input:disabled {
+    background: none rgb(255, 47, 110);
+    opacity:0.4;
 }
 
 button{
