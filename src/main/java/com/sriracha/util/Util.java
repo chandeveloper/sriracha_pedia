@@ -241,7 +241,7 @@ public class Util {
 			
 			JSONArray objArray = (JSONArray) obj.get("results");
 			
-			if(objArray!=null && objArray.size()>0) {
+			if(objArray.size()>0) {
 				JSONObject result = (JSONObject) objArray.get(0);
 //				System.out.println("key : "+result.get("key"));
 				key = result.get("key").toString();
