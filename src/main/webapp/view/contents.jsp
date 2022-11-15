@@ -36,9 +36,9 @@
 	<c:set var="key" value="${requestScope.key }" />
 
    <c:set var="boardList" value="${requestScope.boardList}" />
-   <c:set var="board" value="${requestScope.board }" />
-   <c:set var="user" value="${requestScope.user }" />
-   <c:set var="comment_count" value="${requestScope.comment_count }" />
+   <c:set var="commentCntMap" value="${requestScope.commentCntMap}" />
+   
+   
     
     <!-- 헤더 시작 -->
     <jsp:include page="../view/common/header.jsp" />
@@ -140,45 +140,45 @@
       <div class="contents_middle-box">
          <div>
             <!--댓글 달았을 시 추가되는 부분 : 유진-->
-                <div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented" >
-                    <div class="css-12ru3m0">
-                        <div class="css-1gkas1x-Grid e1689zdh0">
-                            <div class="css-1y901al-Row emmoxnt0">
-                                <section class="css-10tfsfb-MyCommentSection eue8w0j3">
-                                    <div class="css-vo2laf-MyCommentBlock eue8w0j6">
-                                        <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4">
-                                            <div class="css-ffwxzk">
-                                                <div class="css-h6h0rq-ProfilePhotoImage"></div>
-                                            </div>
-                                        </div>
-                                        <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13" href="comment_detail_me.html">
-                                            <div class="css-2a9q6o-MyComment eue8w0j5">
-                                                <div class=" css-gujidv-StyledSelf eb5y16b0">
-                                                    <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단 내용 표시하는 부분입니다.</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7">
-                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
-                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="delete_btn">
-                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="delete comment">
-                                                    삭제
-                                                </button>
-                                            </li>
-                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
-                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="modify_btn">
-                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="edit comment">
-                                                    수정
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
+<!--                 <div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented" > -->
+<!--                     <div class="css-12ru3m0"> -->
+<!--                         <div class="css-1gkas1x-Grid e1689zdh0"> -->
+<!--                             <div class="css-1y901al-Row emmoxnt0"> -->
+<!--                                 <section class="css-10tfsfb-MyCommentSection eue8w0j3"> -->
+<!--                                     <div class="css-vo2laf-MyCommentBlock eue8w0j6"> -->
+<!--                                         <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4"> -->
+<!--                                             <div class="css-ffwxzk"> -->
+<!--                                                 <div class="css-h6h0rq-ProfilePhotoImage"></div> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                         <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13" href="comment_detail_me.html"> -->
+<!--                                             <div class="css-2a9q6o-MyComment eue8w0j5"> -->
+<!--                                                 <div class=" css-gujidv-StyledSelf eb5y16b0"> -->
+<!--                                                     <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단 내용 표시하는 부분입니다.</div> -->
+<!--                                                 </div> -->
+<!--                                             </div> -->
+<!--                                         </a> -->
+<!--                                         <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7"> -->
+<!--                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8"> -->
+<!--                                                 <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="delete_btn"> -->
+<!--                                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="delete comment"> -->
+<!--                                                     삭제 -->
+<!--                                                 </button> -->
+<!--                                             </li> -->
+<!--                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8"> -->
+<!--                                                 <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="modify_btn"> -->
+<!--                                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="edit comment"> -->
+<!--                                                     수정 -->
+<!--                                                 </button> -->
+<!--                                             </li> -->
+<!--                                         </ul> -->
+<!--                                     </div> -->
+<!--                                 </section> -->
+<!--                             </div> -->
+<!--                         </div> -->
                         
-                    </div>
-                </div>
+<!--                     </div> -->
+<!--                 </div> -->
                 <!--댓글 달았을 시 추가되는 부분 끝 : 유진-->
             <div class="leave-comment-box">
                <span class="go-leave-comment"> 이 작품에 대한 회원 님의 평가를 글로 남겨보세요.
@@ -347,26 +347,26 @@
                         <div #swiperRef="" class="swiper mySwiper2">            
                             <div class="swiper-wrapper"> 
                             
-								<c:forEach var="board_full" items="${boardList }">
+								<c:forEach var="board_" items="${boardList }">
 									<div class="swiper-slide slide">
 	                                    <ul>
 	                                        <li>
 	                                            <div class="comment-nemo">
 	                                                <div class="comment_user">
 	                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
-	                                                    <span class="user_name">${board_full.user_id }</span>
+	                                                    <span class="user_name">${board_.user_id }</span>
 	                                                </div>
 	                                                <div class="comment_comment">
-	                                                    ${board_full.board_content }
+	                                                    ${board_.board_content }
 	                                                </div>
 	                                                <div class="comment_feel">
 	                                                    <span class="comment_feel-good">
 	                                                        <i class="fas fa-thumbs-up"></i>
-	                                                        ${board_full.board_like }
+	                                                        ${board_.board_like }
 	                                                    </span>
 	                                                    <span class="comment_feel-comment">
 	                                                        <i class="fas fa-comment"></i>
-	                                                        ${comment_count }
+	                                                        ${board_.comment_cnt}
 	                                                    </span>
 	                                                </div>
 	                                                <div class="comment_click-good">좋아요</div>
@@ -518,17 +518,17 @@ const evTarget = e.target
     }
 })
 
-const elCommentbtn = document.querySelector('#commentbtn')
-const elwritecomment1 = document.querySelector('#writecomment1')
+const elCommentbtn = document.getElementById('#commentbtn')
+const elwritecomment1 = document.getElementById('#writecomment1')
 elCommentbtn.disabled = true;
 elwritecomment1.addEventListener('keyup', button)
 
 function button() {
     if (!(elwritecomment1.value == "")) {
         elCommentbtn.disabled = false;
-        document.getElementById("reCount").innerHTML = elwritecomment1.value.length + "/" + 10000
+        document.getElementById("reCount").innerHTML = elwritecomment1.value.length + "/" + 10000;
     } else {
-        elCommentbtn.disabled = true;    // 버튼 활성화
+        elCommentbtn.disabled = true;
     }
 }
 
@@ -540,8 +540,8 @@ closeBtn2.addEventListener("click", e => {
 
 
 /*코멘트 남겼을 때 내가 남긴 코멘트 보여주기*/
-const commented = document.querySelector("#commented");
-commented.style.display = "none";
+// const commented = document.querySelector("#commented");
+// commented.style.display = "none";
 
 
 $('#commentbtn').click(function(){

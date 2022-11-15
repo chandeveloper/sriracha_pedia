@@ -15,9 +15,9 @@ public class BoardDAO {
 		sqlSession = factory.openSession(true);
 	}
 	
-	public List<FullDTO> getBoardList(int movie_id) {
+	public List<BoardDTO> getBoardList(int movie_id) {
 		
-		List<FullDTO> boardList = sqlSession.selectList("Board.getBoardList", movie_id);
+		List<BoardDTO> boardList = sqlSession.selectList("Board.getBoardList", movie_id);
 		
 		return boardList;
 		
@@ -37,6 +37,8 @@ public class BoardDAO {
 		return sqlSession.selectOne("Board.getCommentCnt", board_num);
 	}
 	
-	
+	public String getUserNameFromBoard(int board_num) {
+		return sqlSession.selectOne("Board.getUserNameFromBoard", board_num);
+	}
 
 }
