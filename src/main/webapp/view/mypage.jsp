@@ -24,26 +24,9 @@
 
   </head>
   <body>
-    <!-- 네비게이션바 -->
-    <header class="menu-box">
-      <div class="menu">
-          <div class="menu_left">
-              <a href="/sriracha/get_main_page.do"><img class="menu_logo" src="../img/logo.png" style="max-width:200px; width:100%; height:auto;"/></a>
-          </div>
-          <div class="menu_right">
-              <div class="menu_search-box">
-                  <i class="fas fa-search"></i>
-                  <form action="/sriracha/search.do" id="searchForm">
-	                    <input class="menu_search" type="text" placeholder="영화 제목 키워드를 검색해보세요." name="search_content" onkeyup="searchEnter_mypage()">
-                  </form>
-              </div>
-              <span class="menu_login" onclick="logout_mypage()" style="cursor: pointer;">로그아웃 </span>
-              <span class="menu_sign-up" id="js-signUp" onclick="location.href='/sriracha/get_main_page.do'" style="cursor: pointer;">메인페이지</span>
-          </div>
-          
-          <div class="overlay"></div>
-      </div>
-  </header>
+     <!-- 헤더 시작 -->
+     <jsp:include page="../view/common/header.jsp" />
+     <!-- 헤더 끝 -->
 
     <!-- 상세페이지 & footer -->
     <div id="middle_buttom">

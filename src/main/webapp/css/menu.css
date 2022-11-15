@@ -54,7 +54,8 @@
 }
 
 .menu_right .menu_login {
-    margin: 0px 25px
+    margin: 0px 25px;
+    color: #4d4d4d;
 }
 
 .menu_logo {
@@ -63,7 +64,8 @@
 }
 
 .menu_sign-up {
-    border: 1px solid rgb(160, 160, 160);
+    border: 1px solid #4d4d4d;
+    color: #4d4d4d;
     padding: 8px 11px;
     border-radius: 5px;
 }

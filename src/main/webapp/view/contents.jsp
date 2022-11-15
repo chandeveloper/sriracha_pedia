@@ -35,8 +35,7 @@
 
    <c:set var="boardList" value="${requestScope.boardList}" />
     <!-- 헤더 시작 -->
-    <section class="page-start">
-    <header >
+    <header class="menu-box-box" id="header">
         <div class="menu">
             <div class="menu_left">
                 <a href="/sriracha/get_main_page.do"><img class="menu_logo" src="../img/logo.png"
@@ -44,10 +43,10 @@
                 
             </div>
             <div class="menu_right">
-                <div class="menu_search-box">
+                <div class="menu_search-box-b">
                     <i class="fas fa-search"></i>
                     <form action="/sriracha/search.do" id="searchForm">
-	                    <input class="menu_search" type="text" placeholder="영화 제목 키워드를 검색해보세요." name="search_content" onkeyup="searchEnter()">
+	                    <input class="menu_search-s" type="text" placeholder="영화 제목 키워드를 검색해보세요." name="search_content" onkeyup="searchEnter()">
                     </form>
                 </div>
                 <span class="menu_login" id="logOut" style="cursor: pointer;">로그아웃 </span>
@@ -58,20 +57,16 @@
             <div class="overlay"></div>
         </div>
     </header>
-    
-    <div class="forheader" style="margsin-top: 65px"></div>
     <!-- 헤더 끝 -->
    
+   
+    
+   <!-- 메뉴바 밑에 콘텐츠 썸네일 -->
    <section class="thumbnail">
       <img class="thumbnail"
          src="https://image.tmdb.org/t/p/original${movie.movie_backdrop_path }"
          alt="">
    </section>
-   
-    
-   <div class="inner">
-   <div class="forheader" style="margin-top: 65px"></div>
-   <!-- 메뉴바 밑에 콘텐츠 썸네일 -->
    <!-- 여기까지 썸네일 -->
 
    <!-- 썸네일 밑에 겹쳐있는 콘텐츠 정보들입니다. -->
@@ -544,8 +539,6 @@
     <!-- 푸터 시작 -->
 	<jsp:include page="../view/common/footer.jsp" />
     <!-- 푸터 끝 -->
-    </div>
-</section>
 </body>
 <script src="../js/main.js"></script>
 <script src="../js/star.js"></script>
@@ -660,7 +653,7 @@ let searchForm = document.getElementById("searchForm");
 	                    showCancelButton: true,
 	                    confirmButtonColor: '#3085d6',
 	                    cancelButtonColor: '#d33',
-	                    confirmButtonText: '승인',
+	                    confirmButtonText: '확인',
 	                    cancelButtonText: '취소'
 	                }).then((result) => {
 	                    if (result.isConfirmed) {
@@ -673,21 +666,19 @@ let searchForm = document.getElementById("searchForm");
 	            });
 	        });
 	 
-	$(function(){
-		  var $header = $('header'); //헤더를 변수에 넣기
-		  var $page = $('.page-start'); //색상이 변할 부분
-		  var $window = $(window);
-		  var pageOffsetTop = $page.offset().top;//색상 변할 부분의 top값 구하기
-		  
-		  $window.resize(function(){ //반응형을 대비하여 리사이즈시 top값을 다시 계산
-		    pageOffsetTop = $page.offset().top;
-		  });
-		  
-		  $window.on('scroll', function(){ //스크롤시
-		    var scrolled = $window.scrollTop() >= pageOffsetTop; //스크롤된 상태; true or false
-		    $header.toggleClass('down', scrolled); //클래스 토글
-		  });
-		});
+	
+	// 헤더 스크롤 이벤트
+	const header = document.querySelector("#header");
+	const headerHeight = header.getBoundingClientRect().height;
+	 
+	window.addEventListener("scroll", () => {
+	      if (window.scrollY > headerHeight) {
+	      header.setAttribute("style", "background: white;");
+	   } else {
+	      
+	header.setAttribute("style", "background: transparent;");
+	   }
+	});
 
 </script>
 
