@@ -537,8 +537,8 @@ const evTarget = e.target
     }
 })
 
-const elCommentbtn = document.getElementById('#commentbtn')
-const elwritecomment1 = document.getElementById('#writecomment1')
+const elCommentbtn = document.getElementById('commentbtn')
+const elwritecomment1 = document.getElementById('writecomment1')
 elCommentbtn.disabled = true;
 elwritecomment1.addEventListener('keyup', button)
 

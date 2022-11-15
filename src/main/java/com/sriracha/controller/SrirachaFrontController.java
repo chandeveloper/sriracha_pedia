@@ -1,4 +1,4 @@
-spackage com.sriracha.controller;
+package com.sriracha.controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
