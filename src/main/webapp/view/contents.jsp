@@ -566,7 +566,7 @@ elwritecomment1.addEventListener('keyup', button)
 function button() {
     if (!(elwritecomment1.value == "")) {
         elCommentbtn.disabled = false;
-        document.getElementById("reCount").innerHTML = elwritecomment1.value.length + "/" + 10000
+        document.getElementById("reCount").innerHTML = elwritecomment1.value.length + "/" + 10000;
     } else {
         elCommentbtn.disabled = true;    // 버튼 활성화
     }
