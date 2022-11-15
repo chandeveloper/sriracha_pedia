@@ -524,18 +524,18 @@ const evTarget = e.target
 })
 
 /*코멘트 삭제 모달창 - 코멘트를 삭제하시겠어요?*/
-const modal2 = document.getElementById("modal2")
-const btnModal2 = document.getElementById("delete_btn")
-btnModal2.addEventListener("click", e => {
-    modal2.style.display = "flex"
-})
+// const modal2 = document.getElementById("modal2")
+// const btnModal2 = document.getElementById("delete_btn")
+// btnModal2.addEventListener("click", e => {
+//     modal2.style.display = "flex"
+// })
 
-modal2.addEventListener("click", e => {
-const evTarget = e.target
-    if(evTarget.classList.contains("css-1yszxv0")) {
-        modal2.style.display = "none"
-    }
-})
+// modal2.addEventListener("click", e => {
+// const evTarget = e.target
+//     if(evTarget.classList.contains("css-1yszxv0")) {
+//         modal2.style.display = "none"
+//     }
+// })
 
 const elCommentbtn = document.getElementById('commentbtn')
 const elwritecomment1 = document.getElementById('writecomment1')
@@ -563,33 +563,33 @@ closeBtn2.addEventListener("click", e => {
 // commented.style.display = "none";
 
 
-$('#commentbtn').click(function(){
-    $('.leave-comment-box ').hide();
-    $('#commented').show();
-    return false;
-})
+// $('#commentbtn').click(function(){
+//     $('.leave-comment-box ').hide();
+//     $('#commented').show();
+//     return false;
+// })
 
 /*삭제 버튼 클릭 시 다시 코멘트 달기 창 보여주기*/
 // const deletecomment = document.querySelector("#deletecomment");
-const commentarea = document.querySelector("#commentarea");
+// const commentarea = document.querySelector("#commentarea");
 
-$("#deletecomment").click(function(){
-    modal2.style.display = "none"
-    $('#commented').hide();
-    $('.leave-comment-box ').show();
-    document.getElementById("writecomment1").value = '';
-    return false;
-})
+// $("#deletecomment").click(function(){
+//     modal2.style.display = "none"
+//     $('#commented').hide();
+//     $('.leave-comment-box ').show();
+//     document.getElementById("writecomment1").value = '';
+//     return false;
+// })
 
 //취소 버튼 클릭
-$("#cancel").click(function(){
-    modal2.style.display = "none"
-})
+// $("#cancel").click(function(){
+//     modal2.style.display = "none"
+// })
 
 //코멘트 수정하기
-$("#modify_btn").click(function(){
-    modal.style.display = "flex"
-})
+// $("#modify_btn").click(function(){
+//     modal.style.display = "flex"
+// })
 
 function addcomment(){
 	
