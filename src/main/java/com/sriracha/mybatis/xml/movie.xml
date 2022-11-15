@@ -34,4 +34,8 @@
 	<select id="getMoviesByTitle" parameterType="string" resultType="MovieDTO">
 		SELECT MOVIE_ID , MOVIE_TITLE , MOVIE_OVERVIEW , MOVIE_POPULARITY , MOVIE_VOTE_AVERAGE , MOVIE_VOTE_COUNT , MOVIE_POSTER_PATH , MOVIE_BACKDROP_PATH , MOVIE_ADULT , MOVIE_DATE , MOVIE_SUBJECT FROM MOVIE WHERE MOVIE_TITLE LIKE '%'||#{search_content}||'%'
 	</select>
+	
+	<update id="updateMovieVote" parameterType="MovieDTO">
+		UPDATE MOVIE SET MOVIE_VOTE_COUNT = #{movie_vote_count}, MOVIE_VOTE_AVERAGE = #{movie_vote_average} WHERE MOVIE_ID = #{movie_id}
+	</update>
 </mapper>

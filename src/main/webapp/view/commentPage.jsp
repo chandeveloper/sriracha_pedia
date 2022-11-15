@@ -37,7 +37,7 @@
         <header class="css-4g5dyy-HeaderBarPrimitive">
             <div class="css-uf1ume">
                 <div class="css-0">
-                    <a href="contents.jsp">
+                    <a href="javascript:history.back();">
                     <button class="e1t9gclr0 css-a6n3jw-StylelessButton-HeaderCloseButtonSelf-TopLeftButton e1k34u8y0"></button>
                     </a>
                 </div>
@@ -62,7 +62,7 @@
                                 <span class="name">${board.user_id }</span>
                             </div> 
                         </a>
-                        <div class="rate">★5.0</div>
+                        <div class="rate">★${board.star }</div>
                     </li>
                     <li class="secondLi">
                         <a href="${pageContext.request.contextPath }/sriracha/commentDetailView.do?board_num=1&movie_id=1">

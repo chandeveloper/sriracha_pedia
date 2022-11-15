@@ -4,6 +4,8 @@ const starBox = document.querySelector(".content_info_star");
 const comment = document.querySelector(".leave-comment-box");
 const leaveStar = document.querySelector(".js-leaveStar");
 
+let starValue = "0";
+
 // 별을 채우는 함수
 function fillFullStar(value) {
     // 소수점을 각각 배열의 원소로 분리
@@ -51,6 +53,7 @@ function resetStar() {
 // 별점을 줬을때 comment 창이 뜨게 하는 함수입니다.
 function showComment(event) {
     let value = event.target.getAttribute("value");
+    getStarValue(value);
     comment.style.display = "flex";
     fillFullStar(value);
     for (var i = 0; i < stars.length; i++) {
@@ -61,6 +64,10 @@ function showComment(event) {
     starBox.removeEventListener("mouseout", resetStar);
     howFeel(value);
     event.target.addEventListener("click", resetFunction);
+}
+
+function getStarValue(value){
+	starValue = value;
 }
 
 function howFeel(value) {

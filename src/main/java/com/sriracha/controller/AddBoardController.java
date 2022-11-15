@@ -13,6 +13,8 @@ import com.sriracha.model.BoardDTO;
 import com.sriracha.model.CommentDAO;
 import com.sriracha.model.CommentDTO;
 import com.sriracha.model.FullDTO;
+import com.sriracha.model.MovieDAO;
+import com.sriracha.model.MovieDTO;
 import com.sriracha.model.UserDTO;
 
 public class AddBoardController implements Action {
@@ -39,10 +41,26 @@ public class AddBoardController implements Action {
 		bdto.setBoard_date(now.toString());
 		bdto.setMovie_id(Integer.parseInt(req.getParameter("movie_id")));
 		bdto.setUser_id(udto.getUser_id());
+		bdto.setStar(Double.parseDouble(req.getParameter("star_value")));
 		
 		if (bdao.addComment(bdto)) {
+			
+			// 댓글이 입력되면 영화 정보 수정 ( 평점 , 참여자 수 )
+			MovieDAO mdao = new MovieDAO();
+			MovieDTO mdto = new MovieDTO();
+			
+			mdto = mdao.selectMovieById(Integer.parseInt(req.getParameter("movie_id")));
+			int prev_vote_count = mdto.getMovie_vote_count();
+			double prev_vote_average = mdto.getMovie_vote_average(); 
+			mdto.setMovie_vote_count(prev_vote_count+1);
+			
+			double result = ((prev_vote_count * prev_vote_average)+(Double.parseDouble(req.getParameter("star_value"))*2))/(prev_vote_count+1);
+			mdto.setMovie_vote_average(result);
+			
+			mdao.updateMovieVote(mdto);
+			
 			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/sriracha/get_contents_page.do?movie_id="+Integer.parseInt(req.getParameter("movie_id")));
+			forward.setPath(req.getContextPath() + "/sriracha/get_contents_page.do?movie_id="+(Integer.parseInt(req.getParameter("movie_id"))));
 		}
 		return forward;
 	}
