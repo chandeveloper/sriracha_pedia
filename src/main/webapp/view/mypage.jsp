@@ -1,17 +1,22 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/mypage.css" />
     <link rel="stylesheet" href="../css/style.css">
+	<link rel="stylesheet" href="../css/comment_slide3.css">
+	<link rel="stylesheet" href="../css/comment_slide4.css">
+	<link rel="stylesheet" href="../css/mypag_slide.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
         integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+        <link rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
 
  
     <link
@@ -20,6 +25,7 @@
       integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk"
       crossorigin="anonymous"
     />
+       <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <title>스리라차 피디아</title>
 
   </head>
@@ -50,55 +56,167 @@
                   <li class="profile__no">프로필이 없습니다.</li>
                 </ul>
               </div>
-
-              <div class="preference">
-                <a href="#"  style="text-decoration: none;" title="취향분석">
-                    <span class="chart"></span>
-                    <span style="color: black;">취향분석</span>
-                </a>
-              </div>
             </section>
-            <section id="like">
-              <div class="like">
-                <ul class="like__items">
-                  <li class="item__movie">
-                    <a href="#">
-                      <ul>
-                        <li><span style="color: white; font-weight: bold;">영화</span></li>
-                        <li>⭐0</li>
-                        <li class="third" style="color: white; font-weight: bold;">보고싶어요</li>
-                      </ul>
-                    </a>
-                  </li>
-                  <li class="item__tv">
-                    <a href="#"
-                      ><ul>
-                        <li><span style="color: white; font-weight: bold;">TV프로그램</span></li>
-                        <li>⭐0</li>
-                        <li class="third" style="color: white; font-weight: bold;">보고싶어요</li>
-                      </ul></a
-                    >
-                  </li>
-                  <li class="item__book">
-                    <a href="#"
-                      ><ul>
-                        <li><span style="color: white; font-weight: bold;">책</span></li>
-                        <li>⭐0</li>
-                        <li class="third" style="color: white; font-weight: bold;">보고싶어요</li>
-                      </ul></a
-                    >
-                  </li>
-                </ul>
-              </div>
+            <!-- 영화 부분 -->
+            <div class="contents_contents_column">
+             <div class="preference">
+               <a href="#"  style="text-decoration: none;" title="취향분석">
+                   <span class="chart"></span>
+                   <span class="chart-text" >찜한 영화</span>
+               </a>
+             </div>
+            </div>
+            <c:if test="${requestScope.mypageList != null }">
+				<c:forEach var="comment" items="${requestScope.mypageList}">
+		            <section class="step3">
+		                <div class="contents_contents_comment-container">
+		                    <div class="swiper-wrap">        
+		                        <!-- Swiper -->
+		                        <div #swiperRef="" class="swiper mySwiper3">            
+		                            <div class="swiper-wrapper"> 
+		                                <div class="swiper-slide slide">
+		                                    <ul>
+		                                        <li>
+		                                            <div class="poster">
+			                                        	<a href="/sriracha/get_contents_page.do?movie_id=${nowPlayingMovie.movie_id }">
+		                                        		<img src="https://image.tmdb.org/t/p/original${nowPlayingMovie.movie_poster_path}" style="max-width:250px;  width:100%; max-height:auto;"  alt="">
+			                                        	<div class="rank"><strong>${status.count }</strong></div>
+			                                    		</a>
+			                                    		</div>
+			                                    		<div class="infor">
+			                                        	<div class="infor_btn">
+			                                            <span class="type1-content_title">${nowPlayingMovie.movie_title }</span>
+			                                        	</div>
+			                                    	</div>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+		                </div>
+		            </section>
+	            </c:forEach>
+            </c:if>
+            <!-- 영화 부분 끝 -->
+            
+            
+            <!-- 리뷰 부분 -->
+            <div class="contents_contents_column">
+             <div class="preference">
+               <a href="#"  style="text-decoration: none;" title="">
+                   <span class="chart"></span>
+                   <span class="chart-text" >내가 쓴 리뷰</span>
+               </a>
+             </div>
+            </div>
+            
+            <section class="step4">
+                <div class="contents_contents_comment-container">
+                    <div class="swiper-wrap">        
+                        <!-- Swiper -->
+                        <div #swiperRef="" class="swiper mySwiper4">            
+                            <div class="swiper-wrapper"> 
+                                <div class="swiper-slide slide">
+                                    <ul>
+                                        <li>
+                                            <div class="comment-nemo">
+                                                <div class="comment_user">
+                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
+                                                    <span class="user_name">filmaholic9</span>
+                                                </div>
+                                                <div class="comment_comment">
+                                                    대한민국 대통령 정우성에 김정은은 유연석 ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ
+                                                    (대충 예상되는 내용)
+                                                    미국 : 평화협정 하자고 불러놓고는 자기들의 이익만 추구하며 훼방을 놓고 억지
+                                                </div>
+                                                <div class="comment_feel">
+                                                    <span class="comment_feel-good">
+                                                        <i class="fas fa-thumbs-up"></i>
+                                                        381
+                                                    </span>
+                                                    <span class="comment_feel-comment">
+                                                        <i class="fas fa-comment"></i>
+                                                        57
+                                                    </span>
+                                                </div>
+                                                <div class="comment_click-good">좋아요</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <ul>
+                                        <li>
+                                            <div class="comment-nemo">
+                                                <div class="comment_user">
+                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
+                                                    <span class="user_name">filmaholic9</span>
+                                                </div>
+                                                <div class="comment_comment">
+                                                    대한민국 대통령 정우성에 김정은은 유연석 ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ
+                                                    (대충 예상되는 내용)
+                                                    미국 : 평화협정 하자고 불러놓고는 자기들의 이익만 추구하며 훼방을 놓고 억지
+                                                </div>
+                                                <div class="comment_feel">
+                                                    <span class="comment_feel-good">
+                                                        <i class="fas fa-thumbs-up"></i>
+                                                        381
+                                                    </span>
+                                                    <span class="comment_feel-comment">
+                                                        <i class="fas fa-comment"></i>
+                                                        57
+                                                    </span>
+                                                </div>
+                                                <div class="comment_click-good">좋아요</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="swiper-slide slide">
+                                    <ul>
+                                        <li>
+                                            <div class="comment-nemo">
+                                                <div class="comment_user">
+                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
+                                                    <span class="user_name">filmaholic9</span>
+                                                </div>
+                                                <div class="comment_comment">
+                                                    대한민국 대통령 정우성에 김정은은 유연석 ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ
+                                                    (대충 예상되는 내용)
+                                                    미국 : 평화협정 하자고 불러놓고는 자기들의 이익만 추구하며 훼방을 놓고 억지
+                                                </div>
+                                                <div class="comment_feel">
+                                                    <span class="comment_feel-good">
+                                                        <i class="fas fa-thumbs-up"></i>
+                                                        381
+                                                    </span>
+                                                    <span class="comment_feel-comment">
+                                                        <i class="fas fa-comment"></i>
+                                                        57
+                                                    </span>
+                                                </div>
+                                                <div class="comment_click-good">좋아요</div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
           </div>
         </div>
       </section>
+      
+      
     </div>
     
     <!-- 푸터 시작 -->
 	<jsp:include page="../view/common/footer.jsp" />
     <!-- 푸터 끝 -->
+       <script src="../js/main.js"></script>
   </body>
   
 <script>

@@ -5,25 +5,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sriracha.action.Action;
 import com.sriracha.action.ActionForward;
-import com.sriracha.model.BoardDAO;
 import com.sriracha.model.MovieDAO;
+import com.sriracha.model.MovieDTO;
 
-public class CommentListController implements Action{
+public class GetOverviewController implements Action{
 
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
-		BoardDAO bdao = new BoardDAO();
 		ActionForward forward = new ActionForward();
+		MovieDAO mdao = new MovieDAO();
+		MovieDTO mdto = new MovieDTO();
 		
-		int movie_id = Integer.parseInt(req.getParameter("movie_id"));
-		
-		req.setAttribute("boardList", bdao.getBoardList(movie_id));
+		mdto = mdao.selectMovieById(Integer.parseInt(req.getParameter("movie_id")));
+		req.setAttribute("overview", mdto);
 		
 		forward.setRedirect(false);
-		forward.setPath("/view/commentPage.jsp");
+		forward.setPath(req.getContextPath()+"/view/overview.jsp");
 		
 		return forward;
-		
 	}
 
 }

@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +31,7 @@
                             <header class="css-4g5dyy-HeaderBarPrimitive">
                                 <div class="css-uf1ume">
                                     <div class="css-0">
-                                        <a href="./contents.jsp">
+                                        <a href="javascript:history.back();">
                                         <button class="e1t9gclr0 css-a6n3jw-StylelessButton-HeaderCloseButtonSelf-TopLeftButton e1k34u8y0"></button>
                                         </a>
                                     </div>
@@ -43,34 +47,31 @@
                                     <ul class="css-f4q6l4-VisualUl-DescriptionUl e1kvv3950">
                                         <dl class="css-14a04hc-DescriptionList e1kvv3951">
                                             <dt class="css-2ugu0-DescriptionTitle e1kvv3952">원제</dt>
-                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">자백</dd>
+                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">${overview.movie_title }</dd>
                                         </dl>
                                         <dl class="css-14a04hc-DescriptionList e1kvv3951">
-                                            <dt class="css-2ugu0-DescriptionTitle e1kvv3952">제작 연도</dt>
-                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">2020</dd>
+                                            <dt class="css-2ugu0-DescriptionTitle e1kvv3952">개봉일</dt>
+                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">${overview.movie_date }</dd>
                                         </dl>
                                         <dl class="css-14a04hc-DescriptionList e1kvv3951">
-                                            <dt class="css-2ugu0-DescriptionTitle e1kvv3952">국가</dt>
-                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">한국</dd>
+                                            <dt class="css-2ugu0-DescriptionTitle e1kvv3952">인기점수</dt>
+                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">${overview.movie_popularity }점</dd>
                                         </dl>
                                         <dl class="css-14a04hc-DescriptionList e1kvv3951">
-                                            <dt class="css-2ugu0-DescriptionTitle e1kvv3952">장르</dt>
-                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">범죄/스릴러</dd>
+                                            <dt class="css-2ugu0-DescriptionTitle e1kvv3952">별점</dt>
+                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">★ ${overview.movie_vote_average/2 }</dd>
                                         </dl>
-                                        <dl class="css-14a04hc-DescriptionList e1kvv3951">
-                                            <dt class="css-2ugu0-DescriptionTitle e1kvv3952">상영시간</dt>
-                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">1시간 45분</dd>
-                                        </dl>
-                                        <dl class="css-14a04hc-DescriptionList e1kvv3951">
-                                            <dt class="css-2ugu0-DescriptionTitle e1kvv3952">연령 등급</dt>
-                                            <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">15세 관람가</dd>
-                                        </dl>
+<!--                                         <dl class="css-14a04hc-DescriptionList e1kvv3951"> -->
+<!--                                             <dt class="css-2ugu0-DescriptionTitle e1kvv3952">상영시간</dt> -->
+<!--                                             <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">1시간 45분</dd> -->
+<!--                                         </dl> -->
+<!--                                         <dl class="css-14a04hc-DescriptionList e1kvv3951"> -->
+<!--                                             <dt class="css-2ugu0-DescriptionTitle e1kvv3952">연령 등급</dt> -->
+<!--                                             <dd class="css-11yx0y9-DescriptionDetail e1kvv3953">15세 관람가</dd> -->
+<!--                                         </dl> -->
                                         <dl class="css-1gkwvxt-DescriptionList e1kvv3951">
                                             <dt class="css-2ugu0-DescriptionTitle e1kvv3952">내용</dt>
-                                            <dd class="css-17t919k-SummaryDetail e1kvv3954">제대로 함정에 빠졌다!
-                                                
-불륜 사실을 폭로하겠다는 협박을 받고 호텔로 간 유민호는 누군가의 공격을 받고 쓰러진다. 정신을 차려보니 함께 있던 김세희가 죽어있고, 안에서 잠긴 방 안에서는 그와 김세희를 제외한 그 누구의 흔적도 찾을 수 없다. 순식간에 밀실 살인 사건의 용의자로 지목된 유민호, 결백을 주장하지만 모든 증거가 그를 범인으로 지목하고 있다. 성공한 사업가에서 살인 용의자로 낙인찍히고 모든 것을 잃을 위기에 몰린 유민호는 자신을 구해줄 유일한 사람, 변호사 양신애를 찾는다. 유죄도 무죄로 탈바꿈시키는 변호사 양신애는 이번에도 이기는 싸움을 위해 유민호가 호텔로 걸어 들어가던 첫 순간부터 사건을 재구성해야 한다고 말한다. 눈 내리는 깊은 산속의 별장에서 마주한 두 사람, 사건의 조각들이 하나씩 맞춰지기 시작하는데...
-
+                                            <dd class="css-17t919k-SummaryDetail e1kvv3954">${overview.movie_overview }
                                             </dd>
                                         </dl>
                                     </ul>
