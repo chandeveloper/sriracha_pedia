@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+   
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +36,10 @@
 	<c:set var="key" value="${requestScope.key }" />
 
    <c:set var="boardList" value="${requestScope.boardList}" />
+   <c:set var="commentCntMap" value="${requestScope.commentCntMap}" />
    
+   
+    
     <!-- 헤더 시작 -->
     <jsp:include page="../view/common/header.jsp" />
     <!-- 헤더 끝 -->
@@ -135,45 +140,45 @@
       <div class="contents_middle-box">
          <div>
             <!--댓글 달았을 시 추가되는 부분 : 유진-->
-                <div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented" >
-                    <div class="css-12ru3m0">
-                        <div class="css-1gkas1x-Grid e1689zdh0">
-                            <div class="css-1y901al-Row emmoxnt0">
-                                <section class="css-10tfsfb-MyCommentSection eue8w0j3">
-                                    <div class="css-vo2laf-MyCommentBlock eue8w0j6">
-                                        <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4">
-                                            <div class="css-ffwxzk">
-                                                <div class="css-h6h0rq-ProfilePhotoImage"></div>
-                                            </div>
-                                        </div>
-                                        <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13" href="comment_detail_me.html">
-                                            <div class="css-2a9q6o-MyComment eue8w0j5">
-                                                <div class=" css-gujidv-StyledSelf eb5y16b0">
-                                                    <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단 내용 표시하는 부분입니다.</div>
-                                                </div>
-                                            </div>
-                                        </a>
-                                        <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7">
-                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
-                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="delete_btn">
-                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="delete comment">
-                                                    삭제
-                                                </button>
-                                            </li>
-                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
-                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="modify_btn">
-                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="edit comment">
-                                                    수정
-                                                </button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </section>
-                            </div>
-                        </div>
+<!--                 <div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented" > -->
+<!--                     <div class="css-12ru3m0"> -->
+<!--                         <div class="css-1gkas1x-Grid e1689zdh0"> -->
+<!--                             <div class="css-1y901al-Row emmoxnt0"> -->
+<!--                                 <section class="css-10tfsfb-MyCommentSection eue8w0j3"> -->
+<!--                                     <div class="css-vo2laf-MyCommentBlock eue8w0j6"> -->
+<!--                                         <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4"> -->
+<!--                                             <div class="css-ffwxzk"> -->
+<!--                                                 <div class="css-h6h0rq-ProfilePhotoImage"></div> -->
+<!--                                             </div> -->
+<!--                                         </div> -->
+<!--                                         <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13" href="comment_detail_me.html"> -->
+<!--                                             <div class="css-2a9q6o-MyComment eue8w0j5"> -->
+<!--                                                 <div class=" css-gujidv-StyledSelf eb5y16b0"> -->
+<!--                                                     <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단 내용 표시하는 부분입니다.</div> -->
+<!--                                                 </div> -->
+<!--                                             </div> -->
+<!--                                         </a> -->
+<!--                                         <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7"> -->
+<!--                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8"> -->
+<!--                                                 <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="delete_btn"> -->
+<!--                                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="delete comment"> -->
+<!--                                                     삭제 -->
+<!--                                                 </button> -->
+<!--                                             </li> -->
+<!--                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8"> -->
+<!--                                                 <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="modify_btn"> -->
+<!--                                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="edit comment"> -->
+<!--                                                     수정 -->
+<!--                                                 </button> -->
+<!--                                             </li> -->
+<!--                                         </ul> -->
+<!--                                     </div> -->
+<!--                                 </section> -->
+<!--                             </div> -->
+<!--                         </div> -->
                         
-                    </div>
-                </div>
+<!--                     </div> -->
+<!--                 </div> -->
                 <!--댓글 달았을 시 추가되는 부분 끝 : 유진-->
             <div class="leave-comment-box">
                <span class="go-leave-comment"> 이 작품에 대한 회원 님의 평가를 글로 남겨보세요.
@@ -198,8 +203,8 @@
                   <div>
                      <span class="contents_contents_title">기본 정보</span>
 
-                     <!-- 기본정보 더보기 링크 연결해주세요 -->
-                     <a href="./overview.jsp"> <span
+                     <!-- 기본정보 더보기 링크 연결해주세요 ./overview.jsp -->
+                     <a href="${pageContext.request.contextPath }/sriracha/overView.do?movie_id=${movie.movie_id }"> <span
                         class="contents_contents_more">더보기</span>
                      </a>
                      <!-- 여기입니다 -->
@@ -329,7 +334,7 @@
                   
 
                   <!-- 코멘트 더보기 링크 연결해주세요 -->
-                  <a href="${pageContext.request.contextPath }/sriracha/commentView.do?movie_id=1"> <span
+                  <a href="${pageContext.request.contextPath }/sriracha/commentView.do?movie_id=${movie.movie_id}"> <span
                      class="contents_contents_more">더보기</span>
                   </a>
                   <!-- 여기입니다 -->
@@ -341,90 +346,38 @@
                         <!-- Swiper -->
                         <div #swiperRef="" class="swiper mySwiper2">            
                             <div class="swiper-wrapper"> 
-                                <div class="swiper-slide slide">
-                                    <ul>
-                                        <li>
-                                            <div class="comment-nemo">
-                                                <div class="comment_user">
-                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
-                                                    <span class="user_name">filmaholic9</span>
-                                                </div>
-                                                <div class="comment_comment">
-                                                    대한민국 대통령 정우성에 김정은은 유연석 ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ
-                                                    (대충 예상되는 내용)
-                                                    미국 : 평화협정 하자고 불러놓고는 자기들의 이익만 추구하며 훼방을 놓고 억지
-                                                </div>
-                                                <div class="comment_feel">
-                                                    <span class="comment_feel-good">
-                                                        <i class="fas fa-thumbs-up"></i>
-                                                        381
-                                                    </span>
-                                                    <span class="comment_feel-comment">
-                                                        <i class="fas fa-comment"></i>
-                                                        57
-                                                    </span>
-                                                </div>
-                                                <div class="comment_click-good">좋아요</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide slide">
-                                    <ul>
-                                        <li>
-                                            <div class="comment-nemo">
-                                                <div class="comment_user">
-                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
-                                                    <span class="user_name">filmaholic9</span>
-                                                </div>
-                                                <div class="comment_comment">
-                                                    대한민국 대통령 정우성에 김정은은 유연석 ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ
-                                                    (대충 예상되는 내용)
-                                                    미국 : 평화협정 하자고 불러놓고는 자기들의 이익만 추구하며 훼방을 놓고 억지
-                                                </div>
-                                                <div class="comment_feel">
-                                                    <span class="comment_feel-good">
-                                                        <i class="fas fa-thumbs-up"></i>
-                                                        381
-                                                    </span>
-                                                    <span class="comment_feel-comment">
-                                                        <i class="fas fa-comment"></i>
-                                                        57
-                                                    </span>
-                                                </div>
-                                                <div class="comment_click-good">좋아요</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide slide">
-                                    <ul>
-                                        <li>
-                                            <div class="comment-nemo">
-                                                <div class="comment_user">
-                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
-                                                    <span class="user_name">filmaholic9</span>
-                                                </div>
-                                                <div class="comment_comment">
-                                                    대한민국 대통령 정우성에 김정은은 유연석 ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ
-                                                    (대충 예상되는 내용)
-                                                    미국 : 평화협정 하자고 불러놓고는 자기들의 이익만 추구하며 훼방을 놓고 억지
-                                                </div>
-                                                <div class="comment_feel">
-                                                    <span class="comment_feel-good">
-                                                        <i class="fas fa-thumbs-up"></i>
-                                                        381
-                                                    </span>
-                                                    <span class="comment_feel-comment">
-                                                        <i class="fas fa-comment"></i>
-                                                        57
-                                                    </span>
-                                                </div>
-                                                <div class="comment_click-good">좋아요</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                            
+								<c:forEach var="board_" items="${boardList }">
+									<div class="swiper-slide slide">
+	                                    <ul>
+	                                        <li>
+	                                            <div class="comment-nemo">
+	                                                <div class="comment_user">
+	                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
+	                                                    <span class="user_name">${board_.user_id }</span>
+	                                                </div>
+	                                                <div class="comment_comment">
+	                                                    ${board_.board_content }
+	                                                </div>
+	                                                <div class="comment_feel">
+	                                                    <span class="comment_feel-good">
+	                                                        <i class="fas fa-thumbs-up"></i>
+	                                                        ${board_.board_like }
+	                                                    </span>
+	                                                    <span class="comment_feel-comment">
+	                                                        <i class="fas fa-comment"></i>
+	                                                        ${board_.comment_cnt}
+	                                                    </span>
+	                                                </div>
+	                                                <div class="comment_click-good">좋아요</div>
+	                                            </div>
+	                                        </li>
+	                                    </ul>
+	                                </div>	
+								</c:forEach>                            
+                                
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -442,13 +395,14 @@
    <!-- 여기까지 메인 컨텐츠 박스였습니다 -->
 
    <!--모달창 !!!!!!!!!!! 대댓글 !!!!!!!!!!!!!!!!!!11-->
+   
    <div class="css-14gy7wr" id="modal">
       <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
          <div class="css-1p257d1-modalAddStyle">
             <header title=""
                class="css-166ww79-HeaderBarPrimitive-headerAddStyle">
                <div class="css-19pxr9t"></div>
-               <em class="css-10mjbgt">(영화제목)</em>
+               <em class="css-10mjbgt">${movie.movie_title }</em>
                <div class="css-19pxr9t">
                   <button class="css-1lvet1d-StylelessButton"></button>
                </div>
@@ -458,9 +412,13 @@
                   <div class="css-cdzmq7">
                      <div class="css-iowq1w">
                         <div class="css-iowq1w">
-                           <textarea maxlength="10000"
-                              placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1"></textarea>
-                           <div class="css-238o9r" id="writecomment2"></div>
+                        	<form action="${pageContext.request.contextPath }/sriracha/addComment.do" id="addCommentForm" method="post">
+                        		<input type="hidden" name="movie_id" value="${movie.movie_id }">
+                        		<textarea maxlength="10000"
+                              		placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
+                        	</form>
+                           
+                           <div class="css-238o9r" id="writecomment2" ></div>
                         </div>
                      </div>
                   </div>
@@ -485,8 +443,10 @@
                   <div class="css-6qnjre">
                      <p class="css-1s08rlk"></p>
                      <p class="css-ynpx67" id="reCount">0/10000</p>
-                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장">
+<%--                     <a href="${pageContext.request.contextPath }/sriracha/addComment.do?movie_id=${movie.movie_id}"> --%>
+                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장" onclick="addcomment()">
 <!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
+<!-- 					</a> -->
                   </div>
                </div>
             </div>
@@ -558,8 +518,8 @@ const evTarget = e.target
     }
 })
 
-const elCommentbtn = document.querySelector('#commentbtn')
-const elwritecomment1 = document.querySelector('#writecomment1')
+const elCommentbtn = document.getElementById('#commentbtn')
+const elwritecomment1 = document.getElementById('#writecomment1')
 elCommentbtn.disabled = true;
 elwritecomment1.addEventListener('keyup', button)
 
@@ -568,7 +528,7 @@ function button() {
         elCommentbtn.disabled = false;
         document.getElementById("reCount").innerHTML = elwritecomment1.value.length + "/" + 10000;
     } else {
-        elCommentbtn.disabled = true;    // 버튼 활성화
+        elCommentbtn.disabled = true;
     }
 }
 
@@ -580,8 +540,8 @@ closeBtn2.addEventListener("click", e => {
 
 
 /*코멘트 남겼을 때 내가 남긴 코멘트 보여주기*/
-const commented = document.querySelector("#commented");
-commented.style.display = "none";
+// const commented = document.querySelector("#commented");
+// commented.style.display = "none";
 
 
 $('#commentbtn').click(function(){
@@ -611,6 +571,12 @@ $("#cancel").click(function(){
 $("#modify_btn").click(function(){
     modal.style.display = "flex"
 })
+
+function addcomment(){
+	
+    let form = document.getElementById("addCommentForm");
+    form.submit();
+}
 
 </script>
 

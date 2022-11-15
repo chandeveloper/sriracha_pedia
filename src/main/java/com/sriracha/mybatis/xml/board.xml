@@ -4,19 +4,19 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="Board" >
-	<select id="getBoardList" parameterType="_int" resultType="fulldto">
-<!-- 		SELECT * FROM BOARD_TEST bt INNER JOIN USER_TEST ut  -->
-<!-- 		ON bt.USER_NUM = ut.USER_NUM  -->
-<!-- 		WHERE bt.MOVIE_ID = #{movie_id} -->
-		SELECT 	ut.USER_ID ,
-				bt.BOARD_CONTENT ,
-				ct.COMMENT_CONTENT
-		FROM USER_TEST ut 
-		INNER JOIN BOARD_TEST bt ON ut.USER_NUM = bt.USER_NUM 
-		INNER JOIN COMMENT_TEST ct ON ut.USER_NUM = ct.USER_NUM
-		INNER JOIN MOVIE_TEST mt ON bt.MOVIE_ID = mt.MOVIE_ID 
-		WHERE mt.MOVIE_ID  = #{movie_id}
+	<select id="getBoardList" parameterType="_int" resultType="boarddto">
+		SELECT * FROM BOARD WHERE movie_id=#{movie_id}
 	</select>
-	
+	<insert id="addComment" parameterType="boarddto">
+		INSERT INTO BOARD
+		VALUES (board_num_seq.nextval, #{board_content}, #{board_date}, 0, 'Y', #{user_num}, #{movie_id}, 0, #{user_id})
+	</insert>
+
+	<select id="getUserNameFromBoard" parameterType="_int" resultType="string">
+		SELECT u.user_id
+		FROM BOARD b 
+			INNER JOIN "USER" u ON b.USER_NUM = u.USER_NUM 
+		WHERE b.BOARD_NUM = #{board_num}
+	</select>	
 
 </mapper>
