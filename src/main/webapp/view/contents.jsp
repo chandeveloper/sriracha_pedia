@@ -211,7 +211,7 @@
 
                   </div>
                   <br>
-                  <span class="contents_contents_name contents_info">${movie.movie_title }</span>
+                  <span class="contents_contents_name contents_info" style="font-weight: bolder;">${movie.movie_title }</span>
                   <span class="contents_contents_info contents_info">${movie.movie_date }</span>
                   <!-- <span class="contents_contents_runtime contents_info">2시간 12분</span> -->
                   <span class="contents_contents_summary contents_info">
