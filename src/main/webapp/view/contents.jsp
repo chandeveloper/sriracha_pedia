@@ -35,7 +35,10 @@
    <c:set var="creditList" value="${requestScope.creditList }"></c:set>
 
    <c:set var="boardList" value="${requestScope.boardList}" />
-   
+   <c:set var="board" value="${requestScope.board }" />
+   <c:set var="user" value="${requestScope.user }" />
+   <c:set var="comment_count" value="${requestScope.comment_count }" />
+    
     <!-- 헤더 시작 -->
     <jsp:include page="../view/common/header.jsp" />
     <!-- 헤더 끝 -->
@@ -355,90 +358,38 @@
                         <!-- Swiper -->
                         <div #swiperRef="" class="swiper mySwiper2">            
                             <div class="swiper-wrapper"> 
-                                <div class="swiper-slide slide">
-                                    <ul>
-                                        <li>
-                                            <div class="comment-nemo">
-                                                <div class="comment_user">
-                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
-                                                    <span class="user_name">filmaholic9</span>
-                                                </div>
-                                                <div class="comment_comment">
-                                                    대한민국 대통령 정우성에 김정은은 유연석 ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ
-                                                    (대충 예상되는 내용)
-                                                    미국 : 평화협정 하자고 불러놓고는 자기들의 이익만 추구하며 훼방을 놓고 억지
-                                                </div>
-                                                <div class="comment_feel">
-                                                    <span class="comment_feel-good">
-                                                        <i class="fas fa-thumbs-up"></i>
-                                                        381
-                                                    </span>
-                                                    <span class="comment_feel-comment">
-                                                        <i class="fas fa-comment"></i>
-                                                        57
-                                                    </span>
-                                                </div>
-                                                <div class="comment_click-good">좋아요</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide slide">
-                                    <ul>
-                                        <li>
-                                            <div class="comment-nemo">
-                                                <div class="comment_user">
-                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
-                                                    <span class="user_name">filmaholic9</span>
-                                                </div>
-                                                <div class="comment_comment">
-                                                    대한민국 대통령 정우성에 김정은은 유연석 ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ
-                                                    (대충 예상되는 내용)
-                                                    미국 : 평화협정 하자고 불러놓고는 자기들의 이익만 추구하며 훼방을 놓고 억지
-                                                </div>
-                                                <div class="comment_feel">
-                                                    <span class="comment_feel-good">
-                                                        <i class="fas fa-thumbs-up"></i>
-                                                        381
-                                                    </span>
-                                                    <span class="comment_feel-comment">
-                                                        <i class="fas fa-comment"></i>
-                                                        57
-                                                    </span>
-                                                </div>
-                                                <div class="comment_click-good">좋아요</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="swiper-slide slide">
-                                    <ul>
-                                        <li>
-                                            <div class="comment-nemo">
-                                                <div class="comment_user">
-                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
-                                                    <span class="user_name">filmaholic9</span>
-                                                </div>
-                                                <div class="comment_comment">
-                                                    대한민국 대통령 정우성에 김정은은 유연석 ㅋㅋㅋㅋㅋㅋㅋㅋ 캐스팅부터 장난하냐 ㅋㅋㅋㅋㅋㅋㅋ
-                                                    (대충 예상되는 내용)
-                                                    미국 : 평화협정 하자고 불러놓고는 자기들의 이익만 추구하며 훼방을 놓고 억지
-                                                </div>
-                                                <div class="comment_feel">
-                                                    <span class="comment_feel-good">
-                                                        <i class="fas fa-thumbs-up"></i>
-                                                        381
-                                                    </span>
-                                                    <span class="comment_feel-comment">
-                                                        <i class="fas fa-comment"></i>
-                                                        57
-                                                    </span>
-                                                </div>
-                                                <div class="comment_click-good">좋아요</div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+                            
+								<c:forEach var="board_full" items="${boardList }">
+									<div class="swiper-slide slide">
+	                                    <ul>
+	                                        <li>
+	                                            <div class="comment-nemo">
+	                                                <div class="comment_user">
+	                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
+	                                                    <span class="user_name">${board_full.user_id }</span>
+	                                                </div>
+	                                                <div class="comment_comment">
+	                                                    ${board_full.board_content }
+	                                                </div>
+	                                                <div class="comment_feel">
+	                                                    <span class="comment_feel-good">
+	                                                        <i class="fas fa-thumbs-up"></i>
+	                                                        ${board_full.board_like }
+	                                                    </span>
+	                                                    <span class="comment_feel-comment">
+	                                                        <i class="fas fa-comment"></i>
+	                                                        ${comment_count }
+	                                                    </span>
+	                                                </div>
+	                                                <div class="comment_click-good">좋아요</div>
+	                                            </div>
+	                                        </li>
+	                                    </ul>
+	                                </div>	
+								</c:forEach>                            
+                                
+                                
+                                
                             </div>
                             <!-- <div class="swiper-button-next-2"></div>
                             <div class="swiper-button-prev-2"></div> -->
@@ -474,7 +425,7 @@
                   <div class="css-cdzmq7">
                      <div class="css-iowq1w">
                         <div class="css-iowq1w">
-                        	<form action="${pageContext.request.contextPath }/sriracha/addComment.do" id="addCommentForm">
+                        	<form action="${pageContext.request.contextPath }/sriracha/addComment.do" id="addCommentForm" method="post">
                         		<input type="hidden" name="movie_id" value="${movie.movie_id }">
                         		<textarea maxlength="10000"
                               		placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
@@ -635,6 +586,7 @@ $("#modify_btn").click(function(){
 })
 
 function addcomment(){
+	
     let form = document.getElementById("addCommentForm");
     form.submit();
 }

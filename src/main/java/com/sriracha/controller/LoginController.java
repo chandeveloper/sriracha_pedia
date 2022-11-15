@@ -29,6 +29,7 @@ public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 	UserDTO userinfo = (UserDTO) udao.login(user_id);
 	String real_pw = userinfo.getUser_pw();
 	int user_num = userinfo.getUser_num();
+	String user_name = userinfo.getUser_name();
 	
 	
 	req.setAttribute("user_pw", user_pw);
@@ -43,6 +44,7 @@ public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		session.setAttribute("session_id", user_id);
 		session.setAttribute("session_pw", real_pw);
 		session.setAttribute("session_usernum", user_num);
+		session.setAttribute("session_name", user_name);
 		
 		forward.setRedirect(false);
 		forward.setPath("/sriracha/get_main_page.do" );

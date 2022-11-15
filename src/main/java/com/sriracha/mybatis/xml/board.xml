@@ -5,20 +5,16 @@
  
  <mapper namespace="Board" >
 	<select id="getBoardList" parameterType="_int" resultType="fulldto">
-<!-- 		SELECT * FROM BOARD_TEST bt INNER JOIN USER_TEST ut  -->
-<!-- 		ON bt.USER_NUM = ut.USER_NUM  -->
-<!-- 		WHERE bt.MOVIE_ID = #{movie_id} -->
-		SELECT 	*
-		FROM "USER" u 
-		INNER JOIN BOARD b  ON u.USER_NUM = b.USER_NUM 
-		INNER JOIN "COMMENT" c  ON u.USER_NUM = c.USER_NUM
-		INNER JOIN MOVIE m  ON b.MOVIE_ID = m.MOVIE_ID 
-		WHERE m.MOVIE_ID  = #{movie_id}
+		SELECT * FROM BOARD WHERE movie_id=#{movie_id}
 	</select>
 	<insert id="addComment" parameterType="boarddto">
 		INSERT INTO BOARD
 		VALUES (board_num_seq.nextval, #{board_content}, #{board_date}, 0, 'Y', #{user_num}, #{movie_id})
 	</insert>
+	
+	<select id="getCommentCnt" parameterType="_int" resultType="_int">
+		SELECT count(*) FROM "COMMENT" WHERE BOARD_NUM = #{board_num}
+	</select>
 	
 
 </mapper>

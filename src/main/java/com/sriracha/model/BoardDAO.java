@@ -33,6 +33,10 @@ public class BoardDAO {
 		return result;
 	}
 	
+	public int getCommentCnt(int board_num) {
+		return sqlSession.selectOne("Board.getCommentCnt", board_num);
+	}
+	
 	
 
 }
