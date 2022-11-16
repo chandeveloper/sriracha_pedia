@@ -67,10 +67,8 @@
                </header>
                <!-- 헤더 끝 -->
 
-
-
+               <div class="forheader" style="margin-top: 65px"></div>
                <!-- 메뉴바 밑에 콘텐츠 썸네일 -->
-               
                <div class="thumbnail">
                   <div class="css-cshjoi-PosterContainer e1svyhwg1">
                      <div class="css-oqg1df-BlurPosterBlock e1svyhwg2">
@@ -144,7 +142,7 @@
                      <div class="content_info">
                         <!-- 보고싶어요 버튼 -->
                         <div class="content_info-left">
-                           <div class="content_want-see" style="cursor: pointer;">
+                           <div class="content_want-see" style="cursor: pointer;" onclick="addWish(${movie.movie_id})">
                               <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
                            </div>
                         </div>
@@ -239,7 +237,7 @@
                            <!--  <div class="contents_contents_column">
                   <div>
                     <span class="contents_contents_title">예고편</span>
-							
+                     
                   </div>
             </div> -->
                            <iframe width="100%" height="400" src="https://www.youtube.com/embed/${key}"
@@ -514,7 +512,7 @@
                                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장"
                                        onclick="addcomment()">
                                     <!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
-                                    <!-- 					</a> -->
+                                    <!--                </a> -->
                               </div>
                            </div>
                         </div>
@@ -546,12 +544,10 @@
                <!-- 푸터 시작 -->
                <jsp:include page="../view/common/footer.jsp" />
                <!-- 푸터 끝 -->
+
+               <script src="../js/main.js"></script>
+               <script src="../js/star.js"></script>
             </body>
-            <script src="../js/main.js"></script>
-            <script src="../js/star.js"></script>
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
-            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
             <script type="text/javascript">
                /*코멘트 남기기 모달창*/
                const modal = document.getElementById("modal")
@@ -651,11 +647,10 @@
                   form.submit();
                }
 
-               let searchForm = document.getElementById("searchForm");
-
-               function searchEnter() {
-                  if (window.event.keyCode == 13) {
-                     searchForm.submit();
+               function addWish(movie_id) {
+                  if (confirm("찜한 영화 목록에 추가하시겠습니까?")) {
+                     console.log(movie_id);
+                     location.href = "/sriracha/addWish.do?movie_id=" + movie_id;
                   }
                }
 
