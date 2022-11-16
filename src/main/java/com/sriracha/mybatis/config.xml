@@ -9,6 +9,8 @@
 		<typeAlias type="com.sriracha.model.UserDTO" alias="userdto"/>
 		<typeAlias type="com.sriracha.model.BoardDTO" alias="boarddto"/>
 		<typeAlias type="com.sriracha.model.FullDTO" alias="fulldto"/>
+		<typeAlias type="com.sriracha.model.CommentDTO" alias="commentdto"/>
+		<typeAlias type="com.sriracha.model.BoardCommentDTO" alias="boardcommentdto"/>
 	</typeAliases>
 
 	 <environments default="development">

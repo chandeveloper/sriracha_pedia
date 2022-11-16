@@ -15,6 +15,15 @@ public class CommentDAO {
 		sqlsession = factory.openSession(true);
 	}
 
+	public boolean addComment(CommentDTO cdto) {
+		boolean result = false;
+		
+		if(sqlsession.insert("Comment.addComment", cdto) == 1) {
+			result = true;
+		}
+		return result;
+	}
+
 	
 	
 	

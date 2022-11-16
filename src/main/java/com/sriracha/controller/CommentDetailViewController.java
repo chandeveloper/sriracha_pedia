@@ -31,9 +31,11 @@ public class CommentDetailViewController implements Action{
 		req.setAttribute("BoardComment", bdao.getBoardComment(bdto));
 		req.setAttribute("BoardComment_Movie", bdao.getBoardComment_Movie(board_num));
 		req.setAttribute("getCommentCnt", bdao.getCommentCnt(board_num));
+		
+		
 
 		forward.setRedirect(false);
-		forward.setPath("/view/comment_detail.jsp");
+		forward.setPath(req.getContextPath()+"/view/comment_detail.jsp");
 		
 		return forward;
 	}

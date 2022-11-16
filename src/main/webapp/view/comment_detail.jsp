@@ -437,11 +437,15 @@
                             <div class="css-cdzmq7">
                                 <div class="css-iowq1w">
                                     <div class="css-iowq1w">
-	                                    <form action="${pageContext.request.contextPath }/sriracha/addComment.do" id="addCommentForm" method="post">
-	                                     	<c:forEach var="boardMovie" items="${BoardComment_Movie}">
-	                                        	<textarea maxlength="10000" placeholder="이 ${boardMovie.movie_title}에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1"></textarea>
-	                                        </c:forEach>
-	                                       </form>
+	                                    <c:forEach var="BoardComment" items="${BoardComment}">
+		                                    <form action="${pageContext.request.contextPath }/sriracha/addComment.do" id="addCommentForm" method="post">
+		                                    	<input type="hidden" name="board_num" value="${BoardComment.board_num }">
+		                                    	<input type="hidden" name="user_num" value="${BoardComment.user_num }">
+		                                     	<c:forEach var="boardMovie" items="${BoardComment_Movie}">
+		                                        	<textarea maxlength="10000" placeholder="이 ${boardMovie.movie_title}에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="comment_content"></textarea>
+		                                        </c:forEach>
+		                                       </form>
+	                                     </c:forEach>
                                         <div class="css-238o9r"></div>
                                     </div>
                                 </div>

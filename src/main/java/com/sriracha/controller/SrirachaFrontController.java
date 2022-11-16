@@ -60,7 +60,7 @@ public class SrirachaFrontController extends HttpServlet{
             forward = new JoinController().execute(req, resp);
             break;
                         
-         case "/sriracha/commentView.do" :
+         case "/sriracha/BoardView.do" :
             forward = new CommentListController().execute(req, resp);
             break;
                
@@ -80,6 +80,9 @@ public class SrirachaFrontController extends HttpServlet{
 			forward = new AddBoardController().execute(req, resp);
 			break;
 			
+		 case "/sriracha/addComment.do" :
+			forward = new AddCommentController().execute(req, resp);
+			break;
       }
       
       

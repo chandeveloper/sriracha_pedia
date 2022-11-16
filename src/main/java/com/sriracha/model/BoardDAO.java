@@ -23,10 +23,10 @@ public class BoardDAO {
 		
 	}
 
-	public boolean addComment(BoardDTO bdto) {
+	public boolean addBoard(BoardDTO bdto) {
 		boolean result = false;
 		
-		if(sqlSession.insert("Board.addComment", bdto)== 1) {
+		if(sqlSession.insert("Board.addBoard", bdto)== 1) {
 			result = true;
 		}
 		

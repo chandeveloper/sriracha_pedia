@@ -358,7 +358,7 @@
                   
 
                   <!-- 코멘트 더보기 링크 연결해주세요 -->
-                  <a href="${pageContext.request.contextPath }/sriracha/commentView.do?movie_id=${movie.movie_id}"> <span
+                  <a href="${pageContext.request.contextPath }/sriracha/BoardView.do?movie_id=${movie.movie_id}"> <span
                      class="contents_contents_more">더보기</span>
                   </a>
                   <!-- 여기입니다 -->
@@ -596,7 +596,7 @@ closeBtn2.addEventListener("click", e => {
 
 function addboard(){
 	
-    let form = document.getElementById("addCommentForm");
+    let form = document.getElementById("addBoardForm");
     let star_value = document.getElementById("star_value");
     star_value.value = starValue;
     

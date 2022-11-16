@@ -18,6 +18,10 @@
 		WHERE bt.BOARD_NUM = 3
 		AND ct.USER_NUM = 3
 	</select>
+	<insert id="addComment" parameterType="commentdto">
+		INSERT INTO "COMMENT" 
+		VALUES (comment_num_seq.nextval, #{comment_content}, #{comment_date}, 'Y', #{user_num}, #{board_num})
+	</insert>
 	
 	
 	

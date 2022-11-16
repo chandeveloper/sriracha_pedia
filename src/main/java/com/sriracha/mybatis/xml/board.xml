@@ -7,7 +7,7 @@
 	<select id="getBoardList" parameterType="_int" resultType="boarddto">
 		SELECT * FROM BOARD WHERE movie_id=#{movie_id} ORDER BY BOARD_NUM
 	</select>
-	<insert id="addComment" parameterType="boarddto">
+	<insert id="addBoard" parameterType="boarddto">
 		INSERT INTO BOARD
 		VALUES (board_num_seq.nextval, #{board_content}, #{board_date}, 0, 'Y', #{user_num}, #{movie_id}, 0, #{user_id}, #{star})
 	</insert>

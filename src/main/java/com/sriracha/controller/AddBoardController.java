@@ -43,7 +43,7 @@ public class AddBoardController implements Action {
 		bdto.setUser_id(udto.getUser_id());
 		bdto.setStar(Double.parseDouble(req.getParameter("star_value")));
 		
-		if (bdao.addComment(bdto)) {
+		if (bdao.addBoard(bdto)) {
 			
 			// 댓글이 입력되면 영화 정보 수정 ( 평점 , 참여자 수 )
 			MovieDAO mdao = new MovieDAO();
