@@ -84,6 +84,11 @@ public class SrirachaFrontController extends HttpServlet {
 
 			case "/sriracha/addWish.do" :
 				forward = new AddWishController().execute(req, resp);
+				break;
+			
+			case "/sriracha/deleteWish.do" :
+				forward = new DeleteWishController().execute(req, resp);
+				break;
 		}
 
 		if (forward != null) {

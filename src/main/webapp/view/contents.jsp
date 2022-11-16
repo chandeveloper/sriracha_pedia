@@ -41,6 +41,8 @@
    <c:set var="commentCntMap" value="${requestScope.commentCntMap}" />
    <c:set var="boardCnt" value="${requestScope.boardCnt }" />
    
+   <c:set var="wish" value="${requestScope.wish }" />
+   
    <fmt:formatNumber type="number" var="movie_vote_average"  pattern="0.0" value="${movie.movie_vote_average/2}" />
    
     <!-- 헤더 시작 -->
@@ -117,13 +119,28 @@
 
          <!-- 마지막 보고싶어요, 별점 평가하기 -->
          <div class="content_info">
-            <!-- 보고싶어요 버튼 -->
-            <div class="content_info-left">
-               <div class="content_want-see" style="cursor: pointer;" onclick="addWish(${movie.movie_id})">
-                  <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
-               </div>
-            </div>
-            <!-- 보고싶어요 버튼 끝 -->
+         
+         	<c:choose>
+         		<c:when test="${empty wish }">
+		            <!-- 보고싶어요 버튼 -->
+		            <div class="content_info-left">
+		               <div class="content_want-see" style="cursor: pointer;" onclick="addWish(${movie.movie_id})">
+		                  <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
+		               </div>
+		            </div>
+		            <!-- 보고싶어요 버튼 끝 -->
+         		</c:when>
+         		<c:otherwise>
+		            <!-- 취소할래요 버튼 -->
+		            <div class="content_info-left">
+		               <div class="content_not_want-see" style="cursor: pointer;" onclick="deliteWish(${movie.movie_id})">
+		                  <i class="fas fa-duotone fa-check"></i> <span>찜한영화에요</span>
+		               </div>
+		            </div>
+		            <!-- 취소할래요 버튼 끝 -->
+         		</c:otherwise>
+         	</c:choose>
+            
 
             <!-- 별점 평가하기 -->
             <div class="content_info-right">
@@ -608,8 +625,13 @@ function addcomment(){
 
 function addWish(movie_id){
 	if(confirm("찜한 영화 목록에 추가하시겠습니까?")){
-		console.log(movie_id);
 		location.href="/sriracha/addWish.do?movie_id="+movie_id;
+	}
+}
+
+function deliteWish(movie_id){
+	if(confirm("찜한 영화 목록에서 삭제하시겠습니까?")){
+		location.href="/sriracha/deleteWish.do?movie_id="+movie_id;
 	}
 }
 

@@ -28,11 +28,11 @@ public class AddWishController implements Action{
 			// 해당 user로 검색한 같은 movie값이 있어서 insert 안했다는 뜻
 			// 같은 영화가 있다고 유저에게 alert창으로 알려줘야함
 			
-			req.setAttribute("msg", "찜한 목록에 같은 영화가 있습니다.");
-			req.setAttribute("url", req.getContextPath()+"/sriracha/get_contents_page.do?movie_id="+(req.getParameter("movie_id")));
-			
-			forward.setRedirect(false);
-			forward.setPath("/view/common/alert.jsp");
+//			req.setAttribute("msg", "찜한 목록에 같은 영화가 있습니다.");
+//			req.setAttribute("url", req.getContextPath()+"/sriracha/get_contents_page.do?movie_id="+(req.getParameter("movie_id")));
+//			
+//			forward.setRedirect(false);
+//			forward.setPath("/view/common/alert.jsp");
 			
 		}else {
 			// 정상적으로 insert 됐다는 뜻
