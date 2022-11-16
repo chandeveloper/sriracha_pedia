@@ -38,6 +38,7 @@
     <c:set var="BoardComment_Movie" value="${requestScope.BoardComment_Movie}"/>
     <c:set var="BoardComment" value="${requestScope.BoardComment}"/>
     <c:set var="getCommentCnt" value="${requestScope.getCommentCnt}"/>
+    <c:set var="CommentList" value="${requestScope.CommentList}"/>
     
         <!-- 헤더 시작 -->
     	<jsp:include page="../view/common/header.jsp" />
@@ -204,6 +205,7 @@
                                             
                                             <section class="css-1r5nwql">
                                             <!-- foreach자리 -->
+                                            <c:forEach var="CommentList" items="${CommentList }">
                                                 <div class="css-0">
                                                     <div class="css-1m1whp6">
                                                         <div class="css-ov1ktg">
@@ -213,11 +215,11 @@
                                                             <div class="css-199ku80">
                                                                 <div class="css-1sg2lsz">
                                                                     <a class="css-255jr8" href="/ko-KR/users/6ADvGQN6EKxzZ">
-                                                                        <div class="css-72k174">대댓글 내용입니다</div>
+                                                                        <div class="css-72k174">${CommentList.user_id }</div>
                                                                     </a>
-                                                                    <div class="css-maxfbg">6일 전</div>
+                                                                    <div class="css-maxfbg">${CommentList.comment_date }</div>
                                                                 </div>
-                                                                <div class="css-yb0jaq">점점 가식으로 무장하고 있는 제게 일침을 가하시는 코멘트라 백배 공감합니다. ^^</div>
+                                                                <div class="css-yb0jaq">${CommentList.comment_content }</div>
                                                                 <div class="css-ov1ktg">
                                                                     <div class="css-1d8juai">
                                                                         <div class="Icon like css-1tuvmpc-SVG e1282e850">
@@ -228,7 +230,7 @@
                                                                                 </svg>
                                                                             </div>
                                                                         </div>
-                                                                        4
+                                                                        ${CommentList.comment_like }
                                                                     </div>
                                                                     <div class="css-4ygot5">
                                                                         <div class="Icon more css-1b4hoch-SVG e1282e850">
@@ -251,6 +253,8 @@
                                                         </div>
                                                     </div>
                                                 </div>
+                                           	</c:forEach>
+                                                <!-- foreach -->
                                             </section>
 <!--                                             <section class="css-1r5nwql"> -->
 <!--                                                 <div class="css-0"> -->
