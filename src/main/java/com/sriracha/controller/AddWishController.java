@@ -1,21 +1,30 @@
 package com.sriracha.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sriracha.action.Action;
-import com.sriracha.action.ActionForward;
 import com.sriracha.model.WishListDAO;
 import com.sriracha.model.WishListDTO;
 
-public class AddWishController implements Action{
-
+@WebServlet("/sriracha/addWish.do")
+public class AddWishController extends HttpServlet{
+	
 	@Override
-	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
-		ActionForward forward = new ActionForward();
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
+	
+	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		WishListDTO wdto = new WishListDTO();
 		WishListDAO wdao = new WishListDAO();
@@ -30,18 +39,11 @@ public class AddWishController implements Action{
 			
 //			req.setAttribute("msg", "찜한 목록에 같은 영화가 있습니다.");
 //			req.setAttribute("url", req.getContextPath()+"/sriracha/get_contents_page.do?movie_id="+(req.getParameter("movie_id")));
-//			
-//			forward.setRedirect(false);
-//			forward.setPath("/view/common/alert.jsp");
 			
 		}else {
 			// 정상적으로 insert 됐다는 뜻
 			
-			forward.setRedirect(true);
-			forward.setPath(req.getContextPath()+"/sriracha/get_contents_page.do?movie_id="+(req.getParameter("movie_id")));
 		}
 		
-		return forward;
 	}
-	
-}
+}	

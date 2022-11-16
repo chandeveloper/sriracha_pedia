@@ -1,7 +1,5 @@
 package com.sriracha.controller;
 
-import java.util.HashMap;
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,8 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 import com.sriracha.action.Action;
 import com.sriracha.action.ActionForward;
 import com.sriracha.model.BoardDAO;
-import com.sriracha.model.BoardDTO;
-import com.sriracha.model.FullDTO;
 import com.sriracha.model.MovieDAO;
 import com.sriracha.model.MovieDTO;
 import com.sriracha.model.WishListDAO;
