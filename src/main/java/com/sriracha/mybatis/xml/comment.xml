@@ -6,29 +6,17 @@
  
  <mapper namespace="Comment" >
 	
-	<select id="">
-		<!-- comment_detail의 대댓글 -->
-		SELECT 	ct.USER_ID ,
-		ct.COMMENT_CONTENT ,
-		ct.COMMENT_LIKE ,
-		ct.COMMENT_DATE 
-		FROM USER_TEST ut 
-		INNER JOIN BOARD_TEST bt ON ut.USER_NUM = bt.USER_NUM 
-		INNER JOIN COMMENT_TEST ct ON ut.USER_NUM = ct.USER_NUM
-		WHERE bt.BOARD_NUM = 3
-		AND ct.USER_NUM = 3
-	</select>
 	<insert id="addComment" parameterType="commentdto">
 		INSERT INTO "COMMENT" 
-		VALUES (comment_num_seq.nextval, #{comment_content}, #{comment_date}, 'Y', #{user_num}, #{board_num}, 0)
+		VALUES (comment_num_seq.nextval, #{comment_content}, #{comment_date}, 'Y', #{user_num}, #{board_num}, 0, #{user_id})
 	</insert>
-	<select id="CommentList" parameterType="boarddto" resultType="boardcommentdto">
+	<select id="CommentList" parameterType="_int" resultType="boardcommentdto">
 		SELECT * 
 		FROM "COMMENT" c 
 		INNER JOIN BOARD b ON c.BOARD_NUM = b.BOARD_NUM 
 		WHERE b.BOARD_NUM = #{board_num}
-		AND
-		b.USER_NUM = #{user_num}
+<!-- 		AND -->
+<!-- 		c.USER_NUM = #{user_num} -->
 	</select>
 	
 	

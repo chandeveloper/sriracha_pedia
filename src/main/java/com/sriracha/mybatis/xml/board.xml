@@ -23,28 +23,11 @@
 		SELECT count(*) FROM BOARD WHERE MOVIE_ID = #{movie_id}
 	</select>
 	
-	<select id="getBoardComment" parameterType="boarddto" resultType="boarddto">
-
-				<!-- comment_detail의 원래 댓글 -->
-<!-- 				SELECT	ut.USER_ID , -->
-<!-- 						bt.BOARD_DATE , -->
-<!-- 						bt.BOARD_CONTENT , -->
-<!-- 						bt.BOARD_LIKE , -->
-<!-- 						mt.MOVIE_TITLE , -->
-<!-- 						(SELECT COUNT(*)  -->
-<!-- 						FROM COMMENT_TEST ct -->
-<!-- 						INNER JOIN BOARD_TEST bt ON ct.BOARD_NUM = bt.BOARD_NUM  -->
-<!-- 						WHERE bt.BOARD_NUM = #{board_num}) -->
-<!-- 						FROM USER_TEST ut  -->
-<!-- 				INNER JOIN BOARD_TEST bt ON ut.USER_NUM = bt.USER_NUM  -->
-<!-- 				INNER JOIN MOVIE_TEST mt ON bt.MOVIE_ID = mt.MOVIE_ID  -->
-<!-- 				WHERE bt.BOARD_NUM = #{board_num} -->
-<!-- 				AND  -->
-<!-- 				mt.MOVIE_ID = #{movie_id} -->
+	<select id="getBoardComment" parameterType="_int" resultType="boarddto">
 				SELECT * FROM BOARD b 
 				WHERE BOARD_NUM = #{board_num}
-				AND 
-				USER_NUM = #{user_num}
+<!-- 				AND  -->
+<!-- 				USER_NUM = #{user_num} -->
 	</select>
 	<select id="getBoardComment_Movie" parameterType="_int" resultType="MovieDTO">
 		SELECT	  m.MOVIE_TITLE

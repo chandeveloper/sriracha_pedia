@@ -24,8 +24,8 @@ public class CommentDAO {
 		return result;
 	}
 
-	public List<BoardCommentDTO> getCommentList(BoardDTO bdto) {
-		List<BoardCommentDTO> CommentList = sqlsession.selectList("Comment.CommentList", bdto);
+	public List<BoardCommentDTO> getCommentList(int board_num) {
+		List<BoardCommentDTO> CommentList = sqlsession.selectList("Comment.CommentList", board_num);
 		
 		return CommentList;
 	}

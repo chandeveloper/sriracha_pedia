@@ -1,6 +1,9 @@
 /* @import "menu.css"; */
 /* @import "footer.css"; */
-@import "comment_modal.css";
+
+/* 11/17 변경 - 원래 comment_modal.css인데 삭제 추가하면서 바꿈 */
+/* @import "comment_modal.css"; */
+@import "comment_modal_detail.css";
 
 div {
     display: block;
@@ -593,6 +596,41 @@ img{
     margin-right: 18px;
 }
 
+
+/*코멘트 수정, 삭제 부분 css*/
+.css-j985f6 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.css-1nfwvb4-StylelessButton {
+    background: none;
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    line-height: 18px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(103, 104, 106);
+    font-size: 12px;
+    min-width: 58px;
+    height: 26px;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+
+
+.css-s99igu {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    fill: rgb(160, 160, 160);
+}
+/*------------------*/
 
 .css-god8tc {
     border: 0;

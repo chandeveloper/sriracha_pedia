@@ -37,8 +37,6 @@ public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 	
 	HttpSession session =req.getSession();
 	
-	System.out.println("user_pw : "+user_pw);
-	System.out.println("real_pw : "+real_pw);
 	
 	if(user_pw.equals(real_pw)) {
 

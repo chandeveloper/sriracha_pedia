@@ -45,16 +45,16 @@ public class BoardDAO {
 		return sqlSession.selectOne("Board.getBoardCnt", movie_id);
 	}
 	
-		public List<BoardDTO> getBoardComment(BoardDTO bdto) {
-			List<BoardDTO> boardComment = sqlSession.selectList("Board.getBoardComment", bdto);
-			
-			return boardComment;
-		}
+	public List<BoardDTO> getBoardComment(int board_num) {
+		List<BoardDTO> boardComment = sqlSession.selectList("Board.getBoardComment", board_num);
+		
+		return boardComment;
+	}
 
-		public List<MovieDTO> getBoardComment_Movie(int board_num) {
-			List<MovieDTO> boardMovie = sqlSession.selectList("Board.getBoardComment_Movie", board_num);
-			return boardMovie;
-		}
+	public List<MovieDTO> getBoardComment_Movie(int board_num) {
+		List<MovieDTO> boardMovie = sqlSession.selectList("Board.getBoardComment_Movie", board_num);
+		return boardMovie;
+	}
 	public List<BoardDTO> getBoardListByUserNum(int user_num){
 		return sqlSession.selectList("Board.getBoardListByUserNum", user_num);
 	}

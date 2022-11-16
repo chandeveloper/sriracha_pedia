@@ -11,6 +11,8 @@ public class BoardDTO {
 	private int comment_cnt;
 	private String user_id;
 	private Double star;
+	
+	
 	public int getBoard_num() {
 		return board_num;
 	}

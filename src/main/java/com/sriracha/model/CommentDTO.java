@@ -8,8 +8,7 @@ public class CommentDTO {
 	private int user_num;
 	private int board_num;
 	private int comment_like;
-	
-	
+	private String user_id;
 	public int getComment_num() {
 		return comment_num;
 	}
@@ -52,6 +51,16 @@ public class CommentDTO {
 	public void setComment_like(int comment_like) {
 		this.comment_like = comment_like;
 	}
+	public String getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+	
+	
+	
+	
 	
 
 }

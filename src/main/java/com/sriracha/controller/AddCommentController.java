@@ -36,11 +36,17 @@ public class AddCommentController implements Action{
 		cdto.setComment_date(now.toString());
 		cdto.setUser_num(udto.getUser_num());
 		cdto.setBoard_num(Integer.parseInt(req.getParameter("board_num")));
+		cdto.setUser_id(udto.getUser_id());
 		
 		
 		if (cdao.addComment(cdto)) {
-			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/sriracha/commentDetailView.do?board_num="+(Integer.parseInt(req.getParameter("board_num"))) + "&user_num=" + (Integer.parseInt(req.getParameter("user_num"))));
+			forward.setRedirect(false);
+			//(Integer.parseInt(req.getParameter("user_num")))
+			//(Integer.parseInt(req.getParameter("board_num")))
+			// + "&user_num=" + cdto.getUser_num() 
+			forward.setPath(req.getContextPath() + "/sriracha/commentDetailView.do?board_num="+ (Integer.parseInt(req.getParameter("board_num")))+"&movie_id=" + (Integer.parseInt(req.getParameter("movie_id"))+"&user_num=" + (Integer.parseInt(req.getParameter("user_num")))));
+			System.out.println("user_num : " + cdto.getUser_num());
+			System.out.println("board_num : " + cdto.getBoard_num());
 		}
 		return forward;
 	}
