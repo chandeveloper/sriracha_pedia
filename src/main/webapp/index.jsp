@@ -13,7 +13,7 @@
         <link rel="stylesheet" href="./css/style2.css" />
         <style>
             body {
-                background: url(https://data2.1freewallpapers.com/download/sherlock-sherlock-holmes-dr-john-watson.jpg)
+                background: url(../img/디자인1.png)
                     no-repeat center center fixed;
                 -webkit-background-size: cover;
                 -moz-background-size: cover;

@@ -41,9 +41,11 @@ legend {
 }
 
 .bg {
-  background-image: url(../img/signBG.jpg);
-  width: 100%;
-  z-index: 999;
+  background: url(../img/loginBG.jpg) no-repeat center center fixed;
+                -webkit-background-size: cover;
+                -moz-background-size: cover;
+                -o-background-size: cover;
+                background-size: cover;;
 }
 
 .bgBlur::before {

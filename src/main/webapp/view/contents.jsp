@@ -70,9 +70,7 @@
 
 
                <!-- 메뉴바 밑에 콘텐츠 썸네일 -->
-               <section class="thumbnail">
-                  <img class="thumbnail" src="https://image.tmdb.org/t/p/original${movie.movie_backdrop_path }" alt="">
-               </section>
+               
                <div class="thumbnail">
                   <div class="css-cshjoi-PosterContainer e1svyhwg1">
                      <div class="css-oqg1df-BlurPosterBlock e1svyhwg2">
