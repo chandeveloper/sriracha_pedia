@@ -44,5 +44,9 @@ public class BoardDAO {
 	public int getBoardCnt(int movie_id) {
 		return sqlSession.selectOne("Board.getBoardCnt", movie_id);
 	}
+	
+	public List<BoardDTO> getBoardListByUserNum(int user_num){
+		return sqlSession.selectList("Board.getBoardListByUserNum", user_num);
+	}
 
 }

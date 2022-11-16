@@ -1,27 +1,27 @@
-.step4{
+.step3{
 	margin:10px;
 	display:block;
 }
 
 
-.step4 .contents_contents_container{
+.step3 .contents_contents_container{
     margin: 0;
 }
 
-.step4 .swiper-wrap{
+.step3 .swiper-wrap{
     /* margin-top: 100px; */
     margin-bottom: 0 !important;
     width: 100%;
 }
 
-.step4 .swiper {
+.step3 .swiper {
     position: relative;
     width: 100%;
     max-width: 780px !important;
-    margin: 10px auto;
+    margin: 10px 10px;
 }
 
-.step4 .swiper-slide {
+.step3 .swiper-slide {
     text-align: -webkit-left;
     font-size: 18px;
     background: #fff;
@@ -40,7 +40,7 @@
     
 }
 
-.step4 .swiper-button-next, .step .swiper-button-prev{   
+.step3 .swiper-button-next, .step .swiper-button-prev{   
     width: 50px;   
     height: 50px;   
     border-radius: 50%;
@@ -51,7 +51,7 @@
     transition: all 0.2s;
 }
 
-.step4 .swiper-button-next::after, .step .swiper-button-prev::after{
+.step3 .swiper-button-next::after, .step .swiper-button-prev::after{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -60,7 +60,7 @@
     font-weight: 900;
 }
 
-.step4 .swiper-pagination{
+.step3 .swiper-pagination{
     position: absolute;
     left: 50% !important;
     border-radius: 30px;
@@ -69,29 +69,29 @@
     width: 60px !important;
 }
 
-.step4 .swiper-pagination span{
+.step3 .swiper-pagination span{
     height: 40px;    
 }
 
-.step4 .contents_contents_profile div{
+.step3 .contents_contents_profile div{
     border: none;
 }
 
-.step4 .txt{
+.step3 .txt{
     text-align-last: left;
 }
 
-.step4 .slide{
+.step3 .slide{
     box-shadow: none !important;
 }
 
-.step4 .slide ul{
+.step3 .slide ul{
     width: 100%;
     height: 100%;
     padding: 0px;
 }
 
-.step4 .slide li{    
+.step3 .slide li{    
     cursor: pointer;
     margin: 0 auto;
     width: 98%;
@@ -103,15 +103,15 @@
 
 
 
-.step4 .slide li:first-child{
+.step3 .slide li:first-child{
     margin-top: 6px;
 }
 
-.step4 .slide li:last-child{
+.step3 .slide li:last-child{
     margin-bottom: 6px;
 }
 
-.step4 .slide li .extends{
+.step3 .slide li .extends{
     display: none;
     background-color: #f9f9f9;
     border-radius: 10px;

@@ -22,7 +22,7 @@
                     </form>
                 </div>
                 <span class="menu_login" onclick="doLogout()" style="cursor: pointer;">로그아웃 </span>
-                <span class="menu_sign-up" id="js-signUp" onclick="location.href='../view/mypage.jsp'"
+                <span class="menu_sign-up" id="js-signUp" onclick="location.href='/sriracha/get_my_page.do'"
                     style="cursor: pointer;">마이페이지</span>
             </div>
             

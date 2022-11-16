@@ -119,7 +119,7 @@
          <div class="content_info">
             <!-- 보고싶어요 버튼 -->
             <div class="content_info-left">
-               <div class="content_want-see" style="cursor: pointer;">
+               <div class="content_want-see" style="cursor: pointer;" onclick="addWish(${movie.movie_id})">
                   <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
                </div>
             </div>
@@ -604,6 +604,13 @@ function addcomment(){
     star_value.value = starValue;
     
     form.submit();
+}
+
+function addWish(movie_id){
+	if(confirm("찜한 영화 목록에 추가하시겠습니까?")){
+		console.log(movie_id);
+		location.href="/sriracha/addWish.do?movie_id="+movie_id;
+	}
 }
 
 </script>
