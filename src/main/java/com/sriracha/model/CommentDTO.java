@@ -7,6 +7,8 @@ public class CommentDTO {
 	private String comment_presence;
 	private int user_num;
 	private int board_num;
+	private int comment_like;
+	
 	
 	public int getComment_num() {
 		return comment_num;
@@ -43,6 +45,12 @@ public class CommentDTO {
 	}
 	public void setBoard_num(int board_num) {
 		this.board_num = board_num;
+	}
+	public int getComment_like() {
+		return comment_like;
+	}
+	public void setComment_like(int comment_like) {
+		this.comment_like = comment_like;
 	}
 	
 

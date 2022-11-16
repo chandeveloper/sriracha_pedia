@@ -20,8 +20,16 @@
 	</select>
 	<insert id="addComment" parameterType="commentdto">
 		INSERT INTO "COMMENT" 
-		VALUES (comment_num_seq.nextval, #{comment_content}, #{comment_date}, 'Y', #{user_num}, #{board_num})
+		VALUES (comment_num_seq.nextval, #{comment_content}, #{comment_date}, 'Y', #{user_num}, #{board_num}, 0)
 	</insert>
+	<select id="CommentList" parameterType="boarddto" resultType="boardcommentdto">
+		SELECT * 
+		FROM "COMMENT" c 
+		INNER JOIN BOARD b ON c.BOARD_NUM = b.BOARD_NUM 
+		WHERE b.BOARD_NUM = #{board_num}
+		AND
+		b.USER_NUM = #{user_num}
+	</select>
 	
 	
 	

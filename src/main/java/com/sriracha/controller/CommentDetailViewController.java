@@ -15,7 +15,7 @@ public class CommentDetailViewController implements Action{
 	@Override
 	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 		BoardDAO bdao = new BoardDAO();
-//		CommentDAO cdao = new CommentDAO();
+		CommentDAO cdao = new CommentDAO();
 		ActionForward forward = new ActionForward();
 		
 		//board_num으로 쿼리문 두 개 comment_detail.jsp의 원래 댓글의 movie테이블, board테이블
@@ -27,11 +27,16 @@ public class CommentDetailViewController implements Action{
 		bdto.setBoard_num(board_num);
 		bdto.setUser_num(user_num);
 		
+		//코멘트디테일 페이지의 대댓글 부분
+		
+		
 		//commentList
 		req.setAttribute("BoardComment", bdao.getBoardComment(bdto));
 		req.setAttribute("BoardComment_Movie", bdao.getBoardComment_Movie(board_num));
 		req.setAttribute("getCommentCnt", bdao.getCommentCnt(board_num));
 		
+		//대댓글 select
+		req.setAttribute("CommentList", cdao.getCommentList(bdto));
 		
 
 		forward.setRedirect(false);

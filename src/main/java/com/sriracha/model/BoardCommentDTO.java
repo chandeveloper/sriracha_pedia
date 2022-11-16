@@ -16,6 +16,7 @@ public class BoardCommentDTO {
 	private String comment_content;
 	private String comment_date;
 	private String comment_presence;
+	private int comment_like;
 	
 	
 	public int getBoard_num() {
@@ -102,6 +103,17 @@ public class BoardCommentDTO {
 	public void setComment_presence(String comment_presence) {
 		this.comment_presence = comment_presence;
 	}
+	public int getComment_like() {
+		return comment_like;
+	}
+	public void setComment_like(int comment_like) {
+		this.comment_like = comment_like;
+	}
+	
+	
+	
+	
+	
 	
 	
 
