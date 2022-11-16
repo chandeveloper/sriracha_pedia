@@ -90,7 +90,7 @@ body.addEventListener("click", closePopUp);
     
      var swiperStep = new Swiper(".mySwiper3", {
         // slidesPer
-        slidesPerView: 2.6,
+        slidesPerView: 2.8,
         spaceBetween: 15,
         freeMode: true,
         pagination: {

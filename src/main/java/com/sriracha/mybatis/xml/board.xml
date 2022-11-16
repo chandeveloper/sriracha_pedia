@@ -58,4 +58,7 @@
 		SELECT COUNT(*) FROM "COMMENT" c WHERE BOARD_NUM = #{board_num}
 	</select>
 
+	<select id="getBoardListByUserNum" parameterType="_int" resultType="boarddto">
+		SELECT * FROM board WHERE user_num = #{user_num} ORDER BY BOARD_NUM
+	</select>
 </mapper>

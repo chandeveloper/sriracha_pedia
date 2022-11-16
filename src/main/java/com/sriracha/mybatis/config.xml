@@ -11,6 +11,7 @@
 		<typeAlias type="com.sriracha.model.FullDTO" alias="fulldto"/>
 		<typeAlias type="com.sriracha.model.CommentDTO" alias="commentdto"/>
 		<typeAlias type="com.sriracha.model.BoardCommentDTO" alias="boardcommentdto"/>
+		<typeAlias type="com.sriracha.model.WishListDTO" alias="WishListDTO"/>
 	</typeAliases>
 
 	 <environments default="development">
@@ -31,6 +32,7 @@
 		<mapper resource="com/sriracha/mybatis/xml/user.xml"/>
 	 	<mapper resource="com/sriracha/mybatis/xml/board.xml"/>
 	 	<mapper resource="com/sriracha/mybatis/xml/comment.xml"/>
+	 	<mapper resource="com/sriracha/mybatis/xml/wishlist.xml"/>
  	</mappers>
 	 
 </configuration>

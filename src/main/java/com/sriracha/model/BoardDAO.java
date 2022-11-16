@@ -55,5 +55,8 @@ public class BoardDAO {
 			List<MovieDTO> boardMovie = sqlSession.selectList("Board.getBoardComment_Movie", board_num);
 			return boardMovie;
 		}
+	public List<BoardDTO> getBoardListByUserNum(int user_num){
+		return sqlSession.selectList("Board.getBoardListByUserNum", user_num);
+	}
 
 }
