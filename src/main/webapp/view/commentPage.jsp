@@ -65,7 +65,7 @@
                         <div class="rate">★${board.star }</div>
                     </li>
                     <li class="secondLi">
-                        <a href="${pageContext.request.contextPath }/sriracha/commentDetailView.do?board_num=${board.board_num }&user_num=${board.user_num }">
+                        <a href="${pageContext.request.contextPath }/sriracha/commentDetailView.do?board_num=${board.board_num }&movie_id=${board.movie_id}&user_num=${board.user_num}">
                             <span class="commentText">
 								${board.board_content }
                             </span>
