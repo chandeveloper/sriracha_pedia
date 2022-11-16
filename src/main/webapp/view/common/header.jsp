@@ -21,8 +21,13 @@
 	                    <input class="menu_search" type="text" placeholder="영화 제목 키워드를 검색해보세요." name="search_content" onkeyup="searchEnter()">
                     </form>
                 </div>
+<<<<<<< HEAD
                 <span class="menu_login" id="logOut" style="cursor: pointer;">로그아웃 </span>
                 <span class="menu_sign-up" id="js-signUp" onclick="location.href='../view/mypage.jsp'"
+=======
+                <span class="menu_login" onclick="doLogout()" style="cursor: pointer;">로그아웃 </span>
+                <span class="menu_sign-up" id="js-signUp" onclick="location.href='/sriracha/get_my_page.do'"
+>>>>>>> 4c45fded2987435e5e9e2154f48b3ff7ff6cbde2
                     style="cursor: pointer;">마이페이지</span>
             </div>
             
