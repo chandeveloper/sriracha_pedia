@@ -1,28 +1,43 @@
 package com.sriracha.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.json.simple.JSONObject;
 
 import com.sriracha.action.Action;
 import com.sriracha.action.ActionForward;
 import com.sriracha.model.BoardDAO;
 import com.sriracha.model.BoardDTO;
-import com.sriracha.model.CommentDAO;
-import com.sriracha.model.CommentDTO;
-import com.sriracha.model.FullDTO;
 import com.sriracha.model.MovieDAO;
 import com.sriracha.model.MovieDTO;
 import com.sriracha.model.UserDTO;
 
-public class AddBoardController implements Action {
+@WebServlet("/sriracha/addBoard.do")
+public class AddBoardController extends HttpServlet {
 
+		
 	@Override
-	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
-		ActionForward forward = new ActionForward();
-
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
+	
+	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		BoardDAO bdao = new BoardDAO();
 		
 		BoardDTO bdto = new BoardDTO();
@@ -34,16 +49,26 @@ public class AddBoardController implements Action {
 		udto.setUser_name(session.getAttribute("session_name").toString());
 		udto.setUser_pw(session.getAttribute("session_pw").toString());
 		udto.setUser_num(Integer.parseInt(session.getAttribute("session_usernum").toString()));
+		
 		LocalDate now = LocalDate.now();
+		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		 
+	        // 포맷 적용
+	        String formatedNow = now.format(formatter);
+	 
+	        // 결과 출력
+	        System.out.println(formatedNow);  // 2021/06/17
 		
 		bdto.setBoard_content(req.getParameter("board_content"));
 		bdto.setUser_num(udto.getUser_num());
-		bdto.setBoard_date(now.toString());
+		bdto.setBoard_date(formatedNow.toString());
 		bdto.setMovie_id(Integer.parseInt(req.getParameter("movie_id")));
 		bdto.setUser_id(udto.getUser_id());
 		bdto.setStar(Double.parseDouble(req.getParameter("star_value")));
 		
-		if (bdao.addComment(bdto)) {
+//		req.setAttribute("getCommentCnt", bdao.getCommentCnt(board_num));
+		
+		if (bdao.addBoard(bdto)) {
 			
 			// 댓글이 입력되면 영화 정보 수정 ( 평점 , 참여자 수 )
 			MovieDAO mdao = new MovieDAO();
@@ -59,10 +84,30 @@ public class AddBoardController implements Action {
 			
 			mdao.updateMovieVote(mdto);
 			
-			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/sriracha/get_contents_page.do?movie_id="+(Integer.parseInt(req.getParameter("movie_id"))));
+			String mva = String.format("%.1f", (mdto.getMovie_vote_average()/2));
+			
+			JSONObject obj = new JSONObject();
+			obj.put("movie_vote_average" , mva);
+			obj.put("movie_vote_count" , mdto.getMovie_vote_count());
+			obj.put("board_count" , bdao.getBoardCnt(Integer.parseInt(req.getParameter("movie_id"))));
+			obj.put("user_id" , udto.getUser_id());
+			obj.put("board_content" , bdto.getBoard_content());
+			obj.put("board_like" , bdto.getBoard_like());
+			obj.put("board_comment_cnt" , bdto.getComment_cnt());
+			obj.put("board_num", bdao.getLastBoardNumByUserNum(udto.getUser_num()));
+			
+			resp.setContentType("application/json");
+			resp.setCharacterEncoding("UTF-8");
+			
+			PrintWriter out = resp.getWriter();
+			out.write(obj.toString());
+			out.flush();
+			
 		}
-		return forward;
+		
 	}
+	
+	
+		
 
 }

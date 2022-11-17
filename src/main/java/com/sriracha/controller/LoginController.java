@@ -39,8 +39,8 @@ public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
 	
 	
 	
-	if(user_pw.equals(real_pw)) {
-
+	if(user_pw.equals(real_pw) && userinfo!=null) {
+		session.setAttribute("userinfo", userinfo);
 		session.setAttribute("session_id", user_id);
 		session.setAttribute("session_pw", real_pw);
 		session.setAttribute("session_usernum", user_num);

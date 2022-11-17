@@ -101,6 +101,30 @@
     transition: all 0.5s ease;
 }
 
+/* 취소할래요 */
+/* 오른쪽 부분 중 취소할래요 버튼 */
+.content_not_want-see {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(192, 192, 192);
+    color: white;
+    font-size: 18px;
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+    margin-right: 33px;
+    margin-top: 33px;
+}
+
+/* 취소할래요 버튼의 check 아이콘 */
+.content_not_want-see i {
+    margin-right: 10px;
+    margin-left: -10px;
+    transition: all 0.5s ease;
+}
+
+
 /* plus 아이콘 돌아가는 기능 */
 .content_want-see:hover > .plus-rotate {
     transform: rotate(90deg);

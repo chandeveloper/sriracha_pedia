@@ -1,5 +1,6 @@
 package com.sriracha.model;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -18,11 +19,18 @@ public class WishListDAO {
 	public List<WishListDTO> selectWishByUserNum(int user_num){
 		return sqlSession.selectList("WishList.selectWishByUserNum", user_num);
 	}
+	
+	public WishListDTO selectWishByUserNumMovieId(int user_num, int movie_id) {
+		HashMap<String, Integer> paramMap = new HashMap<>();
+		paramMap.put("user_num", user_num);
+		paramMap.put("movie_id", movie_id);
+		
+		return sqlSession.selectOne("WishList.selectWishByUserNumMovieId", paramMap);
+	}
 
 	public boolean insertWish(WishListDTO wdto) {
 		boolean result = false;
 		boolean isThereSameMovie = false;
-		
 		
 		List<WishListDTO> wishList = selectWishByUserNum(wdto.getUser_num()); 
 		
@@ -44,6 +52,10 @@ public class WishListDAO {
 		}
 		
 		return result;
+	}
+
+	public void deleteWish(WishListDTO wdto) {
+		sqlSession.delete("WishList.deleteWish", wdto);
 	}
 	
 	

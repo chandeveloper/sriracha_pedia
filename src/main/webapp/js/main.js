@@ -72,7 +72,7 @@ body.addEventListener("click", closePopUp);
     });
 
     
-    var swiperStep = new Swiper(".mySwiper2", {
+    var swiperStep2 = new Swiper(".mySwiper2", {
         // slidesPer
         slidesPerView: 2.5,
         spaceBetween: 10,

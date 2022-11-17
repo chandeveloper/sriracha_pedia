@@ -11,4 +11,12 @@
 	<insert id="insertWish" parameterType="WishListDTO">
 		INSERT INTO wishlist VALUES(#{user_num}, #{movie_id})
 	</insert>
+	
+	<delete id="deleteWish" parameterType="WishListDTO">
+		DELETE FROM wishlist WHERE user_num = #{user_num} AND movie_id = #{movie_id}
+	</delete>
+	
+	<select id="selectWishByUserNumMovieId" parameterType="hashmap" resultType="WishListDTO">
+		SELECT user_num, movie_id FROM wishlist WHERE user_num = #{user_num} AND movie_id = #{movie_id}
+	</select>
 </mapper>
