@@ -197,50 +197,50 @@
       <div class="contents_middle-box">
          <div>
             <!--댓글 달았을 시 추가되는 부분 : 유진-->
-<!--                 <div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented" > -->
-<!--                     <div class="css-12ru3m0"> -->
-<!--                         <div class="css-1gkas1x-Grid e1689zdh0"> -->
-<!--                             <div class="css-1y901al-Row emmoxnt0"> -->
-<!--                                 <section class="css-10tfsfb-MyCommentSection eue8w0j3"> -->
-<!--                                     <div class="css-vo2laf-MyCommentBlock eue8w0j6"> -->
-<!--                                         <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4"> -->
-<!--                                             <div class="css-ffwxzk"> -->
-<!--                                                 <div class="css-h6h0rq-ProfilePhotoImage"></div> -->
-<!--                                             </div> -->
-<!--                                         </div> -->
-<!--                                         <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13" href="comment_detail_me.html"> -->
-<!--                                             <div class="css-2a9q6o-MyComment eue8w0j5"> -->
-<!--                                                 <div class=" css-gujidv-StyledSelf eb5y16b0"> -->
-<!--                                                     <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단 내용 표시하는 부분입니다.</div> -->
-<!--                                                 </div> -->
-<!--                                             </div> -->
-<!--                                         </a> -->
-<!--                                         <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7"> -->
-<!--                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8"> -->
-<!--                                                 <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="delete_btn"> -->
-<!--                                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="delete comment"> -->
-<!--                                                     삭제 -->
-<!--                                                 </button> -->
-<!--                                             </li> -->
-<!--                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8"> -->
-<!--                                                 <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="modify_btn"> -->
-<!--                                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="edit comment"> -->
-<!--                                                     수정 -->
-<!--                                                 </button> -->
-<!--                                             </li> -->
-<!--                                         </ul> -->
-<!--                                     </div> -->
-<!--                                 </section> -->
-<!--                             </div> -->
-<!--                         </div> -->
+				<div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented" style="display: none;">
+                    <div class="css-12ru3m0">
+                        <div class="css-1gkas1x-Grid e1689zdh0">
+                            <div class="css-1y901al-Row emmoxnt0">
+                                <section class="css-10tfsfb-MyCommentSection eue8w0j3">
+                                    <div class="css-vo2laf-MyCommentBlock eue8w0j6">
+                                        <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4">
+                                            <div class="css-ffwxzk">
+                                                <div class="css-h6h0rq-ProfilePhotoImage"></div>
+                                            </div>
+                                        </div>
+                                        <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13" href="comment_detail_me.html">
+                                            <div class="css-2a9q6o-MyComment eue8w0j5">
+                                                <div class=" css-gujidv-StyledSelf eb5y16b0">
+                                                    <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단 내용 표시하는 부분입니다.</div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7">
+                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
+                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="delete_btn">
+                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="delete comment">
+                                                    삭제
+                                                </button>
+                                            </li>
+                                            <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
+                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="modify_btn">
+                                                    <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="edit comment">
+                                                    수정
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
                         
-<!--                     </div> -->
-<!--                 </div> -->
+                    </div>
+                </div>
                 <!--댓글 달았을 시 추가되는 부분 끝 : 유진-->
             <div class="leave-comment-box">
                <span class="go-leave-comment"> 이 작품에 대한 회원 님의 평가를 글로 남겨보세요.
                </span> 
-               <span class="leave-comment" id="btn-modal"
+               <span class="leave-comment" id="board_modal_btn"
                   style="cursor: pointer;">코멘트 남기기</span>
             </div>
             <div class="contents_contents-box">
@@ -456,7 +456,7 @@
 	                                        </li>
 	                                    </ul>
 	                                </div>	
-								</c:forEach>   
+								</c:forEach>
                                 
                             </div>
                         </div>
@@ -474,7 +474,7 @@
    </main>
    <!-- 여기까지 메인 컨텐츠 박스였습니다 -->
 
-   <!--모달창 !!!!!!!!!!! 대댓글 !!!!!!!!!!!!!!!!!!11-->
+   <!--모달창 !!!!!!!!!!! 댓글 !!!!!!!!!!!!!!!!!!11-->
    
    <div class="css-14gy7wr" id="modal">
       <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
@@ -484,7 +484,7 @@
                <div class="css-19pxr9t"></div>
                <em class="css-10mjbgt">${movie.movie_title }</em>
                <div class="css-19pxr9t">
-                  <button class="css-1lvet1d-StylelessButton"></button>
+                  <button class="css-1lvet1d-StylelessButton"  id="close_board_btn"></button>
                </div>
             </header>
             <div class="css-1iv0iqc">
@@ -492,10 +492,13 @@
                   <div class="css-cdzmq7">
                      <div class="css-iowq1w">
                         <div class="css-iowq1w">
+                       		<%-- <input type="hidden" name="movie_id" value="${movie.movie_id }">
+                       		<input type="hidden" name="star_value" id="star_value"> --%>
+                       		
                        		<textarea maxlength="10000"
-                             		placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
+                             		placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="modal_writecomment1" name="board_content">${board_.board_content }</textarea>
                            
-                           <div class="css-238o9r" id="writecomment2" ></div>
+                           <div class="css-238o9r"></div>
                         </div>
                      </div>
                   </div>
@@ -521,7 +524,7 @@
                      <p class="css-1s08rlk"></p>
                      <p class="css-ynpx67" id="reCount">0/10000</p>
 <%--                     <a href="${pageContext.request.contextPath }/sriracha/addComment.do?movie_id=${movie.movie_id}"> --%>
-                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장" onclick="addBoard(${movie.movie_id})">
+                     <input class="css-1ukikc-StylelessButton" type="button" id="boardbtn" value="저장" onclick="addBoard(${movie.movie_id})">
 <!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
 <!-- 					</a> -->
                   </div>
@@ -530,26 +533,66 @@
          </div>
       </div>
    </div>
-   <!----모달창 !!! 대댓글 끝!!!!!------>
+   <!----모달창 !!! 댓글 끝!!!!!------>
+   
+     <!----모달창 !!! 댓글 수정 모달창 !!!!!------>
+   <div class="css-14gy7wr" id="modify_modal">
+            <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
+                <div class="css-1p257d1-modalAddStyle">
+                    <header title="" class="css-166ww79-HeaderBarPrimitive-headerAddStyle">
+                        <div class="css-19pxr9t"></div>
+                        <em class="css-10mjbgt">${movie.movie_title }</em>
+                        <div class="css-19pxr9t">
+                            <button class="css-1lvet1d-StylelessButton" id="close_modify_btn"></button>
+                        </div>
+                    </header>
+                    <div class="css-1iv0iqc">
+                        <div height="100%" class="css-2zu8pq">
+                            <div class="css-cdzmq7">
+                                <div class="css-iowq1w">
+                                    <div class="css-iowq1w">
+                                             
+                                                 <textarea maxlength="10000" placeholder="수정 할 내용을 입력해주세요."  class="css-1k5ei58" id="writecomment_modify" name="comment_content"></textarea>
+                                        <div class="css-238o9r"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="css-183vuuo">
+                        <div class="css-a2jbfo">
+                            <div class="css-6qnjre"></div>
+                            <div class="css-6qnjre">
+                                <p class="css-1s08rlk"></p>
+                                 <p class="css-ynpx67" id="reCount_modify">0/10000</p>
+                                <input class="css-1ukikc-StylelessButton" type="button" id="modify_save_btn" value="저장" onclick="updateBoard()">
+<!--                                 <button class="css-1ukikc-StylelessButton" id="commentbtn">저장</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----모달창 !!! 댓글 수정 모달창 끝!!!!!------>
    <!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ?-->
-<!--     <div class="css-14gy7wr" id="modal2"> -->
-<!--         <div id="modal-container-7jMaFDbYzaXVi3tG2JxKy" class="css-rpyl6s"> -->
-<!--             <div class="css-1yszxv0"> -->
-<!--                 <div class="css-f35o9y"> -->
-<!--                     <div class="css-1gkas1x-Grid e1689zdh0"> -->
-<!--                         <div class="css-1y901al-Row emmoxnt0"> -->
-<!--                             <div class="css-2djw8f">알림</div> -->
-<!--                             <div class="css-148qwic">코멘트를 삭제하시겠어요?</div> -->
-<!--                             <div size="2" class="css-gy4ioq"> -->
-<!--                                 <button class="css-1gdw77k-StylelessButton" id="cancel">취소</button> -->
-<!--                                 <button class="css-sfhtz9-StylelessButton" id="deletecomment">확인</button> -->
-<!--                             </div> -->
-<!--                         </div> -->
-<!--                     </div> -->
-<!--                 </div> -->
-<!--             </div> -->
-<!--         </div> -->
-<!--     </div> -->
+    <div class="css-14gy7wr" id="delete_board_modal">
+        <div id="modal-container-7jMaFDbYzaXVi3tG2JxKy" class="css-rpyl6s">
+            <div class="css-1yszxv0">
+                <div class="css-f35o9y">
+                    <div class="css-1gkas1x-Grid e1689zdh0">
+                        <div class="css-1y901al-Row emmoxnt0">
+                            <div class="css-2djw8f">알림</div>
+                            <div class="css-148qwic">코멘트를 삭제하시겠어요?</div>
+                            <div size="2" class="css-gy4ioq">
+                                <button class="css-1gdw77k-StylelessButton" id="cancel">취소</button>
+                                <button class="css-sfhtz9-StylelessButton" id="deletecomment" onclick="deleteBoard(${movie.movie_id})">확인</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ? 끝-->
     
     <!-- 푸터 시작 -->
@@ -561,11 +604,12 @@
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 <script type="text/javascript">
-/*코멘트 남기기 모달창*/
-const modal = document.getElementById("modal")
-const btnModal = document.getElementById("btn-modal")
-btnModal.addEventListener("click", e => {
-    modal.style.display = "flex"
+/*---------------------------댓글 남기기 모달창---------------------------------*/
+const board_modal_btn = document.querySelector("#board_modal_btn")
+board_modal_btn.addEventListener("click", e => {
+	console.log("aaa");
+    
+    $("#modal").show();
 })
 
 /*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
@@ -582,26 +626,118 @@ const evTarget = e.target
     }
 })
 
-const elCommentbtn = document.getElementById('commentbtn')
-const elwritecomment1 = document.getElementById('writecomment1')
-elCommentbtn.disabled = true;
-elwritecomment1.addEventListener('keyup', button)
+const boardbtn = document.getElementById('boardbtn')
+const modal_writecomment1 = document.getElementById('modal_writecomment1')
+boardbtn.disabled = true;
+modal_writecomment1.addEventListener('keyup', button)
 
 function button() {
-    if (!(elwritecomment1.value == "")) {
-        elCommentbtn.disabled = false;
-        document.getElementById("reCount").innerHTML = elwritecomment1.value.length + "/" + 10000;
+    if (!(modal_writecomment1.value == "")) {
+    	boardbtn.disabled = false;
+        document.getElementById("reCount").innerHTML = modal_writecomment1.value.length + "/" + 10000;
     } else {
-        elCommentbtn.disabled = true;
+    	boardbtn.disabled = true;
     }
 }
 
- /*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
- const closeBtn2 = modal.querySelector("#commentbtn")
-closeBtn2.addEventListener("click", e => {
-    modal.style.display = "none"
-})
+/*---------------------------댓글 남기기 모달창 끝---------------------------------*/
+/*-----------------------댓글 수정 모달-------------------------------*/
+ const modify_modal = document.getElementById("modify_modal")
+ const modify_btn = document.getElementById("modify_btn")
+ modify_btn.addEventListener("click", e => {
+ 	modify_modal.style.display = "flex"
+ })
 
+
+  //x 버튼 클릭 시 코멘트 수정 모달창 끄기
+ const close_modify_Btn = modify_modal.querySelector(".css-1lvet1d-StylelessButton")
+   close_modify_Btn.addEventListener("click", e => {
+      modify_modal.style.display = "none"
+   })
+
+      // 모달창 바깥 부분 클릭 시 코멘트 수정 모달창 끄기
+      
+       modify_modal.addEventListener("click", e => {
+         const evTarget = e.target
+             if(evTarget.classList.contains("css-rpyl6s")) {
+                modify_modal.style.display = "none"
+             }
+         })
+         
+ // modify_modal.addEventListener("click", e => {
+ // const evTarget = e.target
+//       if(evTarget.classList.contains("css-1yszxv0")) {
+//      	 modify_modal.style.display = "none"
+//       }
+ // })
+
+       const writecomment_modify = document.getElementById('writecomment_modify')
+       writecomment_modify.addEventListener('keyup', count_modify)
+       
+       function count_modify() {
+           if (!(writecomment_modify.value == "")) {
+               document.getElementById("reCount_modify").innerHTML = writecomment_modify.value.length + "/" + 10000;
+           }
+       }
+  
+  /*-----------------------댓글 수정 모달 끝-------------------------------*/
+  
+  
+   /*-----------------------댓글 삭제 모달 시작-------------------------------*/
+  
+ const delete_board_modal = document.getElementById("delete_board_modal")
+ const delete_btn = document.getElementById("delete_btn")
+ delete_btn.addEventListener("click", e => {
+ 	delete_board_modal.style.display = "flex"
+ })
+
+ delete_board_modal.addEventListener("click", e => {
+ const evTarget = e.target
+      if(evTarget.classList.contains("css-1yszxv0")) {
+     	 delete_board_modal.style.display = "none"
+      }
+ })
+
+ //----------------------삭제 모달 중 취소 버튼 클릭--------------------------
+       $("#cancel").click(function(){
+     	  delete_board_modal.style.display = "none"
+       })
+       
+       //---------------코멘트 수정하기
+//        const modify_modal = document.getElementById("modify_modal")
+//        $("#modify_btn").click(function(){
+//           modify_modal.style.display = "flex"
+//        })
+       
+       //x 버튼 클릭 시 코멘트 수정 모달창 끄기
+//        const close_modify_Btn = modify_modal.querySelector(".css-1lvet1d-StylelessButton")
+//          close_modify_Btn.addEventListener("click", e => {
+//             modify_modal.style.display = "none"
+//          })
+         
+         // 모달창 바깥 부분 클릭 시 코멘트 수정 모달창 끄기
+         modify_modal.addEventListener("click", e => {
+         const evTarget = e.target
+             if(evTarget.classList.contains("css-rpyl6s")) {
+                modify_modal.style.display = "none"
+             }
+         })
+         
+//        writecomment_modify.addEventListener('keyup', count_modify)
+       
+//        function count_modify() {
+//            if (!(writecomment_modify.value == "")) {
+//                document.getElementById("reCount_modify").innerHTML = writecomment_modify.value.length + "/" + 10000;
+//            }
+//        }
+ 
+
+
+/*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
+//  const closeBtn2 = modal.querySelector("#commentbtn")
+// closeBtn2.addEventListener("click", e => {
+//     modal.style.display = "none"
+// })
 
 function addBoard(movie_id){
 	
@@ -611,14 +747,72 @@ function addBoard(movie_id){
 		data:{	
 					"movie_id" : movie_id,
 					"star_value" : starValue,
-					"board_content" : $("#writecomment1").val()
+					"board_content" : $("#modal_writecomment1").val()
 				},
-		success:function(data){
-		    console.log("success");
-		    /* $("#boardWrapper").appendTo("<div class=\"swiper-slide slide\"><ul><li><div class=\"comment-nemo\"><div class=\"comment_user\"><img src=\"../img/user_profile.jfif\" class=\"comment_user-img\"><span class=\"user_name\">유저아이디</span></div><div class=\"comment_comment\">보드컨텐트</div><div class=\"comment_feel\"><span class=\"comment_feel-good\"><i class=\"fas fa-thumbs-up\"></i>보드라이크</span><span class=\"comment_feel-comment\"><i class=\"fas fa-comment\"></i>보드코멘트카운트</span></div><div class=\"comment_click-good\">좋아요</div></div></li></ul></div>"); */
+		success:function(data){	
+			
+			$("#modal").hide();
+			$("#commented").show();
+			$(".leave-comment-box").hide();
+			
+			$("#commentarea").html(data.board_content);
+			
+		     // div id : board_(숫자) 
+		     $("#boardWrapper").append("<div class=\"swiper-slide slide\" id=\"board_"+data.board_num+"\"><ul><li><div class=\"comment-nemo\"><div class=\"comment_user\"><img src=\"../img/user_profile.jfif\" class=\"comment_user-img\"><span class=\"user_name\">"+data.user_id+"</span></div><div class=\"comment_comment\">"+data.board_content+"</div><div class=\"comment_feel\"><span class=\"comment_feel-good\"><i class=\"fas fa-thumbs-up\"></i>"+data.board_like+"</span><span class=\"comment_feel-comment\"><i class=\"fas fa-comment\"></i>"+data.board_comment_cnt+"</span></div><div class=\"comment_click-good\">좋아요</div></div></li></ul></div>");		     
+		     swiperStep2.updateSlides();
+		     
+		     $(".content_star").html("평점 ★"+data.movie_vote_average+" ("+data.movie_vote_count+"명)");
+		     $(".contents_contents_title-number").html(data.board_count);
+		     
 		}
 	});
     
+}
+
+function updateBoard(){
+	console.log("updateBoard");
+	
+	$.ajax({
+		url:'/sriracha/updateBoard.do',
+		type:'post',
+		data:{
+					"board_content" : $("#writecomment_modify").val()
+				},
+		success:function(data){	
+			$("#modify_modal").hide();
+			
+		     $("#commentarea").html(data.board_content);
+		     let div_id = "#board_"+data.board_num+" .comment_comment";
+		     console.log(div_id);
+		     $(div_id).html(data.board_content);
+		     
+		}
+	});
+	
+}
+
+function deleteBoard(movie_id){
+	
+	$.ajax({
+		url:'/sriracha/deleteBoard.do',
+		type:'post',
+		data:{	
+			"movie_id" : movie_id,
+			"star_value" : starValue
+		},
+		success:function(data){	
+		     $("#delete_board_modal").hide();
+		     $("#commented").hide();
+		     $(".leave-comment-box").show();
+		     
+		     $(".content_star").html("평점 ★"+data.movie_vote_average+" ("+data.movie_vote_count+"명)");
+		     $(".contents_contents_title-number").html(data.board_count);
+		     
+		     $("div").remove("#board_"+data.board_num);
+		     
+		}
+	});
+	
 }
 
 function addWish(movie_id){
@@ -643,8 +837,8 @@ function deleteWish(movie_id){
 		    $(".content_want-see").show();
 		}
 	});
-		
 }
+
 
 </script>
 

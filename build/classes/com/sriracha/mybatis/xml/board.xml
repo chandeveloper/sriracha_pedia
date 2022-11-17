@@ -26,4 +26,21 @@
 	<select id="getBoardListByUserNum" parameterType="_int" resultType="boarddto">
 		SELECT * FROM board WHERE user_num = #{user_num} ORDER BY BOARD_NUM
 	</select>
+	
+	<select id="getLastBoardNumByUserNum" parameterType="_int" resultType="_int">
+		SELECT BOARD_NUM FROM (SELECT BOARD_NUM FROM BOARD WHERE USER_NUM = #{user_num} ORDER BY BOARD_NUM DESC) WHERE ROWNUM = 1
+	</select>
+	
+	<delete id="deleteBoard" parameterType="_int">
+		DELETE FROM board WHERE BOARD_NUM = #{board_num}
+	</delete>
+	
+	<select id="getBoardByBoardNum" parameterType="_int" resultType="boarddto">
+		SELECT * FROM board WHERE BOARD_NUM = #{board_num}
+	</select>
+	
+	<update id="updateBoardContent" parameterType="hashmap">
+		UPDATE BOARD SET BOARD_CONTENT = #{board_content} WHERE BOARD_NUM = #{board_num}
+	</update>
+	
 </mapper>
