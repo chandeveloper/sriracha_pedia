@@ -41,6 +41,8 @@
    <c:set var="commentCntMap" value="${requestScope.commentCntMap}" />
    <c:set var="boardCnt" value="${requestScope.boardCnt }" />
    
+   <c:set var="wish" value="${requestScope.wish }" />
+   
    <fmt:formatNumber type="number" var="movie_vote_average"  pattern="0.0" value="${movie.movie_vote_average/2}" />
    
     <!-- 헤더 시작 -->
@@ -88,7 +90,6 @@
          <!-- 첫번째 줄 -->
          <div class="content_info">
          <br>
-<%--             <span class="gray">인기 점수 ·&nbsp;</span> <span class="white">${movie.movie_popularity }점&nbsp;</span> --%>
          </div>
 
 
@@ -117,13 +118,45 @@
 
          <!-- 마지막 보고싶어요, 별점 평가하기 -->
          <div class="content_info">
-            <!-- 보고싶어요 버튼 -->
-            <div class="content_info-left">
-               <div class="content_want-see" style="cursor: pointer;" onclick="addWish(${movie.movie_id})">
-                  <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
-               </div>
-            </div>
-            <!-- 보고싶어요 버튼 끝 -->
+         
+         	<c:choose>
+         		<c:when test="${empty wish }">
+         		
+		            <!-- 보고싶어요 버튼 -->
+		            <div class="content_info-left">
+		               <div class="content_want-see" style="cursor: pointer;" onclick="addWish(${movie.movie_id})">
+		                  <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
+		               </div>
+		            </div>
+		            
+		            <!-- 취소할래요 버튼 -->
+		            <div class="content_info-left">
+		               <div class="content_not_want-see" style="cursor: pointer; display: none;" onclick="deleteWish(${movie.movie_id})">
+		                  <i class="fas fa-duotone fa-check"></i> <span>찜한영화에요</span>
+		               </div>
+		            </div>
+         		
+         		
+         		</c:when>
+         		<c:otherwise>
+         			<!-- 보고싶어요 버튼 -->
+		            <div class="content_info-left">
+		               <div class="content_want-see" style="cursor: pointer; display: none;" onclick="addWish(${movie.movie_id})" style="display:hide;">
+		                  <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
+		               </div>
+		            </div>
+
+					<!-- 취소할래요 버튼 -->		            
+		            <div class="content_info-left">
+		               <div class="content_not_want-see" style="cursor: pointer;" onclick="deleteWish(${movie.movie_id})">
+		                  <i class="fas fa-duotone fa-check"></i> <span>찜한영화에요</span>
+		               </div>
+		            </div>
+         		
+         		</c:otherwise>
+         	</c:choose>
+            
+            
 
             <!-- 별점 평가하기 -->
             <div class="content_info-right">
@@ -369,7 +402,7 @@
                     <div class="swiper-wrap">        
                         <!-- Swiper -->
                         <div #swiperRef="" class="swiper mySwiper2">            
-                            <div class="swiper-wrapper"> 
+                            <div class="swiper-wrapper" id="boardWrapper"> 
                             
 								<c:forEach var="board_" items="${boardList }">
 									<div class="swiper-slide slide">
@@ -398,9 +431,7 @@
 	                                        </li>
 	                                    </ul>
 	                                </div>	
-								</c:forEach>                            
-                                
-                                
+								</c:forEach>   
                                 
                             </div>
                         </div>
@@ -436,12 +467,8 @@
                   <div class="css-cdzmq7">
                      <div class="css-iowq1w">
                         <div class="css-iowq1w">
-                        	<form action="${pageContext.request.contextPath }/sriracha/addBoard.do" id="addBoardForm" method="post">
-                        		<input type="hidden" name="movie_id" value="${movie.movie_id }">
-                        		<input type="hidden" name="star_value" id="star_value">
-                        		<textarea maxlength="10000"
-                              		placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
-                        	</form>
+                       		<textarea maxlength="10000"
+                             		placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요." class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
                            
                            <div class="css-238o9r" id="writecomment2" ></div>
                         </div>
@@ -468,7 +495,10 @@
                   <div class="css-6qnjre">
                      <p class="css-1s08rlk"></p>
                      <p class="css-ynpx67" id="reCount">0/10000</p>
-                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장" onclick="addboard()">
+<%--                     <a href="${pageContext.request.contextPath }/sriracha/addComment.do?movie_id=${movie.movie_id}"> --%>
+                     <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장" onclick="addBoard(${movie.movie_id})">
+<!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
+<!-- 					</a> -->
                   </div>
                </div>
             </div>
@@ -503,6 +533,7 @@
 
    <script src="../js/main.js"></script>
    <script src="../js/star.js"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 <script type="text/javascript">
 /*코멘트 남기기 모달창*/
@@ -526,20 +557,6 @@ const evTarget = e.target
     }
 })
 
-/*코멘트 삭제 모달창 - 코멘트를 삭제하시겠어요?*/
-// const modal2 = document.getElementById("modal2")
-// const btnModal2 = document.getElementById("delete_btn")
-// btnModal2.addEventListener("click", e => {
-//     modal2.style.display = "flex"
-// })
-
-// modal2.addEventListener("click", e => {
-// const evTarget = e.target
-//     if(evTarget.classList.contains("css-1yszxv0")) {
-//         modal2.style.display = "none"
-//     }
-// })
-
 const elCommentbtn = document.getElementById('commentbtn')
 const elwritecomment1 = document.getElementById('writecomment1')
 elCommentbtn.disabled = true;
@@ -561,53 +578,47 @@ closeBtn2.addEventListener("click", e => {
 })
 
 
-/*코멘트 남겼을 때 내가 남긴 코멘트 보여주기*/
-// const commented = document.querySelector("#commented");
-// commented.style.display = "none";
-
-
-// $('#commentbtn').click(function(){
-//     $('.leave-comment-box ').hide();
-//     $('#commented').show();
-//     return false;
-// })
-
-/*삭제 버튼 클릭 시 다시 코멘트 달기 창 보여주기*/
-// const deletecomment = document.querySelector("#deletecomment");
-// const commentarea = document.querySelector("#commentarea");
-
-// $("#deletecomment").click(function(){
-//     modal2.style.display = "none"
-//     $('#commented').hide();
-//     $('.leave-comment-box ').show();
-//     document.getElementById("writecomment1").value = '';
-//     return false;
-// })
-
-//취소 버튼 클릭
-// $("#cancel").click(function(){
-//     modal2.style.display = "none"
-// })
-
-//코멘트 수정하기
-// $("#modify_btn").click(function(){
-//     modal.style.display = "flex"
-// })
-
-function addboard(){
+function addBoard(movie_id){
 	
-    let form = document.getElementById("addBoardForm");
-    let star_value = document.getElementById("star_value");
-    star_value.value = starValue;
+	 $.ajax({
+		url:'/sriracha/addBoard.do',
+		type:'post',
+		data:{	
+					"movie_id" : movie_id,
+					"star_value" : starValue,
+					"board_content" : $("#writecomment1").val()
+				},
+		success:function(data){
+		    console.log("success");
+		    /* $("#boardWrapper").appendTo("<div class=\"swiper-slide slide\"><ul><li><div class=\"comment-nemo\"><div class=\"comment_user\"><img src=\"../img/user_profile.jfif\" class=\"comment_user-img\"><span class=\"user_name\">유저아이디</span></div><div class=\"comment_comment\">보드컨텐트</div><div class=\"comment_feel\"><span class=\"comment_feel-good\"><i class=\"fas fa-thumbs-up\"></i>보드라이크</span><span class=\"comment_feel-comment\"><i class=\"fas fa-comment\"></i>보드코멘트카운트</span></div><div class=\"comment_click-good\">좋아요</div></div></li></ul></div>"); */
+		}
+	});
     
-    form.submit();
 }
 
 function addWish(movie_id){
-	if(confirm("찜한 영화 목록에 추가하시겠습니까?")){
-		console.log(movie_id);
-		location.href="/sriracha/addWish.do?movie_id="+movie_id;
-	}
+	$.ajax({
+		url:'/sriracha/addWish.do',
+		type:'post',
+		data:{"movie_id" : movie_id},
+		success:function(data){
+		    $(".content_want-see").hide();
+		    $(".content_not_want-see").show();
+		}
+	});
+}
+
+function deleteWish(movie_id){
+	$.ajax({
+		url:'/sriracha/deleteWish.do',
+		type:'post',
+		data:{"movie_id" : movie_id},
+		success:function(data){
+		    $(".content_not_want-see").hide();
+		    $(".content_want-see").show();
+		}
+	});
+		
 }
 
 </script>

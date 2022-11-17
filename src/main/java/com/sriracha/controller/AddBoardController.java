@@ -1,7 +1,11 @@
 package com.sriracha.controller;
 
+import java.io.IOException;
 import java.time.LocalDate;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,19 +14,26 @@ import com.sriracha.action.Action;
 import com.sriracha.action.ActionForward;
 import com.sriracha.model.BoardDAO;
 import com.sriracha.model.BoardDTO;
-import com.sriracha.model.CommentDAO;
-import com.sriracha.model.CommentDTO;
-import com.sriracha.model.FullDTO;
 import com.sriracha.model.MovieDAO;
 import com.sriracha.model.MovieDTO;
 import com.sriracha.model.UserDTO;
 
-public class AddBoardController implements Action {
+@WebServlet("/sriracha/addBoard.do")
+public class AddBoardController extends HttpServlet {
 
+		
 	@Override
-	public ActionForward execute(HttpServletRequest req, HttpServletResponse resp) {
-		ActionForward forward = new ActionForward();
-
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
+	
+	@Override
+	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doProcess(req, resp);
+	}
+	
+	protected void doProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		
 		BoardDAO bdao = new BoardDAO();
 		
 		BoardDTO bdto = new BoardDTO();
@@ -59,10 +70,11 @@ public class AddBoardController implements Action {
 			
 			mdao.updateMovieVote(mdto);
 			
-			forward.setRedirect(true);
-			forward.setPath(req.getContextPath() + "/sriracha/get_contents_page.do?movie_id="+(Integer.parseInt(req.getParameter("movie_id"))));
 		}
-		return forward;
+		
 	}
+	
+	
+		
 
 }

@@ -77,6 +77,7 @@ public class SrirachaFrontController extends HttpServlet {
 			case "/sriracha/overView.do":
 				forward = new GetOverviewController().execute(req, resp);
 				break;
+<<<<<<< HEAD
 				
 			case "/sriracha/addBoard.do" :
 				forward = new AddBoardController().execute(req, resp);
@@ -85,13 +86,13 @@ public class SrirachaFrontController extends HttpServlet {
 			case "/sriracha/addComment.do":
 				forward = new AddCommentController().execute(req, resp);
 				break;
+=======
+>>>>>>> 5e54a388de4ca82369b5e5f996e7c1bc0b98e6fb
 			
 			case "/sriracha/get_my_page.do" :
 				forward = new GetMyPageController().execute(req, resp);
 				break;
-
-			case "/sriracha/addWish.do" :
-				forward = new AddWishController().execute(req, resp);
+				
 		}
 
 		if (forward != null) {
