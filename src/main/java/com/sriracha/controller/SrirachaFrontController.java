@@ -83,6 +83,13 @@ public class SrirachaFrontController extends HttpServlet {
 				forward = new GetMyPageController().execute(req, resp);
 				break;
 				
+			case "/sriracha/modifyComment.do" :
+				forward = new GetModifyCommentController().execute(req, resp);
+				break;
+			case "/sriracha/addComment.do" :
+				forward = new AddCommentController().execute(req, resp);
+				break;
+				
 		}
 
 		if (forward != null) {

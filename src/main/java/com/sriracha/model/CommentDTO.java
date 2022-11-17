@@ -9,6 +9,8 @@ public class CommentDTO {
 	private int board_num;
 	private int comment_like;
 	private String user_id;
+	
+	
 	public int getComment_num() {
 		return comment_num;
 	}

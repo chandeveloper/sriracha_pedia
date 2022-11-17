@@ -59,4 +59,8 @@ public class BoardDAO {
 		return sqlSession.selectList("Board.getBoardListByUserNum", user_num);
 	}
 
+	public int getModifyComment(CommentDTO cdto) {
+		return sqlSession.update("Board.getModifyComment", cdto);
+	}
+
 }

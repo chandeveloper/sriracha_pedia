@@ -44,4 +44,10 @@
 	<select id="getBoardListByUserNum" parameterType="_int" resultType="boarddto">
 		SELECT * FROM board WHERE user_num = #{user_num} ORDER BY BOARD_NUM
 	</select>
+	
+	<update id="getModifyComment" parameterType="commentdto">
+		UPDATE BOARD 
+		SET BOARD_CONTENT = #{comment_content}
+		WHERE BOARD_NUM = #{board_num}
+	</update>
 </mapper>
