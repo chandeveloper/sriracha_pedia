@@ -34,7 +34,7 @@ public class CommentDetailViewController implements Action{
 		
 		//---------------------------------------------------------
 		 int user_num = Integer.parseInt(req.getParameter("user_num"));
-		 System.out.println(user_num);
+//		 System.out.println(user_num);
 //		    HttpSession session =req.getSession();
 //	      session.setAttribute("board_usernum", user_num);
 
@@ -45,7 +45,7 @@ public class CommentDetailViewController implements Action{
 	      if(user_num == sess_user_num) {
 	         is_same = true;
 	      }
-	      System.out.println(is_same);
+//	      System.out.println(is_same);
 	      //-------------------------------------------------------
 
 		
