@@ -277,104 +277,129 @@
 
                <!-- 여기까지 했음 ------------------------------------------------------------------------------------------------------ -->
 
-               <!-- 첫번째(기본정보) 끝입니다 -->
-
-               <!-- 두번째(출연/제작) 시작 -->
-                    <section class="step">
-                        <div class="contents_contents_column">
-                            <span class="contents_contents_title">출연/제작</span>
-                            <div class="contents_contents_container">
-                                <div class="swiper-wrap">        
-                                    <!-- Swiper -->
-                                    <div #swiperRef="" class="swiper mySwiper">            
-                                        <div class="swiper-wrapper">                
-                                            <div class="swiper-slide slide">
-                                               <ul>
-                                                  <c:forEach var="credit" items="${creditList }">
-                                                     	<c:if test="${not empty credit.job }">
-                                                       		<li class="contents_contents_profile">
-                                                           		<img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-                                                             	<div class="txt">
-                                                               	<span class="profile_name">${credit.name }</span>
-                                                               	<span class="profile_job">${credit.job }</span>
-                                                             </div>
-                                                        	</li>
-                                                  		</c:if>   
-                                               		</c:forEach>
-                                            	</ul>
-                                           </div>
-                                           
-                                         <div class="swiper-slide slide">
-                                               <ul>
-                                                <c:forEach var="credit" items="${creditList }" varStatus="status">
-                                                      <c:if test="${status.index<3 }">
-                                                      <c:if test="${not empty credit.profile_path }">
-                                                         <c:if test="${not empty credit.character }">
-                                                            <li class="contents_contents_profile">
-                                                               <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-                                                               <div class="txt">
-                                                                  <span class="profile_name">${credit.name }</span> 
-                                                                  <span class="profile_job">${credit.character }역</span>
-                                                               </div>
-                                                            </li>
-                                                         </c:if>
-                                                         </c:if>
-                                             </c:if>
-                                                </c:forEach>
-                                             </ul>
+                           <!-- 첫번째(기본정보) 끝입니다 -->
+               <!-- 두번째(감독정보) 시작입니다 -->
+               
+            <section class="step">
+               <div class="contents_contents_column">
+               <span class="contents_contents_title">감독</span>
+                  <div class="contents_contents_container">
+                     <div class="swiper-wrap">        
+                        <!-- Swiper -->
+                        <div #swiperRef="" class="swiper mySwiper">            
+                           <div class="swiper-wrapper">                
+                              <div class="swiper-slide slide">
+                                 <ul class="slide_step">
+                                    <c:forEach var="credit" items="${creditList }">
+                                       <c:if test="${not empty credit.job }">
+                                          <li class="contents_contents_profile">
+                                             <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
+                                             <div class="txt">
+                                                <span class="profile_name">${credit.name }</span>
+                                                <span class="profile_job">${credit.job }</span>
                                              </div>
+                                          </li>
+                                       </c:if>   
+                                    </c:forEach>
+                                 </ul>
+                              </div>
+<!--                               <div class="swiper-slide slide"> -->
+<!--                                  <ul class="slide_step"> -->
+<%--                                     <c:forEach var="credit" items="${creditList }"> --%>
+<%--                                        <c:if test="${not empty credit.job }"> --%>
+<!--                                           <li class="contents_contents_profile"> -->
+<%--                                              <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img"> --%>
+<!--                                              <div class="txt"> -->
+<%--                                                 <span class="profile_name">${credit.name }</span> --%>
+<%--                                                 <span class="profile_job">${credit.job }</span> --%>
+<!--                                              </div> -->
+<!--                                           </li> -->
+<%--                                        </c:if>    --%>
+<%--                                     </c:forEach> --%>
+<!--                                  </ul> -->
+<!--                               </div> -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </section>
+            
+              <!-- 두번째(출연/제작) 시작 -->
+                   <section class="step">
+                      <div class="contents_contents_column">
+                         <span class="contents_contents_title">출연/제작</span>
+                           <div class="contents_contents_container">
+                               <div class="swiper-wrap">        
+                                   <!-- Swiper -->
+                                   <div #swiperRef="" class="swiper mySwiper">            
+                                       <div class="swiper-wrapper">                
                                            <div class="swiper-slide slide">
-                                             <ul>
-                                               
-                                                <c:forEach var="credit" items="${creditList }" varStatus="status">
-                                                      <c:if test="${status.index>2 && status.index<6 }">
-                                                      
-                                                      	<c:if test="${not empty credit.profile_path }">
-                                                         <c:if test="${not empty credit.character }">
-                                                            <li class="contents_contents_profile">
-                                                               <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-                                                               <div class="txt">
-                                                                  <span class="profile_name">${credit.name }</span> 
-                                                                  <span class="profile_job">${credit.character }역</span>
-                                                               </div>
-                                                            </li>
-                                                         </c:if>
-                                                      	</c:if>
-                                                       </c:if>
-                                                </c:forEach>
-                                             	
-                                             </ul>
-                                             </div>
-                                             
-                                             <c:if test="${creditList.size()>6 }">
-                                              <div class="swiper-slide slide" style="width:280px;">
-                                             <ul>
-                                                <c:forEach var="credit" items="${creditList }" varStatus="status">
-                                                      <c:if test="${status.index>5 && status.index<9 }">
-                                                      <c:if test="${not empty credit.profile_path }">
-                                                         <c:if test="${not empty credit.character }">
-                                                            <li class="contents_contents_profile">
-                                                               <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
-                                                               <div class="txt">
-                                                                  <span class="profile_name">${credit.name }</span> 
-                                                                  <span class="profile_job">${credit.character }역</span>
-                                                               </div>
-                                                            </li>
-                                                         </c:if>
-                                                         </c:if>
+                                 <ul class="slide_step">
+                                              <c:forEach var="credit" items="${creditList }" varStatus="status">
+                                                  <c:if test="${status.index<3 }">
+                                                     <c:if test="${not empty credit.profile_path }">
+                                                        <c:if test="${not empty credit.character }">
+                                                           <li class="contents_contents_profile">
+                                                              <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
+                                                              <div class="txt">
+                                                                 <span class="profile_name">${credit.name }</span> 
+                                                                 <span class="profile_job">${credit.character }역</span>
+                                                   </div>
+                                                </li>
                                              </c:if>
-                                                </c:forEach>
-                                             </ul>
-                                             </div>
+                                          </c:if>
+                                       </c:if>
+                                    </c:forEach>
+                                 </ul>
+                              </div>
+                              <div class="swiper-slide slide">
+                              <ul class="slide_step">
+                                 <c:forEach var="credit" items="${creditList }" varStatus="status">
+                                                  <c:if test="${status.index>2 && status.index<6 }">
+                                                    <c:if test="${not empty credit.profile_path }">
+                                                          <c:if test="${not empty credit.character }">
+                                                            <li class="contents_contents_profile">
+                                                <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
+                                                <div class="txt">
+                                                   <span class="profile_name">${credit.name }</span> 
+                                                   <span class="profile_job">${credit.character }역</span>
+                                                </div>
+                                                              </li>
+                                          </c:if>
+                                       </c:if>
+                                    </c:if>
+                                           </c:forEach>
+                              </ul>
+                           </div>
+                           <c:if test="${creditList.size()>6 }">
+                              <div class="swiper-slide slide" style="width:280px;">
+                                 <ul class="slide_step">
+                                    <c:forEach var="credit" items="${creditList }" varStatus="status">
+                                       <c:if test="${status.index>5 && status.index<9 }">
+                                          <c:if test="${not empty credit.profile_path }">
+                                          <c:if test="${not empty credit.character }">
+                                                <li class="contents_contents_profile">
+                                                   <img src="https://image.tmdb.org/t/p/original${credit.profile_path }" alt="" class="profile_img">
+                                                   <div class="txt">
+                                                   <span class="profile_name">${credit.name }</span> 
+                                                   <span class="profile_job">${credit.character }역</span>
+                                                   </div>
+                                                </li>
                                              </c:if>
-                                             </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-<!--                         </div> -->
-                    </section>
-            <!-- 두번째(출연/제작) 끝 -->
+                                          </c:if>
+                                       </c:if>
+                                    </c:forEach>
+                                 </ul>
+                              </div>
+                           </c:if>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </section>
+             <!-- 두번째(출연/제작) 끝 -->
 
             <!-- 세번째(별점 그래프) 시작 -->
             <div class="contents_contents_column">

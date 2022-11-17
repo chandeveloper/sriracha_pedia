@@ -321,6 +321,57 @@
             </div>
         </div>
         <!----모달창 !!! 대댓글 끝!!!!!------>
+        
+        
+        <!--모달창 !!!!!!!!!!!  댓글 수정 모달창 !!!!!!!!!!!!!!!!!!11-->
+        <div class="css-14gy7wr" id="modify_modal">
+            <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
+                <div class="css-1p257d1-modalAddStyle">
+                    <header title="" class="css-166ww79-HeaderBarPrimitive-headerAddStyle">
+                        <div class="css-19pxr9t"></div>
+                        <em class="css-10mjbgt">댓글</em>
+                        <div class="css-19pxr9t">
+                            <button class="css-1lvet1d-StylelessButton" id="close_btn"></button>
+                        </div>
+                    </header>
+                    <div class="css-1iv0iqc">
+                        <div height="100%" class="css-2zu8pq">
+                            <div class="css-cdzmq7">
+                                <div class="css-iowq1w">
+                                    <div class="css-iowq1w">
+	                                    <c:forEach var="BoardComment" items="${BoardComment}">
+		                                    <form action="${pageContext.request.contextPath }/sriracha/modifyComment.do" id="modifyCommentForm" method="post">
+		                                    	<input type="hidden" name="board_num" value="${BoardComment.board_num }">
+		                                    	<input type="hidden" name="movie_id" value="${BoardComment.movie_id }">
+		                                    	<input type="hidden" name="user_num" value="${BoardComment.user_num }">
+		                                     	<c:forEach var="boardMovie" items="${BoardComment_Movie}">
+		                                        	<textarea maxlength="10000" class="css-1k5ei58" id="writecomment_modify" name="comment_content">${BoardComment.board_content }</textarea>
+		                                        </c:forEach>
+		                                       </form>
+	                                     </c:forEach>
+                                        <div class="css-238o9r"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="css-183vuuo">
+                        <div class="css-a2jbfo">
+                            <div class="css-6qnjre"></div>
+                            <div class="css-6qnjre">
+                                <p class="css-1s08rlk"></p>
+                                <p class="css-ynpx67" id="reCount_modify"><script type="text/javascript">document.getElementById("reCount_modify").innerHTML =  writecomment_modify.value.length /10000</script></p>
+                                <input class="css-1ukikc-StylelessButton" type="button" id="modify_btn" value="저장">
+<!--                                 <button class="css-1ukikc-StylelessButton" id="commentbtn">저장</button> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!----모달창 !!! 댓글 수정 모달창 끝!!!!!------>
+        
+        
         <!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ?-->
     <div class="css-14gy7wr" id="modal2">
         <div id="modal-container-7jMaFDbYzaXVi3tG2JxKy" class="css-rpyl6s">
@@ -425,10 +476,35 @@
 		    modal2.style.display = "none"
 		})
 		
-		//코멘트 수정하기
+		//---------------코멘트 수정하기
+		const modify_modal = document.getElementById("modify_modal")
 		$("#modifyBtn").click(function(){
-		    modal.style.display = "flex"
+			modify_modal.style.display = "flex"
 		})
+		
+		//x 버튼 클릭 시 코멘트 수정 모달창 끄기
+		const close_modify_Btn = modify_modal.querySelector(".css-1lvet1d-StylelessButton")
+        close_modify_Btn.addEventListener("click", e => {
+        	modify_modal.style.display = "none"
+        })
+        
+        // 모달창 바깥 부분 클릭 시 코멘트 수정 모달창 끄기
+        modify_modal.addEventListener("click", e => {
+        const evTarget = e.target
+            if(evTarget.classList.contains("css-rpyl6s")) {
+            	modify_modal.style.display = "none"
+            }
+        })
+        
+        const modify_btn = document.getElementById('modify_btn')
+		const writecomment_modify = document.getElementById('writecomment_modify')
+		writecomment_modify.addEventListener('keyup', count_modify)
+		
+		function count_modify() {
+		    if (!(writecomment_modify.value == "")) {
+		        document.getElementById("reCount_modify").innerHTML = writecomment_modify.value.length + "/" + 10000;
+		    }
+		}
         
     </script>
 </html>
