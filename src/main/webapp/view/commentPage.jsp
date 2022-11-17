@@ -27,6 +27,7 @@
 </head>
 <body>
 	<c:set var="boardList" value="${requestScope.boardList}" />
+	<c:set var="getCommentCnt" value="${requestScope.getCommentCnt}" />
 	
     <section class="container">
         
@@ -56,7 +57,7 @@
             <div class="commentBox">
                 <ul class="commentUl">
                     <li class="firstLi">
-                        <a href="./mypage.jsp" class="connectToMypage">
+                        <a href="" class="connectToMypage">
                             <div class="photoAndName">
                                 <img class="photo" src="https://picsum.photos/200/200?random=2" alt="사진이 없습니다">
                                 <span class="name">${board.user_id }</span>
@@ -75,7 +76,7 @@
                         <i class="fas fa-thumbs-up"></i>
                         <span class="numOfLikes">${board.board_like }</span>
                         <i class="fas fa-comment"></i>
-                        <span class="numOfComments">5</span>
+                        <span class="numOfComments">${getCommentCnt }</span>
                     </li>
                     
                     <li class="fourthLi">

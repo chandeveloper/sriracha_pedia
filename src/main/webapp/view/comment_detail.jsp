@@ -57,8 +57,9 @@
                               <c:forEach var="BoardComment" items="${requestScope.BoardComment}">
                                  <div class="css-1p3jp2v">
                                  
+                                 
                                     <div class="css-1cvf9dk">
-                                       <a title="재원" class="css-1f9m1s4-StylelessLocalLink eovgsd01" href="/ko-KR/users/DgwxABBQMqrMj">
+                                       <a title="" class="css-1f9m1s4-StylelessLocalLink eovgsd01" href="/ko-KR/users/DgwxABBQMqrMj">
                                           <div class="css-1byz60h">
                                                            <div class="css-jno9px-ProfilePhotoImage"></div>
                                                        </div>
@@ -82,7 +83,7 @@
                                                        </div>
                                                    </div>
                                                </div>
-                                               <a title="자백" class="css-1f9m1s4-StylelessLocalLink eovgsd01" href="/ko-KR/contents/mOPVxED">
+                                               <a title="" class="css-1f9m1s4-StylelessLocalLink eovgsd01" href="${pageContext.request.contextPath }/sriracha/get_contents_page.do?movie_id=${movie.movie_id}">
                                                    <div class=" css-1dl0k9f-StyledLazyLoadingImage ezcopuc0">
                                                        <img alt="" src="https://image.tmdb.org/t/p/original${movie.movie_poster_path }" class="css-qhzw1o-StyledImg ezcopuc1">
                                                    </div>
@@ -102,7 +103,7 @@
                                                <!--수정, 삭제하기 추가 시작 : 유진(11/08)-->
                                                <c:if test="${sameuser == 'true'}">
                                                 <div class="css-j985f6">
-                                                   <button class="css-1nfwvb4-StylelessButton" id="modifyBtn">
+                                                   <button class="css-1nfwvb4-StylelessButton" id="board_detail_board_modify">
                                                       <svg class="css-s99igu" viewBox="0 0 18 18">
                                                          <g fill-rule="evenodd">
                                                          	<path d="M2.18 15.39l.703-3.98 3.713 3.712-3.981.702a.374.374 0 0 1-.434-.434zm1.498-4.776l6.364-6.364 3.713 3.712-6.364 6.364-3.713-3.712zM15.607 5.04a.75.75 0 0 1 0 1.06l-1.06 1.061-3.713-3.712 1.06-1.06a.75.75 0 0 1 1.06 0l2.653 2.651z"></path>
@@ -110,7 +111,7 @@
                                                       </svg>
                                                         수정
                                                     </button>
-                                                    <button class="css-1nfwvb4-StylelessButton" id="deleteBtn" onclick="deleteComment()">
+                                                    <button class="css-1nfwvb4-StylelessButton" id="delete_comment_modalBtn" onclick="deleteComment()">
                                                         <svg class="css-s99igu" viewBox="0 0 18 18">
                                                             <g fill-rule="evenodd">
                                                                 <path d="M5.25 14.25h7.5v-7.5h1.5V15a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6.75h1.5v7.5zM12 4.5h3.75V6H2.25V4.5H6V3a.75.75 0 0 1 .75-.75h4.5A.75.75 0 0 1 12 3v1.5zm-1.5 0v-.75h-3v.75h3zM6.75 6.75h1.5v6.75h-1.5V6.75zm3 0h1.5v6.75h-1.5V6.75z"></path>
@@ -138,7 +139,7 @@
                                                                </div> 
                                                                좋아요
                                                            </button>
-                                                           <button class="css-135c2b4-StylelessButton-StyledActionButton e19d4hrp0" id="btn-modal">
+                                                           <button class="css-135c2b4-StylelessButton-StyledActionButton e19d4hrp0" id="comment_modal_btn">
                                                                <div class="css-1umclh2-StyledIconContainer e19d4hrp1">
                                                                    <svg viewBox="0 0 20 20" class="css-vkoibk">
                                                                        <path class="fillTarget" fill-rule="evenodd" clip-rule="evenodd" d="M9.99963 2.08325C5.65046 2.08325 2.12546 5.02159 2.12546 8.64575C2.12546 10.5891 3.13962 12.3358 4.74962 13.5374L4.61129 17.2416C4.61129 17.4899 4.81462 17.6591 5.03046 17.6591C5.12129 17.6591 5.21462 17.6291 5.29462 17.5616L8.12462 15.0208C8.72629 15.1433 9.35379 15.2083 9.99963 15.2083C14.3496 15.2083 17.8746 12.2699 17.8746 8.64575C17.8746 5.02159 14.3496 2.08325 9.99963 2.08325ZM9.99962 3.33325C13.653 3.33325 16.6246 5.71659 16.6246 8.64575C16.6246 11.5749 13.653 13.9583 9.99962 13.9583C9.44962 13.9583 8.90296 13.9041 8.37379 13.7966C8.29129 13.7791 8.20796 13.7708 8.12462 13.7708C7.81962 13.7708 7.52046 13.8833 7.28962 14.0908L5.93462 15.3074L5.99879 13.5841C6.01462 13.1733 5.82712 12.7808 5.49796 12.5349C4.14879 11.5291 3.37546 10.1116 3.37546 8.64575C3.37546 5.71659 6.34712 3.33325 9.99962 3.33325Z" fill="#87898B"></path>
@@ -275,7 +276,7 @@
                    
           
         <!--모달창 !!!!!!!!!!! 대댓글 !!!!!!!!!!!!!!!!!!11-->
-        <div class="css-14gy7wr" id="modal">
+        <div class="css-14gy7wr" id="comment_modal">
             <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
                 <div class="css-1p257d1-modalAddStyle">
                     <header title="" class="css-166ww79-HeaderBarPrimitive-headerAddStyle">
@@ -312,7 +313,7 @@
                             <div class="css-6qnjre">
                                 <p class="css-1s08rlk"></p>
                                 <p class="css-ynpx67" id="reCount">0/10000</p>
-                                <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장">
+                                <input class="css-1ukikc-StylelessButton" type="button" id="add_commentbtn" value="저장" onclick="addcomment()">
 <!--                                 <button class="css-1ukikc-StylelessButton" id="commentbtn">저장</button> -->
                             </div>
                         </div>
@@ -341,9 +342,10 @@
                                     <div class="css-iowq1w">
 	                                    <c:forEach var="BoardComment" items="${BoardComment}">
 		                                    <form action="${pageContext.request.contextPath }/sriracha/modifyComment.do" id="modifyCommentForm" method="post">
-		                                    	<input type="hidden" name="board_num" value="${BoardComment.board_num }">
-		                                    	<input type="hidden" name="movie_id" value="${BoardComment.movie_id }">
-		                                    	<input type="hidden" name="user_num" value="${BoardComment.user_num }">
+<%-- 		                                    	<input type="hidden" name="board_num" value="${BoardComment.board_num }"> --%>
+<%-- 		                                    	<input type="hidden" name="movie_id" value="${BoardComment.movie_id }"> --%>
+<%-- 		                                    	<input type="hidden" name="user_num" value="${BoardComment.user_num }"> --%>
+		                                    	
 		                                     	<c:forEach var="boardMovie" items="${BoardComment_Movie}">
 		                                        	<textarea maxlength="10000" class="css-1k5ei58" id="writecomment_modify" name="comment_content">${BoardComment.board_content }</textarea>
 		                                        </c:forEach>
@@ -360,7 +362,7 @@
                             <div class="css-6qnjre"></div>
                             <div class="css-6qnjre">
                                 <p class="css-1s08rlk"></p>
-                                <p class="css-ynpx67" id="reCount_modify"><script type="text/javascript">document.getElementById("reCount_modify").innerHTML =  writecomment_modify.value.length /10000</script></p>
+                                <p class="css-ynpx67" id="reCount_modify"><script type="text/javascript">document.getElementById("reCount_modify").innerHTML =  writecomment_modify.value.length </script>/10000</p>
                                 <input class="css-1ukikc-StylelessButton" type="button" id="modify_btn" value="저장">
 <!--                                 <button class="css-1ukikc-StylelessButton" id="commentbtn">저장</button> -->
                             </div>
@@ -373,7 +375,7 @@
         
         
         <!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ?-->
-    <div class="css-14gy7wr" id="modal2">
+    <div class="css-14gy7wr" id="delete_comment_modal">
         <div id="modal-container-7jMaFDbYzaXVi3tG2JxKy" class="css-rpyl6s">
             <div class="css-1yszxv0">
                 <div class="css-f35o9y">
@@ -382,7 +384,7 @@
                             <div class="css-2djw8f">알림</div>
                             <div class="css-148qwic">코멘트를 삭제하시겠어요?</div>
                             <div size="2" class="css-gy4ioq">
-                                <button class="css-1gdw77k-StylelessButton" id="cancel">취소</button>
+                                <button class="css-1gdw77k-StylelessButton" id="delete_comment_cancel">취소</button>
                                 <button class="css-sfhtz9-StylelessButton" id="deletecomment">확인</button>
                             </div>
                         </div>
@@ -419,35 +421,38 @@
             
     </body>
     <script type="text/javascript">
-        const modal = document.getElementById("modal")
-        const btnModal = document.getElementById("btn-modal")
-        btnModal.addEventListener("click", e => {
-            modal.style.display = "flex"
+    	//---------------------------------------대댓글 달기 모달창
+        const comment_modal = document.getElementById("comment_modal")
+        const comment_modal_btn = document.getElementById("comment_modal_btn")
+        comment_modal_btn.addEventListener("click", e => {
+        	comment_modal.style.display = "flex"
         })
-
-        const closeBtn = modal.querySelector(".css-1lvet1d-StylelessButton")
+		
+        //x버튼 클릭 시 대댓글 다는 모달창 꺼짐
+        const closeBtn = comment_modal.querySelector(".css-1lvet1d-StylelessButton")
         closeBtn.addEventListener("click", e => {
-            modal.style.display = "none"
+        	comment_modal.style.display = "none"
         })
 
-        modal.addEventListener("click", e => {
+        // 대댓글 모달창 바깥 부분 클릭 시 모달창 꺼짐
+        comment_modal.addEventListener("click", e => {
         const evTarget = e.target
             if(evTarget.classList.contains("css-rpyl6s")) {
-                modal.style.display = "none"
+            	comment_modal.style.display = "none"
             }
         })
         
-        const elCommentbtn = document.getElementById('commentbtn')
-		const elwritecomment1 = document.getElementById('writecomment1')
-		elCommentbtn.disabled = true;
-		elwritecomment1.addEventListener('keyup', button)
+        const add_commentbtn = document.getElementById('add_commentbtn')
+		const writecomment1 = document.getElementById('writecomment1')
+		add_commentbtn.disabled = true;
+        writecomment1.addEventListener('keyup', add_comment_button)
 		
-		function button() {
-		    if (!(elwritecomment1.value == "")) {
-		        elCommentbtn.disabled = false;
-		        document.getElementById("reCount").innerHTML = elwritecomment1.value.length + "/" + 10000;
+		function add_comment_button() {
+		    if (!(writecomment1.value == "")) {
+		    	add_commentbtn.disabled = false;
+		        document.getElementById("reCount").innerHTML = writecomment1.value.length + "/" + 10000;
 		    } else {
-		        elCommentbtn.disabled = true;
+		    	add_commentbtn.disabled = true;
 		    }
 		}
 		
@@ -457,28 +462,28 @@
 		    form.submit();
 		}
 		
-		/*코멘트 삭제 모달창 - 코멘트를 삭제하시겠어요?*/
-		const modal2 = document.getElementById("modal2")
-		const deleteBtn = document.getElementById("deleteBtn")
-		deleteBtn.addEventListener("click", e => {
-		     modal2.style.display = "flex"
+		/*-------------코멘트 삭제 모달창 - 코멘트를 삭제하시겠어요?------------*/
+		const delete_comment_modal = document.getElementById("delete_comment_modal")
+		const deleteCommentBtn = document.getElementById("delete_comment_modalBtn")
+		deleteCommentBtn.addEventListener("click", e => {
+			delete_comment_modal.style.display = "flex"
 		})
 
-		modal2.addEventListener("click", e => {
+		delete_comment_modal.addEventListener("click", e => {
 		const evTarget = e.target
 		     if(evTarget.classList.contains("css-1yszxv0")) {
-		         modal2.style.display = "none"
+		    	 delete_comment_modal.style.display = "none"
 		     }
 		})
 		
 		//취소 버튼 클릭
-		$("#cancel").click(function(){
-		    modal2.style.display = "none"
+		$("#delete_comment_cancel").click(function(){
+			delete_comment_modal.style.display = "none"
 		})
 		
-		//---------------코멘트 수정하기
+		//---------------코멘트 수정하기--------------------------------------
 		const modify_modal = document.getElementById("modify_modal")
-		$("#modifyBtn").click(function(){
+		$("#board_detail_board_modify").click(function(){
 			modify_modal.style.display = "flex"
 		})
 		
@@ -505,6 +510,13 @@
 		        document.getElementById("reCount_modify").innerHTML = writecomment_modify.value.length + "/" + 10000;
 		    }
 		}
+		
+
+// 		function modifyComment(){
+			
+// 		    let form = document.getElementById("modifyCommentForm");
+// 		    form.submit();
+// 		}
         
     </script>
 </html>

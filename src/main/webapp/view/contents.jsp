@@ -438,7 +438,7 @@
 	                                                    <img src="../img/user_profile.jfif" class="comment_user-img">
 	                                                    <span class="user_name">${board_.user_id }</span>
 	                                                </div>
-	                                                <div class="comment_comment">
+	                                                <div class="comment_comment" >
 	                                                    ${board_.board_content }
 	                                                </div>
 	                                                <div class="comment_feel">
