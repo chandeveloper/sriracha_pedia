@@ -1,5 +1,6 @@
 package com.sriracha.model;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -47,6 +48,25 @@ public class BoardDAO {
 	
 	public List<BoardDTO> getBoardListByUserNum(int user_num){
 		return sqlSession.selectList("Board.getBoardListByUserNum", user_num);
+	}
+	
+	public int getLastBoardNumByUserNum(int user_num) {
+		return sqlSession.selectOne("Board.getLastBoardNumByUserNum", user_num);
+	}
+
+	public void deleteBoard(int board_num) {
+		sqlSession.delete("Board.deleteBoard", board_num);
+	}
+	
+	public BoardDTO getBoardByBoardNum(int board_num) {
+		return sqlSession.selectOne("Board.getBoardByBoardNum", board_num);
+	}
+	
+	public void updateBoardContent(int board_num, String board_content) {
+		HashMap<String, Object> map = new HashMap<>();
+		map.put("board_num", board_num);
+		map.put("board_content", board_content);
+		sqlSession.update("Board.updateBoardContent", map);
 	}
 
 }
