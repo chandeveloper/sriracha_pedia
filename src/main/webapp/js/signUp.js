@@ -166,12 +166,12 @@ $().ready(function () {
                 Swal.fire({
                     title: '정말로 회원가입을 하시겠습니까?',
                     text: "다시 되돌릴 수 없습니다. 신중하세요.",
-                    icon: 'warning',
+//                    icon: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
+//                    cancelButtonColor: '#d33',
                     confirmButtonText: '승인',
-                    cancelButtonText: '취소'
+                    cancelButtonText: '취소',
                 }).then((result) => {
                     if (result.isConfirmed) {
                             document.signUp.submit();

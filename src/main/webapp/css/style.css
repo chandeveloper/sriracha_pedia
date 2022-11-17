@@ -32,6 +32,49 @@ body {
 }
 
 
+.swal-wide{
+    width:310px !important;
+    height: 170px !important;
+    font-size:15px !important;
+    text-align: center !important;
+    padding: 1.25em 0 0  !important;
+    background-color: white !important;
+}
+.swal2-title {
+  font-size:17px !important;
+}
 
+.swal2-html-container {
+    z-index: 1 !important;
+    justify-content: center !important;
+    margin: 8px 0px 0px !important;
+    overflow: auto !important;
+    color: inherit !important;
+    font-size: 1.125em !important;
+    font-weight: 400 !important;
+    line-height: normal !important;
+    text-align: center !important;
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+}
 
+.swal2-styled.swal2-confirm {
+     border: 0 !important;
+    border-radius: 0.25em !important;
+    background: initial !important;
+    background-color: white !important;
+    color: rgb(255, 47, 110) !important;
+    font-weight: 400 !important;
+    font-size: 17px !important;
+}
+
+.swal2-styled.swal2-cancel {
+    border: 0 !important;
+    border-radius: 0.25em !important;
+    background: initial !important;
+    background-color: white !important;
+    color: rgb(255, 47, 110) !important;
+    font-weight: 400 !important;
+    font-size: 17px !important;
+}
       
