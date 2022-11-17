@@ -15,11 +15,22 @@ public class CommentDAO {
 		sqlsession = factory.openSession(true);
 	}
 
-	public List<FullDTO> getComment(int board_num, int movie_id) {
-		List<FullDTO> commentList = sqlsession.selectList("Comment.getComment", board_num);
+	public boolean addComment(CommentDTO cdto) {
+		boolean result = false;
 		
-		return commentList;
+		if(sqlsession.insert("Comment.addComment", cdto) == 1) {
+			result = true;
+		}
+		return result;
 	}
+
+	public List<BoardCommentDTO> getCommentList(int board_num) {
+		List<BoardCommentDTO> CommentList = sqlsession.selectList("Comment.CommentList", board_num);
+		
+		return CommentList;
+	}
+
+	
 	
 	
 

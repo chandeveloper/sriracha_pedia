@@ -24,10 +24,10 @@ public class BoardDAO {
 		
 	}
 
-	public boolean addComment(BoardDTO bdto) {
+	public boolean addBoard(BoardDTO bdto) {
 		boolean result = false;
 		
-		if(sqlSession.insert("Board.addComment", bdto)== 1) {
+		if(sqlSession.insert("Board.addBoard", bdto)== 1) {
 			result = true;
 		}
 		
@@ -46,6 +46,16 @@ public class BoardDAO {
 		return sqlSession.selectOne("Board.getBoardCnt", movie_id);
 	}
 	
+	public List<BoardDTO> getBoardComment(int board_num) {
+		List<BoardDTO> boardComment = sqlSession.selectList("Board.getBoardComment", board_num);
+		
+		return boardComment;
+	}
+
+	public List<MovieDTO> getBoardComment_Movie(int board_num) {
+		List<MovieDTO> boardMovie = sqlSession.selectList("Board.getBoardComment_Movie", board_num);
+		return boardMovie;
+	}
 	public List<BoardDTO> getBoardListByUserNum(int user_num){
 		return sqlSession.selectList("Board.getBoardListByUserNum", user_num);
 	}
@@ -67,6 +77,10 @@ public class BoardDAO {
 		map.put("board_num", board_num);
 		map.put("board_content", board_content);
 		sqlSession.update("Board.updateBoardContent", map);
+	}
+
+	public int getModifyComment(CommentDTO cdto) {
+		return sqlSession.update("Board.getModifyComment", cdto);
 	}
 
 }

@@ -1,6 +1,7 @@
 /* @import "menu.css"; */
 /* @import "footer.css"; */
-@import "comment_modal.css";
+/* @import "comment_modal.css"; */
+@import "comment_modal_detail.css";
 
 div {
     display: block;
@@ -982,26 +983,33 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+
+/* 대댓글 수정/ 삭제 */
+
+.css-4ygot5 {
+    position: relative;
+}
+
 .css-1b4hoch-SVG {
     display: block;
     color: inherit;
     font-family: "Inter",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
     width: auto;
     height: auto;
-    /* -webkit-backface-visibility: hidden; */
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+}
+
+.css-1b4hoch-SVG svg {
+    width: 23px;
+    height: auto;
 }
 
 .css-1b4hoch-SVG > div {
     line-height: 0;
 }
 
-.css-1b4hoch-SVG svg {
-    width: 20px;
-    height: auto;
-}
-
-.css-aa3xw {
+.css-aa3xw1 {
     position: absolute;
     top: 100%;
     right: 0;
@@ -1009,19 +1017,49 @@ html {
     visibility: hidden;
 }
 
+.css-1pfl1eu {
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    z-index: 10;
+}
 
 .css-6btlr7 {
     font-size: 15px;
 }
 
-.css-19hkid5 {
-    /* display: -webkit-box;
+div {
+    display: block;
+}
+
+.css-ve4kut1 {
+    display: -webkit-box;
     display: -webkit-flex;
-    display: -ms-flexbox; */
+    display: -ms-flexbox;
     display: flex;
-    /* -webkit-align-items: center; */
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background: #fff;
+    box-sizing: border-box;
+    width: 176px;
+    padding: 5px;
+    border-radius: 7px;
+    box-shadow: 0 1px 6px rgb(0 0 0 / 17%);
+}
+
+.css-19hkid5:not(:last-of-type) {
+    margin-bottom: 3px;
+}
+
+.css-19hkid5 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
     -webkit-box-align: center;
-    /* -ms-flex-align: center; */
+    -ms-flex-align: center;
     align-items: center;
     background: #fff;
     color: #292a32;
@@ -1033,3 +1071,100 @@ html {
     padding-left: 7px;
 }
 
+.css-19hkid51 {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: #fff;
+    color: #292a32;
+    box-sizing: border-box;
+    width: 100%;
+    height: 36px;
+    border-radius: 5px;
+    cursor: pointer;
+    padding-left: 7px;
+}
+
+/*-------------------------------------------------------------------------------*/
+/*코멘트 수정, 삭제 부분 css*/
+.css-j985f6 {
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.css-1nfwvb4-StylelessButton {
+    background: none;
+    border: none;
+    margin: 0px;
+    cursor: pointer;
+    font-weight: 400;
+    letter-spacing: -0.3px;
+    line-height: 18px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(103, 104, 106);
+    font-size: 12px;
+    min-width: 58px;
+    height: 26px;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+
+
+.css-s99igu {
+    width: 14px;
+    height: 14px;
+    margin-right: 5px;
+    fill: rgb(160, 160, 160);
+}
+/*------------------*/
+/* 대댓글 수정/ 삭제 */
+
+.css-4ygot5 {
+    position: relative;
+}
+
+.css-1b4hoch-SVG {
+    display: block;
+    color: inherit;
+    font-family: "Inter",Helvetica,"Apple Color Emoji",Arial,sans-serif,"Segoe UI Emoji","Segoe UI Symbol";
+    width: auto;
+    height: auto;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.css-1b4hoch-SVG svg {
+    width: 23px;
+    height: auto;
+}
+
+.css-1b4hoch-SVG > div {
+    line-height: 0;
+}
+
+.css-aa3xw {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 10;
+    visibility: hidden;
+}
+
+.css-1pfl1eu {
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    z-index: 10;
+}
+
+.css-6btlr7 {
+    font-size: 15px;
+}

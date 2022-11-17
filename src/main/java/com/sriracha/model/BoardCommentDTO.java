@@ -1,6 +1,6 @@
 package com.sriracha.model;
 
-public class BoardDTO {
+public class BoardCommentDTO {
 	private int board_num;
 	private String board_content;
 	private String board_date;
@@ -11,6 +11,12 @@ public class BoardDTO {
 	private int comment_cnt;
 	private String user_id;
 	private Double star;
+	
+	private int comment_num;
+	private String comment_content;
+	private String comment_date;
+	private String comment_presence;
+	private int comment_like;
 	
 	
 	public int getBoard_num() {
@@ -73,6 +79,39 @@ public class BoardDTO {
 	public void setStar(Double star) {
 		this.star = star;
 	}
+	public int getComment_num() {
+		return comment_num;
+	}
+	public void setComment_num(int comment_num) {
+		this.comment_num = comment_num;
+	}
+	public String getComment_content() {
+		return comment_content;
+	}
+	public void setComment_content(String comment_content) {
+		this.comment_content = comment_content;
+	}
+	public String getComment_date() {
+		return comment_date;
+	}
+	public void setComment_date(String comment_date) {
+		this.comment_date = comment_date;
+	}
+	public String getComment_presence() {
+		return comment_presence;
+	}
+	public void setComment_presence(String comment_presence) {
+		this.comment_presence = comment_presence;
+	}
+	public int getComment_like() {
+		return comment_like;
+	}
+	public void setComment_like(int comment_like) {
+		this.comment_like = comment_like;
+	}
+	
+	
+	
 	
 	
 	

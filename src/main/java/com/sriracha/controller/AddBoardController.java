@@ -3,6 +3,7 @@ package com.sriracha.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,16 +49,26 @@ public class AddBoardController extends HttpServlet {
 		udto.setUser_name(session.getAttribute("session_name").toString());
 		udto.setUser_pw(session.getAttribute("session_pw").toString());
 		udto.setUser_num(Integer.parseInt(session.getAttribute("session_usernum").toString()));
+		
 		LocalDate now = LocalDate.now();
+		 DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+		 
+	        // 포맷 적용
+	        String formatedNow = now.format(formatter);
+	 
+	        // 결과 출력
+	        System.out.println(formatedNow);  // 2021/06/17
 		
 		bdto.setBoard_content(req.getParameter("board_content"));
 		bdto.setUser_num(udto.getUser_num());
-		bdto.setBoard_date(now.toString());
+		bdto.setBoard_date(formatedNow.toString());
 		bdto.setMovie_id(Integer.parseInt(req.getParameter("movie_id")));
 		bdto.setUser_id(udto.getUser_id());
 		bdto.setStar(Double.parseDouble(req.getParameter("star_value")));
 		
-		if (bdao.addComment(bdto)) {
+//		req.setAttribute("getCommentCnt", bdao.getCommentCnt(board_num));
+		
+		if (bdao.addBoard(bdto)) {
 			
 			// 댓글이 입력되면 영화 정보 수정 ( 평점 , 참여자 수 )
 			MovieDAO mdao = new MovieDAO();

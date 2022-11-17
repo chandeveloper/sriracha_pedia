@@ -15,12 +15,17 @@ public class CommentListController implements Action{
 		BoardDAO bdao = new BoardDAO();
 		ActionForward forward = new ActionForward();
 		
+		//
+//		int board_num = Integer.parseInt(req.getParameter("board_num"));
+//		System.out.println(board_num);
+		
 		int movie_id = Integer.parseInt(req.getParameter("movie_id"));
 		
 		req.setAttribute("boardList", bdao.getBoardList(movie_id));
+//		req.setAttribute("getCommentCnt", bdao.getCommentCnt(board_num));
 		
 		forward.setRedirect(false);
-		forward.setPath("/view/commentPage.jsp");
+		forward.setPath(req.getContextPath()+"/view/commentPage.jsp");
 		
 		return forward;
 		

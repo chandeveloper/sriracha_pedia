@@ -37,6 +37,10 @@ public class SrirachaFrontController extends HttpServlet {
 			case "/sriracha/get_main_page.do":
 				forward = new GetMainPageController().execute(req, resp);
 				break;
+				
+			case "/sriracha/BoardView.do" :
+		            forward = new CommentListController().execute(req, resp);
+		            break;
 	
 			case "/sriracha/get_contents_page.do":
 				forward = new GetContentsPageController().execute(req, resp);
@@ -73,9 +77,17 @@ public class SrirachaFrontController extends HttpServlet {
 			case "/sriracha/overView.do":
 				forward = new GetOverviewController().execute(req, resp);
 				break;
+
 			
 			case "/sriracha/get_my_page.do" :
 				forward = new GetMyPageController().execute(req, resp);
+				break;
+				
+			case "/sriracha/modifyComment.do" :
+				forward = new GetModifyCommentController().execute(req, resp);
+				break;
+			case "/sriracha/addComment.do" :
+				forward = new AddCommentController().execute(req, resp);
 				break;
 				
 		}
