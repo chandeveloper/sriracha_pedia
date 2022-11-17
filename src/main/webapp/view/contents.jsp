@@ -38,36 +38,16 @@
                <c:set var="commentCntMap" value="${requestScope.commentCntMap}" />
                <c:set var="boardCnt" value="${requestScope.boardCnt }" />
 
+               <c:set var="wish" value="${requestScope.wish }" />
+
                <fmt:formatNumber type="number" var="movie_vote_average" pattern="0.0"
                   value="${movie.movie_vote_average/2}" />
 
                <!-- 헤더 시작 -->
-               <header class="menu-box-box" id="header">
-                  <div class="menu">
-                     <div class="menu_left">
-                        <a href="/sriracha/get_main_page.do"><img class="menu_logo" src="../img/logo.png"
-                              style="max-width:200px; width:100%; height:auto;" /></a>
-
-                     </div>
-                     <div class="menu_right">
-                        <div class="menu_search-box-b">
-                           <i class="fas fa-search"></i>
-                           <form action="/sriracha/search.do" id="searchForm">
-                              <input class="menu_search-s" type="text" placeholder="영화 제목 키워드를 검색해보세요."
-                                 name="search_content" onkeyup="searchEnter()">
-                           </form>
-                        </div>
-                        <span class="menu_login" id="logOut" style="cursor: pointer;">로그아웃 </span>
-                        <span class="menu_sign-up" id="js-signUp" onclick="location.href='../view/mypage.jsp'"
-                           style="cursor: pointer;">마이페이지</span>
-                     </div>
-
-                     <div class="overlay"></div>
-                  </div>
-               </header>
+               <jsp:include page="../view/common/header.jsp" />
                <!-- 헤더 끝 -->
 
-<!--                <div class="forheader" style="margin-top: 65px"></div> -->
+               <div class="forheader" style="margin-top: 65px"></div>
                <!-- 메뉴바 밑에 콘텐츠 썸네일 -->
                <div class="thumbnail">
                   <div class="css-cshjoi-PosterContainer e1svyhwg1">
@@ -110,8 +90,6 @@
                      <!-- 첫번째 줄 -->
                      <div class="content_info">
                         <br>
-                        <%-- <span class="gray">인기 점수 ·&nbsp;</span> <span class="white">${movie.movie_popularity
-                              }점&nbsp;</span> --%>
                      </div>
 
 
@@ -140,13 +118,49 @@
 
                      <!-- 마지막 보고싶어요, 별점 평가하기 -->
                      <div class="content_info">
-                        <!-- 보고싶어요 버튼 -->
-                        <div class="content_info-left">
-                           <div class="content_want-see" style="cursor: pointer;" onclick="addWish(${movie.movie_id})">
-                              <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
-                           </div>
-                        </div>
-                        <!-- 보고싶어요 버튼 끝 -->
+
+                        <c:choose>
+                           <c:when test="${empty wish }">
+
+                              <!-- 보고싶어요 버튼 -->
+                              <div class="content_info-left">
+                                 <div class="content_want-see" style="cursor: pointer;"
+                                    onclick="addWish(${movie.movie_id})">
+                                    <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
+                                 </div>
+                              </div>
+
+                              <!-- 취소할래요 버튼 -->
+                              <div class="content_info-left">
+                                 <div class="content_not_want-see" style="cursor: pointer; display: none;"
+                                    onclick="deleteWish(${movie.movie_id})">
+                                    <i class="fas fa-duotone fa-check"></i> <span>찜한영화에요</span>
+                                 </div>
+                              </div>
+
+
+                           </c:when>
+                           <c:otherwise>
+                              <!-- 보고싶어요 버튼 -->
+                              <div class="content_info-left">
+                                 <div class="content_want-see" style="cursor: pointer; display: none;"
+                                    onclick="addWish(${movie.movie_id})" style="display:hide;">
+                                    <i class="fas fa-plus plus-rotate"></i> <span>보고싶어요</span>
+                                 </div>
+                              </div>
+
+                              <!-- 취소할래요 버튼 -->
+                              <div class="content_info-left">
+                                 <div class="content_not_want-see" style="cursor: pointer;"
+                                    onclick="deleteWish(${movie.movie_id})">
+                                    <i class="fas fa-duotone fa-check"></i> <span>찜한영화에요</span>
+                                 </div>
+                              </div>
+
+                           </c:otherwise>
+                        </c:choose>
+
+
 
                         <!-- 별점 평가하기 -->
                         <div class="content_info-right">
@@ -187,50 +201,59 @@
                   <div class="contents_middle-box">
                      <div>
                         <!--댓글 달았을 시 추가되는 부분 : 유진-->
-                        <!--                 <div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented" > -->
-                        <!--                     <div class="css-12ru3m0"> -->
-                        <!--                         <div class="css-1gkas1x-Grid e1689zdh0"> -->
-                        <!--                             <div class="css-1y901al-Row emmoxnt0"> -->
-                        <!--                                 <section class="css-10tfsfb-MyCommentSection eue8w0j3"> -->
-                        <!--                                     <div class="css-vo2laf-MyCommentBlock eue8w0j6"> -->
-                        <!--                                         <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4"> -->
-                        <!--                                             <div class="css-ffwxzk"> -->
-                        <!--                                                 <div class="css-h6h0rq-ProfilePhotoImage"></div> -->
-                        <!--                                             </div> -->
-                        <!--                                         </div> -->
-                        <!--                                         <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13" href="comment_detail_me.html"> -->
-                        <!--                                             <div class="css-2a9q6o-MyComment eue8w0j5"> -->
-                        <!--                                                 <div class=" css-gujidv-StyledSelf eb5y16b0"> -->
-                        <!--                                                     <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단 내용 표시하는 부분입니다.</div> -->
-                        <!--                                                 </div> -->
-                        <!--                                             </div> -->
-                        <!--                                         </a> -->
-                        <!--                                         <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7"> -->
-                        <!--                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8"> -->
-                        <!--                                                 <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="delete_btn"> -->
-                        <!--                                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg==" alt="delete comment"> -->
-                        <!--                                                     삭제 -->
-                        <!--                                                 </button> -->
-                        <!--                                             </li> -->
-                        <!--                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8"> -->
-                        <!--                                                 <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9" id="modify_btn"> -->
-                        <!--                                                     <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K" alt="edit comment"> -->
-                        <!--                                                     수정 -->
-                        <!--                                                 </button> -->
-                        <!--                                             </li> -->
-                        <!--                                         </ul> -->
-                        <!--                                     </div> -->
-                        <!--                                 </section> -->
-                        <!--                             </div> -->
-                        <!--                         </div> -->
+                        <div data-rowindex="1" class="w_exposed_cell css-sd2jre-SectionBlock eue8w0j0" id="commented"
+                           style="display: none;">
+                           <div class="css-12ru3m0">
+                              <div class="css-1gkas1x-Grid e1689zdh0">
+                                 <div class="css-1y901al-Row emmoxnt0">
+                                    <section class="css-10tfsfb-MyCommentSection eue8w0j3">
+                                       <div class="css-vo2laf-MyCommentBlock eue8w0j6">
+                                          <div class="css-1rek3mo-MyProfilePhotoBlock eue8w0j4">
+                                             <div class="css-ffwxzk">
+                                                <div class="css-h6h0rq-ProfilePhotoImage"></div>
+                                             </div>
+                                          </div>
+                                          <a class="css-1bh5fq7-StylelessLocalLink-LinkToMyComment eue8w0j13"
+                                             href="comment_detail_me.html">
+                                             <div class="css-2a9q6o-MyComment eue8w0j5">
+                                                <div class=" css-gujidv-StyledSelf eb5y16b0">
+                                                   <div class="css-1fucs4t-StyledText eb5y16b1" id="commentarea">내가 댓글 단
+                                                      내용 표시하는 부분입니다.</div>
+                                                </div>
+                                             </div>
+                                          </a>
+                                          <ul class="css-llsddo-VisualUl-CommentUpdateButtons eue8w0j7">
+                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
+                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9"
+                                                   id="delete_btn">
+                                                   <img
+                                                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTUuMjUgMTQuMjVoNy41di03LjVoMS41VjE1YS43NS43NSAwIDAgMS0uNzUuNzVoLTlhLjc1Ljc1IDAgMCAxLS43NS0uNzVWNi43NWgxLjV2Ny41ek0xMiA0LjVoMy43NVY2SDIuMjVWNC41SDZWM2EuNzUuNzUgMCAwIDEgLjc1LS43NWg0LjVBLjc1Ljc1IDAgMCAxIDEyIDN2MS41em0tMS41IDB2LS43NWgtM3YuNzVoM3pNNi43NSA2Ljc1aDEuNXY2Ljc1aC0xLjVWNi43NXptMyAwaDEuNXY2Ljc1aC0xLjVWNi43NXoiLz4KICAgIDwvZz4KPC9zdmc+Cg=="
+                                                      alt="delete comment">
+                                                   삭제
+                                                </button>
+                                             </li>
+                                             <li class="css-15b6b8j-CommentUpdateButtonListItem eue8w0j8">
+                                                <button class="css-1nmgbsq-StylelessButton-CommentUpdateButton eue8w0j9"
+                                                   id="modify_btn">
+                                                   <img
+                                                      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxOCIgdmlld0JveD0iMCAwIDE4IDE4Ij4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZmlsbD0iI0EwQTBBMCIgZD0iTTIuMTggMTUuMzlsLjcwMy0zLjk4IDMuNzEzIDMuNzEyLTMuOTgxLjcwMmEuMzc0LjM3NCAwIDAgMS0uNDM0LS40MzR6bTEuNDk4LTQuNzc2bDYuMzY0LTYuMzY0IDMuNzEzIDMuNzEyLTYuMzY0IDYuMzY0LTMuNzEzLTMuNzEyek0xNS42MDcgNS4wNGEuNzUuNzUgMCAwIDEgMCAxLjA2bC0xLjA2IDEuMDYxLTMuNzEzLTMuNzEyIDEuMDYtMS4wNmEuNzUuNzUgMCAwIDEgMS4wNiAwbDIuNjUzIDIuNjUxeiIvPgogICAgPC9nPgo8L3N2Zz4K"
+                                                      alt="edit comment">
+                                                   수정
+                                                </button>
+                                             </li>
+                                          </ul>
+                                       </div>
+                                    </section>
+                                 </div>
+                              </div>
 
-                        <!--                     </div> -->
-                        <!--                 </div> -->
+                           </div>
+                        </div>
                         <!--댓글 달았을 시 추가되는 부분 끝 : 유진-->
                         <div class="leave-comment-box">
                            <span class="go-leave-comment"> 이 작품에 대한 회원 님의 평가를 글로 남겨보세요.
                            </span>
-                           <span class="leave-comment" id="btn-modal" style="cursor: pointer;">코멘트 남기기</span>
+                           <span class="leave-comment" id="board_modal_btn" style="cursor: pointer;">코멘트 남기기</span>
                         </div>
                         <div class="contents_contents-box">
 
@@ -270,18 +293,18 @@
                            <!-- 여기까지 했음 ------------------------------------------------------------------------------------------------------ -->
 
                            <!-- 첫번째(기본정보) 끝입니다 -->
+                           <!-- 두번째(감독정보) 시작입니다 -->
 
-                           <!-- 두번째(출연/제작) 시작 -->
                            <section class="step">
                               <div class="contents_contents_column">
-                                 <span class="contents_contents_title">출연/제작</span>
+                                 <span class="contents_contents_title">감독</span>
                                  <div class="contents_contents_container">
                                     <div class="swiper-wrap">
                                        <!-- Swiper -->
                                        <div #swiperRef="" class="swiper mySwiper">
                                           <div class="swiper-wrapper">
                                              <div class="swiper-slide slide">
-                                                <ul>
+                                                <ul class="slide_step">
                                                    <c:forEach var="credit" items="${creditList }">
                                                       <c:if test="${not empty credit.job }">
                                                          <li class="contents_contents_profile">
@@ -297,9 +320,41 @@
                                                    </c:forEach>
                                                 </ul>
                                              </div>
+                                             <!--                               <div class="swiper-slide slide"> -->
+                                             <!--                                  <ul class="slide_step"> -->
+                                             <%-- <c:forEach var="credit" items="${creditList }"> --%>
+                                                <%-- <c:if test="${not empty credit.job }"> --%>
+                                                   <!--                                           <li class="contents_contents_profile"> -->
+                                                   <%-- <img
+                                                      src="https://image.tmdb.org/t/p/original${credit.profile_path }"
+                                                      alt="" class="profile_img"> --%>
+                                                      <!--                                              <div class="txt"> -->
+                                                      <%-- <span class="profile_name">${credit.name }</span> --%>
+                                                         <%-- <span class="profile_job">${credit.job }</span> --%>
+                                                            <!--                                              </div> -->
+                                                            <!--                                           </li> -->
+                                                            <%-- </c:if> --%>
+                                                               <%-- </c:forEach> --%>
+                                                                  <!--                                  </ul> -->
+                                                                  <!--                               </div> -->
+                                          </div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </section>
 
+                           <!-- 두번째(출연/제작) 시작 -->
+                           <section class="step">
+                              <div class="contents_contents_column">
+                                 <span class="contents_contents_title">출연/제작</span>
+                                 <div class="contents_contents_container">
+                                    <div class="swiper-wrap">
+                                       <!-- Swiper -->
+                                       <div #swiperRef="" class="swiper mySwiper">
+                                          <div class="swiper-wrapper">
                                              <div class="swiper-slide slide">
-                                                <ul>
+                                                <ul class="slide_step">
                                                    <c:forEach var="credit" items="${creditList }" varStatus="status">
                                                       <c:if test="${status.index<3 }">
                                                          <c:if test="${not empty credit.profile_path }">
@@ -321,11 +376,9 @@
                                                 </ul>
                                              </div>
                                              <div class="swiper-slide slide">
-                                                <ul>
-
+                                                <ul class="slide_step">
                                                    <c:forEach var="credit" items="${creditList }" varStatus="status">
                                                       <c:if test="${status.index>2 && status.index<6 }">
-
                                                          <c:if test="${not empty credit.profile_path }">
                                                             <c:if test="${not empty credit.character }">
                                                                <li class="contents_contents_profile">
@@ -342,13 +395,11 @@
                                                          </c:if>
                                                       </c:if>
                                                    </c:forEach>
-
                                                 </ul>
                                              </div>
-
                                              <c:if test="${creditList.size()>6 }">
                                                 <div class="swiper-slide slide" style="width:280px;">
-                                                   <ul>
+                                                   <ul class="slide_step">
                                                       <c:forEach var="credit" items="${creditList }" varStatus="status">
                                                          <c:if test="${status.index>5 && status.index<9 }">
                                                             <c:if test="${not empty credit.profile_path }">
@@ -376,7 +427,6 @@
                                     </div>
                                  </div>
                               </div>
-                              <!--                         </div> -->
                            </section>
                            <!-- 두번째(출연/제작) 끝 -->
 
@@ -396,7 +446,7 @@
 
                                     <!-- 코멘트 더보기 링크 연결해주세요 -->
                                     <a
-                                       href="${pageContext.request.contextPath }/sriracha/commentView.do?movie_id=${movie.movie_id}">
+                                       href="${pageContext.request.contextPath }/sriracha/BoardView.do?movie_id=${movie.movie_id}">
                                        <span class="contents_contents_more">더보기</span>
                                     </a>
                                     <!-- 여기입니다 -->
@@ -407,7 +457,7 @@
                                     <div class="swiper-wrap">
                                        <!-- Swiper -->
                                        <div #swiperRef="" class="swiper mySwiper2">
-                                          <div class="swiper-wrapper">
+                                          <div class="swiper-wrapper" id="boardWrapper">
 
                                              <c:forEach var="board_" items="${boardList }">
                                                 <div class="swiper-slide slide">
@@ -439,8 +489,6 @@
                                                 </div>
                                              </c:forEach>
 
-
-
                                           </div>
                                        </div>
                                     </div>
@@ -457,7 +505,7 @@
                </main>
                <!-- 여기까지 메인 컨텐츠 박스였습니다 -->
 
-               <!--모달창 !!!!!!!!!!! 대댓글 !!!!!!!!!!!!!!!!!!11-->
+               <!--모달창 !!!!!!!!!!! 댓글 !!!!!!!!!!!!!!!!!!11-->
 
                <div class="css-14gy7wr" id="modal">
                   <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
@@ -466,7 +514,7 @@
                            <div class="css-19pxr9t"></div>
                            <em class="css-10mjbgt">${movie.movie_title }</em>
                            <div class="css-19pxr9t">
-                              <button class="css-1lvet1d-StylelessButton"></button>
+                              <button class="css-1lvet1d-StylelessButton" id="close_board_btn"></button>
                            </div>
                         </header>
                         <div class="css-1iv0iqc">
@@ -474,15 +522,14 @@
                               <div class="css-cdzmq7">
                                  <div class="css-iowq1w">
                                     <div class="css-iowq1w">
-                                       <form action="${pageContext.request.contextPath }/sriracha/addComment.do"
-                                          id="addCommentForm" method="post">
-                                          <input type="hidden" name="movie_id" value="${movie.movie_id }">
-                                          <input type="hidden" name="star_value" id="star_value">
-                                          <textarea maxlength="10000" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요."
-                                             class="css-1k5ei58" id="writecomment1" name="board_content"></textarea>
-                                       </form>
+                                       <%-- <input type="hidden" name="movie_id" value="${movie.movie_id }">
+                                          <input type="hidden" name="star_value" id="star_value"> --%>
 
-                                       <div class="css-238o9r" id="writecomment2"></div>
+                                          <textarea maxlength="10000" placeholder="이 작품에 대한 생각을 자유롭게 표현해주세요."
+                                             class="css-1k5ei58" id="modal_writecomment1"
+                                             name="board_content">${board_.board_content }</textarea>
+
+                                          <div class="css-238o9r"></div>
                                     </div>
                                  </div>
                               </div>
@@ -509,8 +556,8 @@
                                  <%-- <a
                                     href="${pageContext.request.contextPath }/sriracha/addComment.do?movie_id=${movie.movie_id}">
                                     --%>
-                                    <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장"
-                                       onclick="addcomment()">
+                                    <input class="css-1ukikc-StylelessButton" type="button" id="boardbtn" value="저장"
+                                       onclick="addBoard(${movie.movie_id})">
                                     <!--                      <button disabled="" class="css-1ukikc-StylelessButton">저장</button> -->
                                     <!--                </a> -->
                               </div>
@@ -519,9 +566,51 @@
                      </div>
                   </div>
                </div>
-               <!----모달창 !!! 대댓글 끝!!!!!------>
+               <!----모달창 !!! 댓글 끝!!!!!------>
+
+               <!----모달창 !!! 댓글 수정 모달창 !!!!!------>
+               <div class="css-14gy7wr" id="modify_modal">
+                  <div id="modal-container-SYLPdBTcEzZ6-wfGcd5Go" class="css-rpyl6s">
+                     <div class="css-1p257d1-modalAddStyle">
+                        <header title="" class="css-166ww79-HeaderBarPrimitive-headerAddStyle">
+                           <div class="css-19pxr9t"></div>
+                           <em class="css-10mjbgt">${movie.movie_title }</em>
+                           <div class="css-19pxr9t">
+                              <button class="css-1lvet1d-StylelessButton" id="close_modify_btn"></button>
+                           </div>
+                        </header>
+                        <div class="css-1iv0iqc">
+                           <div height="100%" class="css-2zu8pq">
+                              <div class="css-cdzmq7">
+                                 <div class="css-iowq1w">
+                                    <div class="css-iowq1w">
+
+                                       <textarea maxlength="10000" placeholder="수정 할 내용을 입력해주세요." class="css-1k5ei58"
+                                          id="writecomment_modify" name="comment_content"></textarea>
+                                       <div class="css-238o9r"></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="css-183vuuo">
+                           <div class="css-a2jbfo">
+                              <div class="css-6qnjre"></div>
+                              <div class="css-6qnjre">
+                                 <p class="css-1s08rlk"></p>
+                                 <p class="css-ynpx67" id="reCount_modify">0/10000</p>
+                                 <input class="css-1ukikc-StylelessButton" type="button" id="modify_save_btn" value="저장"
+                                    onclick="updateBoard()">
+                                 <!--                                 <button class="css-1ukikc-StylelessButton" id="commentbtn">저장</button> -->
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <!----모달창 !!! 댓글 수정 모달창 끝!!!!!------>
                <!--모달창 : 알림 - 코멘트를 삭제하시겠어요 ?-->
-               <div class="css-14gy7wr" id="modal2">
+               <div class="css-14gy7wr" id="delete_board_modal">
                   <div id="modal-container-7jMaFDbYzaXVi3tG2JxKy" class="css-rpyl6s">
                      <div class="css-1yszxv0">
                         <div class="css-f35o9y">
@@ -531,7 +620,8 @@
                                  <div class="css-148qwic">코멘트를 삭제하시겠어요?</div>
                                  <div size="2" class="css-gy4ioq">
                                     <button class="css-1gdw77k-StylelessButton" id="cancel">취소</button>
-                                    <button class="css-sfhtz9-StylelessButton" id="deletecomment">확인</button>
+                                    <button class="css-sfhtz9-StylelessButton" id="deletecomment"
+                                       onclick="deleteBoard(${movie.movie_id})">확인</button>
                                  </div>
                               </div>
                            </div>
@@ -547,13 +637,15 @@
 
                <script src="../js/main.js"></script>
                <script src="../js/star.js"></script>
+               <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
             </body>
             <script type="text/javascript">
-               /*코멘트 남기기 모달창*/
-               const modal = document.getElementById("modal")
-               const btnModal = document.getElementById("btn-modal")
-               btnModal.addEventListener("click", e => {
-                  modal.style.display = "flex"
+               /*---------------------------댓글 남기기 모달창---------------------------------*/
+               const board_modal_btn = document.querySelector("#board_modal_btn")
+               board_modal_btn.addEventListener("click", e => {
+                  console.log("aaa");
+
+                  $("#modal").show();
                })
 
                /*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
@@ -570,126 +662,219 @@
                   }
                })
 
-               /*코멘트 삭제 모달창 - 코멘트를 삭제하시겠어요?*/
-               // const modal2 = document.getElementById("modal2")
-               // const btnModal2 = document.getElementById("delete_btn")
-               // btnModal2.addEventListener("click", e => {
-               //     modal2.style.display = "flex"
-               // })
-
-               // modal2.addEventListener("click", e => {
-               // const evTarget = e.target
-               //     if(evTarget.classList.contains("css-1yszxv0")) {
-               //         modal2.style.display = "none"
-               //     }
-               // })
-
-               const elCommentbtn = document.getElementById('commentbtn')
-               const elwritecomment1 = document.getElementById('writecomment1')
-               elCommentbtn.disabled = true;
-               elwritecomment1.addEventListener('keyup', button)
+               const boardbtn = document.getElementById('boardbtn')
+               const modal_writecomment1 = document.getElementById('modal_writecomment1')
+               boardbtn.disabled = true;
+               modal_writecomment1.addEventListener('keyup', button)
 
                function button() {
-                  if (!(elwritecomment1.value == "")) {
-                     elCommentbtn.disabled = false;
-                     document.getElementById("reCount").innerHTML = elwritecomment1.value.length + "/" + 10000;
+                  if (!(modal_writecomment1.value == "")) {
+                     boardbtn.disabled = false;
+                     document.getElementById("reCount").innerHTML = modal_writecomment1.value.length + "/" + 10000;
                   } else {
-                     elCommentbtn.disabled = true;
+                     boardbtn.disabled = true;
                   }
                }
 
-               /*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
-               const closeBtn2 = modal.querySelector("#commentbtn")
-               closeBtn2.addEventListener("click", e => {
-                  modal.style.display = "none"
+               /*---------------------------댓글 남기기 모달창 끝---------------------------------*/
+               /*-----------------------댓글 수정 모달-------------------------------*/
+               const modify_modal = document.getElementById("modify_modal")
+               const modify_btn = document.getElementById("modify_btn")
+               modify_btn.addEventListener("click", e => {
+                  modify_modal.style.display = "flex"
                })
 
 
-               /*코멘트 남겼을 때 내가 남긴 코멘트 보여주기*/
-               // const commented = document.querySelector("#commented");
-               // commented.style.display = "none";
+               //x 버튼 클릭 시 코멘트 수정 모달창 끄기
+               const close_modify_Btn = modify_modal.querySelector(".css-1lvet1d-StylelessButton")
+               close_modify_Btn.addEventListener("click", e => {
+                  modify_modal.style.display = "none"
+               })
 
+               // 모달창 바깥 부분 클릭 시 코멘트 수정 모달창 끄기
 
-               // $('#commentbtn').click(function(){
-               //     $('.leave-comment-box ').hide();
-               //     $('#commented').show();
-               //     return false;
+               modify_modal.addEventListener("click", e => {
+                  const evTarget = e.target
+                  if (evTarget.classList.contains("css-rpyl6s")) {
+                     modify_modal.style.display = "none"
+                  }
+               })
+
+               // modify_modal.addEventListener("click", e => {
+               // const evTarget = e.target
+               //       if(evTarget.classList.contains("css-1yszxv0")) {
+               //          modify_modal.style.display = "none"
+               //       }
                // })
 
-               /*삭제 버튼 클릭 시 다시 코멘트 달기 창 보여주기*/
-               // const deletecomment = document.querySelector("#deletecomment");
-               // const commentarea = document.querySelector("#commentarea");
+               const writecomment_modify = document.getElementById('writecomment_modify')
+               writecomment_modify.addEventListener('keyup', count_modify)
 
-               // $("#deletecomment").click(function(){
-               //     modal2.style.display = "none"
-               //     $('#commented').hide();
-               //     $('.leave-comment-box ').show();
-               //     document.getElementById("writecomment1").value = '';
-               //     return false;
+               function count_modify() {
+                  if (!(writecomment_modify.value == "")) {
+                     document.getElementById("reCount_modify").innerHTML = writecomment_modify.value.length + "/" + 10000;
+                  }
+               }
+
+               /*-----------------------댓글 수정 모달 끝-------------------------------*/
+
+
+               /*-----------------------댓글 삭제 모달 시작-------------------------------*/
+
+               const delete_board_modal = document.getElementById("delete_board_modal")
+               const delete_btn = document.getElementById("delete_btn")
+               delete_btn.addEventListener("click", e => {
+                  delete_board_modal.style.display = "flex"
+               })
+
+               delete_board_modal.addEventListener("click", e => {
+                  const evTarget = e.target
+                  if (evTarget.classList.contains("css-1yszxv0")) {
+                     delete_board_modal.style.display = "none"
+                  }
+               })
+
+               //----------------------삭제 모달 중 취소 버튼 클릭--------------------------
+               $("#cancel").click(function () {
+                  delete_board_modal.style.display = "none"
+               })
+
+               //---------------코멘트 수정하기
+               //        const modify_modal = document.getElementById("modify_modal")
+               //        $("#modify_btn").click(function(){
+               //           modify_modal.style.display = "flex"
+               //        })
+
+               //x 버튼 클릭 시 코멘트 수정 모달창 끄기
+               //        const close_modify_Btn = modify_modal.querySelector(".css-1lvet1d-StylelessButton")
+               //          close_modify_Btn.addEventListener("click", e => {
+               //             modify_modal.style.display = "none"
+               //          })
+
+               // 모달창 바깥 부분 클릭 시 코멘트 수정 모달창 끄기
+               modify_modal.addEventListener("click", e => {
+                  const evTarget = e.target
+                  if (evTarget.classList.contains("css-rpyl6s")) {
+                     modify_modal.style.display = "none"
+                  }
+               })
+
+               //        writecomment_modify.addEventListener('keyup', count_modify)
+
+               //        function count_modify() {
+               //            if (!(writecomment_modify.value == "")) {
+               //                document.getElementById("reCount_modify").innerHTML = writecomment_modify.value.length + "/" + 10000;
+               //            }
+               //        }
+
+
+
+               /*코멘트 남기기 x버튼 클릭 시 모달창 꺼짐*/
+               //  const closeBtn2 = modal.querySelector("#commentbtn")
+               // closeBtn2.addEventListener("click", e => {
+               //     modal.style.display = "none"
                // })
 
-               //취소 버튼 클릭
-               // $("#cancel").click(function(){
-               //     modal2.style.display = "none"
-               // })
+               function addBoard(movie_id) {
 
-               //코멘트 수정하기
-               // $("#modify_btn").click(function(){
-               //     modal.style.display = "flex"
-               // })
+                  $.ajax({
+                     url: '/sriracha/addBoard.do',
+                     type: 'post',
+                     data: {
+                        "movie_id": movie_id,
+                        "star_value": starValue,
+                        "board_content": $("#modal_writecomment1").val()
+                     },
+                     success: function (data) {
 
-               function addcomment() {
+                        $("#modal").hide();
+                        $("#commented").show();
+                        $(".leave-comment-box").hide();
 
-                  let form = document.getElementById("addCommentForm");
-                  let star_value = document.getElementById("star_value");
-                  star_value.value = starValue;
+                        $("#commentarea").html(data.board_content);
 
-                  form.submit();
+                        // div id : board_(숫자) 
+                        $("#boardWrapper").append("<div class=\"swiper-slide slide\" id=\"board_" + data.board_num + "\"><ul><li><div class=\"comment-nemo\"><div class=\"comment_user\"><img src=\"../img/user_profile.jfif\" class=\"comment_user-img\"><span class=\"user_name\">" + data.user_id + "</span></div><div class=\"comment_comment\">" + data.board_content + "</div><div class=\"comment_feel\"><span class=\"comment_feel-good\"><i class=\"fas fa-thumbs-up\"></i>" + data.board_like + "</span><span class=\"comment_feel-comment\"><i class=\"fas fa-comment\"></i>" + data.board_comment_cnt + "</span></div><div class=\"comment_click-good\">좋아요</div></div></li></ul></div>");
+                        swiperStep2.updateSlides();
+
+                        $(".content_star").html("평점 ★" + data.movie_vote_average + " (" + data.movie_vote_count + "명)");
+                        $(".contents_contents_title-number").html(data.board_count);
+
+                     }
+                  });
+
+               }
+
+               function updateBoard() {
+                  console.log("updateBoard");
+
+                  $.ajax({
+                     url: '/sriracha/updateBoard.do',
+                     type: 'post',
+                     data: {
+                        "board_content": $("#writecomment_modify").val()
+                     },
+                     success: function (data) {
+                        $("#modify_modal").hide();
+
+                        $("#commentarea").html(data.board_content);
+                        let div_id = "#board_" + data.board_num + " .comment_comment";
+                        console.log(div_id);
+                        $(div_id).html(data.board_content);
+
+                     }
+                  });
+
+               }
+
+               function deleteBoard(movie_id) {
+
+                  $.ajax({
+                     url: '/sriracha/deleteBoard.do',
+                     type: 'post',
+                     data: {
+                        "movie_id": movie_id,
+                        "star_value": starValue
+                     },
+                     success: function (data) {
+                        $("#delete_board_modal").hide();
+                        $("#commented").hide();
+                        $(".leave-comment-box").show();
+
+                        $(".content_star").html("평점 ★" + data.movie_vote_average + " (" + data.movie_vote_count + "명)");
+                        $(".contents_contents_title-number").html(data.board_count);
+
+                        $("div").remove("#board_" + data.board_num);
+
+                     }
+                  });
+
                }
 
                function addWish(movie_id) {
-                  if (confirm("찜한 영화 목록에 추가하시겠습니까?")) {
-                     console.log(movie_id);
-                     location.href = "/sriracha/addWish.do?movie_id=" + movie_id;
-                  }
-               }
-               
-            // 로그아웃 컨펌창  
-               $().ready(function () {
-                  $("#logOut").click(function () {
-                     Swal.fire({
-                        title: '정말로 로그아웃 하시겠습니까?',
-                        text: "다시 되돌릴 수 없습니다. 신중하세요.",
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#3085d6',
-                        cancelButtonColor: '#d33',
-                        confirmButtonText: '확인',
-                        cancelButtonText: '취소'
-                     }).then((result) => {
-                        if (result.isConfirmed) {
-                           window.location.href = '/sriracha/logout.do';
-                        }
-                        else {
-                           window.location.reload();
-                        }
-                     })
+                  $.ajax({
+                     url: '/sriracha/addWish.do',
+                     type: 'post',
+                     data: { "movie_id": movie_id },
+                     success: function (data) {
+                        $(".content_want-see").hide();
+                        $(".content_not_want-see").show();
+                     }
                   });
-               });
+               }
 
+               function deleteWish(movie_id) {
+                  $.ajax({
+                     url: '/sriracha/deleteWish.do',
+                     type: 'post',
+                     data: { "movie_id": movie_id },
+                     success: function (data) {
+                        $(".content_not_want-see").hide();
+                        $(".content_want-see").show();
+                     }
+                  });
+               }
 
-               // 헤더 스크롤 이벤트
-               const header = document.querySelector("#header");
-               const headerHeight = header.getBoundingClientRect().height;
-
-               window.addEventListener("scroll", () => {
-                  if (window.scrollY > headerHeight) {
-                     header.setAttribute("style", "background: white;");
-                  } else {
-
-                     header.setAttribute("style", "background: transparent;");
-                  }
-               });
 
             </script>
 
