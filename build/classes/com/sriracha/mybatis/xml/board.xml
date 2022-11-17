@@ -7,7 +7,7 @@
 	<select id="getBoardList" parameterType="_int" resultType="boarddto">
 		SELECT * FROM BOARD WHERE movie_id=#{movie_id} ORDER BY BOARD_NUM
 	</select>
-	<insert id="addComment" parameterType="boarddto">
+	<insert id="addBoard" parameterType="boarddto">
 		INSERT INTO BOARD
 		VALUES (board_num_seq.nextval, #{board_content}, #{board_date}, 0, 'Y', #{user_num}, #{movie_id}, 0, #{user_id}, #{star})
 	</insert>
@@ -22,11 +22,34 @@
 	<select id="getBoardCnt" parameterType="_int" resultType="_int">
 		SELECT count(*) FROM BOARD WHERE MOVIE_ID = #{movie_id}
 	</select>
+	
+	<select id="getBoardComment" parameterType="_int" resultType="boarddto">
+				SELECT * FROM BOARD b 
+				WHERE BOARD_NUM = #{board_num}
+<!-- 				AND  -->
+<!-- 				USER_NUM = #{user_num} -->
+	</select>
+	<select id="getBoardComment_Movie" parameterType="_int" resultType="MovieDTO">
+		SELECT	  m.MOVIE_TITLE
+				, m.MOVIE_DATE  
+		FROM BOARD b 
+		INNER JOIN MOVIE m ON b.MOVIE_ID = m.MOVIE_ID
+		WHERE BOARD_NUM = #{board_num}
+	</select>
+	
+	<select id="getCommentCnt" parameterType="_int" resultType="_int">
+		SELECT COUNT(*) FROM "COMMENT" c WHERE BOARD_NUM = #{board_num}
+	</select>
 
 	<select id="getBoardListByUserNum" parameterType="_int" resultType="boarddto">
 		SELECT * FROM board WHERE user_num = #{user_num} ORDER BY BOARD_NUM
 	</select>
 	
+	<update id="getModifyComment" parameterType="commentdto">
+		UPDATE BOARD 
+		SET BOARD_CONTENT = #{comment_content}
+		WHERE BOARD_NUM = #{board_num}
+	</update>
 	<select id="getLastBoardNumByUserNum" parameterType="_int" resultType="_int">
 		SELECT BOARD_NUM FROM (SELECT BOARD_NUM FROM BOARD WHERE USER_NUM = #{user_num} ORDER BY BOARD_NUM DESC) WHERE ROWNUM = 1
 	</select>
