@@ -110,7 +110,7 @@
                                                       </svg>
                                                         수정
                                                     </button>
-                                                    <button class="css-1nfwvb4-StylelessButton" id="deleteBtn">
+                                                    <button class="css-1nfwvb4-StylelessButton" id="deleteBtn" onclick="deleteComment()">
                                                         <svg class="css-s99igu" viewBox="0 0 18 18">
                                                             <g fill-rule="evenodd">
                                                                 <path d="M5.25 14.25h7.5v-7.5h1.5V15a.75.75 0 0 1-.75.75h-9a.75.75 0 0 1-.75-.75V6.75h1.5v7.5zM12 4.5h3.75V6H2.25V4.5H6V3a.75.75 0 0 1 .75-.75h4.5A.75.75 0 0 1 12 3v1.5zm-1.5 0v-.75h-3v.75h3zM6.75 6.75h1.5v6.75h-1.5V6.75zm3 0h1.5v6.75h-1.5V6.75z"></path>
@@ -312,7 +312,7 @@
                             <div class="css-6qnjre">
                                 <p class="css-1s08rlk"></p>
                                 <p class="css-ynpx67" id="reCount">0/10000</p>
-                                <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장" onclick="addcomment()">
+                                <input class="css-1ukikc-StylelessButton" type="button" id="commentbtn" value="저장">
 <!--                                 <button class="css-1ukikc-StylelessButton" id="commentbtn">저장</button> -->
                             </div>
                         </div>
@@ -429,7 +429,6 @@
 		$("#modifyBtn").click(function(){
 		    modal.style.display = "flex"
 		})
-
         
     </script>
 </html>
