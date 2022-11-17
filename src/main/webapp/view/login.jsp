@@ -18,12 +18,12 @@
   
     <div class="container">
       <h1 class="logo-img">
-        <a href="#"> <img src="../img/logo2.png" style="max-width:200px; width:100%; height:auto;"/></a>
+        <a href="../"> <img src="../img/logo2.png" style="max-width:200px; width:100%; height:auto;"/></a>
       </h1>
       <div class="login-box">
         <h2>로그인</h2> 
         <c:choose>
-        	<c:when test="${user_pw ne real_pw }">
+        	<c:when test="${user_pw ne real_pw}">
         		<div class="login-error">아이디 비밀번호가 정확하지 않습니다.</div>
         	</c:when>
         </c:choose>
