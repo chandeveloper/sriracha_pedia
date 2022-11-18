@@ -23,6 +23,9 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.3/css/all.css"
           integrity="sha384-SZXxX4whJ79/gErwcOYf+zWLeJdY/qpuqC4cAa9rOGUstPomtqpuNWT9wdPEn2fk" crossorigin="anonymous" />
         <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+ 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.css">
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.min.js"></script>
         <title>스리라차 피디아</title>
 
       </head>
@@ -48,7 +51,7 @@
                     onkeyup="searchEnter_mypage()">
                 </form>
               </div>
-              <span class="menu_login" onclick="logout_mypage()" style="cursor: pointer;">로그아웃 </span>
+              <span class="menu_login" id="logoutButton" style="cursor: pointer;">로그아웃 </span>
               <span class="menu_sign-up" id="js-signUp" onclick="location.href='/sriracha/get_main_page.do'"
                 style="cursor: pointer;">메인페이지</span>
             </div>
@@ -208,6 +211,29 @@
             searchForm.submit();
           }
         }
+        
+     // 로그아웃 컨펌창  
+        $().ready(function () {
+                    $("#logoutButton").click(function () {
+                        Swal.fire({
+                            title: '정말로 로그아웃 하시겠습니까?',
+                            text: "다시 되돌릴 수 없습니다. 신중하세요.",
+//                            icon: 'warning',
+                            showCancelButton: true,
+                            confirmButtonColor: '#7066e0',
+//                            cancelButtonColor: '#d33',
+                            confirmButtonText: '승인',
+                            cancelButtonText: '취소',
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                            	location.href = "/sriracha/logout.do";
+                            }
+                            else{
+        							window.location.reload();
+        					}
+                        })
+                    });
+                });
       </script>
 
       </html>
